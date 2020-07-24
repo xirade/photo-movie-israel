@@ -1,0 +1,35 @@
+{
+  "name": "pmi",
+  "description": "Just have fun!",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt build && nuxt export",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "bootstrap-vue": "^2.15.0",
+    "fslightbox-vue": "^1.0.4",
+    "heroku": "^7.42.5",
+    "jarallax": "^1.12.1",
+    "mdb-ui-kit": "^1.0.0-alpha3",
+    "mdbootstrap": "^4.19.1",
+    "mdbvue": "^6.7.1",
+    "node-sass": "^4.14.1",
+    "nuxt": "^2.13.0",
+    "object-fit-images": "^3.2.4",
+    "sass-loader": "^9.0.2",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-mdb": "~2.1.0"
+  }
+}
