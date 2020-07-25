@@ -21,7 +21,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/camera-shutter.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/camera-shutter.ico' },
+      { href:"//db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn", rel:"stylesheet", type:"text/css"}
     ]
   },
   /*
