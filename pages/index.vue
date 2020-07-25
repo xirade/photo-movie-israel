@@ -272,7 +272,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url(//db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn);
+@import url(http://db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn);
 @font-face {font-family: "DINNeuzeitGroteskLTW01-BdCn";
     src: url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot"); /* IE9*/
     src: url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
