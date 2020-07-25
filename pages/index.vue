@@ -272,14 +272,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import url(http://db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn);
+@import url(https://db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn);
 @font-face {font-family: "DINNeuzeitGroteskLTW01-BdCn";
-    src: url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot"); /* IE9*/
-    src: url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2") format("woff2"), /* chrome firefox */
-    url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff") format("woff"), /* chrome firefox */
-    url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
-    url("http://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn") format("svg"); /* iOS 4.1- */
+    src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot"); /* IE9*/
+    src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2") format("woff2"), /* chrome firefox */
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff") format("woff"), /* chrome firefox */
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn") format("svg"); /* iOS 4.1- */
 }
 @import "node_modules/aos/src/sass/aos.scss";
 
