@@ -65,7 +65,7 @@
         </mdb-view>
       </mdb-col>
 
-      <mdb-col md="4" class="m-0 py-2">
+      <mdb-col md="4" class="m-0  py-2">
         <mdb-view
           class="zoom overlay img-fluid z-depth-1"
           src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img(117).jpg"
@@ -88,7 +88,7 @@
     </mdb-row>
 
     <mdb-row>
-      <mdb-col md="6" class="m-0 pt-2 pr-0 pb-0">
+      <mdb-col md="6" class="m-0  py-2">
         <mdb-view
           class="zoom overlay img-fluid z-depth-1"
           src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img(117).jpg"
@@ -109,7 +109,7 @@
         </mdb-view>
       </mdb-col>
 
-      <mdb-col md="6" class="m-0 pt-2 pl-0 pb-0">
+      <mdb-col md="6" class="m-0  py-2">
         <mdb-view
           class="zoom overlay img-fluid z-depth-1"
           src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img(129).jpg"
