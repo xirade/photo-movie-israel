@@ -347,6 +347,69 @@ hr {
   top: 75vh;
 }
 
+ [data-aos= "goLine"] {
+      height: 0;
+      opacity: 0;
+      transition-property: height, opacity;
+    
+      &.aos-animate {
+       height: 70vh;
+       opacity: 1;
+      }
+    }
+    [data-aos= "goLine_1"] {
+      height: 0;
+      opacity: 0;
+      transition-property: height, opacity;
+    
+      &.aos-animate {
+       height: 280px;
+       opacity: 1;
+      }
+    }
+    [data-aos= "goLine_small"] {
+      height: 0;
+      opacity: 0;
+      transition-property: height, opacity;
+    
+      &.aos-animate {
+       height: 170px;
+       opacity: 1;
+      }
+    }
+    [data-aos= "goLine_xsmall"] {
+      height: 0;
+      opacity: 0;
+      transition-property: height, opacity;
+    
+      &.aos-animate {
+       height: 40px;
+       opacity: 1;
+      }
+    }
+
+    [data-aos= "goLine_big"] {
+      height: 0;
+      opacity: 0;
+      transition-property: height, opacity;
+    
+      &.aos-animate {
+       height: 200vh;
+       opacity: 1;
+      }
+      @media (max-width: 575px) {
+        &.aos-animate {
+          height: 290vh;
+         }
+      }
+      @media (min-width: 576px) and (max-width: 767px) {
+        &.aos-animate {
+          height: 290vh;
+         }
+      }
+    }
+
+
 .fade-enter-active-line-1 {
   animation: goLine_1 1.5s linear;
 }
