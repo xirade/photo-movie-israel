@@ -87,4 +87,84 @@
 
       <!-- Media -->
 
+
+      <!-- Header -->
+
+
+      <template>
+        <client-only>
+          <mdb-navbar class="text-center" color="elegant-color-dark" expand="large" dark animated animation="2">
+            <mdb-navbar-toggler>
+              <mdb-navbar-nav center>
+                <mdb-nav-item class="pr-5" active
+                  > Home</mdb-nav-item
+                >
+                <mdb-nav-item class="pr-5"
+                  >Services</mdb-nav-item
+                >
+                <mdb-nav-item class="pr-5"
+                  >About</mdb-nav-item
+                >
+               <mdb-nav-item class="pr-5"
+                  >Media</mdb-nav-item
+                >
+                <mdb-dropdown tag="li" class="nav-item">
+                  <mdb-dropdown-toggle class="white-text pr-5" tag="a" navLink color="elegant-color-dark" slot="toggle" waves-fixed>Portfolio</mdb-dropdown-toggle>
+                  <mdb-dropdown-menu class="px-2">
+                    <mdb-dropdown-item><a>Photomodels</a></mdb-dropdown-item>
+               <mdb-dropdown-item><a>Street</a></mdb-dropdown-item>
+               <mdb-dropdown-item><a>Family</a></mdb-dropdown-item>
+                <mdb-dropdown-item><a>Wedding</a></mdb-dropdown-item>
+                  </mdb-dropdown-menu>
+                </mdb-dropdown>
+               <mdb-nav-item class="pr-5">Contacts</mdb-nav-item>
+              </mdb-navbar-nav>
+            </mdb-navbar-toggler>
+          </mdb-navbar>
+        </client-only>
+        </template>
+        
+        <script>
+        import {
+          mdbNavbar,
+          mdbNavbarToggler,
+          mdbNavbarNav,
+          mdbNavItem,
+          mdbDropdown,
+          mdbDropdownToggle,
+          mdbDropdownItem,
+          mdbDropdownMenu
+        } from "mdbvue";
+        export default {
+          name: 'HeaderPage',
+          components: {
+            mdbNavbar,
+            mdbNavbarToggler,
+            mdbNavbarNav,
+            mdbNavItem,
+            mdbDropdown,
+            mdbDropdownToggle,
+            mdbDropdownItem,
+            mdbDropdownMenu
+          }
+        };
+        </script>
+        
+        <style scoped>
+        a.dropdown-item:hover{
+            box-shadow: 1px 1px 10px 1px #212121;
+            border-radius: 2px;
+            background-color: #212121;
+            transition: 0.05s !important;
+            color: #fff !important;
+        }
+        a.dropdown-item:hover > a {
+            color: #fff;
+        }
+        
+        a.dropdown-item{
+          outline: 0 !important;
+        }
+        
+        </style>
     
