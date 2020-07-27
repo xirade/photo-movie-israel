@@ -8,18 +8,18 @@
     </b-navbar-toggle>
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
-      <b-navbar-nav class="mx-auto text-center">
-        <b-nav-item class="mr-5" href="#">Home</b-nav-item>
-        <b-nav-item class="mr-5" href="#">Services</b-nav-item>
-        <b-nav-item class="mr-5" href="#">About</b-nav-item>
-        <b-nav-item class="mr-5" href="#">Media</b-nav-item>
-         <b-nav-item-dropdown class="mr-5" text="Portfolio" style="position-relative;">
-          <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Photomodels</b-dropdown-item>
-          <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Street</b-dropdown-item>
-          <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Family</b-dropdown-item>
-          <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Wedding</b-dropdown-item>
+      <b-navbar-nav class="container w-50 mx-auto text-center">
+        <b-nav-item href="#">Home</b-nav-item>
+        <b-nav-item href="#">Services</b-nav-item>
+        <b-nav-item href="#">About</b-nav-item>
+        <b-nav-item href="#">Media</b-nav-item>
+         <b-nav-item-dropdown text="Portfolio" style="position-relative;">
+          <b-dropdown-item href="#" class="drop-list text-center">Photomodels</b-dropdown-item>
+          <b-dropdown-item href="#" class="drop-list text-center">Street</b-dropdown-item>
+          <b-dropdown-item href="#" class="drop-list text-center">Family</b-dropdown-item>
+          <b-dropdown-item href="#" class="drop-list text-center">Wedding</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item class="mr-5" href="#">Contacts</b-nav-item>
+        <b-nav-item href="#">Contacts</b-nav-item>
       </b-navbar-nav>
 
     </b-collapse>

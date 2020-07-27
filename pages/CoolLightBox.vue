@@ -1,7 +1,7 @@
 <template>
   <div>
     <mdb-row>
-      <mdb-col md="12" class="m-0 pb-2 pt-0">
+      <mdb-col md="12" class="m-0 pb-2 pt-0 mt-2">
         <mdb-view class="zoom overlay" hover>
           <video class="video-fluid z-depth-1" autoplay loop muted>
             <source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
@@ -175,7 +175,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.mask {
+  background-color: rgba(26, 26, 26, 0.698);
+}
 .full-img-slider {
   background-color: transparent;
   border: none;

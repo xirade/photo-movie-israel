@@ -5,11 +5,12 @@
         src="~/assets/img/background.jpg"
         class="jarallax-img"
       />
+      <mdb-mask overlay="black-slight" flexCenter>
       <div class="header-main">
         <img
           src="~/assets/img/4log.png"
-          height="200px"
-          width="300px"
+          height="120px"
+          width="250px"
           class="mx-auto d-block"
           alt="Logo"
         />
@@ -21,7 +22,7 @@
             @appear="appear"
             @after-appear="afterAppear"
           >
-            <div class="active_line_1"></div>
+            <div class="active_line_1 mt-4"></div>
           </transition>
         </div>
         <div class="container flex-center position-relative" style="height: 90vh">
@@ -32,8 +33,9 @@
             </h1>
           </div>
         </div>
-          <div class="active_line_2" data-aos="goLine" data-aos-duration="1000" data-aos-easing="linear"></div>
       </div>
+    <div class="active_line_2" data-aos="goLine" data-aos-duration="1000" data-aos-easing="ease-out"></div>
+      </mdb-mask>
     </div>
 
     <div class="service container bg-dark p-0" style="max-width: 100%;">
@@ -139,7 +141,7 @@
         class="active_line_3"
         data-aos="goLine_1"
         data-aos-duration="1000"
-        data-aos-easing="linear"
+        data-aos-easing="ease-out"
       ></div>
       <div class="service_title">
         <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">02</p>
@@ -151,7 +153,7 @@
         class="d-flex align-items-center flex-center flex-column"
         data-aos="fade-down"
         data-aos-duration="1000"
-        data-aos-easing="linear"
+        data-aos-easing="ease-out"
       >
         <h2 class="display-1 text-center mx-auto mt-auto m-0 mb-3" style="color: #454545;">
           <strong>
@@ -175,19 +177,20 @@
       </div>
     </div>
     <div class="bg-white text-black d-flex justify-content-end" style="position: relative;">
-      <div
-        class="active_line_4"
-        data-aos="goLine_1"
-        data-aos-duration="1000"
-        data-aos-easing="linear"
-      ></div>
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
         <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
+      <div
+        class="active_line_4"
+        data-aos="goLine_smaller"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></div>
       </div>
     </div>
-    <div class="w-100" style="background-color: #1C2331; ">
-      <div class="container">
+    <div class="w-100 bg-light">
+      <div class="container"
+      >
         <CoolLightBox />
       </div>
     </div>
@@ -197,14 +200,14 @@
         class="active_line_1"
         data-aos="goLine_small"
         data-aos-duration="1000"
-        data-aos-easing="linear"
+        data-aos-easing="ease-out"
       ></div>
     </div>
     <div
       class="active_line_1"
       data-aos="goLine_xsmall"
       data-aos-duration="1000"
-      data-aos-easing="linear"
+      data-aos-easing="ease-out"
     ></div>
   </main>
 </template>
@@ -301,9 +304,6 @@ hr {
   margin-top: -200px;
 }
 
-.mask {
-  background-color: rgba(26, 26, 26, 0.698);
-}
 .header-main {
   position: relative;
 }
@@ -374,6 +374,16 @@ hr {
     
       &.aos-animate {
        height: 170px;
+       opacity: 1;
+      }
+    }
+    [data-aos= "goLine_smaller"] {
+      height: 0;
+      opacity: 0;
+      transition-property: height, opacity;
+    
+      &.aos-animate {
+       height: 205px;
        opacity: 1;
       }
     }
