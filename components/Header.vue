@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="dark" style="background-color: #212121 !important">
+  <b-navbar toggleable="lg" type="dark" variant="dark" style="background-color: #212121 !important" >
     <b-navbar-toggle class="ml-auto"  target="navbar-toggle-collapse" >
        <template v-slot:default="{ expanded }">
         <b-icon v-if="expanded" scale="2" icon="toggle-on"></b-icon>
@@ -75,6 +75,11 @@ export default {
       background-color: #212121;
       color: #ffffff;
     }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+    }
  }
 
 @media (min-width: 576px) and (max-width: 767.98px) { 
@@ -89,6 +94,11 @@ export default {
     a .dropdown-item:hover {
       background-color: #212121;
       color: #ffffff;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
     }
 
  }
@@ -108,6 +118,11 @@ export default {
     }
   .navbar .dropdown-menu a:not(.active) {
       color: #6c757d;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
     }
 }
 
