@@ -1,6 +1,10 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="dark" style="background-color: #212121 !important">
-    <b-navbar-toggle target="navbar-toggle-collapse">
+    <b-navbar-toggle class="ml-auto"  target="navbar-toggle-collapse" >
+       <template v-slot:default="{ expanded }">
+        <b-icon v-if="expanded" scale="2" icon="toggle-on"></b-icon>
+        <b-icon v-else scale="2" icon="toggle-off"></b-icon>
+      </template>
     </b-navbar-toggle>
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
@@ -9,13 +13,13 @@
         <b-nav-item class="mr-5" href="#">Services</b-nav-item>
         <b-nav-item class="mr-5" href="#">About</b-nav-item>
         <b-nav-item class="mr-5" href="#">Media</b-nav-item>
-        <b-nav-item class="mr-5" href="#">Contacts</b-nav-item>
          <b-nav-item-dropdown class="mr-5" text="Portfolio" style="position-relative;">
           <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Photomodels</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Street</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Family</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center w-75 mx-auto">Wedding</b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-item class="mr-5" href="#">Contacts</b-nav-item>
       </b-navbar-nav>
 
     </b-collapse>
@@ -24,6 +28,9 @@
 
 <script>
 import {
+  BIcon,
+  BIconToggleOff,
+  BIconToggleOn,
   BNavItemDropdown,
   BDropdownItem,
   BNavbar,
@@ -34,6 +41,9 @@ import {
 } from 'bootstrap-vue';
 export default {
   components: {
+  BIconToggleOn,
+  BIconToggleOff,
+  BIcon,
   BNavItemDropdown,
   BDropdownItem,
   BNavbar,
@@ -41,13 +51,16 @@ export default {
   BCollapse,
   BNavbarNav,
   BNavItem
+  },
+  data() {
+    return {
+    }
   }
 }
 
 </script>
 
 <style lang="scss" >
-
 
 @media (max-width: 575.98px) { 
     .navbar .dropdown-menu {

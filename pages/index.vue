@@ -32,9 +32,9 @@
             </h1>
           </div>
         </div>
+          <div class="active_line_2" data-aos="goLine" data-aos-duration="1000" data-aos-easing="linear"></div>
       </div>
     </div>
-    <div class="active_line_2" data-aos="goLine" data-aos-duration="1000" data-aos-easing="linear"></div>
 
     <div class="service container bg-dark p-0" style="max-width: 100%;">
       <div class="bg-white text-black d-flex justify-content-end">

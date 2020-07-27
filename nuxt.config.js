@@ -62,7 +62,7 @@ export default {
     icons: true, // FA5
     roboto: true, // font Roboto
     css: true, // MDB CSS
-    bootstrap: false // Bootstrap CSS
+    bootstrap: true // Bootstrap CSS
     },
   /*
   ** Build configuration
