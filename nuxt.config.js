@@ -30,7 +30,8 @@ export default {
   */
   css: [
     'aos/dist/aos.css',
-    '~/assets/css/main.css'
+    '~/assets/css/main.css',
+    'mdbvue/lib/css/mdb.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -38,7 +39,8 @@ export default {
   */
   plugins: [
     {src: "~/plugins/aos", ssr: false},
-    { src: '~/plugins/jarallax.js', ssr: false }
+    { src: '~/plugins/jarallax.js', ssr: false },
+    { src: '~/plugins/silentBox.js', ssr: false }
   ],
   /*
   ** Auto import components
@@ -69,7 +71,11 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    vendor: 'aos'
+    extend(config, ctx) {},
+    transpile: [
+      'mdbvue/lib/components'
+    ],
+      vendor: 'aos',
   },
 
 }

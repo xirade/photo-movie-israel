@@ -271,6 +271,19 @@ export default {
     mdbMask,
     mdbIcon,
   },
+  data() {
+  return {
+      toggler: false,
+       imgs: [
+          '~/assets/img/1.jpg',
+          '~/assets/img/2.jpg',
+          '~/assets/img/3.jpg',
+          '~/assets/img/4.jpg',
+          '~/assets/img/5.jpg',
+          '~/assets/img/6.jpg'
+        ]
+    };
+  }
 };
 </script>
 
