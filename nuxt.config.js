@@ -31,7 +31,8 @@ export default {
   css: [
     'aos/dist/aos.css',
     '~/assets/css/main.css',
-    'mdbvue/lib/css/mdb.min.css'
+    'mdbvue/lib/css/mdb.min.css',
+    'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -40,7 +41,7 @@ export default {
   plugins: [
     {src: "~/plugins/aos", ssr: false},
     { src: '~/plugins/jarallax.js', ssr: false },
-    { src: '~/plugins/silentBox.js', ssr: false }
+    { src: '~/plugins/CoolLightBox.js', ssr: false },
   ],
   /*
   ** Auto import components

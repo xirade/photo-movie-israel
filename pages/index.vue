@@ -1,40 +1,42 @@
 <template>
   <main>
     <div class="first jarallax">
-      <img
-        src="~/assets/img/background.jpg"
-        class="jarallax-img"
-      />
+      <img src="~/assets/img/background.jpg" class="jarallax-img" />
       <mdb-mask overlay="black-slight" flexCenter>
-      <div class="header-main">
-        <img
-          src="~/assets/img/4log.png"
-          height="120px"
-          width="250px"
-          class="mx-auto d-block"
-          alt="Logo"
-        />
-        <div id="animateFadeIn_1">
-          <transition
-            appear
-            appear-active-class="fade-enter-active-line-1"
-            @before-appear="beforeAppear"
-            @appear="appear"
-            @after-appear="afterAppear"
-          >
-            <div class="active_line_1 mt-4"></div>
-          </transition>
-        </div>
-        <div class="container flex-center position-relative" style="height: 90vh">
-          <div class="white-text text-center text-uppercase animated fadeInDown slower">
-            <h1 class="display-4 title-header text-center my-0">
-              FROM A DIFFERENT
-              <hr class="m-0" />POINT OF VIEW
-            </h1>
+        <div class="header-main">
+          <img
+            src="~/assets/img/4log.png"
+            height="120px"
+            width="250px"
+            class="mx-auto mt-2 d-block"
+            alt="Logo"
+          />
+          <div id="animateFadeIn_1">
+            <transition
+              appear
+              appear-active-class="fade-enter-active-line-1"
+              @before-appear="beforeAppear"
+              @appear="appear"
+              @after-appear="afterAppear"
+            >
+              <div class="active_line_1 mt-4"></div>
+            </transition>
+          </div>
+          <div class="container flex-center position-relative" style="height: 90vh">
+            <div class="white-text text-center text-uppercase animated fadeInDown slower">
+              <h1 class="display-4 title-header text-center my-0">
+                FROM A DIFFERENT
+                <hr class="m-0" />POINT OF VIEW
+              </h1>
+            </div>
           </div>
         </div>
-      </div>
-    <div class="active_line_2" data-aos="goLine" data-aos-duration="1000" data-aos-easing="ease-out"></div>
+        <div
+          class="active_line_2"
+          data-aos="goLine"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+        ></div>
       </mdb-mask>
     </div>
 
@@ -180,18 +182,17 @@
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
         <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
-      <div
-        class="active_line_4"
-        data-aos="goLine_smaller"
-        data-aos-duration="1000"
-        data-aos-easing="ease-out"
-      ></div>
+        <div
+          class="active_line_4"
+          data-aos="goLine_smaller"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+        ></div>
       </div>
     </div>
     <div class="w-100 bg-light">
-      <div class="container"
-      >
-        <CoolLightBox />
+      <div class="container">
+        <CoolLight />
       </div>
     </div>
 
@@ -213,7 +214,7 @@
 </template>
 
 <script>
-import CoolLightBox from "~/pages/CoolLightBox.vue";
+import CoolLight from "~/pages/CoolLight.vue";
 import {
   mdbContainer,
   mdbRow,
@@ -249,7 +250,7 @@ export default {
     },
   },
   components: {
-    CoolLightBox,
+    CoolLight,
     mdbContainer,
     mdbContainer,
     mdbRow,
@@ -271,31 +272,28 @@ export default {
     mdbMask,
     mdbIcon,
   },
-  data() {
-  return {
-      toggler: false,
-       imgs: [
-          '~/assets/img/1.jpg',
-          '~/assets/img/2.jpg',
-          '~/assets/img/3.jpg',
-          '~/assets/img/4.jpg',
-          '~/assets/img/5.jpg',
-          '~/assets/img/6.jpg'
-        ]
-    };
-  }
 };
 </script>
 
 <style lang="scss">
 @import url(https://db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn);
-@font-face {font-family: "DINNeuzeitGroteskLTW01-BdCn";
-    src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot"); /* IE9*/
-    src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2") format("woff2"), /* chrome firefox */
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff") format("woff"), /* chrome firefox */
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn") format("svg"); /* iOS 4.1- */
+@font-face {
+  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot"); /* IE9*/
+  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2")
+      format("woff2"),
+    /* chrome firefox */
+      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff")
+      format("woff"),
+    /* chrome firefox */
+      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf")
+      format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn")
+      format("svg"); /* iOS 4.1- */
 }
 @import "node_modules/aos/src/sass/aos.scss";
 
@@ -360,78 +358,77 @@ hr {
   top: 75vh;
 }
 
- [data-aos= "goLine"] {
-      height: 0;
-      opacity: 0;
-      transition-property: height, opacity;
-    
-      &.aos-animate {
-       height: 70vh;
-       opacity: 1;
-      }
-    }
-    [data-aos= "goLine_1"] {
-      height: 0;
-      opacity: 0;
-      transition-property: height, opacity;
-    
-      &.aos-animate {
-       height: 280px;
-       opacity: 1;
-      }
-    }
-    [data-aos= "goLine_small"] {
-      height: 0;
-      opacity: 0;
-      transition-property: height, opacity;
-    
-      &.aos-animate {
-       height: 170px;
-       opacity: 1;
-      }
-    }
-    [data-aos= "goLine_smaller"] {
-      height: 0;
-      opacity: 0;
-      transition-property: height, opacity;
-    
-      &.aos-animate {
-       height: 205px;
-       opacity: 1;
-      }
-    }
-    [data-aos= "goLine_xsmall"] {
-      height: 0;
-      opacity: 0;
-      transition-property: height, opacity;
-    
-      &.aos-animate {
-       height: 40px;
-       opacity: 1;
-      }
-    }
+[data-aos="goLine"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
 
-    [data-aos= "goLine_big"] {
-      height: 0;
-      opacity: 0;
-      transition-property: height, opacity;
-    
-      &.aos-animate {
-       height: 200vh;
-       opacity: 1;
-      }
-      @media (max-width: 575px) {
-        &.aos-animate {
-          height: 290vh;
-         }
-      }
-      @media (min-width: 576px) and (max-width: 767px) {
-        &.aos-animate {
-          height: 290vh;
-         }
-      }
-    }
+  &.aos-animate {
+    height: 70vh;
+    opacity: 1;
+  }
+}
+[data-aos="goLine_1"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
 
+  &.aos-animate {
+    height: 280px;
+    opacity: 1;
+  }
+}
+[data-aos="goLine_small"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 170px;
+    opacity: 1;
+  }
+}
+[data-aos="goLine_smaller"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 205px;
+    opacity: 1;
+  }
+}
+[data-aos="goLine_xsmall"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 40px;
+    opacity: 1;
+  }
+}
+
+[data-aos="goLine_big"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 200vh;
+    opacity: 1;
+  }
+  @media (max-width: 575px) {
+    &.aos-animate {
+      height: 290vh;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 767px) {
+    &.aos-animate {
+      height: 290vh;
+    }
+  }
+}
 
 .fade-enter-active-line-1 {
   animation: goLine_1 1.5s linear;

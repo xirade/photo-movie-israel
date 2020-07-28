@@ -16,7 +16,6 @@
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "eslint-loader": "^4.0.2",
-    "fslightbox-vue": "^1.0.4",
     "heroku": "^7.42.5",
     "jarallax": "^1.12.1",
     "mdb-ui-kit": "^1.0.0-alpha3",
@@ -27,8 +26,7 @@
     "object-fit-images": "^3.2.4",
     "sass-loader": "^9.0.2",
     "vue": "^2.6.11",
-    "vue-silentbox": "^2.2.0",
-    "vue2-touch-events": "^2.2.1"
+    "vue-cool-lightbox": "^2.4.1"
   },
   "devDependencies": {
     "node-sass": "^4.9.0",
