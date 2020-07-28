@@ -7,6 +7,7 @@
       @close="index = null">
     </CoolLightBox>
     <div 
+        
     >
            <mdb-row>
           <mdb-col md="12" class="m-0  mt-2">
@@ -23,7 +24,7 @@
                   </a>
                 </div>
                 <button  
-                class="full-img-slider" v-on:click="setIndex(1)"></button>
+                class="full-img-slider" v-on:click="setIndex(0)"></button>
               </mdb-mask>
             </mdb-view>
           </mdb-col>
@@ -43,7 +44,7 @@
                     <mdb-icon size="lg" icon="comment" />25
                   </a>
                 </div>
-                <button class="full-img-slider" v-on:click="setIndex(2)"></button>
+                <button class="full-img-slider" v-on:click="setIndex(1)"></button>
               </mdb-mask>
             </mdb-view>
           </mdb-col>
@@ -61,7 +62,7 @@
                     <mdb-icon size="lg" icon="comment" />25
                   </a>
                 </div>
-                <button class="full-img-slider" v-on:click="setIndex(3)"></button>
+                <button class="full-img-slider" v-on:click="setIndex(2)"></button>
               </mdb-mask>
             </mdb-view>
           </mdb-col>
@@ -79,7 +80,7 @@
                     <mdb-icon size="lg" icon="comment" />25
                   </a>
                 </div>
-                <button class="full-img-slider" v-on:click="setIndex(4)"></button>
+                <button class="full-img-slider" v-on:click="setIndex(3)"></button>
               </mdb-mask>
             </mdb-view>
           </mdb-col>
@@ -99,7 +100,7 @@
                     <mdb-icon size="lg" icon="comment" />25
                   </a>
                 </div>
-                <button class="full-img-slider" v-on:click="setIndex(5)"></button>
+                <button class="full-img-slider" v-on:click="setIndex(4)"></button>
               </mdb-mask>
             </mdb-view>
           </mdb-col>
@@ -117,7 +118,7 @@
                     <mdb-icon size="lg" icon="comment" />25
                   </a>
                 </div>
-                <button class="full-img-slider" v-on:click="setIndex(6)"></button>
+                <button class="full-img-slider" v-on:click="setIndex(5)"></button>
               </mdb-mask>
             </mdb-view>
           </mdb-col>
@@ -134,7 +135,7 @@
                     <mdb-icon size="lg" icon="comment" />25
                   </a>
                 </div>
-                <button class="full-img-slider" v-on:click="setIndex(7)"></button>
+                <button class="full-img-slider" v-on:click="setIndex(6)"></button>
               </mdb-mask>
             </mdb-view>
           </mdb-col>
@@ -146,6 +147,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import CoolLightBox from 'vue-cool-lightbox'
 import { mdbRow, mdbCol, mdbView, mdbMask, mdbIcon } from "mdbvue";
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
@@ -154,17 +156,19 @@ export default {
   data: function () {
     return {
       items: [
-        {src:'~/assets/img/1.jpg'},
-        {src:'~/assets/img/2.jpg'},
-        {src:'~/assets/img/3.jpg'},
-        {src:'~/assets/img/4.jpg'},
-        {src:'~/assets/img/6.jpg}'},
-        {src:'~/assets/img/5.jpg'},
-        {src:'~/assets/img/7.jpg}'}
+        'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950779/1_guaw1o.jpg',
+        'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950915/2_vzvvds.jpg',
+        'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950942/3_haxune.jpg',
+        'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950976/4_r3bmou.jpg',
+        'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950977/5_djhizt.jpg',
+        'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950979/6_bc7f0u.jpg',
+        'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg',
         
       ],
       index: null
     };
+  },
+   computed: {
   },
   components: {
     CoolLightBox,
