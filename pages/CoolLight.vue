@@ -9,7 +9,7 @@
     <div 
     >
            <mdb-row>
-          <mdb-col md="12" class="m-0 pb-2 pt-0 mt-2">
+          <mdb-col md="12" class="m-0  mt-2">
             <mdb-view class="zoom overlay">
               <img class="img-fluid z-depth-1" src="~/assets/img/1.jpg" alt="zoom" />
               <mdb-mask waves overlay="white-slight" class="white-text d-flex flex-column">
@@ -84,11 +84,11 @@
             </mdb-view>
           </mdb-col>
         </mdb-row>
-    
+
         <mdb-row>
-          <mdb-col md="6" class="m-0 py-2">
+           <mdb-col md="4" class="m-0 py-2">
             <mdb-view class="zoom overlay">
-              <img class="img-fluid z-depth-1" src="~/assets/img/5.jpg" alt="zoom" />
+              <img class="img-fluid z-depth-1" src="~/assets/img/6.jpg" alt="zoom" />
               <mdb-mask waves overlay="white-slight" class="white-text d-flex flex-column">
                 <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
                 <div class="tool-icon ml-2 mb-2">
@@ -103,10 +103,10 @@
               </mdb-mask>
             </mdb-view>
           </mdb-col>
-    
-          <mdb-col md="6" class="m-0 py-2">
+
+          <mdb-col md="5" class="m-0 py-2">
             <mdb-view class="zoom overlay">
-              <img class="img-fluid z-depth-1" src="~/assets/img/6.jpg" alt="zoom" />
+              <img class="img-fluid z-depth-1" src="~/assets/img/5.jpg" alt="zoom" />
               <mdb-mask waves overlay="white-slight" class="white-text d-flex flex-column">
                 <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
                 <div class="tool-icon ml-2 mb-2">
@@ -121,7 +121,26 @@
               </mdb-mask>
             </mdb-view>
           </mdb-col>
+                <mdb-col md="3" offsetMd="4" class="m-0 py-2">
+            <mdb-view class="zoom overlay">
+              <img class="img-fluid z-depth-1" src="~/assets/img/7.jpg" alt="zoom" />
+              <mdb-mask waves overlay="white-slight" class="white-text d-flex flex-column">
+                <p class="display-5 my-auto mx-auto flex-center">Adventure time</p>
+                <div class="tool-icon ml-2 mb-2">
+                  <a href="#!" class="icon-feedback">
+                    <mdb-icon far size="lg" icon="heart" />13
+                  </a>
+                  <a href="#!" class="icon-feedback">
+                    <mdb-icon size="lg" icon="comment" />25
+                  </a>
+                </div>
+                <button class="full-img-slider" v-on:click="setIndex(7)"></button>
+              </mdb-mask>
+            </mdb-view>
+          </mdb-col>
         </mdb-row>
+
+          
       </div>
   </div>
 </template>
@@ -139,8 +158,10 @@ export default {
         {src:'~/assets/img/2.jpg'},
         {src:'~/assets/img/3.jpg'},
         {src:'~/assets/img/4.jpg'},
+        {src:'~/assets/img/6.jpg}'},
         {src:'~/assets/img/5.jpg'},
-        {src:'~/assets/img/6.jpg}'}
+        {src:'~/assets/img/7.jpg}'}
+        
       ],
       index: null
     };
@@ -177,4 +198,18 @@ export default {
     .tool-icon {
       z-index: 1;
     }
+    .display-5 {
+      font-size: 1.5rem;
+      font-family: "DINNeuzeitGroteskLTW01-BdCn";
+    }
+    @media (max-width: 575px) {
+      .display-5 {
+        font-size: 2.5rem;
+      }
+    }
+      @media (min-width: 576px) and (max-width: 767px) {
+        .display-5 {
+        font-size: 2.5rem;
+      }
+      }
     </style>
