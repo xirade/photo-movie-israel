@@ -22,9 +22,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/camera-shutter.ico' },
-      { href:"https://db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn", rel:"stylesheet", type:"text/css"}
     ],
-    script: [{src:"https://widget.cloudinary.com/v2.0/global/all.js", type:"text/javascript"}],
   },
   /*
   ** Global CSS
@@ -43,6 +41,7 @@ export default {
     {src: "~/plugins/aos", ssr: false},
     { src: '~/plugins/jarallax.js', ssr: false },
     { src: '~/plugins/CoolLightBox.js', ssr: false },
+    { src: '~/plugins/cloudinary.js', ssr: false },
   ],
   /*
   ** Auto import components

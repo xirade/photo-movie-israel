@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="first jarallax">
-      <img src="~/assets/img/background.jpg" class="jarallax-img" />
+      <img src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963389/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_jmbkpi.jpg" class="jarallax-img" />
       <mdb-mask overlay="black-slight" flexCenter>
         <div class="header-main">
           <img
@@ -22,11 +22,17 @@
               <div class="active_line_1 mt-4"></div>
             </transition>
           </div>
-          <div class="container flex-center position-relative" style="height: 90vh">
-            <div class="white-text text-center text-uppercase animated fadeInDown slower">
+          <div
+            class="container flex-center position-relative"
+            style="height: 90vh"
+          >
+            <div
+              class="white-text text-center text-uppercase animated fadeInDown slower"
+            >
               <h1 class="display-4 title-header text-center my-0">
                 FROM A DIFFERENT
-                <hr class="m-0" />POINT OF VIEW
+                <hr class="m-0" />
+                POINT OF VIEW
               </h1>
             </div>
           </div>
@@ -66,11 +72,10 @@
                   <strong>This is card title</strong>
                 </mdb-card-title>
                 <p class="text-light">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
-                  voluptatem,
-                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum
-                  dignissimos.
-                  Odit sed qui, dolorum!.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Repellat fugiat, laboriosam, voluptatem, optio vero odio nam
+                  sit officia accusamus minus error nisi architecto nulla ipsum
+                  dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <mdb-btn color="orange" class="white-text">
                   <mdb-icon icon="clone left" />View project
@@ -85,18 +90,15 @@
               background-size: cover;"
             >
               <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="blue-text">
-                  <mdb-icon icon="video" />VIDEOSHOOT
-                </h5>
+                <h5 class="blue-text"><mdb-icon icon="video" />VIDEOSHOOT</h5>
                 <mdb-card-title tag="h3" class="pt-2 text-white">
                   <strong>This is card title</strong>
                 </mdb-card-title>
                 <p class="text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
-                  voluptatem,
-                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum
-                  dignissimos.
-                  Odit sed qui, dolorum!.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Repellat fugiat, laboriosam, voluptatem, optio vero odio nam
+                  sit officia accusamus minus error nisi architecto nulla ipsum
+                  dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <mdb-btn color="blue" class="text-black">
                   <mdb-icon icon="clone left" />View project
@@ -119,11 +121,10 @@
                   <strong>This is card title</strong>
                 </mdb-card-title>
                 <p class="text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
-                  voluptatem,
-                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum
-                  dignissimos.
-                  Odit sed qui, dolorum!.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Repellat fugiat, laboriosam, voluptatem, optio vero odio nam
+                  sit officia accusamus minus error nisi architecto nulla ipsum
+                  dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <mdb-btn color="green" class="text-black">
                   <mdb-icon icon="clone left" />View project
@@ -146,39 +147,58 @@
         data-aos-easing="ease-out"
       ></div>
       <div class="service_title">
-        <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">02</p>
+        <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">
+          02
+        </p>
         <h2 class="display-3 pr-2 text-right font-weight-bold">ABOUT</h2>
       </div>
     </div>
-    <div class="container bg-light text-black" style="max-width: 100%; height: 120vh;">
+    <div
+      class="container bg-light text-black"
+      style="max-width: 100%; height: 120vh;"
+    >
       <div
         class="d-flex align-items-center flex-center flex-column"
         data-aos="fade-down"
         data-aos-duration="1000"
         data-aos-easing="ease-out"
       >
-        <h2 class="display-1 text-center mx-auto mt-auto m-0 mb-3" style="color: #454545;">
+        <h2
+          class="display-1 text-center mx-auto mt-auto m-0 mb-3"
+          style="color: #454545;"
+        >
           <strong>
             WE TAKE PICTURES
-            <hr class="m-0" />FROM ABOVE
+            <hr class="m-0" />
+            FROM ABOVE
           </strong>
         </h2>
         <p
           class="h3 text-black-50 mb-5 w-75 text-center"
           style="font-family: 'DINNeuzeitGroteskLTW01-BdCn';"
-        >NEW PHOTOGRAPHY OPPORTUNITIES USING DRONES</p>
-        <p class="h5 w-75 text-center grey-text mb-4" style="font-weight: lighter;">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est
-          vitae suscipit, eligendi et tempora reprehenderit odio. Saepe animi,
-          aliquid voluptates culpa provident, suscipit laudantium dignissimos hic,
-          dolorum explicabo dolorem? Enim architecto obcaecati, nihil, dolore iure
-          repellendus eligendi aut corrupti magnam magni laborum. Eum doloremque
-          culpa minima? Laborum, ipsum doloribus.
+        >
+          NEW PHOTOGRAPHY OPPORTUNITIES USING DRONES
         </p>
-        <mdb-btn color="yellow darken-3" class="px-5 mb-auto">Read more</mdb-btn>
+        <p
+          class="h5 w-75 text-center grey-text mb-4"
+          style="font-weight: lighter;"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          est vitae suscipit, eligendi et tempora reprehenderit odio. Saepe
+          animi, aliquid voluptates culpa provident, suscipit laudantium
+          dignissimos hic, dolorum explicabo dolorem? Enim architecto obcaecati,
+          nihil, dolore iure repellendus eligendi aut corrupti magnam magni
+          laborum. Eum doloremque culpa minima? Laborum, ipsum doloribus.
+        </p>
+        <mdb-btn color="yellow darken-3" class="px-5 mb-auto"
+          >Read more</mdb-btn
+        >
       </div>
     </div>
-    <div class="bg-white text-black d-flex justify-content-end" style="position: relative;">
+    <div
+      class="bg-white text-black d-flex justify-content-end"
+      style="position: relative;"
+    >
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
         <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
@@ -234,20 +254,20 @@ import {
   mdbBtn,
   mdbView,
   mdbMask,
-  mdbIcon,
+  mdbIcon
 } from "mdbvue";
 export default {
   em: "#animateFadeIn_1",
   methods: {
-    beforeAppear: function (em) {
+    beforeAppear: function(em) {
       console.log("beforeAppear");
     },
-    appear: function (em) {
+    appear: function(em) {
       console.log("appear!");
     },
-    afterAppear: function (em) {
+    afterAppear: function(em) {
       console.log("afterAppear!");
-    },
+    }
   },
   components: {
     CoolLight,
@@ -270,30 +290,25 @@ export default {
     mdbInput,
     mdbView,
     mdbMask,
-    mdbIcon,
-  },
+    mdbIcon
+  }
 };
 </script>
 
 <style lang="scss">
-@import url(https://db.onlinewebfonts.com/c/ee0b916b2e7c8fef46ce318b6f5e8d65?family=DINNeuzeitGroteskW01-BdCn);
 @font-face {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
-  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot"); /* IE9*/
+  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot");
   src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */
-      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2")
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2")
       format("woff2"),
-    /* chrome firefox */
-      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff")
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff")
       format("woff"),
-    /* chrome firefox */
-      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf")
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf")
       format("truetype"),
-    /* chrome firefox opera Safari, Android, iOS 4.2+*/
-      url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn")
-      format("svg"); /* iOS 4.1- */
+    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn")
+      format("svg");
 }
 @import "node_modules/aos/src/sass/aos.scss";
 
