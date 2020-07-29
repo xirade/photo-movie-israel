@@ -9,8 +9,8 @@
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
       <b-navbar-nav class="container w-50 mx-auto text-center">
-        <b-nav-item href="#">Home</b-nav-item>
-        <b-nav-item href="#">Services</b-nav-item>
+        <b-nav-item :href="'/'">Home</b-nav-item>
+        <b-nav-item :href="'/Services'">Services</b-nav-item>
         <b-nav-item href="#">About</b-nav-item>
         <b-nav-item href="#">Media</b-nav-item>
          <b-nav-item-dropdown text="Portfolio" style="position-relative;">

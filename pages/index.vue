@@ -234,6 +234,8 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import AOS from 'aos';
 import CoolLight from "~/pages/CoolLight.vue";
 import {
   mdbContainer,
@@ -311,7 +313,7 @@ export default {
       format("svg");
 }
 @import "node_modules/aos/src/sass/aos.scss";
-
+@import "~/assets/css/main.css";
 .first {
   height: 110vh;
 }
@@ -369,7 +371,7 @@ hr {
   position: absolute;
   left: 50%;
   overflow: hidden;
-  background-color: rgba(255, 196, 46, 0.8);
+  background-color: rgba(247, 229, 184, 0.8);
   top: 75vh;
 }
 
@@ -531,7 +533,7 @@ hr {
     font-size: 1.5rem;
   }
   .h5 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .contact-form {
     height: 160vh;
@@ -562,7 +564,7 @@ hr {
     font-size: 1.5rem;
   }
   .h5 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .contact-form {
     height: 160vh;

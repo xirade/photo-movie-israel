@@ -1,29 +1,23 @@
 <template>
   <div id="app">
     <Header />
-    <div>
-      <nuxt />
-    </div>
+    <keep-alive>
+      <router-view>
+          <nuxt />
+      </router-view>
+    </keep-alive>
     <Footer />
   </div>
 </template>
 
 <script>
-import Cloudinary from "cloudinary-vue";
-Vue.use(Cloudinary, {
-  configuration: {
-    cloudName: "demo"
-  }
-});
 import Vue from "vue";
 import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
 export default {
-  es: "#app",
   components: {
     Header,
-    Footer,
-    Vue
+    Footer
   }
 };
 </script>

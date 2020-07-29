@@ -1,7 +1,7 @@
 <template>
 <client-only>
    <mdb-footer color="mdb-color" class="font-small elegant-color-dark pt-4" style="margin-top: 0 !important;">
-    <mdb-container class="text-center text-md-left">
+    <mdb-container class="text-center mx-auto text-md-left">
       <mdb-row class="my-4">
         <mdb-col md="4" lg="4">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">Desctiption organization</h5>
@@ -10,7 +10,7 @@
               voluptate esse quasi, veritatis totam voluptas nostrum. </p>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>
-        <mdb-col md="2" lg="2" class="ml-auto">
+        <mdb-col md="2" lg="2" class="mx-auto">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">About</h5>
           <ul class="list-unstyled">
             <p><router-link tag="a" to="/Service">SERVICE</router-link></p>
@@ -28,7 +28,7 @@
           <p><mdb-icon icon="phone" class="mr-3" /> +972506786932</p>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>
-        <mdb-col md="2" lg="2" class="text-center">
+        <mdb-col md="3" lg="2" class="follow-us">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">FOLLOW US: </h5>
           <div class="mt-2 ">
             <a type="button" class="btn-floating btn-small btn-fb"><mdb-icon fab icon="facebook" size="2x" /></a>
@@ -64,5 +64,9 @@
 </script>
 
 <style>
-
+@media (min-width: 768px) and (max-width: 991px) {
+  .follow-us {
+    margin: 0 auto;
+  }
+}
 </style>
