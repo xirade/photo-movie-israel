@@ -19,7 +19,7 @@
               @appear="appear"
               @after-appear="afterAppear"
             >
-              <div class="active_line_1 mt-4"></div>
+              <span class="active_line_1 mt-4"></span>
             </transition>
           </div>
           <div
@@ -37,12 +37,12 @@
             </div>
           </div>
         </div>
-        <div
+        <span
           class="active_line_2"
           data-aos="goLine"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
-        ></div>
+        ></span>
       </mdb-mask>
     </div>
 
@@ -140,12 +140,12 @@
       style="max-width: 100%; position:relative;
       "
     >
-      <div
+      <span
         class="active_line_3"
         data-aos="goLine_1"
         data-aos-duration="1000"
         data-aos-easing="ease-out"
-      ></div>
+      ></span>
       <div class="service_title">
         <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">
           02
@@ -202,12 +202,12 @@
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
         <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
-        <div
+        <span
           class="active_line_4"
           data-aos="goLine_smaller"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
-        ></div>
+        ></span>
       </div>
     </div>
     <div class="w-100 bg-light">
@@ -217,19 +217,19 @@
     </div>
 
     <div class="bg-white w-100" style="position: relative; height: 40vh;">
-      <div
+      <span
         class="active_line_1"
         data-aos="goLine_small"
         data-aos-duration="1000"
         data-aos-easing="ease-out"
-      ></div>
+      ></span>
     </div>
-    <div
+    <span
       class="active_line_1"
       data-aos="goLine_xsmall"
       data-aos-duration="1000"
       data-aos-easing="ease-out"
-    ></div>
+    ></span>
   </main>
 </template>
 

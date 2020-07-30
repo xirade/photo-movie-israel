@@ -11,12 +11,12 @@
 
       <div class="service pt-4 position-relative">
         <div id="animateFadeIn_1">
-          <div
+          <span
             class="active_line_1"
             data-aos="goLine_service"
             data-aos-duration="1000"
             data-aos-easing="ease-out"
-          ></div>
+          ></span>
         </div>
       </div>
       <div class="bg-white container text-black d-flex justify-content-end">
@@ -68,15 +68,31 @@
           class="jarallax-img"
         />
       </div>
-        <div class="bg-white" style="height: 90vh;"></div>
+        <div class="section-cards bg-white position-relative">
+             <span
+      class="active_line_1"
+      data-aos="goLine_xsmall"
+      data-aos-duration="1000"
+      data-aos-easing="ease-out"
+    ></span>
+          <div class="container d-flex align-items-center flex-center flex-column">
+            <h2 class="h1 my-auto text-center animated pulse infinite">BOOK NOW</h2>
+            <serviceCards class="mb-auto" />
+          </div>
+        </div>
     </main>
   </div>
 </template>
 
 <script>
+import serviceCards from './services_cards';
 import Vue from "vue";
 import AOS from "aos";
-export default {};
+export default {
+  components: {
+    serviceCards
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -95,6 +111,14 @@ export default {};
       format("truetype"),
     url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn")
       format("svg");
+}
+
+h2 {
+  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+}
+
+.section-cards {
+  height: 120vh;
 }
 
 .active_line_1 {
@@ -117,6 +141,16 @@ export default {};
     opacity: 1;
   }
 }
+[data-aos="goLine_xsmall"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 60px;
+    opacity: 1;
+  }
+}
 
 .display-3 {
   font-size: 3.5rem;
@@ -131,6 +165,12 @@ export default {};
   height: 70vh;
 }
 
+@media (min-width: 426px) and (max-width: 575px){
+  .section-cards{
+    height: 285vh !important;
+  }
+}
+
 @media (max-width: 575px) {
   .display-1 {
     font-size: 2.7rem;
@@ -140,6 +180,9 @@ export default {};
   }
   .h5{
     font-size: 0.8rem;
+  }
+  .section-cards{
+    height: 250vh;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -152,6 +195,9 @@ export default {};
     .h5{
     font-size: 1rem;
   }
+  .section-cards{
+    height: 280vh;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -163,6 +209,15 @@ export default {};
   }
   .h5{
     font-size: 1.2rem;
+  }
+   .section-cards{
+    height: 120vh;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+   .section-cards{
+    height: 120vh;
   }
 }
 </style>
