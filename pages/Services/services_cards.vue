@@ -1,6 +1,6 @@
 <template>
   <mdb-container>
-    <mdb-row>
+    <mdb-row class="pb-5">
       <mdb-col md="4" lg="3" class="my-auto">
         <mdb-card>
           <mdb-view hover>

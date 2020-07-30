@@ -2,14 +2,14 @@
   <div>
     <header>
       <img
-        src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_grayscale/v1596052405/4log_ybzwgi.png"
+        src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:30/v1596052405/4log_ybzwgi.png"
         height="120px"
         width="250px"
-        class="mx-auto mt-3 d-block"
+        class="mx-auto mt-4 d-block"
         alt="Logo"
       />
 
-      <div class="service pt-4 position-relative">
+      <div class="service mt-4 position-relative">
         <div id="animateFadeIn_1">
           <span
             class="active_line_1"
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="bg-white container text-black d-flex justify-content-end">
-        <div class="service_title w-50">
+        <div class="service_title mt-5 w-50">
           <p class="display-5 pl-2 font-weight-bolder yellow-text">01</p>
           <h2 class="display-3 pl-2 font-weight-bold">SERVICE</h2>
         </div>
@@ -68,14 +68,14 @@
           class="jarallax-img"
         />
       </div>
-        <div class="section-cards bg-white position-relative">
+        <div style="max-height:100%;" class="section-cards bg-white position-relative">
              <span
       class="active_line_1"
       data-aos="goLine_xsmall"
       data-aos-duration="1000"
       data-aos-easing="ease-out"
     ></span>
-          <div class="container d-flex align-items-center flex-center flex-column">
+          <div class="container d-flex align-items-center flex-center flex-column" style="padding-top: 150px;">
             <h2 class="h1 my-auto text-center animated pulse infinite">BOOK NOW</h2>
             <serviceCards class="mb-auto" />
           </div>
@@ -91,7 +91,7 @@ import AOS from "aos";
 export default {
   components: {
     serviceCards
-  }
+  },
 };
 </script>
 

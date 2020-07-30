@@ -1,4 +1,5 @@
 <template>
+<div>
   <b-navbar toggleable="lg" type="dark" variant="dark" style="background-color: #212121 !important" >
     <b-navbar-toggle class="ml-auto"  target="navbar-toggle-collapse" >
        <template v-slot:default="{ expanded }">
@@ -9,9 +10,9 @@
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
       <b-navbar-nav class="container w-50 mx-auto text-center">
-        <b-nav-item :href="'/'">Home</b-nav-item>
-        <b-nav-item :href="'/Services'">Services</b-nav-item>
-        <b-nav-item href="#">About</b-nav-item>
+        <b-nav-item :to="{path: '/'}">Home</b-nav-item>
+        <b-nav-item :to="{name: 'Services'}">Services</b-nav-item>
+        <b-nav-item :to="{name: 'About'}">About</b-nav-item>
         <b-nav-item href="#">Media</b-nav-item>
          <b-nav-item-dropdown text="Portfolio" style="position-relative;">
           <b-dropdown-item href="#" class="drop-list text-center">Photomodels</b-dropdown-item>
@@ -24,6 +25,7 @@
 
     </b-collapse>
   </b-navbar>
+</div>
 </template>
 
 <script>

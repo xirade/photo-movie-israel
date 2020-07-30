@@ -1,5 +1,5 @@
 <template>
-<client-only>
+<div>
    <mdb-footer color="mdb-color" class="font-small elegant-color-dark pt-4" style="margin-top: 0 !important;">
     <mdb-container class="text-center mx-auto text-md-left">
       <mdb-row class="my-4">
@@ -13,11 +13,11 @@
         <mdb-col md="2" lg="2" class="mx-auto">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">About</h5>
           <ul class="list-unstyled">
-            <p><router-link tag="a" to="/Service">SERVICE</router-link></p>
-            <p><router-link tag="a" to="/About">ABOUT</router-link></p>
-            <p><router-link tag="a" to="/Media">MEDIA</router-link></p>
-            <p><router-link tag="a" to="/Portfolio">PORTFOLIO</router-link></p>
-            <p><router-link tag="a" to="/Contacts">CONTACTS</router-link></p>
+            <p><router-link tag="a" :to="'/Services'">SERVICE</router-link></p> 
+            <p><router-link tag="a" :to="'/About'">ABOUT</router-link></p>
+            <p><router-link tag="a" :to="'/Media'">MEDIA</router-link></p>
+            <p><router-link tag="a" :to="'/Portfolio'">PORTFOLIO</router-link></p>
+            <p><router-link tag="a" :to="'/Contacts'">CONTACTS</router-link></p>
           </ul>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>
@@ -46,7 +46,7 @@
       </mdb-container>
     </div>
   </mdb-footer>
-</client-only>
+</div>
 </template>
 
 <script>

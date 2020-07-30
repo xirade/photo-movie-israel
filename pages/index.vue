@@ -1,14 +1,17 @@
 <template>
-  <main>
+  <div>
     <div class="first jarallax">
-      <img src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963389/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_jmbkpi.jpg" class="jarallax-img" />
+      <img
+        src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963389/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_jmbkpi.jpg"
+        class="jarallax-img"
+      />
       <mdb-mask overlay="black-slight" flexCenter>
         <div class="header-main">
           <img
             src="~/assets/img/4log.png"
             height="120px"
             width="250px"
-            class="mx-auto mt-2 d-block"
+            class="mx-auto mt-4 d-block"
             alt="Logo"
           />
           <div id="animateFadeIn_1">
@@ -230,12 +233,12 @@
       data-aos-duration="1000"
       data-aos-easing="ease-out"
     ></span>
-  </main>
+  </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import AOS from 'aos';
+import Vue from "vue";
+import AOS from "aos";
 import CoolLight from "~/pages/CoolLight.vue";
 import {
   mdbContainer,

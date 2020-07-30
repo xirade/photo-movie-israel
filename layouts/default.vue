@@ -1,24 +1,20 @@
 <template>
   <div id="app">
     <Header />
-    <keep-alive>
-      <router-view>
           <nuxt />
-      </router-view>
-    </keep-alive>
     <Footer />
   </div>
 </template>
 
 <script>
-import Vue from "vue";
 import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
 export default {
+  name: 'app',
   components: {
     Header,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 
