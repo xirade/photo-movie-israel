@@ -237,7 +237,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import AOS from "aos";
 import CoolLight from "~/pages/CoolLight.vue";
 import {

@@ -38,7 +38,6 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    {src: "~/plugins/app.js", ssr: false},
     {src: "~/plugins/aos", ssr: false},
     { src: '~/plugins/jarallax.js', ssr: false },
     { src: '~/plugins/CoolLightBox.js', ssr: false },
