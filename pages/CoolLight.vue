@@ -11,7 +11,7 @@
             </video>
             <mdb-mask
               waves
-              overlay="white-slight"
+              overlay="black-light"
               class="white-text d-flex flex-column"
             >
               <p class="display-3 my-auto mx-auto flex-center">
@@ -37,7 +37,7 @@
             <img class="img-fluid z-depth-1" :src="items[1]" alt="zoom" />
             <mdb-mask
               waves
-              overlay="white-slight"
+              overlay="black-light"
               class="white-text d-flex flex-column"
             >
               <p class="display-3 my-auto mx-auto flex-center">
@@ -61,7 +61,7 @@
             <img class="img-fluid z-depth-1" :src="items[2]" alt="zoom" />
             <mdb-mask
               waves
-              overlay="white-slight"
+              overlay="black-light"
               class="white-text d-flex flex-column"
             >
               <p class="display-3 my-auto mx-auto flex-center">
@@ -85,7 +85,7 @@
             <img class="img-fluid z-depth-1" :src="items[3]" alt="zoom" />
             <mdb-mask
               waves
-              overlay="white-slight"
+              overlay="black-light"
               class="white-text d-flex flex-column"
             >
               <p class="display-5 my-auto mx-auto flex-center" style>
@@ -108,7 +108,7 @@
             <img class="img-fluid z-depth-1" :src="items[4]" alt="zoom" />
             <mdb-mask
               waves
-              overlay="white-slight"
+              overlay="black-light"
               class="white-text d-flex flex-column"
             >
               <p class="display-3 my-auto mx-auto flex-center">
@@ -131,7 +131,7 @@
             <img class="img-fluid z-depth-1" :src="items[5]" alt="zoom" />
             <mdb-mask
               waves
-              overlay="white-slight"
+              overlay="black-light"
               class="white-text d-flex flex-column"
             >
               <p class="display-3 my-auto mx-auto flex-center">
@@ -154,7 +154,7 @@
             <img class="img-fluid z-depth-1" :src="items[6]" alt="zoom" />
             <mdb-mask
               waves
-              overlay="white-slight"
+              overlay="black-light"
               class="white-text d-flex flex-column"
             >
               <p class="display-5 my-auto mx-auto flex-center">
@@ -222,9 +222,6 @@ export default {
 </script>
 
 <style scoped>
-.mask {
-  background-color: rgba(26, 26, 26, 0.698);
-}
 .full-img-slider {
   background-color: transparent;
   border: none;

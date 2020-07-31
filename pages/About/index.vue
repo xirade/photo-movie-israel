@@ -21,7 +21,9 @@
       </div>
       <div class="bg-white container text-black d-flex justify-content-end">
         <div class="service_title mt-5 w-50">
-          <p class="display-5 pl-2 font-weight-bolder yellow-text">02</p>
+          <p class="display-5 pl-2 text-left font-weight-bolder yellow-text">
+            02
+          </p>
           <h2 class="display-3 pl-2 font-weight-bold">ABOUT</h2>
         </div>
       </div>
@@ -61,49 +63,68 @@
       </div>
     </main>
 
-    <footer>
-      <div class="my-5">
-        <mdb-container>
-          <section id="team-section" class="text-center">
-            <h2 class="h1-responsive font-weight-bold my-5">
-              OUR AMAZING TEAM
-            </h2>
-            <p class="grey-text w-responsive mb-5 mx-auto">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-              error amet numquam iure provident voluptate esse quasi, veritatis
-              totam voluptas nostrum quisquam eum porro a pariatur veniam.
-            </p>
-            <mdb-row>
-              <mdb-col md="4" class="mb-md-0 mb-5">
-                  <b-avatar src="https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,w_300/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg" size="10rem"></b-avatar>
-                <h4 class="font-weight-bold dark-grey-text my-4">Pawel Milov</h4>
-                <h6 class="text-uppercase grey-text mb-3">Photographer</h6>
-              </mdb-col>
-              <mdb-col md="4" class="mb-md-0 mb-5">
-                 <b-avatar src="https://placekitten.com/300/300" size="10rem"></b-avatar> 
-                <h4 class="font-weight-bold dark-grey-text my-4">Yulia Milova</h4>
-                <h6 class="text-uppercase grey-text mb-3">
-                  Manager
-                </h6>
-              </mdb-col>
-              <mdb-col md="4" class="mb-md-0 mb-5">
-                  <b-avatar src="https://lh3.googleusercontent.com/proxy/vQSAuVj8SYItzM8isU2fnCPT0ZMjsO7wYQuMbDSyntAF96uTChtV40k3nNcgS4k0m3ZMk9JJ5lfyNzhNWUUEy484JUwL3EOyd0GCdYa__eiK7JO8KAVrIv90gr5YaOLhgVZTxzhTj41JVGm9zzwLyZra2BPLDHE9CJjjF5ruYQ4w" size="10rem"></b-avatar>
-                <h4 class="font-weight-bold dark-grey-text my-4">
-                  Daniel Bar Shay
-                </h4>
-                <h6 class="text-uppercase grey-text mb-3">Web Developer</h6>
-              </mdb-col>
-            </mdb-row>
-          </section>
-        </mdb-container>
-      </div>
+    <footer class="position-relative">
+      <span
+        class="active_line_1"
+        data-aos="goLine_xsmall"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></span>
+      <mdb-container class="py-5">
+        <section id="team-section" class="text-center">
+          <h2 class="h1-responsive font-weight-bold my-5">
+            OUR AMAZING TEAM
+          </h2>
+          <p class="grey-text w-responsive mb-5 mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+            error amet numquam iure provident voluptate esse quasi, veritatis
+            totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          </p>
+          <mdb-row>
+            <mdb-col md="4" class="mb-md-0 mb-5">
+              <b-avatar
+                src="https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,w_300/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg"
+                size="10rem"
+              ></b-avatar>
+              <h4 class="font-weight-bold dark-grey-text my-4">Pawel Milov</h4>
+              <h6 class="text-uppercase grey-text mb-3">Photographer</h6>
+            </mdb-col>
+            <mdb-col md="4" class="mb-md-0 mb-5">
+              <b-avatar
+                src="https://placekitten.com/300/300"
+                size="10rem"
+              ></b-avatar>
+              <h4 class="font-weight-bold dark-grey-text my-4">Yulia Milova</h4>
+              <h6 class="text-uppercase grey-text mb-3">
+                Manager
+              </h6>
+            </mdb-col>
+            <mdb-col md="4" class="mb-md-0 mb-5">
+              <b-avatar
+                src="https://lh3.googleusercontent.com/proxy/vQSAuVj8SYItzM8isU2fnCPT0ZMjsO7wYQuMbDSyntAF96uTChtV40k3nNcgS4k0m3ZMk9JJ5lfyNzhNWUUEy484JUwL3EOyd0GCdYa__eiK7JO8KAVrIv90gr5YaOLhgVZTxzhTj41JVGm9zzwLyZra2BPLDHE9CJjjF5ruYQ4w"
+                size="10rem"
+              ></b-avatar>
+              <h4 class="font-weight-bold dark-grey-text my-4">
+                Daniel Bar Shay
+              </h4>
+              <h6 class="text-uppercase grey-text mb-3">Web Developer</h6>
+            </mdb-col>
+          </mdb-row>
+        </section>
+      </mdb-container>
     </footer>
+    <span
+      class="active_line_1"
+      data-aos="goLine_xsmall"
+      data-aos-duration="1000"
+      data-aos-easing="ease-out"
+    ></span>
   </div>
 </template>
 
 <script>
-import { mdbContainer, mdbRow, mdbCol} from "mdbvue";
-import {BAvatar, AvatarPlugin} from 'bootstrap-vue';
+import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
+import { BAvatar, AvatarPlugin } from "bootstrap-vue";
 export default {
   components: {
     mdbContainer,
@@ -115,8 +136,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.display-2, h2, h4 {
+.display-2,
+h2,
+h4 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 
@@ -136,6 +158,17 @@ export default {
   }
 }
 
+[data-aos="goLine_xsmall"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 40px;
+    opacity: 1;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 574px) {
   .display-2 {
     text-align: center;
@@ -151,9 +184,15 @@ export default {
     margin-left: auto !important;
     margin-right: auto !important;
   }
+  .display-3 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 575px) {
+  .display-3 {
+    font-size: 2rem;
+  }
   .display-2 {
     font-size: 2.5rem;
     text-align: center;
@@ -161,6 +200,9 @@ export default {
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
+  .display-3 {
+    font-size: 2rem;
+  }
   .display-2 {
     font-size: 2.5rem;
     text-align: center;

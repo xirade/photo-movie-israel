@@ -13,7 +13,7 @@
         <b-nav-item :to="{path: '/'}">Home</b-nav-item>
         <b-nav-item :to="{path: '/Services'}">Services</b-nav-item>
         <b-nav-item :to="{path: '/About'}">About</b-nav-item>
-        <b-nav-item href="#">Media</b-nav-item>
+        <b-nav-item :to="{path: '/Showcases'}">Showcases</b-nav-item>
          <b-nav-item-dropdown text="Portfolio" style="position-relative;">
           <b-dropdown-item href="#" class="drop-list text-center">Photomodels</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center">Street</b-dropdown-item>

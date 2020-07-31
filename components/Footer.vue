@@ -15,7 +15,7 @@
           <ul class="list-unstyled">
             <p><router-link tag="a" :to="'/Services'">SERVICE</router-link></p> 
             <p><router-link tag="a" :to="'/About'">ABOUT</router-link></p>
-            <p><router-link tag="a" :to="'/Media'">MEDIA</router-link></p>
+            <p><router-link tag="a" :to="'/Media'">SHOWCASES</router-link></p>
             <p><router-link tag="a" :to="'/Portfolio'">PORTFOLIO</router-link></p>
             <p><router-link tag="a" :to="'/Contacts'">CONTACTS</router-link></p>
           </ul>
