@@ -66,7 +66,7 @@
         <mdb-container>
           <section id="team-section" class="text-center">
             <h2 class="h1-responsive font-weight-bold my-5">
-              Our amazing team
+              OUR AMAZING TEAM
             </h2>
             <p class="grey-text w-responsive mb-5 mx-auto">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
@@ -87,7 +87,7 @@
                 </h6>
               </mdb-col>
               <mdb-col md="4" class="mb-md-0 mb-5">
-                  <b-avatar src="https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,w_800/v1596214216/photo-1581362662614-dd27d9eb9291_gn6lgc.jpg" size="10rem"></b-avatar>
+                  <b-avatar src="https://lh3.googleusercontent.com/proxy/vQSAuVj8SYItzM8isU2fnCPT0ZMjsO7wYQuMbDSyntAF96uTChtV40k3nNcgS4k0m3ZMk9JJ5lfyNzhNWUUEy484JUwL3EOyd0GCdYa__eiK7JO8KAVrIv90gr5YaOLhgVZTxzhTj41JVGm9zzwLyZra2BPLDHE9CJjjF5ruYQ4w" size="10rem"></b-avatar>
                 <h4 class="font-weight-bold dark-grey-text my-4">
                   Daniel Bar Shay
                 </h4>
@@ -116,7 +116,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.display-2 {
+.display-2, h2, h4 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 
