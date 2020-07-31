@@ -2,7 +2,7 @@
   <div>
     <header>
       <img
-        src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:30/v1596052405/4log_ybzwgi.png"
+        src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
         height="120px"
         width="250px"
         class="mx-auto mt-4 d-block"
@@ -62,10 +62,11 @@
           </p>
         </div>
       </div>
-      <div data-jarallax data-speed="0.2" class="second jarallax">
+      <div class="second jarallax">
         <img
           src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970345/0032_z18xq2.jpg"
           class="jarallax-img"
+          style="object-fit: cover;"
         />
       </div>
         <div style="max-height:100%;" class="section-cards bg-white position-relative">
@@ -170,6 +171,7 @@ h2 {
     height: 285vh !important;
   }
 }
+
 
 @media (max-width: 575px) {
   .display-1 {

@@ -1,13 +1,195 @@
 <template>
-  
+  <div>
+    <header>
+      <img
+        src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
+        height="120px"
+        width="250px"
+        class="mx-auto mt-4 d-block"
+        alt="Logo"
+      />
+
+      <div class="service mt-4 position-relative">
+        <div id="animateFadeIn_1">
+          <span
+            class="active_line_1"
+            data-aos="goLine_about"
+            data-aos-duration="1000"
+            data-aos-easing="ease-out"
+          ></span>
+        </div>
+      </div>
+      <div class="bg-white container text-black d-flex justify-content-end">
+        <div class="service_title mt-5 w-50">
+          <p class="display-5 pl-2 font-weight-bolder yellow-text">02</p>
+          <h2 class="display-3 pl-2 font-weight-bold">ABOUT</h2>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="w-100 py-5 h-100" style="background-color: #212121;">
+        <mdb-container class="mx-auto">
+          <section>
+            <mdb-row class="mx-auto">
+              <mdb-col class=" mt-5 mx-auto" md="6">
+                <h2 class="display-2 mb-3 white-text mt-5">
+                  WE TAKE PICTURES
+                  <hr class="m-0" style="border: 0;" />
+                  FROM ABOVE
+                </h2>
+                <p class="font-weight-light grey-text mt-5">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+                  illum rerum tenetur praesentium et quidem, consectetur
+                  dignissimos vel, incidunt esse sunt neque voluptatem iste
+                  dolor placeat labore. Harum eum fugiat itaque ab sint. Nihil
+                  nesciunt amet minima ipsam placeat. Dolorum veritatis ullam
+                  iure sunt, ad dolorem? Dolore illo dolor est illum. Dolores
+                  unde quibusdam molestiae, autem dolorum est in iure.
+                </p>
+              </mdb-col>
+              <mdb-col md="6" class="pl-auto mt-5">
+                <img
+                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596206354/julius-drost-dS-q7-zkD9c-unsplash_jagklb.jpg"
+                  alt="Sample project image"
+                  class="section-img img-fluid  rounded z-depth-1"
+                />
+              </mdb-col>
+            </mdb-row>
+          </section>
+        </mdb-container>
+      </div>
+    </main>
+
+    <footer>
+      <div class="my-5">
+        <mdb-container>
+          <section id="team-section" class="text-center">
+            <h2 class="h1-responsive font-weight-bold my-5">
+              Our amazing team
+            </h2>
+            <p class="grey-text w-responsive mb-5 mx-auto">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+              error amet numquam iure provident voluptate esse quasi, veritatis
+              totam voluptas nostrum quisquam eum porro a pariatur veniam.
+            </p>
+            <mdb-row>
+              <mdb-col md="4" class="mb-md-0 mb-5">
+                  <b-avatar src="https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,w_300/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg" size="10rem"></b-avatar>
+                <h4 class="font-weight-bold dark-grey-text my-4">Pawel Milov</h4>
+                <h6 class="text-uppercase grey-text mb-3">Photographer</h6>
+              </mdb-col>
+              <mdb-col md="4" class="mb-md-0 mb-5">
+                 <b-avatar src="https://placekitten.com/300/300" size="10rem"></b-avatar> 
+                <h4 class="font-weight-bold dark-grey-text my-4">Yulia Milova</h4>
+                <h6 class="text-uppercase grey-text mb-3">
+                  Manager
+                </h6>
+              </mdb-col>
+              <mdb-col md="4" class="mb-md-0 mb-5">
+                  <b-avatar src="https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,w_800/v1596214216/photo-1581362662614-dd27d9eb9291_gn6lgc.jpg" size="10rem"></b-avatar>
+                <h4 class="font-weight-bold dark-grey-text my-4">
+                  Daniel Bar Shay
+                </h4>
+                <h6 class="text-uppercase grey-text mb-3">Web Developer</h6>
+              </mdb-col>
+            </mdb-row>
+          </section>
+        </mdb-container>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
+import { mdbContainer, mdbRow, mdbCol} from "mdbvue";
+import {BAvatar, AvatarPlugin} from 'bootstrap-vue';
 export default {
-
-}
+  components: {
+    mdbContainer,
+    mdbRow,
+    mdbCol,
+    BAvatar
+  }
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
 
+.display-2 {
+  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+}
+
+.display-3 {
+  font-size: 3.5rem;
+  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+}
+
+[data-aos="goLine_about"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 230px;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 574px) {
+  .display-2 {
+    text-align: center;
+    margin: 0 auto;
+  }
+  p {
+    font-size: 1rem;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .section-img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .display-2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .display-2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+  p {
+    font-size: 1rem;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .section-img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .display-2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .display-2 {
+    font-size: 4rem;
+  }
+}
 </style>

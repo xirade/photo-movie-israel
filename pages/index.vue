@@ -2,8 +2,9 @@
   <div>
     <div class="first jarallax">
       <img
-        src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963389/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_jmbkpi.jpg"
+        src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
         class="jarallax-img"
+        style="object-fit: cover;"
       />
       <mdb-mask overlay="black-slight" flexCenter>
         <div class="header-main">
@@ -42,7 +43,7 @@
         </div>
         <span
           class="active_line_2"
-          data-aos="goLine"
+          data-aos="goLine_1"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         ></span>
@@ -63,12 +64,12 @@
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
               class="card-image"
-              style="background: url('https://im.kommersant.ru/Issues.photo/NEWS/2019/06/04/KMO_128025_04493_1_t218_165707.jpg') no-repeat center;
+              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199747/photo-1590944335664-015cc7b65db1_fjdg8n.jpg') no-repeat center;
               background-size: cover;"
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="orange-text">
+                <h5 class="orange-text font-weight-bold">
                   <mdb-icon icon="camera" />PHOTOSHOOT
                 </h5>
                 <mdb-card-title tag="h3" class="pt-2 text-white">
@@ -89,11 +90,11 @@
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
               class="card-image"
-              style="background: url('https://www.proreklamu.com/media/upload/news/53162/16663.jpg') no-repeat;
+              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200217/photo-1543235074-4768b5c2233c_enepwc.jpg') no-repeat;
               background-size: cover;"
             >
               <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="blue-text"><mdb-icon icon="video" />VIDEOSHOOT</h5>
+                <h5 class="blue-text font-weight-bold"><mdb-icon icon="video" />VIDEOSHOOT</h5>
                 <mdb-card-title tag="h3" class="pt-2 text-white">
                   <strong>This is card title</strong>
                 </mdb-card-title>
@@ -112,12 +113,12 @@
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
               class="card-image"
-              style="background: url('https://regnum.ru/uploads/pictures/news/2018/12/22/regnum_picture_1545459291790432_normal.jpg') no-repeat;
+              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200689/photo-1527977966376-1c8408f9f108_w5rozf.jpg') no-repeat center;
               background-size: cover;"
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="green-text">
+                <h5 class="green-text font-weight-bold">
                   <mdb-icon icon="helicopter" />AEROPHOTO
                 </h5>
                 <mdb-card-title tag="h3" class="pt-2 text-white">
