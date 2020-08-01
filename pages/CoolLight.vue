@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container h-100">
     <CoolLightBox :items="items" :index="index" loop @close="index = null">
     </CoolLightBox>
     <div>

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <header>
+    <header class="header-main d-flex flex-column">
       <img
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
         height="120px"
         width="250px"
-        class="mx-auto mt-4 d-block"
+        class="mx-auto"
         alt="Logo"
       />
 
@@ -64,35 +64,40 @@
       </div>
       <div class="second jarallax">
         <img
-          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970345/0032_z18xq2.jpg"
+          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199012/0032_z18xq2_igcbdq.jpg"
           class="jarallax-img"
-          style="object-fit: cover;"
         />
       </div>
-        <div style="max-height:100%;" class="section-cards bg-white position-relative">
-             <span
-      class="active_line_1"
-      data-aos="goLine_xsmall"
-      data-aos-duration="1000"
-      data-aos-easing="ease-out"
-    ></span>
-          <div class="container d-flex align-items-center flex-center flex-column" style="padding-top: 150px;">
-            <h2 class="h1 my-auto text-center animated pulse infinite">BOOK NOW</h2>
-            <serviceCards class="mb-auto" />
-          </div>
+      <div
+        class="section-cards bg-white position-relative h-100"
+      >
+        <span
+          class="active_line_1"
+          data-aos="goLine_xsmall"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+        ></span>
+        <div
+          class="py-5 container d-flex flex-center flex-column"
+        >
+          <h2 class="h1 mt-5 text-center animated pulse infinite">
+            BOOK NOW
+          </h2>
+          <serviceCards class="mb-auto" />
         </div>
+      </div>
     </main>
   </div>
 </template>
 
 <script>
-import serviceCards from './services_cards';
+import serviceCards from "./services_cards";
 import Vue from "vue";
 import AOS from "aos";
 export default {
   components: {
     serviceCards
-  },
+  }
 };
 </script>
 
@@ -116,10 +121,6 @@ export default {
 
 h2 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
-}
-
-.section-cards {
-  height: 120vh;
 }
 
 .active_line_1 {
@@ -166,12 +167,6 @@ h2 {
   height: 70vh;
 }
 
-@media (min-width: 426px) and (max-width: 575px){
-  .section-cards{
-    height: 285vh !important;
-  }
-}
-
 
 @media (max-width: 575px) {
   .display-1 {
@@ -180,11 +175,8 @@ h2 {
   .display-3 {
     font-size: 2rem;
   }
-  .h5{
+  .h5 {
     font-size: 0.8rem;
-  }
-  .section-cards{
-    height: 250vh;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -194,11 +186,8 @@ h2 {
   .display-1 {
     font-size: 3rem;
   }
-    .h5{
+  .h5 {
     font-size: 1rem;
-  }
-  .section-cards{
-    height: 280vh;
   }
 }
 
@@ -209,17 +198,8 @@ h2 {
   .display-3 {
     font-size: 3.5rem;
   }
-  .h5{
+  .h5 {
     font-size: 1.2rem;
-  }
-   .section-cards{
-    height: 120vh;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-   .section-cards{
-    height: 120vh;
   }
 }
 </style>

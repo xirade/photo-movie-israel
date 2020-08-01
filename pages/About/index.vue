@@ -1,11 +1,11 @@
 <template>
   <div>
-    <header>
+    <header class="d-flex flex-column">
       <img
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
         height="120px"
         width="250px"
-        class="mx-auto mt-4 d-block"
+        class="mx-auto"
         alt="Logo"
       />
 
@@ -83,7 +83,7 @@
           <mdb-row>
             <mdb-col md="4" class="mb-md-0 mb-5">
               <b-avatar
-                src="https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,w_300/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg"
+                src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg"
                 size="10rem"
               ></b-avatar>
               <h4 class="font-weight-bold dark-grey-text my-4">Pawel Milov</h4>
@@ -91,7 +91,7 @@
             </mdb-col>
             <mdb-col md="4" class="mb-md-0 mb-5">
               <b-avatar
-                src="https://placekitten.com/300/300"
+                src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596310515/cat_1200getty_pxmgj9.jpg"
                 size="10rem"
               ></b-avatar>
               <h4 class="font-weight-bold dark-grey-text my-4">Yulia Milova</h4>
@@ -101,7 +101,7 @@
             </mdb-col>
             <mdb-col md="4" class="mb-md-0 mb-5">
               <b-avatar
-                src="https://lh3.googleusercontent.com/proxy/vQSAuVj8SYItzM8isU2fnCPT0ZMjsO7wYQuMbDSyntAF96uTChtV40k3nNcgS4k0m3ZMk9JJ5lfyNzhNWUUEy484JUwL3EOyd0GCdYa__eiK7JO8KAVrIv90gr5YaOLhgVZTxzhTj41JVGm9zzwLyZra2BPLDHE9CJjjF5ruYQ4w"
+                src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596310336/mountain_beaver-a_rufa_qwz4mt.jpg"
                 size="10rem"
               ></b-avatar>
               <h4 class="font-weight-bold dark-grey-text my-4">

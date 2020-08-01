@@ -7,12 +7,12 @@
         style="object-fit: cover;"
       />
       <mdb-mask overlay="black-slight" flexCenter>
-        <div class="header-main">
+        <div class="header-main d-flex flex-column mb-auto">
           <img
             src="~/assets/img/4log.png"
             height="120px"
             width="250px"
-            class="mx-auto mt-4 d-block"
+            class="mx-auto"
             alt="Logo"
           />
           <div id="animateFadeIn_1">
@@ -23,23 +23,14 @@
               @appear="appear"
               @after-appear="afterAppear"
             >
-              <span class="active_line_1 mt-4"></span>
+              <span class="active_line_1"></span>
             </transition>
           </div>
-          <div
-            class="container flex-center position-relative"
-            style="height: 90vh"
-          >
-            <div
-              class="white-text text-center text-uppercase animated fadeInDown slower"
-            >
-              <h1 class="display-4 title-header text-center my-0">
+              <h1 class="display-4 title-header text-center white-text animated fadeInDown slower">
                 FROM A DIFFERENT
                 <hr class="m-0" />
                 POINT OF VIEW
               </h1>
-            </div>
-          </div>
         </div>
         <span
           class="active_line_2"
@@ -215,9 +206,7 @@
       </div>
     </div>
     <div class="w-100 bg-light">
-      <div class="container">
         <CoolLight />
-      </div>
     </div>
 
     <div class="bg-white w-100" style="position: relative; height: 40vh;">
@@ -331,8 +320,7 @@ hr {
 }
 .title-header {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
-  font-weight: 500;
-  margin-top: -200px;
+  margin-top: 150px;
 }
 
 .header-main {
