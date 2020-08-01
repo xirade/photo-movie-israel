@@ -30,7 +30,6 @@ export default {
   */
   css: [
     'aos/dist/aos.css',
-    '~/assets/css/main.css',
     'mdbvue/lib/css/mdb.min.css',
     'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
   ],
@@ -40,9 +39,9 @@ export default {
   */
   plugins: [
     {src: "~/plugins/aos", ssr: false},
-    { src: '~/plugins/jarallax.js', ssr: false },
     { src: '~/plugins/CoolLightBox.js', ssr: false },
     { src: '~/plugins/cloudinary.js', ssr: false },
+    { src: '~/plugins/Parallax.js', ssr: false },
   ],
   /*
   ** Auto import components
@@ -76,8 +75,7 @@ export default {
     extend(config, ctx) {},
     transpile: [
       'mdbvue/lib/components'
-    ],
-      vendor: 'aos',
+    ]
   },
   loading: '~/components/Loading.vue'
 }

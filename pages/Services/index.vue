@@ -62,7 +62,11 @@
           </p>
         </div>
       </div>
-      <div class="second jarallax" style="background-image: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199012/0032_z18xq2_igcbdq.jpg');">
+      <div class="second jarallax">
+        <img
+          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199012/0032_z18xq2_igcbdq.jpg"
+          class="jarallax-img img-fluid"
+        />
       </div>
       <div
         class="section-cards bg-white position-relative h-100"

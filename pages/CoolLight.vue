@@ -200,7 +200,6 @@ export default {
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970343/0031_chkk3y.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970345/0032_z18xq2.jpg"
       ],
       index: null
     };

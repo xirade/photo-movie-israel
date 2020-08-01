@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="first jarallax" style="background-image: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg');">
+    <div class="first jarallax img-fluid">
+      <img class="jarallax-img" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg">
       <mdb-mask overlay="black-slight" flexCenter>
         <div class="header-main d-flex flex-column mb-auto">
           <img
