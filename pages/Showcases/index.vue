@@ -162,6 +162,10 @@ export default {
   overflow: hidden;
 }
 
+.newsCaption-title {
+  margin-top: 0.1rem;
+}
+
 .newsCaption {
   position: absolute;
   top: auto;
@@ -170,7 +174,6 @@ export default {
   left: 0;
   width: 100%;
   height: 20%;
-  padding: 15px;
   -webkit-transform: translateY(80%);
           transform: translateY(80%);
   -webkit-backface-visibility: hidden;
@@ -221,10 +224,16 @@ h2, h4 {
   .display-3 {
     font-size: 2rem;
   }
+  .newsCaption{
+    height: 20%;
+  }
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .display-3 {
     font-size: 2rem;
+  }
+  .newsCaption{
+    height: 15%;
   }
 }
 
