@@ -41,7 +41,7 @@ export default {
     {src: "~/plugins/aos", ssr: false},
     { src: '~/plugins/CoolLightBox.js', ssr: false },
     { src: '~/plugins/cloudinary.js', ssr: false },
-    { src: '~/plugins/Parallax.js', ssr: false },
+    { src: '~/plugins/jarallax.js', ssr: false }
   ],
   /*
   ** Auto import components
