@@ -1,11 +1,6 @@
 <template>
   <div>
-    <div class="first jarallax">
-      <img
-        src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
-        class="jarallax-img"
-        style="object-fit: cover;"
-      />
+    <div class="first jarallax" style="background-image: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg');">
       <mdb-mask overlay="black-slight" flexCenter>
         <div class="header-main d-flex flex-column mb-auto">
           <img

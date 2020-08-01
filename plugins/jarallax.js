@@ -1,13 +1,16 @@
 import 'object-fit-images'
 import { jarallax, jarallaxVideo } from 'jarallax'
 
+
 window.addEventListener('animationstart', function(event) {
   jarallaxVideo()
 
   jarallax(document.querySelectorAll('.jarallax'), {
-    speed: 0.2
-  })
-
+    speed: 0.2,
+    onScroll: function(calculations) {
+        console.log(calculations);
+    }
+});
   jarallax(document.querySelectorAll('.jarallax-video'), {
     speed: 0.2,
     videoSrc: 'https://youtu.be/mru3Q5m4lkY'
