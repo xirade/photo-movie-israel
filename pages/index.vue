@@ -1,6 +1,7 @@
 <template>
   <div>
-      <img v-prlx="{speed: 0.3, preserveInitialPosition: false}" class="bg" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg">
+      <div class="jarallax">
+        <img class="jarallax-img" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg">
       <mdb-mask class="position-relative" overlay="black-slight" style="height:95vh;" flexCenter>
         <div class="header-main d-flex flex-column mb-auto">
           <img
@@ -34,7 +35,7 @@
           data-aos-easing="ease-out"
         ></span>
       </mdb-mask>
-
+      </div>
     <div class="service container bg-dark p-0" style="max-width: 100%;">
       <div class="bg-white text-black d-flex justify-content-end">
         <div class="service_title">

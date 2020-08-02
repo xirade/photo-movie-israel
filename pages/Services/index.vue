@@ -64,7 +64,7 @@
       </div>
       <div class="jarallax" style="height: 90vh;">
         <img
-          v-prlx="{speed: 0.3, preserveInitialPosition: false}" class="bg" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
+          class="jarallax-img" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
         />
       </div>
       <div
