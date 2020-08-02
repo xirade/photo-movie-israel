@@ -5,7 +5,7 @@
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
         height="120px"
         width="250px"
-        class="mx-auto"
+        class="mx-auto mt-5"
         alt="Logo"
       />
 

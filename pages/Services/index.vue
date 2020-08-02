@@ -5,7 +5,7 @@
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
         height="120px"
         width="250px"
-        class="mx-auto"
+        class="mx-auto mt-5"
         alt="Logo"
       />
 
@@ -62,10 +62,9 @@
           </p>
         </div>
       </div>
-      <div class="second jarallax">
+      <div class="jarallax" style="height: 90vh;">
         <img
-          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199012/0032_z18xq2_igcbdq.jpg"
-          class="jarallax-img img-fluid"
+          v-prlx="{speed: 0.3, preserveInitialPosition: false}" class="bg" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
         />
       </div>
       <div

@@ -31,7 +31,8 @@ export default {
   css: [
     'aos/dist/aos.css',
     'mdbvue/lib/css/mdb.min.css',
-    'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+    'vue-cool-lightbox/dist/vue-cool-lightbox.min.css',
+    '@/assets/css/main.css'
   ],
   /*
   ** Plugins to load before mounting the App

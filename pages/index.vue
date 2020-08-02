@@ -1,14 +1,13 @@
 <template>
   <div>
-    <div class="first jarallax img-fluid">
-      <img class="jarallax-img" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg">
-      <mdb-mask overlay="black-slight" flexCenter>
+      <img v-prlx="{speed: 0.3, preserveInitialPosition: false}" class="bg" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg">
+      <mdb-mask class="position-relative" overlay="black-slight" style="height:95vh;" flexCenter>
         <div class="header-main d-flex flex-column mb-auto">
           <img
             src="~/assets/img/4log.png"
             height="120px"
             width="250px"
-            class="mx-auto"
+            class="mx-auto mt-5"
             alt="Logo"
           />
           <div id="animateFadeIn_1">
@@ -35,7 +34,6 @@
           data-aos-easing="ease-out"
         ></span>
       </mdb-mask>
-    </div>
 
     <div class="service container bg-dark p-0" style="max-width: 100%;">
       <div class="bg-white text-black d-flex justify-content-end">

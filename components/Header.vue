@@ -78,7 +78,8 @@ export default {
       color: #ffffff;
     }
     .navbar {
-      position: sticky;
+      width: 100%;
+      position:fixed;
       top: 0;
       z-index: 1020;
     }
@@ -98,7 +99,8 @@ export default {
       color: #ffffff;
     }
     .navbar {
-      position: sticky;
+      width: 100%;
+      position:fixed;
       top: 0;
       z-index: 1020;
     }
@@ -122,7 +124,8 @@ export default {
       color: #6c757d;
     }
     .navbar {
-      position: sticky;
+      width: 100%;
+      position:fixed;
       top: 0;
       z-index: 1020;
     }
@@ -137,6 +140,9 @@ export default {
   .drop-list  {
     width: 100% !important;
     text-align: left !important;
+  }
+  .navbar-nav {
+    width: 75% !important;
   }
 }
 
