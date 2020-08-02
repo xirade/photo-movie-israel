@@ -5,7 +5,7 @@ document.addEventListener('animationstart', function(event) {
   jarallaxVideo()
 
   jarallax(document.querySelectorAll('.jarallax'), {
-    speed: 0.3,
+    speed: 0.2,
 });
   jarallax(document.querySelectorAll('.jarallax-video'), {
     speed: 0.2,

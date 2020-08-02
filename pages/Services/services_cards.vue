@@ -9,7 +9,7 @@
                 src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg"
                 alt="Card image cap"
               ></mdb-card-image>
-              <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
+              <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
             </a>
           </mdb-view>
           <mdb-card-body>
@@ -32,7 +32,7 @@
                   type="video/mp4"
                 />
               </video>
-              <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
+              <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
             </a>
           </mdb-view>
           <mdb-card-body>
@@ -53,7 +53,7 @@
                 src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596090961/%D0%BD%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0_zmpch0.jpg"
                 alt="Card image cap"
               ></mdb-card-image>
-              <mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
+              <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
             </a>
           </mdb-view>
           <mdb-card-body>
