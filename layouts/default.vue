@@ -1,23 +1,20 @@
 <template>
   <div id="app">
     <Header />
-          <Loading/>
-          <nuxt />
+    <nuxt />
     <Footer />
   </div>
 </template>
 
 <script>
-import Loading from '~/components/Loading.vue'
 import Vue from "vue";
 import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Header,
-    Footer,
-    Loading
+    Footer
   },
 };
 </script>

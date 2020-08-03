@@ -22,7 +22,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/camera-shutter.ico' },
-      { rel:'stylesheet', href:'assets/css/main.css', as:'font', type:'font', crossorigin:'anonymous'}
+      { rel:'stylesheet', href:'assets/css/main.css', as:'font', type:'font', crossorigin:'anonymous'},
     ],
   },
   /*
@@ -32,7 +32,8 @@ export default {
     'aos/dist/aos.css',
     'mdbvue/lib/css/mdb.min.css',
     'vue-cool-lightbox/dist/vue-cool-lightbox.min.css',
-    '@/assets/css/main.css'
+    '@/assets/css/main.css',
+    'animate.css/animate.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -42,7 +43,7 @@ export default {
     {src: "~/plugins/aos", ssr: false},
     { src: '~/plugins/CoolLightBox.js', ssr: false },
     { src: '~/plugins/cloudinary.js', ssr: false },
-    { src: '~/plugins/jarallax.js', ssr: false }
+    { src: '~/plugins/jarallax.js', ssr: false },
   ],
   /*
   ** Auto import components
@@ -78,5 +79,5 @@ export default {
       'mdbvue/lib/components'
     ]
   },
-  loading: '~/components/Loading.vue'
+  loading:'~/components/Loading.vue'
 }

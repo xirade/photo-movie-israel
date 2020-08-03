@@ -11,7 +11,7 @@
             class="mx-auto mt-5"
             alt="Logo"
           />
-          <div id="animateFadeIn_1">
+          <div>
             <transition
               appear
               appear-active-class="fade-enter-active-line-1"
@@ -28,15 +28,15 @@
                 POINT OF VIEW
               </h1>
         </div>
+      </mdb-mask>
+      </div>
+    <div class="position-relative service container bg-dark p-0" style="max-width: 100%;">
         <span
-          class="active_line_2"
-          data-aos="goLine_1"
+          class="active_line_1"
+          data-aos="goLine_service"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         ></span>
-      </mdb-mask>
-      </div>
-    <div class="service container bg-dark p-0" style="max-width: 100%;">
       <div class="bg-white text-black d-flex justify-content-end">
         <div class="service_title">
           <p class="display-5 pl-2 font-weight-bolder yellow-text">01</p>
@@ -371,6 +371,18 @@ hr {
     opacity: 1;
   }
 }
+
+[data-aos="goLine_service"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 230px;
+    opacity: 1;
+  }
+}
+
 [data-aos="goLine_1"] {
   height: 0;
   opacity: 0;

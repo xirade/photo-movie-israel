@@ -1,6 +1,5 @@
 <template>
-  <div>
-      <header class="header-main d-flex flex-column">
+    <header class="header-main d-flex flex-column">
       <img
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
         height="120px"
@@ -25,24 +24,23 @@
           <h2 class="display-3 pl-2 font-weight-bold">PORTFOLIO</h2>
         </div>
       </div>
-      <div class="w-100 h-100 bg-dark">
+      <div class="p-5 bg-dark position-relative">
         <Carousel />
       </div>
     </header>
-  </div>
 </template>
 
 <script>
-import Carousel from '~/pages/Portfolio/Carousel.vue';
+import Carousel from "~/pages/Portfolio/Carousel.vue";
 export default {
-    components: {
-        Carousel
-    }
-}
+  components: {
+    Carousel
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-    [data-aos="goLine_portfolio"] {
+[data-aos="goLine_portfolio"] {
   height: 0;
   opacity: 0;
   transition-property: height, opacity;
