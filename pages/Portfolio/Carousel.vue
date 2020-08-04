@@ -1,60 +1,64 @@
 <template>
   <div class="container position-relative">
-    <transition-group class="slider postition-relative" tag="div">
-      <div v-for="i in [currentIndex]" :key="i">
-          <img class="img-fluid animate__animated animate__fadeIn animate__delay-0.2s" :src="currentImg" />
-      </div>
-    </transition-group>
-        <a class="prev text-white" @click="prev">&#10094;</a>
-        <a class="next text-white" @click="next">&#10095;</a>
+    <div class="slider postition-relative">
+      <a class="prev text-white" @click="next">&#10094;</a>
+      <a class="next text-white" @click="prev">&#10095;</a>
+      <transition>
+        <img
+          class="img-fluid animate__animated animate__fadeIn animate__delay-0.2s"
+          v-show="isLoad"
+          :src="url"
+          @load="loaded"
+        />
+      </transition>
+      <lazyLoaded v-show="!isLoad" />
+    </div>
   </div>
 </template>
 
 <script>
+import lazyLoaded from "~/pages/Portfolio/lazyLoaded.vue";
 export default {
   name: "Slider",
+  components: {
+    lazyLoaded,
+  },
   data() {
     return {
+      url: "",
+      currentIndex: 0,
+      timer: null,
       images: [
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg"
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
       ],
-      timer: null,
-      currentIndex: 0
+      isLoad: false,
     };
   },
-
   // mounted: function() {
   //   this.startSlide();
   // },
 
   methods: {
-    // startSlide: function() {
-    //   this.timer = setInterval(this.next, 8000);
-    // },
-
-    next: function() {
-      this.currentIndex += 1;
+    next: function () {
+      this.isLoad = false;
+      this.url = this.images[this.currentIndex];
+      this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
     },
-    prev: function() {
-      this.currentIndex -= 1;
+    prev: function () {
+      this.isLoad = false;
+      this.url = this.images[this.currentIndex];
+      this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex - 1 : 0;
+    },
+    loaded() {
+      this.isLoad = true;
     },
   },
-
-  computed: {
-    currentImg: function() {
-      return this.images[Math.abs(this.currentIndex) % this.images.length];
-    }
-  },
-     mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start();
-
-      setTimeout(() => this.$nuxt.$loading.finish(), 500);
-    });
-  }
+ // startSlide: function() {
+  //   this.timer = setInterval(this.next, 8000);
+  // },
 };
 </script>
 

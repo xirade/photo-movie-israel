@@ -1,5 +1,5 @@
-<template lang="html">
-  <div class="loading-page" v-if="loading">
+<template>
+  <div class="grid-box-picturebox">
     <div class="sk-cube-grid">
       <div class="sk-cube sk-cube1"></div>
       <div class="sk-cube sk-cube2"></div>
@@ -15,41 +15,29 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    loading: false
-  }),
-  methods: {
-    start() {
-      this.loading = true;
-    },
-    finish() {
-      this.loading = false;
-    }
-  }
-};
+export default {};
 </script>
 
 <style scoped>
-.loading-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+.grid-box-picturebox{ 
+  width:100%;
   height: 100%; 
-  background: rgba(255, 255, 255, 0.8);
-  z-index: 1;
-  }
+  position: relative;       
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
+
 .sk-cube-grid {
   width: 40px;
   height: 40px;
-  margin: 300px auto;
+  margin: 160px auto;
 }
 
 .sk-cube-grid .sk-cube {
   width: 33%;
   height: 33%;
-  background-color: rgb(4, 0, 37);
+  background-color: rgb(255, 255, 255);
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
   animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
