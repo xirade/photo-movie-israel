@@ -25,14 +25,15 @@ export default {
   },
   data() {
     return {
-      url: "",
+      url: 
+        "https://res.cloudinary.com/dxeebmzdv/imageupload/v1595970342/0030_vvllm8.jpg", 
       currentIndex: 0,
       timer: null,
       images: [
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg"
       ],
       isLoad: false,
     };
@@ -43,14 +44,14 @@ export default {
 
   methods: {
     next: function () {
-      this.isLoad = false;
       this.url = this.images[this.currentIndex];
       this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
+      this.isLoad = false;
     },
     prev: function () {
-      this.isLoad = false;
       this.url = this.images[this.currentIndex];
-      this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex - 1 : 0;
+      this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
+      this.isLoad = false;
     },
     loaded() {
       this.isLoad = true;

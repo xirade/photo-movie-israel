@@ -31,10 +31,10 @@
         <mdb-col md="3" lg="2" class="follow-us">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">FOLLOW US: </h5>
           <div class="mt-2 ">
-            <a type="button" class="btn-floating btn-small btn-fb"><mdb-icon fab icon="facebook" size="2x" /></a>
-            <a type="button" class="btn-floating btn-small btn-in"><mdb-icon fab icon="instagram" size="2x" /></a>
-            <a type="button" class="btn-floating btn-small btn-you"><mdb-icon fab icon="youtube" size="2x" /></a>
-            <a type="button" class="btn-floating btn-small btn-sapp"><mdb-icon fab icon="whatsapp" size="2x" /></a>
+            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-fb" ><mdb-icon fab icon="facebook" size="2x" /></router-link>
+            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-in"><mdb-icon fab icon="instagram" size="2x" /></router-link>
+            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-you"><mdb-icon fab icon="youtube" size="2x" /></router-link>
+            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-sapp"><mdb-icon fab icon="whatsapp" size="2x" /></router-link>
           </div>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>

@@ -2,7 +2,7 @@
   <div>
     <header class="header-main d-flex flex-column">
       <img
-        src="https://res.cloudinary.com/dxeebmzdv/image/upload/e_shadow:5/v1596052405/4log_ybzwgi.png"
+        src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596646320/000_apiqou_bznbq5.png"
         height="120px"
         width="250px"
         class="mx-auto mt-5"
