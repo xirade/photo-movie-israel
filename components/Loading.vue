@@ -34,7 +34,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%; 
-  background: rgb(51, 51, 51);
+  background-color: rgb(0, 0, 0);
   z-index: 1;
   }
 .sk-chase {
@@ -42,7 +42,7 @@ export default {
   height: 40px;
   position: relative;
   animation: sk-chase 2.5s infinite linear both;
-  margin: 160px auto;
+  margin: 100px auto;
 }
 
 .sk-chase-dot {

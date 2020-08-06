@@ -1,11 +1,9 @@
 <template>
   <div class="container position-relative">
     <div class="slider postition-relative">
-      <a class="prev text-white" @click="next">&#10094;</a>
-      <a class="next text-white" @click="prev">&#10095;</a>
       <transition>
         <img
-          class="img-fluid animate__animated animate__fadeIn animate__delay-0.2s"
+          class="img-fluid animate__animated animate__fadeIn animate__delay-0.3s"
           v-show="isLoad"
           :src="url"
           @load="loaded"
@@ -56,7 +54,7 @@ export default {
       this.isLoad = true;
     },
  startSlide: function() {
-    this.timer = setInterval(this.next, 10000);
+    this.timer = setInterval(this.next, 8000);
   },
   },
 };
@@ -80,7 +78,7 @@ export default {
 
 .slider {
   display: block;
-  height: 400px;
+  height: 600px;
   max-width: 100%;
 }
 
@@ -92,6 +90,7 @@ img {
   font-family: "object-fit: cover;";
   z-index: 0;
   height: 100%;
+  width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -136,6 +135,7 @@ img {
 @media (max-width: 575.98px) {
   .slider {
     max-width: 100%;
+    height: 250px;
   }
   .next {
     right: 2% !important;

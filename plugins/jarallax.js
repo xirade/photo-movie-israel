@@ -9,12 +9,7 @@ document.addEventListener('animationstart', function(event) {
 });
 
 jarallax(document.querySelectorAll('.jarallax'), {
-  disableParallax: function () {
-      return /iPad|iPhone|iPod|Android/.test(navigator.userAgent);
-  },
-  disableVideo: function () {
-      return /iPad|iPhone|iPod|Android/.test(navigator.userAgent);
-  }
+  disableParallax: /iPad|iPhone|iPod|Android/
 });
 
   jarallax(document.querySelectorAll('.jarallax-video'), {
