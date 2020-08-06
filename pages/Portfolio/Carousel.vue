@@ -1,15 +1,20 @@
 <template>
-  <div class="container position-relative">
-    <div class="slider postition-relative">
-      <transition>
-        <img
-          class="img-fluid animate__animated animate__fadeIn animate__delay-0.3s"
-          v-show="isLoad"
-          :src="url"
-          @load="loaded"
-        />
-      </transition>
-      <lazyLoaded v-show="!isLoad" />
+  <div>
+    <div class="container position-relative">
+      <div class="slider postition-relative">
+          <img class="big-img img-fluid animate__animated animate__fadeIn animate__fast" v-show="isLoad" :src="currentImg" @load="loaded" />
+        <lazyLoaded v-show="!isLoad" />
+      </div>
+    </div>
+    <div class="thumbnails">
+      <div
+        v-for="(image, index) in images"
+        :key="image.id"
+        :class="['thumbnail-image mt-2', currentIndex == index ? 'active' : '']"
+        @click="activateImage(index)"
+      >
+        <img class="small-img" :src="image.thumb" />
+      </div>
     </div>
   </div>
 </template>
@@ -23,66 +28,82 @@ export default {
   },
   data() {
     return {
-      url: "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
       currentIndex: 0,
       timer: null,
-      images: [
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg"
-      ],
       isLoad: false,
+      images: [
+        {
+          id: "0",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595970342/0030_vvllm8.jpg",
+        },
+        {
+          id: "1",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,g_face,h_133,w_200/v1595950977/5_djhizt.jpg",
+        },
+        {
+          id: "2",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595970338/0022_qjziqy.jpg",
+        },
+        {
+          id: "3",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1596709206/3_haxune_jnd6g3.jpg",
+        },
+      ],
     };
   },
-  mounted: function() {
+  mounted: function () {
     this.startSlide();
   },
 
   methods: {
     next: function () {
-      this.url = this.images[this.currentIndex];
-      this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
-      this.isLoad = false;
+        var active = this.currentIndex;
+        active++;
+        if (active >= this.images.length) {
+          active = 0;
+        }
+        this.isLoad = false;
+        this.activateImage(active);
     },
-    prev: function () {
-      this.url = this.images[this.currentIndex];
-      this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
-      this.isLoad = false;
+    activateImage(imgIndex) {
+      this.currentIndex = imgIndex;
     },
     loaded() {
       this.isLoad = true;
     },
- startSlide: function() {
-    this.timer = setInterval(this.next, 8000);
+    startSlide: function () {
+      this.timer = setInterval(this.next, 8000);
+    },
   },
-  },
+   computed: {
+    currentImg: function() {
+      return this.images[Math.abs(this.currentIndex) % this.images.length].big;
+    }
+  }
 };
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease-in-out;
-  overflow: hidden;
-  visibility: visible;
-  position: absolute;
-  opacity: 1;
-}
-
-.fade-enter,
-.fade-leave-to {
-  visibility: hidden;
-  opacity: 0;
-}
-
 .slider {
+  position: relative;
   display: block;
   height: 600px;
   max-width: 100%;
 }
 
-img {
+.big-img {
   position: absolute;
   object-fit: cover;
   background-position: center center;
@@ -130,6 +151,32 @@ img {
 .prev:active,
 .next:active {
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.thumbnail-image {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.thumbnail-image > .small-img {
+  width: 100%;
+  height: auto;
+  transition: all 250ms;
+  opacity: 0.6;
+}
+
+.thumbnail-image:hover > .small-img,
+.thumbnail-image.active > .small-img {
+  opacity: 1;
+  box-shadow: 2px 2px 6px 1px rgba(160, 231, 243, 0.3);
 }
 
 @media (max-width: 575.98px) {

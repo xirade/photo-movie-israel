@@ -33,6 +33,10 @@
 <script>
 import Carousel from "~/pages/Portfolio/Carousel.vue";
 export default {
+  data () {
+    return {
+    }
+  },
   components: {
     Carousel
   }
