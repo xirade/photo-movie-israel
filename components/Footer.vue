@@ -15,7 +15,6 @@
           <ul class="list-unstyled">
             <p><router-link tag="a" :to="'/Services'">SERVICE</router-link></p> 
             <p><router-link tag="a" :to="'/About'">ABOUT</router-link></p>
-            <p><router-link tag="a" :to="'/Media'">SHOWCASES</router-link></p>
             <p><router-link tag="a" :to="'/Portfolio'">PORTFOLIO</router-link></p>
             <p><router-link tag="a" :to="'/Contacts'">CONTACTS</router-link></p>
           </ul>
@@ -23,18 +22,20 @@
         <hr class="clearfix w-100 d-md-none"/>
         <mdb-col md="5" lg="3">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">ADRESS:</h5>
-          <p><mdb-icon icon="home" class="mr-3" /> Israel, Maale-Adumim, HaNevel st.23, ap.6</p>
-          <p><mdb-icon icon="envelope" class="mr-3" />  pawel.milov@gmail.com</p>
-          <p><mdb-icon icon="phone" class="mr-3" /> +972506786932</p>
+          <a href="https://goo.gl/maps/o7bshSNLDHgjWBh16" target="_black"><mdb-icon icon="home"  class="mr-3" /> Israel, Maale-Adumim, HaNevel st.23, ap.13</a>
+          <hr>
+          <a href="mailto:pawel.milov@gmail.com" target="_black"><mdb-icon icon="envelope" class="mr-3" /> pawel.milov@gmail.com</a>
+          <hr>
+          <a href="https://api.whatsapp.com/send?phone=972506786932" target="_black"><mdb-icon icon="phone" class="mr-3" /> +972506786932</a>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>
         <mdb-col md="3" lg="2" class="follow-us">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">FOLLOW US: </h5>
           <div class="mt-2 ">
-            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-fb" ><mdb-icon fab icon="facebook" size="2x" /></router-link>
-            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-in"><mdb-icon fab icon="instagram" size="2x" /></router-link>
-            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-you"><mdb-icon fab icon="youtube" size="2x" /></router-link>
-            <router-link type="button" :to="'/'" class="btn-floating btn-small btn-sapp"><mdb-icon fab icon="whatsapp" size="2x" /></router-link>
+            <a class="fb-ic" target="_blank" href="https://www.facebook.com/PhotoVideoIsrael/"><i class="fab fa-facebook fa-lg white-text mr-2"> </i></a>
+            <a class="ins-ic" target="_blank" href="https://www.instagram.com/pashamily/"><i class="fab fa-instagram fa-lg white-text mr-2"> </i></a>
+            <a class="wts-ic" target="_blank" href="https://api.whatsapp.com/send?phone=972506786932"><i class="fab fa-whatsapp fa-lg white-text mr-2"> </i></a>
+            <a class="you-ic" target="_blank" href="https://www.youtube.com/channel/UCuK3rKJhAxZDfC9adkRFG_A/"><i class="fab fa-youtube fa-lg white-text mr-2"> </i></a>
           </div>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>

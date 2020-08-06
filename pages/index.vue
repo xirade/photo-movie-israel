@@ -15,9 +15,6 @@
             <transition
               appear
               appear-active-class="fade-enter-active-line-1"
-              @before-appear="beforeAppear"
-              @appear="appear"
-              @after-appear="afterAppear"
             >
               <span class="active_line_1"></span>
             </transition>
@@ -200,7 +197,7 @@
         ></span>
       </div>
     </div>
-    <div class="w-100 bg-light">
+    <div class="bg-light">
         <CoolLight />
     </div>
 
@@ -248,15 +245,6 @@ import {
 export default {
   em: "#animateFadeIn_1",
   methods: {
-    beforeAppear: function(em) {
-      console.log("beforeAppear");
-    },
-    appear: function(em) {
-      console.log("appear!");
-    },
-    afterAppear: function(em) {
-      console.log("afterAppear!");
-    }
   },
   components: {
     CoolLight,

@@ -13,9 +13,8 @@
         <b-nav-item :to="{path: '/'}">Home</b-nav-item>
         <b-nav-item :to="{path: '/Services'}">Services</b-nav-item>
         <b-nav-item :to="{path: '/About'}">About</b-nav-item>
-        <b-nav-item :to="{path: '/Showcases'}">Showcases</b-nav-item>
-         <b-nav-item-dropdown  text="Portfolio" style="position-relative;">
-          <b-dropdown-item :to="{path: '/Portfolio'}" class="drop-list text-center">Photomodels</b-dropdown-item>
+         <b-nav-item-dropdown text="Portfolio" style="position-relative;">
+          <b-dropdown-item :to="{path: '/Portfolio/photomodels'}" class="drop-list text-center">Photomodels</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center">Street</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center">Family</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center">Wedding</b-dropdown-item>
@@ -63,6 +62,9 @@ export default {
 </script>
 
 <style lang="scss" >
+ ul.navbar-nav li.dropdown:hover ul.dropdown-menu {
+            display: block;
+        }
 
 @media (max-width: 575.98px) { 
     .navbar .dropdown-menu {
@@ -150,7 +152,7 @@ export default {
   .navbar .dropdown-menu{
     position: absolute !important;
     background-color: white !important;
-    margin-top: 45px;
+    margin-top: 40px;
   }
   .drop-list  {
     width: 100% !important;

@@ -4,7 +4,7 @@
     </CoolLightBox>
     <div>
       <mdb-row>
-        <mdb-col md="12" class="m-0  mt-2">
+        <mdb-col md="12" class="m-0 px-0 mt-2">
           <mdb-view class="zoom overlay">
             <video class="video-fluid z-depth-1" autoplay loop muted>
               <source :src="video" type="video/mp4" />
@@ -29,10 +29,7 @@
             </mdb-mask>
           </mdb-view>
         </mdb-col>
-      </mdb-row>
-
-      <mdb-row>
-        <mdb-col md="4" class="m-0 py-2">
+        <mdb-col md="4" class="m-0 px-0">
           <mdb-view class="zoom overlay">
             <img class="img-fluid z-depth-1" :src="items[1]" alt="zoom" />
             <mdb-mask
@@ -55,8 +52,30 @@
             </mdb-mask>
           </mdb-view>
         </mdb-col>
-
-        <mdb-col md="5" class="m-0 py-2">
+        <mdb-col md="4" class="m-0 px-0">
+          <mdb-view class="zoom overlay">
+            <img class="img-fluid z-depth-1" :src="items[3]" alt="zoom" />
+            <mdb-mask
+              waves
+              overlay="black-light"
+              class="white-text d-flex flex-column"
+            >
+              <p class="display-3  my-auto mx-auto flex-center" style>
+                Adventure time
+              </p>
+              <div class="tool-icon ml-2 mb-2">
+                <a href="#!" class="icon-feedback">
+                  <mdb-icon far size="lg" icon="heart" />13
+                </a>
+                <a href="#!" class="icon-feedback">
+                  <mdb-icon size="lg" icon="comment" />25
+                </a>
+              </div>
+              <button class="full-img-slider" v-on:click="setIndex(3)"></button>
+            </mdb-mask>
+          </mdb-view>
+        </mdb-col>
+        <mdb-col md="4" class="m-0 px-0">
           <mdb-view class="zoom overlay">
             <img class="img-fluid z-depth-1" :src="items[2]" alt="zoom" />
             <mdb-mask
@@ -79,31 +98,15 @@
             </mdb-mask>
           </mdb-view>
         </mdb-col>
+      </mdb-row>
 
-        <mdb-col md="3" class="py-2">
-          <mdb-view class="zoom overlay">
-            <img class="img-fluid z-depth-1" :src="items[3]" alt="zoom" />
-            <mdb-mask
-              waves
-              overlay="black-light"
-              class="white-text d-flex flex-column"
-            >
-              <p class="display-5 my-auto mx-auto flex-center" style>
-                Adventure time
-              </p>
-              <div class="tool-icon ml-2 mb-2">
-                <a href="#!" class="icon-feedback">
-                  <mdb-icon far size="lg" icon="heart" />13
-                </a>
-                <a href="#!" class="icon-feedback">
-                  <mdb-icon size="lg" icon="comment" />25
-                </a>
-              </div>
-              <button class="full-img-slider" v-on:click="setIndex(3)"></button>
-            </mdb-mask>
-          </mdb-view>
-        </mdb-col>
-        <mdb-col md="5" class="m-0 py-2">
+      <mdb-row>
+
+         
+           
+
+       
+        <mdb-col md="7" class="m-0 px-0">
           <mdb-view class="zoom overlay">
             <img class="img-fluid z-depth-1" :src="items[4]" alt="zoom" />
             <mdb-mask
@@ -126,7 +129,7 @@
             </mdb-mask>
           </mdb-view>
         </mdb-col>
-        <mdb-col md="4" class="m-0 py-2">
+        <mdb-col md="3" class="m-0 px-0">
           <mdb-view class="zoom overlay">
             <img class="img-fluid z-depth-1" :src="items[5]" alt="zoom" />
             <mdb-mask
@@ -134,7 +137,7 @@
               overlay="black-light"
               class="white-text d-flex flex-column"
             >
-              <p class="display-3 my-auto mx-auto flex-center">
+              <p class="display-5 my-auto mx-auto flex-center">
                 Adventure time
               </p>
               <div class="tool-icon ml-2 mb-2">
@@ -149,7 +152,7 @@
             </mdb-mask>
           </mdb-view>
         </mdb-col>
-        <mdb-col md="3" class="m-0 py-2">
+        <mdb-col md="2" class="m-0 px-0">
           <mdb-view class="zoom overlay">
             <img class="img-fluid z-depth-1" :src="items[6]" alt="zoom" />
             <mdb-mask
@@ -190,10 +193,10 @@ export default {
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970088/0026_nfvrt1.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963380/0018_dmrxjg.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950976/4_r3bmou.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_fit,h_2400/v1595950979/6_bc7f0u.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_fit,h_2400/v1595963375/0013_rg5rks.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,h_2400/v1595963385/0010_yjpe42.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,h_2400/v1595963382/0011_ogxbtk.jpg",
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596709206/3_haxune_jnd6g3.jpg",
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg",
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_fill,h_1500/v1595963385/0010_yjpe42.jpg",
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,h_1500/v1595963382/0011_ogxbtk.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
@@ -234,7 +237,7 @@ export default {
   z-index: 1;
 }
 .display-5 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 @media (max-width: 575px) {
@@ -245,6 +248,12 @@ export default {
 @media (min-width: 576px) and (max-width: 767px) {
   .display-5 {
     font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .display-5 {
+    font-size: 1.9rem;
   }
 }
 </style>

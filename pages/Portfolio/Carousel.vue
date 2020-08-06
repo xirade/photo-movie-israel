@@ -25,22 +25,21 @@ export default {
   },
   data() {
     return {
-      url: 
-        "https://res.cloudinary.com/dxeebmzdv/imageupload/v1595970342/0030_vvllm8.jpg", 
+      url: "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
       currentIndex: 0,
       timer: null,
       images: [
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
         "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg"
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
+        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg"
       ],
       isLoad: false,
     };
   },
-  // mounted: function() {
-  //   this.startSlide();
-  // },
+  mounted: function() {
+    this.startSlide();
+  },
 
   methods: {
     next: function () {
@@ -56,10 +55,10 @@ export default {
     loaded() {
       this.isLoad = true;
     },
+ startSlide: function() {
+    this.timer = setInterval(this.next, 10000);
   },
- // startSlide: function() {
-  //   this.timer = setInterval(this.next, 8000);
-  // },
+  },
 };
 </script>
 
