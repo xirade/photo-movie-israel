@@ -1,4 +1,3 @@
-import 'object-fit-images'
 import { jarallax} from 'jarallax'
 
 document.addEventListener('animationstart', function(event) {

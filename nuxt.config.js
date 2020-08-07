@@ -44,6 +44,9 @@ export default {
     { src: '~/plugins/CoolLightBox.js', ssr: false },
     { src: '~/plugins/cloudinary.js', ssr: false },
     { src: '~/plugins/jarallax.js', ssr: false },
+    { src: '~/plugins/Masonry.js', ssr: false },
+    { src: '~/nuxt.config.js', ssr: false },
+
   ],
   /*
   ** Auto import components

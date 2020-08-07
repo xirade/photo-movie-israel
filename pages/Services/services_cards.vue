@@ -115,6 +115,9 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  background-color: #fff;
+}
     .card-title {
         font-family: "DINNeuzeitGroteskLTW01-BdCn";
     }

@@ -22,7 +22,7 @@
       <div class="bg-white container text-black d-flex justify-content-end">
         <div class="service_title mt-5 w-50">
           <p class="display-5 pl-2 font-weight-bolder yellow-text">01</p>
-          <h2 class="display-3 pl-2 font-weight-bold">SERVICE</h2>
+          <h2 class="display-3 pl-2 font-weight-bold">SERVICES</h2>
         </div>
       </div>
     </header>

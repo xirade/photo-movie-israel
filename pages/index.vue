@@ -197,7 +197,7 @@
         ></span>
       </div>
     </div>
-    <div class="bg-light">
+    <div>
         <CoolLight />
     </div>
 
@@ -310,7 +310,7 @@ hr {
   position: relative;
 }
 .card {
-  background-color: #fffde7;
+  background-color: #212121;
 }
 .active_line_1 {
   width: 4px;

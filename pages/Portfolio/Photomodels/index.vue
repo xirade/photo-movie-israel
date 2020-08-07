@@ -24,7 +24,11 @@
           <h2 class="display-3 pl-2 font-weight-bold">PORTFOLIO</h2>
         </div>
       </div>
-      <div class="p-5 bg-dark position-relative">
+      <div class="py-5 bg-dark position-relative">
+        <div class="d-flex justify-content-between">
+          <span><a>Back</a></span>
+          <h2 class="mx-auto">Photomodels</h2>
+        </div>
         <Carousel />
       </div>
     </header>

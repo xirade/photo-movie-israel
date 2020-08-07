@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container position-relative">
+  <div class="container mt-5">
+    <div class="px-0 position-relative">
       <div class="slider postition-relative">
           <img class="big-img img-fluid animate__animated animate__fadeIn animate__fast" v-show="isLoad" :src="currentImg" @load="loaded" />
         <lazyLoaded v-show="!isLoad" />
@@ -10,7 +10,7 @@
       <div
         v-for="(image, index) in images"
         :key="image.id"
-        :class="['thumbnail-image mt-2', currentIndex == index ? 'active' : '']"
+        :class="['thumbnail-image', currentIndex == index ? 'active' : '']"
         @click="activateImage(index)"
       >
         <img class="small-img" :src="image.thumb" />
@@ -69,8 +69,7 @@ export default {
 
   methods: {
     next: function () {
-        var active = this.currentIndex;
-        active++;
+        var active = this.currentIndex + 1;
         if (active >= this.images.length) {
           active = 0;
         }
@@ -84,7 +83,7 @@ export default {
       this.isLoad = true;
     },
     startSlide: function () {
-      this.timer = setInterval(this.next, 8000);
+      this.timer = setInterval(this.next, 4000);
     },
   },
    computed: {
@@ -176,7 +175,7 @@ export default {
 .thumbnail-image:hover > .small-img,
 .thumbnail-image.active > .small-img {
   opacity: 1;
-  box-shadow: 2px 2px 6px 1px rgba(160, 231, 243, 0.3);
+  box-shadow: 0 0 0.8rem rgba(160, 231, 243, 0.3);
 }
 
 @media (max-width: 575.98px) {
