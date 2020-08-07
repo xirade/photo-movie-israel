@@ -12,7 +12,7 @@
       </mdb-view>
     </div>
     <div>
-      <div class="grid position-relative">
+      <div id="grid" class="grid position-relative">
         <div class="grid-sizer"></div>
         <div class="grid-item grid-item--width1 grid-item--height3">
           <mdb-view class="overlay" style="position: unset;">
