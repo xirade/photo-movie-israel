@@ -32,6 +32,7 @@
           <mdb-row class="d-flex justify-content-center">
             <mdb-col md="6" xl="5" class="mb-4">
               <mdb-view class="newsCard news-Slide-up overlay rounded z-depth-2">
+                <router-link :to="'/portfolio/photomodels'">
                 <img
                   src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596231520/0033_bt1acl.jpg"
                   alt="sample photo"
@@ -39,10 +40,11 @@
                 />
                   <mdb-mask waves overlay="black-light">
                     <div class="bg-dark text-white newsCaption">
-                      <h4 class="newsCaption-title text-uppercase">Lorem, ipsum dolor.</h4>
+                      <h4 class="newsCaption-title text-uppercase">Photomodels</h4>
                       <p class="newsCaption-content" >November 2018</p>
                     </div>
                   </mdb-mask>
+                </router-link>
               </mdb-view>
             </mdb-col>
             <mdb-col md="6" xl="5" class="mb-4">

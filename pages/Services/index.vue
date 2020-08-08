@@ -86,6 +86,14 @@
         </div>
       </div>
     </main>
+    <div class="position-relative">
+        <span
+      class="active_line_1"
+      data-aos="goLine_xsmall"
+      data-aos-duration="1000"
+      data-aos-easing="ease-out"
+    ></span>
+    </div>
   </div>
 </template>
 
@@ -148,7 +156,7 @@ h2 {
   transition-property: height, opacity;
 
   &.aos-animate {
-    height: 60px;
+    height: 45px;
     opacity: 1;
   }
 }

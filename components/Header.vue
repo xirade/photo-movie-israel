@@ -10,11 +10,11 @@
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
       <b-navbar-nav class="container w-50 mx-auto text-center">
-        <b-nav-item :to="{path: '/'}">Home</b-nav-item>
-        <b-nav-item :to="{path: '/Services'}">Services</b-nav-item>
-        <b-nav-item :to="{path: '/About'}">About</b-nav-item>
+        <b-nav-item :href="'/'">Home</b-nav-item>
+        <b-nav-item :to="{path: '/services'}">Services</b-nav-item>
+        <b-nav-item :to="{path: '/about'}">About</b-nav-item>
          <b-nav-item-dropdown  text="Portfolio" style="position-relative;">
-          <b-dropdown-item :to="{path: '/Portfolio/photomodels'}" class="drop-list text-center">Photomodels</b-dropdown-item>
+          <b-dropdown-item :to="{path: '/portfolio/photomodels'}" class="drop-list text-center">Photomodels</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center">Street</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center">Family</b-dropdown-item>
           <b-dropdown-item href="#" class="drop-list text-center">Wedding</b-dropdown-item>

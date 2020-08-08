@@ -1,15 +1,19 @@
 import Masonry from "masonry-layout";
 import imagesLoaded from "imagesloaded";
 
-var grid = document.querySelector('.grid');
 var msnry;
-
-document.addEventListener('animationstart', function(event) {
-  imagesLoaded( grid, function() {
-  msnry = new Masonry( grid, {
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true
+var grid = document.querySelector(".grid");
+imagesLoaded( grid, function(){
+    msnry = new Masonry(grid, {
+    itemSelector: ".grid-item",
+    columnWidth: ".grid-sizer",
+    percentPosition: true,
+    initLayout: false,
+  })
+  msnry.on( 'layoutComplete', function( items ) {
+    console.log( items.length );
   });
-});
+  // trigger initial layout
+  msnry.layout();
 })
+

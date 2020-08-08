@@ -10,7 +10,7 @@
       />
 
       <div class="service mt-4 position-relative">
-        <div id="animateFadeIn_1">
+        <div id="animateFadeIn_3">
           <span
             class="active_line_1"
             data-aos="goLine_about"
@@ -21,9 +21,7 @@
       </div>
       <div class="bg-white container text-black d-flex justify-content-end">
         <div class="service_title mt-5 w-50">
-          <p class="display-5 pl-2 text-left font-weight-bolder yellow-text">
-            02
-          </p>
+          <p class="display-5 pl-2 text-left font-weight-bolder yellow-text">02</p>
           <h2 class="display-3 pl-2 font-weight-bold">ABOUT</h2>
         </div>
       </div>
@@ -34,11 +32,10 @@
         <mdb-container class="mx-auto">
           <section>
             <mdb-row class="mx-auto">
-              <mdb-col class=" mt-5 mx-auto" md="6">
+              <mdb-col class="mt-5 mx-auto" md="6">
                 <h2 class="display-2 mb-3 white-text mt-5">
                   WE TAKE PICTURES
-                  <hr class="m-0" style="border: 0;" />
-                  FROM ABOVE
+                  <hr class="m-0" style="border: 0;" />FROM ABOVE
                 </h2>
                 <p class="font-weight-light grey-text mt-5">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
@@ -54,7 +51,7 @@
                 <img
                   src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596206354/julius-drost-dS-q7-zkD9c-unsplash_jagklb.jpg"
                   alt="Sample project image"
-                  class="section-img img-fluid  rounded z-depth-1"
+                  class="section-img img-fluid rounded z-depth-1"
                 />
               </mdb-col>
             </mdb-row>
@@ -72,9 +69,7 @@
       ></span>
       <mdb-container class="py-5">
         <section id="team-section" class="text-center">
-          <h2 class="h1-responsive font-weight-bold my-5">
-            OUR AMAZING TEAM
-          </h2>
+          <h2 class="h1-responsive font-weight-bold my-5">OUR AMAZING TEAM</h2>
           <p class="grey-text w-responsive mb-5 mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
             error amet numquam iure provident voluptate esse quasi, veritatis
@@ -95,30 +90,34 @@
                 size="10rem"
               ></b-avatar>
               <h4 class="font-weight-bold dark-grey-text my-4">Yulia Milova</h4>
-              <h6 class="text-uppercase grey-text mb-3">
-                Manager
-              </h6>
+              <h6 class="text-uppercase grey-text mb-3">Manager</h6>
             </mdb-col>
             <mdb-col md="4" class="mb-md-0 mb-5">
               <b-avatar
                 src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596310336/mountain_beaver-a_rufa_qwz4mt.jpg"
                 size="10rem"
               ></b-avatar>
-              <h4 class="font-weight-bold dark-grey-text my-4">
-                Daniel Bar Shay
-              </h4>
+              <h4 class="font-weight-bold dark-grey-text my-4">Daniel Bar Shay</h4>
               <h6 class="text-uppercase grey-text mb-3">Web Developer</h6>
             </mdb-col>
           </mdb-row>
         </section>
       </mdb-container>
+      <span
+        class="active_line_1"
+        data-aos="goLine_xsmall"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></span>
     </footer>
-    <span
-      class="active_line_1"
-      data-aos="goLine_xsmall"
-      data-aos-duration="1000"
-      data-aos-easing="ease-out"
-    ></span>
+    <div class="position-relative">
+      <span
+        class="active_line_1"
+        data-aos="goLine_xsmall"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></span>
+    </div>
   </div>
 </template>
 
@@ -130,12 +129,22 @@ export default {
     mdbContainer,
     mdbRow,
     mdbCol,
-    BAvatar
-  }
+    BAvatar,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.active_line_1 {
+  width: 4px;
+  top: 0;
+  position: absolute;
+  left: 50%;
+  opacity: 1;
+  overflow: hidden;
+  background-color: rgba(255, 196, 46, 0.8);
+}
+
 .display-2,
 h2,
 h4 {

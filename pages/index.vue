@@ -244,8 +244,6 @@ import {
 } from "mdbvue";
 export default {
   em: "#animateFadeIn_1",
-  methods: {
-  },
   components: {
     CoolLight,
     mdbContainer,
@@ -268,7 +266,7 @@ export default {
     mdbView,
     mdbMask,
     mdbIcon
-  }
+  },
 };
 </script>
 

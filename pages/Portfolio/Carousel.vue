@@ -1,20 +1,22 @@
 <template>
-  <div class="container mt-5">
+  <div class="container mt-2">
     <div class="px-0 position-relative">
       <div class="slider postition-relative">
           <img class="big-img img-fluid animate__animated animate__fadeIn animate__fast" v-show="isLoad" :src="currentImg" @load="loaded" />
         <lazyLoaded v-show="!isLoad" />
       </div>
     </div>
-    <div class="thumbnails">
+    <div class="thumbnails position-relative">
       <div
         v-for="(image, index) in images"
         :key="image.id"
         :class="['thumbnail-image', currentIndex == index ? 'active' : '']"
         @click="activateImage(index)"
       >
-        <img class="small-img" :src="image.thumb" />
+        <img v-if="image.id < 4" class="small-img ml-2" :src="image.thumb" />
       </div>
+        <a class="next" @click="next">&#10095;</a>
+        <a class="prev" @click="prev">&#10094;</a>
     </div>
   </div>
 </template>
@@ -60,16 +62,48 @@ export default {
           thumb:
             "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1596709206/3_haxune_jnd6g3.jpg",
         },
+        {
+          id: "4",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950978/7_qfounv.jpg",
+        },
+        {
+          id: "5",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596709015/%D1%81%D0%BA%D0%B0%D0%BC%D0%B5%D0%B9%D0%BA%D0%B0_qwfr6z.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1596709015/%D1%81%D0%BA%D0%B0%D0%BC%D0%B5%D0%B9%D0%BA%D0%B0_qwfr6z.jpg",
+        },
+        {
+          id: "6",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950779/1_guaw1o.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg",
+        },
+        {
+          id: "7",
+          big:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950915/2_vzvvds.jpg",
+          thumb:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950915/2_vzvvds.jpg",
+        },
       ],
     };
   },
-  mounted: function () {
-    this.startSlide();
-  },
-
   methods: {
     next: function () {
         var active = this.currentIndex + 1;
+        if (active >= this.images.length) {
+          active = 0;
+        }
+        this.isLoad = false;
+        this.activateImage(active);
+    },
+    prev: function () {
+        var active = this.currentIndex - 1;
         if (active >= this.images.length) {
           active = 0;
         }
@@ -82,14 +116,11 @@ export default {
     loaded() {
       this.isLoad = true;
     },
-    startSlide: function () {
-      this.timer = setInterval(this.next, 4000);
-    },
   },
    computed: {
     currentImg: function() {
       return this.images[Math.abs(this.currentIndex) % this.images.length].big;
-    }
+    },
   }
 };
 </script>
@@ -121,7 +152,7 @@ export default {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 30%;
   width: auto;
   padding: 16px;
   color: white;
@@ -135,16 +166,16 @@ export default {
 }
 
 .next {
-  right: 25%;
+  right: 0;
 }
 
 .prev {
-  left: 25%;
+  left: 0;
 }
 
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .prev:active,
@@ -178,47 +209,24 @@ export default {
   box-shadow: 0 0 0.8rem rgba(160, 231, 243, 0.3);
 }
 
+@media (min-width: 300px) and (max-width: 574px) {
+  .prev, .next {
+    top:0 !important;
+  }
+}
 @media (max-width: 575.98px) {
   .slider {
     max-width: 100%;
-    height: 250px;
+    height: 300px;
   }
-  .next {
-    right: 2% !important;
-  }
-
-  .prev {
-    left: 2% !important;
+  .prev, .next {
+    top:10%;
   }
 }
 
-@media (max-width: 767.98px) {
-  .next {
-    right: 10% !important;
+@media (min-width: 576px) and (max-width: 767px) {
+  .prev, .next {
+    top:10%;
   }
-
-  .prev {
-    left: 10% !important;
   }
-}
-
-@media (max-width: 991.98px) {
-  .next {
-    right: 15% !important;
-  }
-
-  .prev {
-    left: 15% !important;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .next {
-    right: 20%;
-  }
-
-  .prev {
-    left: 20%;
-  }
-}
 </style>

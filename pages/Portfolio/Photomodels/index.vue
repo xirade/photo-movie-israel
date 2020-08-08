@@ -9,7 +9,7 @@
       />
 
       <div class="service mt-4 position-relative">
-        <div id="animateFadeIn_1">
+        <div id="animateFadeIn_2">
           <span
             class="active_line_1"
             data-aos="goLine_portfolio"
@@ -25,9 +25,10 @@
         </div>
       </div>
       <div class="py-5 bg-dark position-relative">
-        <div class="d-flex justify-content-between">
-          <span><a>Back</a></span>
-          <h2 class="mx-auto">Photomodels</h2>
+        <div class="container mt-4 d-flex flex-center justify-content-center">
+          <span class="mr-auto"><router-link class="h4 text-uppercase" style="text-decoration: none; color: #6c757d;"  
+          tag="a" :to="'/Portfolio'">Back</router-link></span>
+          <h2 class="h2 white-text mr-auto text-center pr-5">Photomodels</h2>
         </div>
         <Carousel />
       </div>
@@ -48,6 +49,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.active_line_1 {
+  width: 4px;
+  top: 0;
+  position: absolute;
+  left: 50%;
+  opacity: 1;
+  overflow: hidden;
+  background-color: rgba(255, 196, 46, 0.8);
+}
+
 [data-aos="goLine_portfolio"] {
   height: 0;
   opacity: 0;
@@ -58,9 +69,17 @@ export default {
     opacity: 1;
   }
 }
+
+.h2, .h4, .display-3 {
+  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+}
+
+.h4:hover {
+  color: white !important;
+}
+
 .display-3 {
   font-size: 3.5rem;
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 @media (max-width: 575px) {
   .display-3 {

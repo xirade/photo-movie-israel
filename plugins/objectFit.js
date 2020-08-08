@@ -1,2 +1,4 @@
 import 'object-fit-images'
-objectFitImages('img.some-image', {watchMQ: true});
+
+var gridImages = document.querySelector('.grid');
+objectFitImages(gridImages, {watchMQ: true});

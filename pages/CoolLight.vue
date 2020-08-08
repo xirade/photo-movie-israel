@@ -12,7 +12,7 @@
       </mdb-view>
     </div>
     <div>
-      <div id="grid" class="grid position-relative">
+      <div class="position-relative grid">
         <div class="grid-sizer"></div>
         <div class="grid-item grid-item--width1 grid-item--height3">
           <mdb-view class="overlay" style="position: unset;">
@@ -67,7 +67,7 @@
 
 <script>
 import CoolLightBox from "vue-cool-lightbox";
-import { mdbView, mdbMask, mdbIcon } from "mdbvue";
+import { mdbView, mdbMask} from "mdbvue";
 import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 export default {
   data: function () {
@@ -96,19 +96,20 @@ export default {
   components: {
     CoolLightBox,
     mdbView,
-    mdbMask,
-    mdbIcon,
+    mdbMask
   },
   methods: {
     setIndex(index) {
       this.index = index;
     },
-  },
+  }
 };
 </script>
 
 <style scoped>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 .grid-img {
   position: absolute;
   object-fit: cover;
