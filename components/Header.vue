@@ -14,12 +14,12 @@
         <b-nav-item :to="{path: '/services'}">Services</b-nav-item>
         <b-nav-item :to="{path: '/about'}">About</b-nav-item>
          <b-nav-item-dropdown  text="Portfolio" style="position-relative;">
-          <b-dropdown-item :to="{path: '/portfolio/photomodels'}" class="drop-list text-center">Photomodels</b-dropdown-item>
-          <b-dropdown-item href="#" class="drop-list text-center">Street</b-dropdown-item>
-          <b-dropdown-item href="#" class="drop-list text-center">Family</b-dropdown-item>
-          <b-dropdown-item href="#" class="drop-list text-center">Wedding</b-dropdown-item>
+          <b-dropdown-item :to="{path: '/portfolio/aerophotos'}" class="drop-list text-center">Aerophotos</b-dropdown-item>
+          <b-dropdown-item :to="{path: '/portfolio/street'}" class="drop-list text-center">Street</b-dropdown-item>
+          <b-dropdown-item :href="'/portfolio/family'" class="drop-list text-center">Family</b-dropdown-item>
+          <b-dropdown-item :to="{path: '/portfolio/wedding'}" class="drop-list text-center">Wedding</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item href="#">Contacts</b-nav-item>
+        <b-nav-item :to="{path: '/contact'}">Contact</b-nav-item>
       </b-navbar-nav>
 
     </b-collapse>

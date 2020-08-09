@@ -79,8 +79,8 @@
         <div
           class="py-5 container d-flex flex-center flex-column"
         >
-          <h2 class="h1 mt-5 text-center animated pulse infinite">
-            BOOK NOW
+          <h2 class="h1 mt-5 text-center text-uppercase animated pulse infinite">
+            Our services
           </h2>
           <serviceCards class="mb-auto" />
         </div>

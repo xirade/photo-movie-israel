@@ -1,4 +1,5 @@
 <template>
+<div>
     <header class="header-main d-flex flex-column">
       <img
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596646320/000_apiqou_bznbq5.png"
@@ -28,22 +29,31 @@
         <div class="container mt-4 d-flex flex-center justify-content-center">
           <span class="mr-auto"><router-link class="h4 text-uppercase" style="text-decoration: none; color: #6c757d;"  
           tag="a" :to="'/Portfolio'">Back</router-link></span>
-          <h2 class="h2 white-text mr-auto text-center pr-5">Photomodels</h2>
+          <h2 class="h2 white-text mr-auto text-center pr-5">Family</h2>
         </div>
-        <Carousel />
+        <FamilyImages />
       </div>
     </header>
+    <div class="position-relative">
+        <span
+            class="active_line_1"
+            data-aos="goLine_xsmall"
+            data-aos-duration="1000"
+            data-aos-easing="ease-out"
+          ></span>
+    </div>
+</div>
 </template>
 
 <script>
-import Carousel from "~/pages/Portfolio/Carousel.vue";
+import FamilyImages from '~/pages/Portfolio/Family/familyImages.vue';
 export default {
   data () {
     return {
     }
   },
   components: {
-    Carousel
+      FamilyImages
   }
 };
 </script>
@@ -66,6 +76,17 @@ export default {
 
   &.aos-animate {
     height: 230px;
+    opacity: 1;
+  }
+}
+
+[data-aos="goLine_xsmall"] {
+  height: 0;
+  opacity: 0;
+  transition-property: height, opacity;
+
+  &.aos-animate {
+    height: 40px;
     opacity: 1;
   }
 }

@@ -2,7 +2,7 @@
   <div class="w-100">
     <CoolLightBox :items="items" :index="index" loop @close="index = null"></CoolLightBox>
     <div class="w-100 h-100">
-      <mdb-view class="overlay">
+      <mdb-view class="zoom overlay">
         <video class="video-fluid m-0" autoplay loop muted>
           <source :src="video" type="video/mp4" />
         </video>
@@ -15,7 +15,7 @@
       <div class="position-relative grid">
         <div class="grid-sizer"></div>
         <div class="grid-item grid-item--width1 grid-item--height3">
-          <mdb-view class="overlay" style="position: unset;">
+          <mdb-view class="zoom overlay" style="position: unset;">
             <img class="grid-img" :src="items[1]" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
               <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
@@ -24,7 +24,7 @@
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width4 grid-item--height3">
-          <mdb-view class="overlay" style="position: unset;">
+          <mdb-view class="zoom overlay" style="position: unset;">
             <img class="grid-img" :src="items[2]" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
               <p class="display-5 my-auto mx-auto flex-center">Adventure time</p>
@@ -33,7 +33,7 @@
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width2 grid-item--height4">
-          <mdb-view class="overlay" style="position: unset;">
+          <mdb-view class="zoom overlay" style="position: unset;">
             <img class="grid-img" :src="items[3]" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
               <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
@@ -42,7 +42,7 @@
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width3 grid-item--height5">
-          <mdb-view class="overlay" style="position: unset;">
+          <mdb-view class="zoom overlay" style="position: unset;">
             <img class="grid-img" :src="items[4]" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
               <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="grid-item grid-item--width2 grid-item--height4">
-          <mdb-view class="overlay" style="position: unset;">
+          <mdb-view class="zoom overlay" style="position: unset;">
             <img class="grid-img" :src="items[5]" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
               <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
@@ -117,6 +117,7 @@ export default {
   /* support for plugin https://github.com/bfred-it/object-fit-images */
   font-family: "object-fit: cover; object-position: bottom;";
   top: 0;
+  overflow: hidden;
   left: 0;
   width: 100%;
   height: 100%;
@@ -145,6 +146,7 @@ export default {
 .grid-item {
   height: 120px;
   float: left;
+  overflow: hidden;
 }
 
 .grid-item--width1 {

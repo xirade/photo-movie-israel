@@ -1,9 +1,15 @@
 <template>
   <div class="container mt-2">
     <div class="px-0 position-relative">
-      <div class="slider postition-relative">
-          <img class="big-img img-fluid animate__animated animate__fadeIn animate__fast" v-show="isLoad" :src="currentImg" @load="loaded" />
-        <lazyLoaded v-show="!isLoad" />
+      <div class="slider embed-responsive embed-responsive-16by9 z-depth-1-half position-relative">
+        <iframe class="animate__animated animate__fadeIn animate__faster video-fluid embed-responsive-item" :src="currentImg" 
+                @load="loaded"
+                v-show="isLoad"
+                allow="autoplay;fullscreen"
+                frameborder=“0”
+                allowfullscreen
+                ></iframe>
+          <LazyLoad v-show="!isLoad" />              
       </div>
     </div>
     <div class="thumbnails position-relative">
@@ -13,20 +19,18 @@
         :class="['thumbnail-image', currentIndex == index ? 'active' : '']"
         @click="activateImage(index)"
       >
-        <img v-if="image.id < 4" class="small-img ml-2" :src="image.thumb" />
+        <img class="small-img mt-2 mr-2  z-depth-1-half" :src="image.thumb" />
       </div>
-        <a class="next" @click="next">&#10095;</a>
-        <a class="prev" @click="prev">&#10094;</a>
     </div>
   </div>
 </template>
 
 <script>
-import lazyLoaded from "~/pages/Portfolio/lazyLoaded.vue";
+import LazyLoad from '~/pages/Portfolio/lazyLoaded.vue'
 export default {
   name: "Slider",
   components: {
-    lazyLoaded,
+    LazyLoad
   },
   data() {
     return {
@@ -37,61 +41,43 @@ export default {
         {
           id: "0",
           big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596981450/coverr-001-aerial-upward-sunrise-river-buildings-orange-sky-buenos-aires-argentina-quarantine-drone-4k-16x9-6885_beqwis.mp4",
           thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595970342/0030_vvllm8.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000728/Screenshot_from_2020-08-09_22-09-37_ardyrr.png",
         },
         {
           id: "1",
           big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596981429/coverr-53-new-zealand-lion-rock-piha-couple-7108_lngs6m.mp4",
           thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,g_face,h_133,w_200/v1595950977/5_djhizt.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000728/Screenshot_from_2020-08-09_22-10-16_jrgtlc.png",
         },
         {
           id: "2",
           big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596981458/coverr-motorcyclist-drives-through-palms-road-1585645703955_fy3ini.mp4",
           thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595970338/0022_qjziqy.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000728/Screenshot_from_2020-08-09_22-08-51_o6j7kh.png",
         },
         {
           id: "3",
           big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1595969486/%D0%B4%D1%80%D0%BE%D0%BD_aonvwi.mp4",
           thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1596709206/3_haxune_jnd6g3.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000859/background_n0nne4_dczfl9.jpg",
         },
         {
           id: "4",
           big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596997157/coverr-training-with-mountain-landscape-1585726970130_rok6nw.mp4",
           thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950978/7_qfounv.jpg",
-        },
-        {
-          id: "5",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596709015/%D1%81%D0%BA%D0%B0%D0%BC%D0%B5%D0%B9%D0%BA%D0%B0_qwfr6z.jpg",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1596709015/%D1%81%D0%BA%D0%B0%D0%BC%D0%B5%D0%B9%D0%BA%D0%B0_qwfr6z.jpg",
-        },
-        {
-          id: "6",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950779/1_guaw1o.jpg",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg",
-        },
-        {
-          id: "7",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950915/2_vzvvds.jpg",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950915/2_vzvvds.jpg",
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000727/Screenshot_from_2020-08-09_22-06-56_eemlwu.png",
         },
       ],
     };
+  },
+  mounted: function() {
+    this.startSlide();
   },
   methods: {
     next: function () {
@@ -102,19 +88,23 @@ export default {
         this.isLoad = false;
         this.activateImage(active);
     },
-    prev: function () {
-        var active = this.currentIndex - 1;
-        if (active >= this.images.length) {
-          active = 0;
-        }
-        this.isLoad = false;
-        this.activateImage(active);
-    },
+    // prev: function () {
+    //     var active = this.currentIndex - 1;
+    //     if (active >= this.images.length) {
+    //       active = 0;
+    //     }
+    //     this.isLoad = false;
+    //     this.activateImage(active);
+    // },
     activateImage(imgIndex) {
+      this.isLoad = false;
       this.currentIndex = imgIndex;
     },
     loaded() {
       this.isLoad = true;
+    },
+    startSlide: function() {
+      this.timer = setInterval(this.next, 11000);
     },
   },
    computed: {
@@ -129,26 +119,21 @@ export default {
 .slider {
   position: relative;
   display: block;
-  height: 600px;
   max-width: 100%;
+  max-height: 100%;
 }
 
-.big-img {
-  position: absolute;
+.big-img, .small-img {
   object-fit: cover;
-  background-position: center center;
+  object-position: center;
   /* support for plugin https://github.com/bfred-it/object-fit-images */
-  font-family: "object-fit: cover;";
+  font-family: "object-fit: cover; object-position: center;";
   z-index: 0;
   height: 100%;
   width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  filter: drop-shadow(0 0 0.25rem rgba(160, 231, 243, 0.3));
 }
 
-.prev,
+/* .prev,
 .next {
   cursor: pointer;
   position: absolute;
@@ -181,7 +166,7 @@ export default {
 .prev:active,
 .next:active {
   background-color: rgba(255, 255, 255, 0.4);
-}
+} */
 
 .thumbnails {
   display: flex;
@@ -193,7 +178,7 @@ export default {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 2px;
+  padding: 5px;
 }
 
 .thumbnail-image > .small-img {
@@ -206,7 +191,6 @@ export default {
 .thumbnail-image:hover > .small-img,
 .thumbnail-image.active > .small-img {
   opacity: 1;
-  box-shadow: 0 0 0.8rem rgba(160, 231, 243, 0.3);
 }
 
 @media (min-width: 300px) and (max-width: 574px) {

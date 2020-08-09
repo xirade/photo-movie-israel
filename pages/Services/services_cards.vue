@@ -18,7 +18,8 @@
               Some quick example text to build on the card title and make up the bulk of the
               card's content.
             </mdb-card-text>
-            <mdb-btn color="warning" class="ml-0">Read more</mdb-btn>
+            <mdb-btn color="warning" class="ml-0">
+              <mdb-icon icon="shopping-bag left" />Order now</mdb-btn>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -41,7 +42,8 @@
               Some quick example text to build on the card title and make up the bulk of the
               card's content.
             </mdb-card-text>
-            <mdb-btn class="ml-0" color="warning">Read more</mdb-btn>
+            <mdb-btn class="ml-0" color="warning">
+              <mdb-icon icon="shopping-bag left" />Order now</mdb-btn>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -62,7 +64,8 @@
               Some quick example text to build on the card title and make up the bulk of the
               card's content.
             </mdb-card-text>
-            <mdb-btn class="ml-0" color="warning">Read more</mdb-btn>
+            <mdb-btn class="ml-0" color="warning">
+              <mdb-icon icon="shopping-bag left" />Order now</mdb-btn>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>

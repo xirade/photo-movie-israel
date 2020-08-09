@@ -32,15 +32,15 @@
           <mdb-row class="d-flex justify-content-center">
             <mdb-col md="6" xl="5" class="mb-4">
               <mdb-view class="newsCard news-Slide-up overlay rounded z-depth-2">
-                <router-link :to="'/portfolio/photomodels'">
+                <router-link :to="'/portfolio/aerophotos'">
                 <img
-                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596231520/0033_bt1acl.jpg"
+                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596971743/241074099_dqe7q4.jpg"
                   alt="sample photo"
                   class="img-fluid"
                 />
                   <mdb-mask waves overlay="black-light">
                     <div class="bg-dark text-white newsCaption">
-                      <h4 class="newsCaption-title text-uppercase">Photomodels</h4>
+                      <h4 class="newsCaption-title text-uppercase">Aerophotos</h4>
                       <p class="newsCaption-content" >November 2018</p>
                     </div>
                   </mdb-mask>
@@ -49,23 +49,26 @@
             </mdb-col>
             <mdb-col md="6" xl="5" class="mb-4">
               <mdb-view class="newsCard news-Slide-up overlay rounded z-depth-2">
+                <router-link :to="'/portfolio/street'">
                 <img
-                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596231521/0014_wl1oy3.jpg"
+                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596205381/camera_naxnah.jpg"
                   alt="sample photo"
                   class="img-fluid"
                 />
                 <a>
                   <mdb-mask waves overlay="black-light">
                     <div class="bg-dark text-white newsCaption">
-                      <h4 class="newsCaption-title text-uppercase">Lorem, ipsum dolor.</h4>
+                      <h4 class="newsCaption-title text-uppercase">Street</h4>
                       <p class="newsCaption-content" >November 2018</p>
                     </div>
                   </mdb-mask>
                 </a>
+                </router-link>
               </mdb-view>
             </mdb-col>
             <mdb-col md="6" xl="5" class="mb-4">
               <mdb-view class="newsCard news-Slide-up overlay rounded z-depth-2">
+                <a :href="'/portfolio/family'">
                 <img
                   src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596231521/0017_mtb2mn.jpg"
                   alt="sample photo"
@@ -74,15 +77,17 @@
                 <a>
                   <mdb-mask waves overlay="black-light">
                     <div class="bg-dark text-white newsCaption">
-                      <h4 class="newsCaption-title text-uppercase">Lorem, ipsum dolor.</h4>
+                      <h4 class="newsCaption-title text-uppercase">Family</h4>
                       <p class="newsCaption-content" >November 2018</p>
                     </div>
                   </mdb-mask>
+                </a>
                 </a>
               </mdb-view>
             </mdb-col>
             <mdb-col md="6" xl="5" class="mb-4">
               <mdb-view class="newsCard news-Slide-up overlay rounded z-depth-2">
+                <router-link :to="'/portfolio/wedding'">
                 <img
                   src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596231522/0012_cdvwcm.jpg"
                   alt="sample photo"
@@ -91,11 +96,12 @@
                 <a>
                   <mdb-mask waves overlay="black-light">
                     <div class="bg-dark text-white newsCaption">
-                      <h4 class="newsCaption-title text-uppercase">Lorem, ipsum dolor.</h4>
+                      <h4 class="newsCaption-title text-uppercase">Wedding</h4>
                       <p class="newsCaption-content" >November 2018</p>
                     </div>
                   </mdb-mask>
                 </a>
+                </router-link>
               </mdb-view>
             </mdb-col>
           </mdb-row>
@@ -109,12 +115,14 @@
         </section>
       </mdb-container>
     </div>
-    <span
+    <div class="position-relative">
+        <span
             class="active_line_1"
             data-aos="goLine_xsmall"
             data-aos-duration="1000"
             data-aos-easing="ease-out"
           ></span>
+    </div>
   </div>
 </template>
 
@@ -143,10 +151,21 @@ export default {
     mdbBtn,
     mdbIcon
   },
+  
 };
 </script>
 
 <style lang="scss" scoped>
+
+.active_line_1 {
+  width: 4px;
+  top: 0;
+  position: absolute;
+  left: 50%;
+  opacity: 1;
+  overflow: hidden;
+  background-color: rgba(255, 196, 46, 0.8);
+}
     [data-aos="goLine_media"] {
   height: 0;
   opacity: 0;

@@ -65,7 +65,7 @@
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <mdb-btn color="orange" class="white-text">
-                  <mdb-icon icon="clone left" />View project
+                  <mdb-icon icon="shopping-bag left" />Order now
                 </mdb-btn>
               </mdb-card-body>
             </mdb-card>
@@ -88,7 +88,7 @@
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <mdb-btn color="blue" class="text-black">
-                  <mdb-icon icon="clone left" />View project
+                  <mdb-icon icon="shopping-bag left" />Order now
                 </mdb-btn>
               </mdb-card-body>
             </mdb-card>
@@ -114,7 +114,7 @@
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <mdb-btn color="green" class="text-black">
-                  <mdb-icon icon="clone left" />View project
+                  <mdb-icon icon="shopping-bag left" />Order now
                 </mdb-btn>
               </mdb-card-body>
             </mdb-card>
@@ -177,9 +177,9 @@
           nihil, dolore iure repellendus eligendi aut corrupti magnam magni
           laborum. Eum doloremque culpa minima? Laborum, ipsum doloribus.
         </p>
-        <mdb-btn color="yellow darken-3" class="px-5 mb-auto"
-          >Read more</mdb-btn
-        >
+        <nuxt-link class=" mb-auto" :to="'/about'"><mdb-btn color="yellow darken-3" class="px-5"
+          ><mdb-icon icon="clone left" />Read more</mdb-btn
+        ></nuxt-link>
       </div>
     </div>
     <div
@@ -267,6 +267,7 @@ export default {
     mdbMask,
     mdbIcon
   },
+   transition: 'fade'
 };
 </script>
 

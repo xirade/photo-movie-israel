@@ -19,7 +19,10 @@ export default {};
 .grid-box-picturebox {
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
+  top: 65%;
+  left:50%; 
+  transform: translate(-50%, -50%);
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
@@ -47,7 +50,7 @@ export default {};
   display: block;
   width: 25%;
   height: 25%;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgb(255, 255, 255);
   border-radius: 100%;
   animation: sk-chase-dot-before 2.0s infinite ease-in-out both; 
 }
@@ -79,5 +82,25 @@ export default {};
   } 100%, 0% {
     transform: scale(1.0); 
   } 
+}
+
+
+@media (max-width: 575.98px) {
+  .grid-box-picturebox {
+  top: 35%;
+}
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .grid-box-picturebox {
+  top: 35%;
+}
+  }
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+  .grid-box-picturebox {
+  top: 50%;
+}
 }
 </style>

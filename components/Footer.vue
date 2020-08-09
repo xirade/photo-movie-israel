@@ -13,10 +13,10 @@
         <mdb-col md="2" lg="2" class="mx-auto">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">About</h5>
           <ul class="list-unstyled">
-            <p><router-link tag="a" :to="'/Services'">SERVICE</router-link></p> 
-            <p><router-link tag="a" :to="'/About'">ABOUT</router-link></p>
-            <p><router-link tag="a" :to="'/Portfolio'">PORTFOLIO</router-link></p>
-            <p><router-link tag="a" :to="'/Contacts'">CONTACTS</router-link></p>
+            <p><router-link tag="a" :to="'/services'">SERVICE</router-link></p> 
+            <p><router-link tag="a" :to="'/about'">ABOUT</router-link></p>
+            <p><router-link tag="a" :to="'/portfolio'">PORTFOLIO</router-link></p>
+            <p><router-link tag="a" :to="'/contact'">CONTACT</router-link></p>
           </ul>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>
