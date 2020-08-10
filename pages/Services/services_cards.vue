@@ -19,7 +19,7 @@
               card's content.
             </mdb-card-text>
             <mdb-btn color="warning" class="ml-0">
-              <mdb-icon icon="shopping-bag left" />Order now</mdb-btn>
+              <mdb-icon icon="shopping-bag left" />Book now</mdb-btn>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -43,7 +43,7 @@
               card's content.
             </mdb-card-text>
             <mdb-btn class="ml-0" color="warning">
-              <mdb-icon icon="shopping-bag left" />Order now</mdb-btn>
+              <mdb-icon icon="shopping-bag left" />Book now</mdb-btn>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -65,7 +65,7 @@
               card's content.
             </mdb-card-text>
             <mdb-btn class="ml-0" color="warning">
-              <mdb-icon icon="shopping-bag left" />Order now</mdb-btn>
+              <mdb-icon icon="shopping-bag left" />Book now</mdb-btn>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>

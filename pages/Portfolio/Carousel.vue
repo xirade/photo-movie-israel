@@ -5,9 +5,9 @@
         <iframe class="animate__animated animate__fadeIn animate__faster video-fluid embed-responsive-item" :src="currentImg" 
                 @load="loaded"
                 v-show="isLoad"
-                allow="autoplay;fullscreen"
+                allow="autoplay;fullscreen;"
                 frameborder=“0”
-                allowfullscreen
+                loop="1"
                 ></iframe>
           <LazyLoad v-show="!isLoad" />              
       </div>
@@ -76,9 +76,6 @@ export default {
       ],
     };
   },
-  mounted: function() {
-    this.startSlide();
-  },
   methods: {
     next: function () {
         var active = this.currentIndex + 1;
@@ -102,9 +99,6 @@ export default {
     },
     loaded() {
       this.isLoad = true;
-    },
-    startSlide: function() {
-      this.timer = setInterval(this.next, 11000);
     },
   },
    computed: {
