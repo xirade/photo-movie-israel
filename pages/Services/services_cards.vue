@@ -18,8 +18,11 @@
               Some quick example text to build on the card title and make up the bulk of the
               card's content.
             </mdb-card-text>
-            <mdb-btn color="warning" class="ml-0">
-              <mdb-icon icon="shopping-bag left" />Book now</mdb-btn>
+            <nuxt-link :to="'/order'">
+              <mdb-btn color="warning" class="ml-0">
+                <mdb-icon icon="shopping-bag left" />Book now
+              </mdb-btn>
+            </nuxt-link>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -42,8 +45,11 @@
               Some quick example text to build on the card title and make up the bulk of the
               card's content.
             </mdb-card-text>
-            <mdb-btn class="ml-0" color="warning">
-              <mdb-icon icon="shopping-bag left" />Book now</mdb-btn>
+            <nuxt-link :to="'/order'">
+              <mdb-btn class="ml-0" color="warning">
+                <mdb-icon icon="shopping-bag left" />Book now
+              </mdb-btn>
+            </nuxt-link>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -64,8 +70,11 @@
               Some quick example text to build on the card title and make up the bulk of the
               card's content.
             </mdb-card-text>
-            <mdb-btn class="ml-0" color="warning">
-              <mdb-icon icon="shopping-bag left" />Book now</mdb-btn>
+            <nuxt-link :to="'/order'">
+              <mdb-btn class="ml-0" color="warning">
+                <mdb-icon icon="shopping-bag left" />Book now
+              </mdb-btn>
+            </nuxt-link>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -121,7 +130,7 @@ export default {
 .card {
   background-color: #fff;
 }
-    .card-title {
-        font-family: "DINNeuzeitGroteskLTW01-BdCn";
-    }
+.card-title {
+  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+}
 </style>

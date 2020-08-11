@@ -5,7 +5,7 @@
           tag="a" :to="'/Services'"><mdb-icon class="mr-2" icon="angle-left" />Back</router-link></span>
       <div class="text-left mt-5">
         <h3 class="h2 pt-2">Service Order Form</h3>
-        <p class="mt-3">
+        <p class="mt-3 w-50">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora est
           ipsam a nesciunt. Sint at laboriosam incidunt tenetur odit quis impedit
           hic vitae cupiditate aperiam!
@@ -27,9 +27,13 @@
             <VueCtkDateTimePicker v-model="value" :first-day-of-week="7" inline color="gray"></VueCtkDateTimePicker>
           </div>
         </mdb-col>
-        <mdb-col md="5" class="my-auto">
-          <mdb-card>
+        <mdb-col md="5">
+          <mdb-card :class="{'cardroom--unpinned': scrolled}" 
+          class="cardroom cardroom--pinned"
+          style="z-index: 1;"
+           v-on:scroll="handleScroll">
             <mdb-card-body>
+              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(54).jpg" class="img-fluid z-depth-1" alt="1">
               <mdb-card-title>Basic card</mdb-card-title>
               <p><span>6hr </span> | <span> 450₪</span></p>
               <hr class="p-2" />
@@ -84,9 +88,33 @@ export default {
   data() {
     return {
       value: null,
+      limitPosition: 600,
+      scrolled: false,
+      lastPosition: 0
     };
   },
-};
+  methods: {
+    handleScroll() {
+      if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
+        this.scrolled = true;
+        // move up!
+      }
+      if (this.lastPosition > window.scrollY) {
+        this.scrolled = false;
+        // move down
+      }
+      
+      this.lastPosition = window.scrollY;
+      this.scrolled = window.scrollY > 600;
+    }
+  }, 
+  mounted() {
+    document.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    document.removeEventListener("scroll", this.handleScroll);
+  }
+}
 </script>
 
 <style scoped>
@@ -99,5 +127,37 @@ h4,.h4, .h2 {
 }
 .card {
   background-color: #fff;
+}
+.cardroom {
+    position: fixed;
+    will-change: transform;
+    transition: transform .2s ease-in-out;
+}
+.cardroom--pinned {
+    transform: translateY(-55%);
+}
+.cardroom--unpinned {
+    transform: translateY(-115%);
+}
+
+@media (max-width: 767px) {
+  .cardroom{
+    position: relative;
+  }
+  .cardroom--pinned {
+    transform: translateY(0%);
+}
+.cardroom--unpinned {
+    transform: translateY(0%);
+}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .cardroom--pinned {
+    transform: translateY(-50%);
+}
+.cardroom--unpinned {
+    transform: translateY(-150%);
+}
 }
 </style>
