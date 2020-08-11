@@ -33,7 +33,7 @@ export default {
     'mdbvue/lib/css/mdb.min.css',
     'vue-cool-lightbox/dist/vue-cool-lightbox.min.css',
     '@/assets/css/main.css',
-    'animate.css/animate.min.css'
+    'animate.css/animate.min.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -42,7 +42,6 @@ export default {
   plugins: [
     {src: "~/plugins/aos", ssr: false},
     { src: '~/plugins/CoolLightBox.js', ssr: false },
-    { src: '~/plugins/cloudinary.js', ssr: false },
     { src: '~/plugins/jarallax.js', ssr: false },
     { src: '~/nuxt.config.js', ssr: false },
     { src: '~/plugins/Masonry.js', ssr: false },

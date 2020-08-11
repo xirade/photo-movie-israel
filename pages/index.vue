@@ -117,11 +117,11 @@
                   sit officia accusamus minus error nisi architecto nulla ipsum
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
-                <!-- <nuxt-link :to="'/order'"> -->
+                <nuxt-link :to="'/order'">
                 <mdb-btn color="green" class="text-black">
                   <mdb-icon icon="shopping-bag left" />Book now
                 </mdb-btn>
-                <!-- </nuxt-link> -->
+                </nuxt-link>
               </mdb-card-body>
             </mdb-card>
           </mdb-col>

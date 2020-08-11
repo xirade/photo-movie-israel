@@ -16,7 +16,6 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
-    "cloudinary-vue": "^1.1.1",
     "eslint-loader": "^4.0.2",
     "heroku": "^7.42.5",
     "imagesloaded": "^4.1.4",
@@ -29,8 +28,10 @@
     "nuxt": "^2.13.0",
     "object-fit-images": "^3.2.4",
     "sass-loader": "^9.0.2",
+    "v-calendar": "^1.0.8",
     "vue": "^2.6.11",
-    "vue-cool-lightbox": "^2.4.1"
+    "vue-cool-lightbox": "^2.4.1",
+    "vue-ctk-date-time-picker": "^2.5.0"
   },
   "devDependencies": {
     "node-sass": "^4.9.0",
