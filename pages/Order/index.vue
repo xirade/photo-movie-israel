@@ -5,7 +5,7 @@
           tag="a" :to="'/Services'"><mdb-icon class="mr-2" icon="angle-left" />Back</router-link></span>
       <div class="text-left mt-5">
         <h3 class="h2 pt-2">Service Order Form</h3>
-        <p class="mt-3 w-50">
+        <p class="mt-3">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora est
           ipsam a nesciunt. Sint at laboriosam incidunt tenetur odit quis impedit
           hic vitae cupiditate aperiam!
@@ -24,7 +24,9 @@
           />
           <mdb-input type="tel" label="Your phone" icon="phone" />
           <div class="mb-5">
-            <VueCtkDateTimePicker v-model="value" :first-day-of-week="7" inline color="gray"></VueCtkDateTimePicker>
+            <VueCtkDateTimePicker v-model="value" :first-day-of-week="7" locale="eng" format="YYYY-MM-DD HH:mm:ss"
+            :disabled-weekly="[5,6]" :disabled-hours="['00','01','02','03','04','05','06','07','08','22','23']" 
+            minute-interval="10" button-color="blue" color="gray"></VueCtkDateTimePicker>
           </div>
         </mdb-col>
         <mdb-col md="5">
@@ -88,7 +90,7 @@ export default {
   data() {
     return {
       value: null,
-      limitPosition: 600,
+      limitPosition: 500,
       scrolled: false,
       lastPosition: 0
     };
@@ -105,14 +107,14 @@ export default {
       }
       
       this.lastPosition = window.scrollY;
-      this.scrolled = window.scrollY > 600;
+      this.scrolled = window.scrollY > 250;
     }
   }, 
   mounted() {
-    document.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
-    document.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   }
 }
 </script>
@@ -140,6 +142,10 @@ h4,.h4, .h2 {
     transform: translateY(-115%);
 }
 
+p {
+  width: 50%;
+}
+
 @media (max-width: 767px) {
   .cardroom{
     position: relative;
@@ -149,6 +155,9 @@ h4,.h4, .h2 {
 }
 .cardroom--unpinned {
     transform: translateY(0%);
+}
+p{
+  width: 100%;
 }
 }
 

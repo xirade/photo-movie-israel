@@ -1,7 +1,10 @@
 <template>
   <div>
-      <div class="jarallax">
-        <img class="jarallax-img" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg">
+    <div class="jarallax">
+      <img
+        class="jarallax-img"
+        src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
+      />
       <mdb-mask class="position-relative" overlay="black-slight" style="height:95vh;" flexCenter>
         <div class="header-main d-flex flex-column mb-auto">
           <img
@@ -12,28 +15,24 @@
             alt="Logo"
           />
           <div>
-            <transition
-              appear
-              appear-active-class="fade-enter-active-line-1"
-            >
+            <transition appear appear-active-class="fade-enter-active-line-1">
               <span class="active_line_1"></span>
             </transition>
           </div>
-              <h1 class="display-4 title-header text-center white-text animated fadeInDown slower">
-                FROM A DIFFERENT
-                <hr class="m-0" />
-                POINT OF VIEW
-              </h1>
+          <h1 class="display-4 title-header text-center white-text animated fadeInDown slower">
+            FROM A DIFFERENT
+            <hr class="m-0" />POINT OF VIEW
+          </h1>
         </div>
       </mdb-mask>
-      </div>
+    </div>
     <div class="position-relative service container bg-dark p-0" style="max-width: 100%;">
-        <span
-          class="active_line_1"
-          data-aos="goLine_service"
-          data-aos-duration="1000"
-          data-aos-easing="ease-out"
-        ></span>
+      <span
+        class="active_line_1"
+        data-aos="goLine_service"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></span>
       <div class="bg-white text-black d-flex justify-content-end">
         <div class="service_title">
           <p class="display-5 pl-2 font-weight-bolder yellow-text">01</p>
@@ -65,9 +64,9 @@
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <nuxt-link :to="'/order'">
-                <mdb-btn color="orange" class="white-text">
-                  <mdb-icon icon="shopping-bag left" />Book now
-                </mdb-btn>
+                  <mdb-btn color="orange" class="white-text">
+                    <mdb-icon icon="shopping-bag left" />Book now
+                  </mdb-btn>
                 </nuxt-link>
               </mdb-card-body>
             </mdb-card>
@@ -79,7 +78,9 @@
               background-size: cover;"
             >
               <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="blue-text font-weight-bold"><mdb-icon icon="video" />VIDEOSHOOT</h5>
+                <h5 class="blue-text font-weight-bold">
+                  <mdb-icon icon="video" />VIDEOSHOOT
+                </h5>
                 <mdb-card-title tag="h3" class="pt-2 text-white">
                   <strong>This is card title</strong>
                 </mdb-card-title>
@@ -90,9 +91,9 @@
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <nuxt-link :to="'/order'">
-                <mdb-btn color="blue" class="text-black">
-                  <mdb-icon icon="shopping-bag left" />Book now
-                </mdb-btn>
+                  <mdb-btn color="blue" class="text-black">
+                    <mdb-icon icon="shopping-bag left" />Book now
+                  </mdb-btn>
                 </nuxt-link>
               </mdb-card-body>
             </mdb-card>
@@ -118,9 +119,9 @@
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
                 <nuxt-link :to="'/order'">
-                <mdb-btn color="green" class="text-black">
-                  <mdb-icon icon="shopping-bag left" />Book now
-                </mdb-btn>
+                  <mdb-btn color="green" class="text-black">
+                    <mdb-icon icon="shopping-bag left" />Book now
+                  </mdb-btn>
                 </nuxt-link>
               </mdb-card-body>
             </mdb-card>
@@ -140,42 +141,28 @@
         data-aos-easing="ease-out"
       ></span>
       <div class="service_title">
-        <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">
-          02
-        </p>
+        <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">02</p>
         <h2 class="display-3 pr-2 text-right font-weight-bold">ABOUT</h2>
       </div>
     </div>
-    <div
-      class="container bg-light text-black"
-      style="max-width: 100%; height: 120vh;"
-    >
+    <div class="container bg-light text-black" style="max-width: 100%; height: 120vh;">
       <div
         class="d-flex align-items-center flex-center flex-column"
         data-aos="fade-down"
         data-aos-duration="1000"
         data-aos-easing="ease-out"
       >
-        <h2
-          class="display-1 text-center mx-auto mt-auto m-0 mb-3"
-          style="color: #454545;"
-        >
+        <h2 class="display-1 text-center mx-auto mt-auto m-0 mb-3" style="color: #454545;">
           <strong>
             WE TAKE PICTURES
-            <hr class="m-0" />
-            FROM ABOVE
+            <hr class="m-0" />FROM ABOVE
           </strong>
         </h2>
         <p
           class="h3 text-black-50 mb-5 w-75 text-center"
           style="font-family: 'DINNeuzeitGroteskLTW01-BdCn';"
-        >
-          NEW PHOTOGRAPHY OPPORTUNITIES USING DRONES
-        </p>
-        <p
-          class="h5 w-75 text-center grey-text mb-4"
-          style="font-weight: lighter;"
-        >
+        >NEW PHOTOGRAPHY OPPORTUNITIES USING DRONES</p>
+        <p class="h5 w-75 text-center grey-text mb-4" style="font-weight: lighter;">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
           est vitae suscipit, eligendi et tempora reprehenderit odio. Saepe
           animi, aliquid voluptates culpa provident, suscipit laudantium
@@ -183,15 +170,14 @@
           nihil, dolore iure repellendus eligendi aut corrupti magnam magni
           laborum. Eum doloremque culpa minima? Laborum, ipsum doloribus.
         </p>
-        <nuxt-link class=" mb-auto" :to="'/about'"><mdb-btn color="yellow darken-3" class="px-5"
-          ><mdb-icon icon="clone left" />Read more</mdb-btn
-        ></nuxt-link>
+        <nuxt-link class="mb-auto" :to="'/about'">
+          <mdb-btn color="yellow darken-3" class="px-5">
+            <mdb-icon icon="clone left" />Read more
+          </mdb-btn>
+        </nuxt-link>
       </div>
     </div>
-    <div
-      class="bg-white text-black d-flex justify-content-end"
-      style="position: relative;"
-    >
+    <div class="bg-white text-black d-flex justify-content-end" style="position: relative;">
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
         <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
@@ -204,7 +190,7 @@
       </div>
     </div>
     <div>
-        <CoolLight />
+      <CoolLight />
     </div>
 
     <div class="bg-white w-100" style="position: relative; height: 40vh;">
@@ -246,7 +232,7 @@ import {
   mdbBtn,
   mdbView,
   mdbMask,
-  mdbIcon
+  mdbIcon,
 } from "mdbvue";
 export default {
   em: "#animateFadeIn_1",
@@ -271,9 +257,15 @@ export default {
     mdbInput,
     mdbView,
     mdbMask,
-    mdbIcon
+    mdbIcon,
   },
-   transition: 'fade'
+  transition: "fade",
+    mounted() {
+    window.addEventListener("beforeunload", (e) => this.beforeunloadFn(e));
+  },
+  destroyed() {
+    window.removeEventListener("beforeunload", (e) => this.beforeunloadFn(e));
+  },
 };
 </script>
 

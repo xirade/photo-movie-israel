@@ -67,7 +67,7 @@
 
 <script>
 import CoolLightBox from "vue-cool-lightbox";
-import { mdbView, mdbMask} from "mdbvue";
+import { mdbView, mdbMask } from "mdbvue";
 import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 export default {
   data: function () {
@@ -96,13 +96,13 @@ export default {
   components: {
     CoolLightBox,
     mdbView,
-    mdbMask
+    mdbMask,
   },
   methods: {
     setIndex(index) {
-      this.index = index;
+      this.index = index; 
     },
-  }
+  },
 };
 </script>
 

@@ -54,7 +54,13 @@ export default {
   },
   components: {
       FamilyImages
-  }
+  },
+    mounted() {
+    window.addEventListener("beforeunload", (e) => this.beforeunloadFn(e));
+  },
+  destroyed() {
+    window.removeEventListener("beforeunload", (e) => this.beforeunloadFn(e));
+  },
 };
 </script>
 

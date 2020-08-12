@@ -42,9 +42,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
 
 /* ---- grid ---- */
 

@@ -16,4 +16,3 @@ imagesLoaded( grid, function(){
   // trigger initial layout
   msnry.layout();
 })
-
