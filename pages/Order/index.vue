@@ -13,18 +13,27 @@
       </div>
       <hr class="p-2" />
       <mdb-row>
-        <mdb-col md="7">
-          <mdb-input bg label="Name" icon="user" />
+        <mdb-col md="7" class="h-75">
+          <mdb-input class="mb-5" label="Name" icon="user" />
           <mdb-input
-            bg
+            class="mb-5"
             type="email"
             label="Email"
             icon="envelope"
             small="We'll never share your email with anyone."
           />
-          <mdb-input type="tel" label="Your phone" icon="phone" />
-          <div class="mb-5">
-            <VueCtkDateTimePicker v-model="value" :first-day-of-week="7" locale="eng" format="YYYY-MM-DD HH:mm:ss"
+          <mdb-input
+            class="mb-5" type="tel" label="Your phone" icon="phone" />
+          <mdb-input
+            class="mb-5"
+            wrapperClass="amber-textarea"
+            type="textarea"
+            label="Write something here..."
+            icon="pencil-alt"
+          />
+          <div class="d-flex flex-row mb-5">
+            <mdb-icon class="mr-2" size="2x"  icon="calendar" />
+            <VueCtkDateTimePicker v-model="value" :first-day-of-week="7" format="YYYY-MM-DD HH:mm:ss"
             :disabled-weekly="[5,6]" :disabled-hours="['00','01','02','03','04','05','06','07','08','22','23']" 
             minute-interval="10" button-color="blue" color="gray"></VueCtkDateTimePicker>
           </div>
@@ -36,11 +45,12 @@
            v-on:scroll="handleScroll">
             <mdb-card-body>
               <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(54).jpg" class="img-fluid z-depth-1" alt="1">
-              <mdb-card-title>Basic card</mdb-card-title>
-              <p><span>6hr </span> | <span> 450₪</span></p>
-              <hr class="p-2" />
+              <mdb-card-title class="mt-2">Basic card</mdb-card-title>
+              <div class="d-flex align-items-center">Hours: <mdb-input class="ml-2 pt-2 w-25" type="number" :min="0" :max="10" v-model="hours"/></div>
+              <span>Price:</span><span class="ml-2" :value="total">{{totalPrice}}₪</span>
+              <hr />
               <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
-              <mdb-btn class="px-5 mt-5" block color="warning">Next</mdb-btn>
+              <mdb-btn class="px-5" block color="warning">Next</mdb-btn>
             </mdb-card-body>
           </mdb-card>
         </mdb-col>
@@ -90,9 +100,12 @@ export default {
   data() {
     return {
       value: null,
-      limitPosition: 500,
+      limitPosition: 350,
       scrolled: false,
-      lastPosition: 0
+      lastPosition: 0,
+      hours: 0,
+      price: 250,
+      totalPrice:0
     };
   },
   methods: {
@@ -107,7 +120,7 @@ export default {
       }
       
       this.lastPosition = window.scrollY;
-      this.scrolled = window.scrollY > 250;
+      this.scrolled = window.scrollY > 350;
     }
   }, 
   mounted() {
@@ -115,6 +128,14 @@ export default {
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
+  },
+  computed: {
+    total: function() {
+      let calculatedTotal = this.hours * this.price;
+      this.totalPrice = calculatedTotal;
+      
+      return calculatedTotal;
+    }
   }
 }
 </script>
@@ -136,15 +157,16 @@ h4,.h4, .h2 {
     transition: transform .2s ease-in-out;
 }
 .cardroom--pinned {
-    transform: translateY(-55%);
+    transform: translateY(-50%);
 }
 .cardroom--unpinned {
-    transform: translateY(-115%);
+    transform: translateY(-105%);
 }
 
 p {
   width: 50%;
 }
+
 
 @media (max-width: 767px) {
   .cardroom{

@@ -13,7 +13,7 @@
         <b-nav-item :href="'/'">Home</b-nav-item>
         <b-nav-item :to="{path: '/services'}">Services</b-nav-item>
         <b-nav-item :to="{path: '/about'}">About</b-nav-item>
-         <b-nav-item-dropdown  text="Portfolio" style="position-relative;">
+         <b-nav-item-dropdown  text="Portfolio" toggle-class="nav-link-custom">
           <b-dropdown-item :to="{path: '/portfolio/aerophotos'}" class="drop-list text-center">Aerophotos</b-dropdown-item>
           <b-dropdown-item :to="{path: '/portfolio/street'}" class="drop-list text-center">Street</b-dropdown-item>
           <b-dropdown-item :href="'/portfolio/family'" class="drop-list text-center">Family</b-dropdown-item>
@@ -62,10 +62,6 @@ export default {
 </script>
 
 <style lang="scss" >
-
- ul.navbar-nav li.dropdown:hover ul.dropdown-menu {
-            display: block;
-        }
 
 @media (max-width: 575.98px) { 
     .navbar .dropdown-menu {
@@ -150,6 +146,9 @@ export default {
   .navbar .dropdown-menu{
     margin-top: 40px;
   }
+  ul.navbar-nav li.dropdown:hover ul.dropdown-menu {
+            display: block;
+        }
 }
 
 @media (min-width: 1200px) { 
@@ -163,5 +162,8 @@ export default {
     width: 100% !important;
     text-align: left !important;
   }
+   ul.navbar-nav li.dropdown:hover ul.dropdown-menu {
+            display: block;
+        }
 }
 </style>
