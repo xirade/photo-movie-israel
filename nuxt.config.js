@@ -22,6 +22,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'camera-shutter.ico' },
+      { rel:'stylesheet', href:'assets/css/main.css', as:'font', type:'font', crossorigin:'anonymous'},
     ],
   },
   /*
@@ -85,7 +86,6 @@ export default {
       } else {
         return { x: 0, y: 0 }
       }
-    },
-    base: '/app/'
+    }
   }
 }
