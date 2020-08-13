@@ -10,7 +10,7 @@
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
       <b-navbar-nav class="container w-50 mx-auto text-center">
-        <b-nav-item :to="'/'">Home</b-nav-item>
+        <b-nav-item :to="{path:'/'}">Home</b-nav-item>
         <b-nav-item :to="{path: '/services'}">Services</b-nav-item>
         <b-nav-item :to="{path: '/about'}">About</b-nav-item>
          <b-nav-item-dropdown  text="Portfolio" toggle-class="nav-link-custom">

@@ -13,7 +13,7 @@
       </span>
       <div class="text-left mt-5">
         <h3 class="h2 pt-2">Service Order Form</h3>
-        <p class="mt-3">
+        <p class="service-text mt-3">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora est
           ipsam a nesciunt. Sint at laboriosam incidunt tenetur odit quis impedit
           hic vitae cupiditate aperiam!
@@ -84,7 +84,7 @@
                 />
                 <mdb-card-title class="mt-2">Basic card</mdb-card-title>
                 <div class="d-flex align-items-center">
-                  Hours:
+                  Amount:
                   <mdb-input
                     class="ml-2 pt-2"
                     type="number"
@@ -96,13 +96,20 @@
                     name="hours"
                     style="width:2.2rem;"
                     required
-                  />
+                  />hr
                 </div>
                 <span>Price:</span>
-                <input class="ml-2 d-none" type="text" id="totalPrice" name="totalPrice" :value="total">{{totalPrice}}₪
+                <input
+                  class="ml-2 d-none"
+                  type="text"
+                  id="totalPrice"
+                  name="totalPrice"
+                  :value="total"
+                />
+                {{totalPrice}}₪
                 <hr />
                 <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
-                <mdb-btn type="submit" formmethod="post" class="px-5" block color="warning">Next</mdb-btn>
+                <mdb-btn type="submit" @click="show = true" class="px-5" block color="warning">Next</mdb-btn>
               </mdb-card-body>
             </mdb-card>
           </mdb-col>
@@ -117,6 +124,29 @@
         <mdb-icon class="mx-3" fab icon="adobe" />
       </div>
     </mdb-container>
+          <div>
+            <mdb-modal :show="show" @show="handleShow" @close="show = false" success>
+              <mdb-modal-header>
+                <mdb-modal-title>Success Modal</mdb-modal-title>
+              </mdb-modal-header>
+              <mdb-modal-body class="d-flex flex-column">
+                <mdb-icon icon="check-circle" fas size="4x" class="mb-3 text-center animated rotateIn" />
+                <span class="text-left font-weight-bold">Name: <span class="font-weight-normal">{{person.name}}</span></span>
+                <span class="text-left font-weight-bold">Email: <span class="font-weight-normal">{{person.email}}</span></span>
+                <span class="text-left font-weight-bold">Phone: <span class="font-weight-normal">{{person.phone}}</span></span>
+                <span class="text-left font-weight-bold">Date &amp; Time: <span class="font-weight-normal">{{person.date}}</span></span>
+                <span class="text-left font-weight-bold">Amount: <span class="font-weight-normal">{{hours}}hr</span></span>
+                <span class="text-left font-weight-bold">Price: <span class="font-weight-normal">{{totalPrice}}₪</span></span>
+              </mdb-modal-body>
+              <mdb-modal-footer center>
+                <mdb-btn color="success" @click="show = false">
+                  Get it now
+                  <mdb-icon icon="cash-register" class="ml-1" color="white" />
+                </mdb-btn>
+                <mdb-btn outline="danger" @click="show = false">No, thanks</mdb-btn>
+              </mdb-modal-footer>
+            </mdb-modal>
+          </div>
   </div>
 </template>
 
@@ -134,6 +164,11 @@ import {
   mdbCardBody,
   mdbCardTitle,
   mdbCardText,
+  mdbModal,
+  mdbModalHeader,
+  mdbModalTitle,
+  mdbModalBody,
+  mdbModalFooter,
 } from "mdbvue";
 export default {
   name: "TimePickerPage",
@@ -149,6 +184,11 @@ export default {
     mdbCardBody,
     mdbCardTitle,
     mdbCardText,
+    mdbModal,
+    mdbModalHeader,
+    mdbModalTitle,
+    mdbModalBody,
+    mdbModalFooter,
   },
   data() {
     return {
@@ -160,9 +200,19 @@ export default {
       price: 250,
       totalPrice: 0,
       maxPrice: 2500,
+      show: false,
+      person: {
+        id: '1',
+        name: 'Daniel',
+        email: '6myusic6@gmail.com',
+        phone: '0587217050',
+        text: 'Good job my friends!',
+        date: 'вт, 18 авг. 2020 г., 9:00'
+      }
     };
   },
   methods: {
+    handleShow() {},
     handleScroll() {
       if (
         this.lastPosition < window.scrollY &&
@@ -228,7 +278,7 @@ h4,
   transform: translateY(-105%);
 }
 
-p {
+.service-text {
   width: 50%;
 }
 
