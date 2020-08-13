@@ -24,11 +24,9 @@
     "mdb-ui-kit": "^1.0.0-alpha3",
     "mdbootstrap": "^4.19.1",
     "mdbvue": "^6.7.1",
-    "node-sass": "^4.14.1",
     "nuxt": "^2.13.0",
     "object-fit-images": "^3.2.4",
     "sass-loader": "^9.0.2",
-    "v-calendar": "^1.0.8",
     "vue": "^2.6.11",
     "vue-cool-lightbox": "^2.4.1",
     "vue-ctk-date-time-picker": "^2.5.0"

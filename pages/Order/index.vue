@@ -1,8 +1,16 @@
 <template>
   <div>
     <mdb-container class="my-5">
-      <span><router-link class="h4 text-uppercase text-warning" style="text-decoration: none;"  
-          tag="a" :to="'/Services'"><mdb-icon class="mr-2" icon="angle-left" />Back</router-link></span>
+      <span>
+        <router-link
+          class="h4 text-uppercase text-warning"
+          style="text-decoration: none;"
+          tag="a"
+          :to="'/Services'"
+        >
+          <mdb-icon class="mr-2" icon="angle-left" />Back
+        </router-link>
+      </span>
       <div class="text-left mt-5">
         <h3 class="h2 pt-2">Service Order Form</h3>
         <p class="mt-3">
@@ -12,49 +20,94 @@
         </p>
       </div>
       <hr class="p-2" />
-      <mdb-row>
-        <mdb-col md="7" class="h-75">
-          <mdb-input class="mb-5" label="Name" icon="user" />
-          <mdb-input
-            class="mb-5"
-            type="email"
-            label="Email"
-            icon="envelope"
-            small="We'll never share your email with anyone."
-          />
-          <mdb-input
-            class="mb-5" type="tel" label="Your phone" icon="phone" />
-          <mdb-input
-            class="mb-5"
-            wrapperClass="amber-textarea"
-            type="textarea"
-            label="Write something here..."
-            icon="pencil-alt"
-          />
-          <div class="d-flex flex-row mb-5">
-            <mdb-icon class="mr-2" size="2x"  icon="calendar" />
-            <VueCtkDateTimePicker v-model="value" :first-day-of-week="7" format="YYYY-MM-DD HH:mm:ss"
-            :disabled-weekly="[5,6]" :disabled-hours="['00','01','02','03','04','05','06','07','08','22','23']" 
-            minute-interval="10" button-color="blue" color="gray"></VueCtkDateTimePicker>
-          </div>
-        </mdb-col>
-        <mdb-col md="5">
-          <mdb-card :class="{'cardroom--unpinned': scrolled}" 
-          class="cardroom cardroom--pinned"
-          style="z-index: 1;"
-           v-on:scroll="handleScroll">
-            <mdb-card-body>
-              <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(54).jpg" class="img-fluid z-depth-1" alt="1">
-              <mdb-card-title class="mt-2">Basic card</mdb-card-title>
-              <div class="d-flex align-items-center">Hours: <mdb-input class="ml-2 pt-2 w-25" type="number" :min="0" :max="10" v-model="hours"/></div>
-              <span>Price:</span><span class="ml-2" :value="total">{{totalPrice}}₪</span>
-              <hr />
-              <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
-              <mdb-btn class="px-5" block color="warning">Next</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-col>
-      </mdb-row>
+      <form id="form" @submit.prevent="submit">
+        <mdb-row>
+          <mdb-col md="7" class="h-75">
+            <mdb-input class="mb-5" label="Name" icon="user" required />
+            <mdb-input
+              class="mb-5"
+              type="email"
+              id="email"
+              name="email"
+              label="Email"
+              icon="envelope"
+              small="We'll never share your email with anyone."
+              required
+            />
+            <mdb-input
+              class="mb-5"
+              type="tel"
+              label="Your phone"
+              icon="phone"
+              id="phone"
+              name="phone"
+              required
+            />
+            <mdb-input
+              class="mb-5"
+              wrapperClass="amber-textarea"
+              type="textarea"
+              id="textarea"
+              name="textarea"
+              label="Write something here..."
+              icon="pencil-alt"
+            />
+            <div class="d-flex flex-row mb-5">
+              <mdb-icon class="mr-2" size="2x" icon="calendar" />
+              <VueCtkDateTimePicker
+                v-model="value"
+                :first-day-of-week="7"
+                format="YYYY-MM-DD HH:mm:ss"
+                :disabled-weekly="[5,6]"
+                :disabled-hours="['00','01','02','03','04','05','06','07','08','22','23']"
+                minute-interval="10"
+                button-color="blue"
+                color="gray"
+                id="calendar"
+                name="calendar"
+                required
+              ></VueCtkDateTimePicker>
+            </div>
+          </mdb-col>
+          <mdb-col md="5">
+            <mdb-card
+              :class="{'cardroom--unpinned': scrolled}"
+              class="cardroom cardroom--pinned"
+              style="z-index: 1;"
+              v-on:scroll="handleScroll"
+            >
+              <mdb-card-body>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(54).jpg"
+                  class="img-fluid z-depth-1"
+                  alt="1"
+                />
+                <mdb-card-title class="mt-2">Basic card</mdb-card-title>
+                <div class="d-flex align-items-center">
+                  Hours:
+                  <mdb-input
+                    class="ml-2 pt-2"
+                    type="number"
+                    :step="1"
+                    :min="0"
+                    :max="10"
+                    v-model="hours"
+                    id="hours"
+                    name="hours"
+                    style="width:2.2rem;"
+                    required
+                  />
+                </div>
+                <span>Price:</span>
+                <input class="ml-2 d-none" type="text" id="totalPrice" name="totalPrice" :value="total">{{totalPrice}}₪
+                <hr />
+                <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
+                <mdb-btn type="submit" formmethod="post" class="px-5" block color="warning">Next</mdb-btn>
+              </mdb-card-body>
+            </mdb-card>
+          </mdb-col>
+        </mdb-row>
+      </form>
       <hr class="p-2 mt-5" />
       <div class="text-center">
         <mdb-icon class="mx-3" icon="camera" />
@@ -105,12 +158,16 @@ export default {
       lastPosition: 0,
       hours: 0,
       price: 250,
-      totalPrice:0
+      totalPrice: 0,
+      maxPrice: 2500,
     };
   },
   methods: {
     handleScroll() {
-      if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
+      if (
+        this.lastPosition < window.scrollY &&
+        this.limitPosition < window.scrollY
+      ) {
         this.scrolled = true;
         // move up!
       }
@@ -118,11 +175,11 @@ export default {
         this.scrolled = false;
         // move down
       }
-      
+
       this.lastPosition = window.scrollY;
       this.scrolled = window.scrollY > 350;
-    }
-  }, 
+    },
+  },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
   },
@@ -130,21 +187,29 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   computed: {
-    total: function() {
-      let calculatedTotal = this.hours * this.price;
+    total: function () {
+      var calculatedTotal;
+      var hoursTotal = this.hours;
+      if (hoursTotal <= 10) {
+        calculatedTotal = this.hours * this.price;
+      } else {
+        calculatedTotal = this.maxPrice;
+      }
       this.totalPrice = calculatedTotal;
-      
       return calculatedTotal;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
 @import "~/assets/css/main.css";
-h4,.h4, .h2 {
+h4,
+.h4,
+.h2 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
+
 .h4:hover {
   color: black !important;
 }
@@ -152,43 +217,42 @@ h4,.h4, .h2 {
   background-color: #fff;
 }
 .cardroom {
-    position: fixed;
-    will-change: transform;
-    transition: transform .2s ease-in-out;
+  position: fixed;
+  will-change: transform;
+  transition: transform 0.2s ease-in-out;
 }
 .cardroom--pinned {
-    transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .cardroom--unpinned {
-    transform: translateY(-105%);
+  transform: translateY(-105%);
 }
 
 p {
   width: 50%;
 }
 
-
 @media (max-width: 767px) {
-  .cardroom{
+  .cardroom {
     position: relative;
   }
   .cardroom--pinned {
     transform: translateY(0%);
-}
-.cardroom--unpinned {
+  }
+  .cardroom--unpinned {
     transform: translateY(0%);
-}
-p{
-  width: 100%;
-}
+  }
+  p {
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .cardroom--pinned {
+  .cardroom--pinned {
     transform: translateY(-50%);
-}
-.cardroom--unpinned {
+  }
+  .cardroom--unpinned {
     transform: translateY(-150%);
-}
+  }
 }
 </style>

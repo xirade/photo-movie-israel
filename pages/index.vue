@@ -260,30 +260,19 @@ export default {
     mdbIcon,
   },
   transition: "fade",
-    mounted() {
-    window.addEventListener("beforeunload", (e) => this.beforeunloadFn(e));
-  },
-  destroyed() {
-    window.removeEventListener("beforeunload", (e) => this.beforeunloadFn(e));
-  },
+  //reload page
+  mounted() {
+    if (localStorage.getItem('reloaded')) {
+      localStorage.removeItem('reloaded');
+    } else {
+      localStorage.setItem('reloaded', '0');
+        location.reload();
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-@font-face {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
-  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot");
-  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn")
-      format("svg");
-}
 @import "node_modules/aos/src/sass/aos.scss";
 @import "~/assets/css/main.css";
 .first {

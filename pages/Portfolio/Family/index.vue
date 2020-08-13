@@ -55,12 +55,15 @@ export default {
   components: {
       FamilyImages
   },
-    mounted() {
-    window.addEventListener("beforeunload", (e) => this.beforeunloadFn(e));
-  },
-  destroyed() {
-    window.removeEventListener("beforeunload", (e) => this.beforeunloadFn(e));
-  },
+   mounted() {
+     //reload page
+    if (localStorage.getItem('reloaded')) {
+        localStorage.removeItem('reloaded');
+    } else {
+        localStorage.setItem('reloaded', '0');
+        location.reload();
+    }
+   }
 };
 </script>
 

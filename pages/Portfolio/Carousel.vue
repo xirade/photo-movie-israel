@@ -2,14 +2,12 @@
   <div class="container mt-2">
     <div class="px-0 position-relative">
       <div class="slider embed-responsive embed-responsive-16by9 z-depth-1-half position-relative">
-        <iframe class="animate__animated animate__fadeIn animate__faster video-fluid embed-responsive-item" :src="currentImg" 
+        <iframe class=" animate__animated animate__fadeIn animate__faster video-fluid embed-responsive-item" :src="currentImg" 
                 @load="loaded"
-                v-show="isLoad"
                 allow="autoplay;fullscreen;"
                 frameborder=“0”
-                loop="1"
-                ></iframe>
-          <LazyLoad v-show="!isLoad" />              
+                loop="1">
+                </iframe>
       </div>
     </div>
     <div class="thumbnails position-relative">
@@ -26,11 +24,9 @@
 </template>
 
 <script>
-import LazyLoad from '~/pages/Portfolio/lazyLoaded.vue'
 export default {
   name: "Slider",
   components: {
-    LazyLoad
   },
   data() {
     return {

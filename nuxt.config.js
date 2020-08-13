@@ -21,8 +21,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/camera-shutter.ico' },
-      { rel:'stylesheet', href:'assets/css/main.css', as:'font', type:'font', crossorigin:'anonymous'},
+      { rel: 'icon', type: 'image/x-icon', href: 'camera-shutter.ico' },
     ],
   },
   /*
@@ -78,5 +77,15 @@ export default {
   build: {
     vendor: ['external_library']
   },
-  loading:'~/components/Loading.vue'
+  loading:'~/components/Loading.vue',
+  router: {
+    scrollBehavior (to, from, savedPosition) {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return { x: 0, y: 0 }
+      }
+    },
+    base: '/app/'
+  }
 }

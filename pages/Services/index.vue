@@ -111,20 +111,6 @@ export default {
 <style lang="scss" scoped>
 @import "node_modules/aos/src/sass/aos.scss";
 @import "~/assets/css/main.css";
-@font-face {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
-  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot");
-  src: url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/bb2e1211dfd31103079dbce7c49e1d4e.svg#DINNeuzeitGroteskLTW01-BdCn")
-      format("svg");
-}
 
 h2 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
