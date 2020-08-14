@@ -45,6 +45,7 @@ export default {
     { src: '~/plugins/jarallax.js', ssr: false },
     { src: '~/nuxt.config.js', ssr: false },
     { src: '~/plugins/iso.js', ssr: false },
+    { src: '~/plugins/Chat.js', ssr: false },
 
   ],
   /*

@@ -292,7 +292,7 @@ h4,
   .cardroom--unpinned {
     transform: translateY(0%);
   }
-  p {
+  .service-text {
     width: 100%;
   }
 }
