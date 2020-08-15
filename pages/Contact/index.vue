@@ -35,6 +35,7 @@
                     </h3>
                   </div>
                   <p class="dark-grey-text">We'll write rarely, but only the best content.</p>
+                  <form @submit.prevent="submit" method="get">
                   <div class="md-form">
                     <mdb-input
                       icon="user"
@@ -42,6 +43,7 @@
                       iconClass="grey-text"
                       type="text"
                       id="form-name"
+                      required
                     />
                   </div>
                   <div class="md-form">
@@ -51,6 +53,7 @@
                       iconClass="grey-text"
                       type="text"
                       id="form-email"
+                      required
                     />
                   </div>
                   <div class="md-form">
@@ -60,6 +63,7 @@
                       iconClass="grey-text"
                       type="tel"
                       id="form-phone"
+                      required
                     />
                   </div>
                   <div class="md-form">
@@ -69,11 +73,13 @@
                       iconClass="grey-text"
                       type="text"
                       id="form-subject"
+                      required
                     />
                   </div>
                   <div class="text-center">
-                    <mdb-btn color="warning">Submit</mdb-btn>
+                    <mdb-btn type="submit" color="warning">Send message</mdb-btn>
                   </div>
+                  </form>
                 </mdb-card-body>
               </mdb-card>
             </mdb-col>

@@ -21,7 +21,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'camera-shutter.ico' },
+      { rel: 'icon', type: 'image/icon', href: 'camera-shutter.ico' },
       { rel:'stylesheet', href:'assets/css/main.css', as:'font', type:'font', crossorigin:'anonymous'},
     ],
   },

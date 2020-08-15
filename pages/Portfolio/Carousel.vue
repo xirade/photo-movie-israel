@@ -8,6 +8,8 @@
                 frameborder=“0”
                 loop="1">
                 </iframe>
+                <a class="prev text-white" @click="prev">&#10094;</a>
+                <a class="next text-white" @click="next">&#10095;</a>
       </div>
     </div>
     <div class="thumbnails position-relative">
@@ -81,14 +83,14 @@ export default {
         this.isLoad = false;
         this.activateImage(active);
     },
-    // prev: function () {
-    //     var active = this.currentIndex - 1;
-    //     if (active >= this.images.length) {
-    //       active = 0;
-    //     }
-    //     this.isLoad = false;
-    //     this.activateImage(active);
-    // },
+    prev: function () {
+        var active = this.currentIndex - 1;
+        if (active >= this.images.length) {
+          active = 0;
+        }
+        this.isLoad = false;
+        this.activateImage(active);
+    },
     activateImage(imgIndex) {
       this.isLoad = false;
       this.currentIndex = imgIndex;
@@ -123,11 +125,11 @@ export default {
   width: 100%;
 }
 
-/* .prev,
+.prev,
 .next {
   cursor: pointer;
   position: absolute;
-  top: 30%;
+  top: 40%;
   width: auto;
   padding: 16px;
   color: white;
@@ -150,13 +152,14 @@ export default {
 
 .prev:hover,
 .next:hover {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(0, 0, 0) !important;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .prev:active,
 .next:active {
   background-color: rgba(255, 255, 255, 0.4);
-} */
+}
 
 .thumbnails {
   display: flex;
@@ -183,24 +186,11 @@ export default {
   opacity: 1;
 }
 
-@media (min-width: 300px) and (max-width: 574px) {
-  .prev, .next {
-    top:0 !important;
-  }
-}
 @media (max-width: 575.98px) {
   .slider {
     max-width: 100%;
     height: 300px;
   }
-  .prev, .next {
-    top:10%;
-  }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
-  .prev, .next {
-    top:10%;
-  }
-  }
 </style>

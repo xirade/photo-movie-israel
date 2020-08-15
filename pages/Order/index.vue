@@ -23,24 +23,28 @@
       <form id="form" @submit.prevent="submit">
         <mdb-row>
           <mdb-col md="7" class="h-75">
-            <mdb-input class="mb-5" label="Name" icon="user" required />
+            <mdb-input v-model="name" class="mb-5" label="Name *" pattern="[a-zA-Z]" icon="user" required />
             <mdb-input
+              v-model="email"
               class="mb-5"
               type="email"
               id="email"
               name="email"
-              label="Email"
+              label="Email *"
               icon="envelope"
               small="We'll never share your email with anyone."
               required
             />
             <mdb-input
+              v-model="phone"
               class="mb-5"
               type="tel"
-              label="Your phone"
+              label="Your phone *"
               icon="phone"
               id="phone"
               name="phone"
+              pattern="[0-9]{10}"
+              maxlength="10"
               required
             />
             <mdb-input
@@ -65,6 +69,7 @@
                 color="gray"
                 id="calendar"
                 name="calendar"
+                :right="true"
                 required
               ></VueCtkDateTimePicker>
             </div>
@@ -109,7 +114,7 @@
                 {{totalPrice}}₪
                 <hr />
                 <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
-                <mdb-btn type="submit" @click="show = true" class="px-5" block color="warning">Next</mdb-btn>
+                <mdb-btn  @click="show = true" class="px-5" block color="warning">Next</mdb-btn>
               </mdb-card-body>
             </mdb-card>
           </mdb-col>
@@ -127,14 +132,14 @@
           <div>
             <mdb-modal :show="show" @show="handleShow" @close="show = false" success>
               <mdb-modal-header>
-                <mdb-modal-title>Success Modal</mdb-modal-title>
+                <mdb-modal-title>Please check your entries!</mdb-modal-title>
               </mdb-modal-header>
               <mdb-modal-body class="d-flex flex-column">
                 <mdb-icon icon="check-circle" fas size="4x" class="mb-3 text-center animated rotateIn" />
-                <span class="text-left font-weight-bold">Name: <span class="font-weight-normal">{{person.name}}</span></span>
-                <span class="text-left font-weight-bold">Email: <span class="font-weight-normal">{{person.email}}</span></span>
-                <span class="text-left font-weight-bold">Phone: <span class="font-weight-normal">{{person.phone}}</span></span>
-                <span class="text-left font-weight-bold">Date &amp; Time: <span class="font-weight-normal">{{person.date}}</span></span>
+                <span class="text-left font-weight-bold">Name: <span class="font-weight-normal">{{name}}</span></span>
+                <span class="text-left font-weight-bold">Email: <span class="font-weight-normal">{{email}}</span></span>
+                <span class="text-left font-weight-bold">Phone: <span class="font-weight-normal">{{phone}}</span></span>
+                <span class="text-left font-weight-bold">Date &amp; Time: <span class="font-weight-normal">{{value}}</span></span>
                 <span class="text-left font-weight-bold">Amount: <span class="font-weight-normal">{{hours}}hr</span></span>
                 <span class="text-left font-weight-bold">Price: <span class="font-weight-normal">{{totalPrice}}₪</span></span>
               </mdb-modal-body>
@@ -192,6 +197,9 @@ export default {
   },
   data() {
     return {
+      name: null,
+      email: null,
+      phone: null,
       value: null,
       limitPosition: 350,
       scrolled: false,
@@ -203,11 +211,12 @@ export default {
       show: false,
       person: {
         id: '1',
-        name: 'Daniel',
-        email: '6myusic6@gmail.com',
-        phone: '0587217050',
-        text: 'Good job my friends!',
-        date: 'вт, 18 авг. 2020 г., 9:00'
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        date: this.value,
+        time: this.hours,
+        priceTotal: this.totalPrice
       }
     };
   },
@@ -281,6 +290,8 @@ h4,
 .service-text {
   width: 50%;
 }
+
+
 
 @media (max-width: 767px) {
   .cardroom {
