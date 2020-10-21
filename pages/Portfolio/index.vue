@@ -37,7 +37,7 @@
                 >
                   <router-link :to="'/portfolio/aerophotos'">
                     <img
-                      src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596971743/241074099_dqe7q4.jpg"
+                      :src="getImage(1)"
                       alt="sample photo"
                       class="img-fluid"
                     />
@@ -46,10 +46,9 @@
                   </router-link>
                 </mdb-view>
                 <mdb-card-body>
-                  <mdb-card-title>Aerophotos</mdb-card-title>
+                  <mdb-card-title>{{getTitle(1)}}</mdb-card-title>
                   <mdb-card-text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    {{getDescription(1)}}
                   </mdb-card-text>
                 </mdb-card-body>
               </mdb-card>
@@ -61,7 +60,7 @@
               >
                 <router-link :to="'/portfolio/street'">
                   <img
-                    src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596205381/camera_naxnah.jpg"
+                    :src="getImage(2)"
                     alt="sample photo"
                     class="img-fluid"
                   />
@@ -70,10 +69,9 @@
                 </router-link>
               </mdb-view>
                <mdb-card-body>
-                  <mdb-card-title>Street</mdb-card-title>
+                  <mdb-card-title>{{getTitle(2)}}</mdb-card-title>
                   <mdb-card-text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    {{getDescription(2)}}
                   </mdb-card-text>
                 </mdb-card-body>
                 </mdb-card>
@@ -85,7 +83,7 @@
               >
                 <a :href="'/portfolio/family'">
                   <img
-                    src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596231521/0017_mtb2mn.jpg"
+                    :src="getImage(3)"
                     alt="sample photo"
                     class="img-fluid"
                   />
@@ -94,10 +92,9 @@
                 </a>
               </mdb-view>
               <mdb-card-body>
-                  <mdb-card-title>Family</mdb-card-title>
+                  <mdb-card-title>{{getTitle(3)}}</mdb-card-title>
                   <mdb-card-text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    {{getDescription(3)}}
                   </mdb-card-text>
                 </mdb-card-body>
                 </mdb-card>
@@ -109,7 +106,7 @@
               >
                 <router-link :to="'/portfolio/wedding'">
                   <img
-                    src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1596231522/0012_cdvwcm.jpg"
+                    :src="getImage(4)"
                     alt="sample photo"
                     class="img-fluid"
                   />
@@ -118,10 +115,9 @@
                 </router-link>
               </mdb-view>
                <mdb-card-body>
-                  <mdb-card-title>Wedding</mdb-card-title>
+                  <mdb-card-title>{{getTitle(4)}}</mdb-card-title>
                   <mdb-card-text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    {{getDescription(4)}}
                   </mdb-card-text>
                 </mdb-card-body>
                 </mdb-card>
@@ -149,6 +145,7 @@
 </template>
 
 <script>
+import portfoliosQuery from '~/apollo/queries/portfolio/portfolios.gql';
 import {
   mdbContainer,
   mdbRow,
@@ -163,6 +160,41 @@ import {
   mdbIcon
 } from "mdbvue";
 export default {
+  data () {
+    return {
+      api_url: process.env.strapiBaseUri,
+      portfolios: []
+    }
+  },
+  apollo: {
+    portfolios: {
+      prefetch: true,
+      query: portfoliosQuery,
+    },
+  },
+  methods: {
+    getImage(id) {
+      let img = this.portfolios;
+      for (const portfolio in img) {
+        let item = img.find( (item) => item.id == id);
+        return item.image.url
+      }
+    },
+      getTitle(id) {
+      let title = '';
+       for (const portfolio in this.portfolios) {
+        title = this.portfolios.find((title) => title.id == id);
+      }
+        return title.title;
+    },
+      getDescription(id) {
+      let description = '';
+       for (const portfolio in this.portfolios) {
+        description = this.portfolios.find((description) => description.id == id);
+      }
+        return description.description;
+    },
+  },
   name: "ProjectsPage",
   components: {
     mdbContainer,

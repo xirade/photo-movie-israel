@@ -10,8 +10,7 @@ imagesLoaded( grid, function(){
     percentPosition: true,
     initLayout: false,
   })
-  msnry.on( 'layoutComplete', function( items ) {
-    console.log( items.length );
+  msnry.on( 'layoutComplete', function( sliders ) {
   });
   // trigger initial layout
   msnry.layout();

@@ -4,33 +4,34 @@
       <div class="grid-sizer"></div>
       <div
         class="grid-item grid-item--width3 grid-item--height4 grid-img"
-        :style="[{backgroundImage: 'url(' + streetImg[0] + ')'},styleObject]">
+        :style="[{backgroundImage: 'url(' + getImage(1) + ')'},styleObject]">
         </div>
       <div
         class="grid-item grid-item--width2 grid-item--height4"
-        :style="[{ backgroundImage: 'url(' + streetImg[1] + ')'},styleObject]"
+        :style="[{ backgroundImage: 'url(' + getImage(2) + ')'},styleObject]"
       ></div>
       <div
         class="grid-item grid-item--width4 grid-item--height5"
-        :style="[{ backgroundImage: 'url(' + streetImg[2] + ')'},styleObject]"
+        :style="[{ backgroundImage: 'url(' + getImage(3) + ')'},styleObject]"
       ></div>
       <div
         class="grid-item grid-item--width4 grid-item--height5"
-        :style="[{ backgroundImage: 'url(' + streetImg[3] + ')'},styleObject]"
+        :style="[{ backgroundImage: 'url(' + getImage(4) + ')'},styleObject]"
       ></div>
       <div
         class="grid-item grid-item--width4 grid-item--height5"
-        :style="[{ backgroundImage: 'url(' + streetImg[4] + ')'},styleObject]"
+        :style="[{ backgroundImage: 'url(' + getImage(5) + ')'},styleObject]"
       ></div>
       <div
         class="grid-item grid-item--width4 grid-item--height5"
-        :style="[{ backgroundImage: 'url(' + streetImg[5] + ')'},styleObject]"
+        :style="[{ backgroundImage: 'url(' + getImage(6) + ')'},styleObject]"
       ></div>
     </div>
   </div>
 </template>
 
 <script>
+import weddingsQuery from '~/apollo/queries/portfolio/weddings.gql'
 export default {
   data() {
     return {
@@ -38,16 +39,24 @@ export default {
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     },
-    streetImg: [
-      "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596976496/monet-malatino-wedding-thumb_ihm8nb.jpg",
-      "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596792727/008_qigms0_e9d4gq.jpg",
-      "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596976509/Beach_Wedding_Crim_Barefoot_Beach_Bride_uapndf.jpg",
-      "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950977/5_djhizt.jpg",
-      "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596976482/e_t-wedding-523_oj0onq.jpg",
-      "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596976468/5e2762f7ab49fd1ed25a9dc4_l7arm8.jpg",
-    ]
+    api_url: process.env.strapiBaseUri,
+    weddings: []
     }
   },
+  apollo: {
+    weddings: {
+      prefetch: true,
+      query: weddingsQuery,
+    },
+  },
+  methods: {
+    getImage(id) {
+      for (const wedding in this.weddings) {
+        let img = this.weddings.find((img) => img.id == id);
+        return img.image.url;
+      }
+    }
+  }
 };
 </script>
 

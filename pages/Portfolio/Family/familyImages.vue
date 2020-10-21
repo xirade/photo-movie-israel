@@ -2,42 +2,51 @@
   <div class="container">
     <div class="grid">
       <div class="grid-sizer"></div>
-      <div class="grid-item grid-item--height3 grid-img" :style="{ backgroundImage: 'url(' + streetImg[0] + ')', backgroundSize: 'cover',
+      <div class="grid-item grid-item--height3 grid-img" :style="{ backgroundImage: 'url(' + getImage(1) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}">
       </div>
       <div class="grid-item grid-item--width2 grid-item--height3"
-      :style="{ backgroundImage: 'url(' + streetImg[1] + ')', backgroundSize: 'cover',
+      :style="{ backgroundImage: 'url(' + getImage(2) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
       <div class="grid-item grid-item--width2 grid-item--height4"
-      :style="{ backgroundImage: 'url(' + streetImg[2] + ')', backgroundSize: 'cover',
+      :style="{ backgroundImage: 'url(' + getImage(3) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
       <div class="grid-item grid-item--width3 grid-item--height4"
-      :style="{ backgroundImage: 'url(' + streetImg[3] + ')', backgroundSize: 'cover',
+      :style="{ backgroundImage: 'url(' + getImage(4) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
       <div class="grid-item grid-item--width2 grid-item--height3"
-      :style="{ backgroundImage: 'url(' + streetImg[4] + ')', backgroundSize: 'cover',
+      :style="{ backgroundImage: 'url(' + getImage(5) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
       <div class="grid-item grid-item--width4 grid-item--height5"
-      :style="{ backgroundImage: 'url(' + streetImg[5] + ')', backgroundSize: 'cover',
+      :style="{ backgroundImage: 'url(' + getImage(6) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
     </div>
   </div>
 </template>
 
 <script>
+import familiesQuery from '~/apollo/queries/portfolio/families.gql';
 export default {
     data() {
         return {
-            streetImg: [
-                'https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963375/0013_rg5rks.jpg',
-                'https://res.cloudinary.com/dxeebmzdv/image/upload/v1596974944/family_beach_l9tgah.jpg',
-                'https://res.cloudinary.com/dxeebmzdv/image/upload/v1596974935/poster_df0c03dca9cd4ed49daa4ddb71536fc6_pt4jlv.jpg',
-                'https://res.cloudinary.com/dxeebmzdv/image/upload/v1596974927/bring-your-family-to-germany_kyntov.jpg',
-                'https://res.cloudinary.com/dxeebmzdv/image/upload/v1596974919/large-multi-gen-travel-1280x640_c791jr.jpg',
-                'https://res.cloudinary.com/dxeebmzdv/image/upload/v1596974910/happy-family_rmnzrm.jpg'
-            ]
+            api_url: process.env.strapiBaseUri,
+            families: []
         }
+    },
+    apollo: {
+    families: {
+      prefetch: true,
+      query: familiesQuery,
+    },
+  },
+  methods: {
+    getImage(id) {
+      for (const street in this.families) {
+        let img = this.families.find((img) => img.id == id);
+        return img.image.url;
+      }
     }
+  }
 };
 </script>
 

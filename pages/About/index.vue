@@ -22,7 +22,7 @@
       <div class="bg-white container text-black d-flex justify-content-end">
         <div class="service_title mt-5 w-50">
           <p class="display-5 pl-2 text-left font-weight-bolder yellow-text">02</p>
-          <h2 class="display-3 pl-2 font-weight-bold">ABOUT</h2>
+          <h2 class="display-3 pl-2 font-weight-bold text-uppercase">About</h2>
         </div>
       </div>
     </header>
@@ -33,23 +33,17 @@
           <section>
             <mdb-row class="mx-auto">
               <mdb-col class="mt-5 mx-auto" md="6">
-                <h2 class="display-2 mb-3 white-text mt-5">
-                  WE TAKE PICTURES
-                  <hr class="m-0" style="border: 0;" />FROM ABOVE
+                <h2 class="display-2 mb-3 white-text mt-5 text-uppercase">
+                  We take pictures
+                  <hr class="m-0" style="border: 0;" />from above
                 </h2>
                 <p class="font-weight-light grey-text mt-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                  illum rerum tenetur praesentium et quidem, consectetur
-                  dignissimos vel, incidunt esse sunt neque voluptatem iste
-                  dolor placeat labore. Harum eum fugiat itaque ab sint. Nihil
-                  nesciunt amet minima ipsam placeat. Dolorum veritatis ullam
-                  iure sunt, ad dolorem? Dolore illo dolor est illum. Dolores
-                  unde quibusdam molestiae, autem dolorum est in iure.
+                  {{getAboutDescription(1)}}
                 </p>
               </mdb-col>
               <mdb-col md="6" class="pl-auto mt-5">
                 <img
-                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596206354/julius-drost-dS-q7-zkD9c-unsplash_jagklb.jpg"
+                  :src="getAboutImage(1)"
                   alt="Sample project image"
                   class="section-img img-fluid rounded z-depth-1"
                 />
@@ -69,7 +63,7 @@
       ></span>
       <mdb-container class="py-5">
         <section id="team-section" class="text-center">
-          <h2 class="h1-responsive font-weight-bold my-5">OUR AMAZING TEAM</h2>
+          <h2 class="h1-responsive font-weight-bold my-5 text-uppercase">Our amazing team</h2>
           <p class="grey-text w-responsive mb-5 mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
             error amet numquam iure provident voluptate esse quasi, veritatis
@@ -122,9 +116,37 @@
 </template>
 
 <script>
+import aboutsQuery from '~/apollo/queries/about/abouts.gql';
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import { BAvatar, AvatarPlugin } from "bootstrap-vue";
 export default {
+  data () {
+    return {
+      api_url: process.env.strapiBaseUri,
+      abouts:[],
+      query: null
+    }
+  },
+   apollo: {
+    abouts: {
+      prefetch: true,
+      query: aboutsQuery,
+    },
+  },
+  methods: {
+    getAboutImage(id) {
+       for (const about in this.abouts) {
+        let pic = this.abouts.find((pic) => pic.id == id);
+        return pic.image.url;
+       }
+      },
+    getAboutDescription(id) {
+       for (const about in this.abouts) {
+        let des = this.abouts.find((des) => des.id == id);
+        return des.description;
+      }
+    }
+  },
   components: {
     mdbContainer,
     mdbRow,

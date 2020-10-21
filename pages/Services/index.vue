@@ -99,7 +99,6 @@
 
 <script>
 import serviceCards from "./services_cards";
-import Vue from "vue";
 import AOS from "aos";
 export default {
   components: {

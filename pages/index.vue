@@ -63,7 +63,7 @@
                   sit officia accusamus minus error nisi architecto nulla ipsum
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
-                <nuxt-link :to="'/order'">
+                <nuxt-link :to="'/order/photo'">
                   <mdb-btn color="orange" class="white-text">
                     <mdb-icon icon="shopping-bag left" />Book now
                   </mdb-btn>
@@ -90,7 +90,7 @@
                   sit officia accusamus minus error nisi architecto nulla ipsum
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
-                <nuxt-link :to="'/order'">
+                <nuxt-link :to="'/order/video'">
                   <mdb-btn color="blue" class="text-black">
                     <mdb-icon icon="shopping-bag left" />Book now
                   </mdb-btn>
@@ -101,13 +101,13 @@
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
               class="card-image"
-              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200689/photo-1527977966376-1c8408f9f108_w5rozf.jpg') no-repeat center;
+              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1600277481/96681721-a-movie-production-clapper-board-hands-with-a-movie-clapperboard-on-grey-background-with-copy-space-_afklyl.jpg') no-repeat;
               background-size: cover;"
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
                 <h5 class="green-text font-weight-bold">
-                  <mdb-icon icon="helicopter" />AEROPHOTO
+                  <mdb-icon icon="film" />MONTAGE
                 </h5>
                 <mdb-card-title tag="h3" class="pt-2 text-white">
                   <strong>This is card title</strong>
@@ -118,7 +118,7 @@
                   sit officia accusamus minus error nisi architecto nulla ipsum
                   dignissimos. Odit sed qui, dolorum!.
                 </p>
-                <nuxt-link :to="'/order'">
+                <nuxt-link :to="'/order/montage'">
                   <mdb-btn color="green" class="text-black">
                     <mdb-icon icon="shopping-bag left" />Book now
                   </mdb-btn>
@@ -235,6 +235,10 @@ import {
   mdbIcon,
 } from "mdbvue";
 export default {
+  data () {
+    return {
+    }
+  },
   em: "#animateFadeIn_1",
   components: {
     CoolLight,

@@ -1,12 +1,13 @@
 <template>
   <div class="w-100">
-    <CoolLightBox :items="items" :index="index" loop @close="index = null"></CoolLightBox>
+    <CoolLightBox :items="getItems" :index="index" loop @close="index = null"></CoolLightBox>
     <div class="w-100 h-100">
       <mdb-view class="zoom overlay">
         <video class="video-fluid m-0" autoplay loop muted>
-          <source :src="video" type="video/mp4" />
+          <source :src="getVideo(1)" type="video/mp4" />
         </video>
         <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
+          <p class="display-3 my-auto mx-auto flex-center">{{getTitle(1)}}</p>
           <button class="full-img-slider" v-on:click="setIndex(0)"></button>
         </mdb-mask>
       </mdb-view>
@@ -16,36 +17,36 @@
         <div class="grid-sizer"></div>
         <div class="grid-item grid-item--width1 grid-item--height3">
           <mdb-view class="zoom overlay" style="position: unset;">
-            <img class="grid-img" :src="items[1]" alt="zoom" />
+            <img class="grid-img" :src="getImage(2)" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
-              <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
+              <p class="display-3 my-auto mx-auto flex-center">{{getTitle(2)}}</p>
               <button class="full-img-slider" v-on:click="setIndex(1)"></button>
             </mdb-mask>
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width4 grid-item--height3">
           <mdb-view class="zoom overlay" style="position: unset;">
-            <img class="grid-img" :src="items[2]" alt="zoom" />
+            <img class="grid-img" :src="getImage(3)" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
-              <p class="display-5 my-auto mx-auto flex-center">Adventure time</p>
+              <p class="display-5 my-auto mx-auto flex-center">{{getTitle(3)}}</p>
               <button class="full-img-slider" v-on:click="setIndex(2)"></button>
             </mdb-mask>
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width2 grid-item--height4">
           <mdb-view class="zoom overlay" style="position: unset;">
-            <img class="grid-img" :src="items[3]" alt="zoom" />
+            <img class="grid-img" :src="getImage(4)" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
-              <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
+              <p class="display-3 my-auto mx-auto flex-center">{{getTitle(4)}}</p>
               <button class="full-img-slider" v-on:click="setIndex(3)"></button>
             </mdb-mask>
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width3 grid-item--height5">
           <mdb-view class="zoom overlay" style="position: unset;">
-            <img class="grid-img" :src="items[4]" alt="zoom" />
+            <img class="grid-img" :src="getImage(5)" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
-              <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
+              <p class="display-3 my-auto mx-auto flex-center">{{getTitle(5)}}</p>
               <button class="full-img-slider" v-on:click="setIndex(4)"></button>
             </mdb-mask>
           </mdb-view>
@@ -53,9 +54,9 @@
 
         <div class="grid-item grid-item--width2 grid-item--height4">
           <mdb-view class="zoom overlay" style="position: unset;">
-            <img class="grid-img" :src="items[5]" alt="zoom" />
+            <img class="grid-img" :src="getImage(6)" alt="zoom" />
             <mdb-mask waves overlay="black-light" class="white-text d-flex flex-column h-100">
-              <p class="display-3 my-auto mx-auto flex-center">Adventure time</p>
+              <p class="display-3 my-auto mx-auto flex-center">{{getTitle(6)}}</p>
               <button class="full-img-slider" v-on:click="setIndex(5)"></button>
             </mdb-mask>
           </mdb-view>
@@ -66,32 +67,25 @@
 </template>
 
 <script>
+import slidersQuery from "~/apollo/queries/slider/sliders.gql";
 import CoolLightBox from "vue-cool-lightbox";
 import { mdbView, mdbMask } from "mdbvue";
 import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 export default {
-  data: function () {
+  data() {
     return {
-      video:
-        "https://res.cloudinary.com/dxeebmzdv/video/upload/v1595969486/%D0%B4%D1%80%D0%BE%D0%BD_aonvwi.mp4",
-      items: [
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970088/0026_nfvrt1.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963380/0018_dmrxjg.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596793159/0013_rg5rks_ddi1rd.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596709206/3_haxune_jnd6g3.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950977/5_djhizt.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_fill,h_1500/v1595963385/0010_yjpe42.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/c_scale,h_1500/v1595963382/0011_ogxbtk.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595963391/008_qigms0.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970338/0022_qjziqy.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970342/0030_vvllm8.jpg",
-        "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970343/0031_chkk3y.jpg",
-      ],
+      api_url: process.env.strapiBaseUri,
+      sliders: [],
+      query: '',
+      items: [],
       index: null,
     };
+  },
+  apollo: {
+    sliders: {
+      prefetch: true,
+      query: slidersQuery,
+    },
   },
   components: {
     CoolLightBox,
@@ -100,7 +94,35 @@ export default {
   },
   methods: {
     setIndex(index) {
-      this.index = index; 
+      this.index = index;
+    },
+    getImage(id) {
+      for (const slider in this.sliders) {
+        let img = this.sliders.find((img) => img.id == id);
+        return img.image.url;
+      }
+    },
+    getTitle(id) {
+      for (const slider in this.sliders) {
+        let tl = this.sliders.find((tl) => tl.id == id);
+        return tl.title;
+      }
+    },
+    getVideo(id) {
+      for (const slider in this.sliders) {
+          let vd = this.sliders.find((vd) => vd.id == id);
+          return vd.video.url  
+      }
+    }
+  },
+  computed: {
+    getItems() {
+      let result = this.items;
+      let sliders = this.sliders;
+      for (let i = 0; i < sliders.length; i++) {
+        result.push(sliders[i].image.url);
+      }
+      return result;
     },
   },
 };
@@ -115,7 +137,7 @@ export default {
   object-fit: cover;
   object-position: center;
   /* support for plugin https://github.com/bfred-it/object-fit-images */
-  font-family: "object-fit: cover; object-position: bottom;";
+  font-family: "object-fit: cover; object-position: center;";
   top: 0;
   overflow: hidden;
   left: 0;

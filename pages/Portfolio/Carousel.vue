@@ -1,95 +1,81 @@
 <template>
-  <div class="container mt-2">
-    <div class="px-0 position-relative">
-      <div class="slider embed-responsive embed-responsive-16by9 z-depth-1-half position-relative">
-        <iframe class=" animate__animated animate__fadeIn animate__faster video-fluid embed-responsive-item" :src="currentImg" 
+  <client-only>
+    <div class="container mt-2">
+      <div class="px-0 position-relative">
+        <div
+          class="slider embed-responsive embed-responsive-16by9 z-depth-1-half position-relative"
+        >
+          <!-- <iframe class=" animate__animated animate__fadeIn animate__faster video-fluid embed-responsive-item" 
                 @load="loaded"
                 allow="autoplay;fullscreen;"
                 frameborder=“0”
-                loop="1">
-                </iframe>
-                <a class="prev text-white" @click="prev">&#10094;</a>
-                <a class="next text-white" @click="next">&#10095;</a>
+                loop="1"
+                :src="items"
+                type="video/mp4"
+                >
+          </iframe> -->
+          <div v-for="i in [currentIndex]" :key="i">
+          <video 
+           controls
+           :src="currentImg">
+           <source :src = "currentImg" type="video/mp4">
+          </video>
+          </div>
+          <a class="prev text-white" @click="prev">&#10094;</a>
+          <a class="next text-white" @click="next">&#10095;</a>
+        </div>
+      </div>
+      <div class="thumbnails position-relative">
+        <div
+          v-for="(image, index) in aerophotos"
+          :key="image.id"
+          :class="['thumbnail-image', currentIndex == index ? 'active' : '']"
+          @click="activateImage(index)"
+        >
+          <img class="small-img mt-2 mr-2 z-depth-1-half" :src="image.thumb.url" />
+        </div>
       </div>
     </div>
-    <div class="thumbnails position-relative">
-      <div
-        v-for="(image, index) in images"
-        :key="image.id"
-        :class="['thumbnail-image', currentIndex == index ? 'active' : '']"
-        @click="activateImage(index)"
-      >
-        <img class="small-img mt-2 mr-2  z-depth-1-half" :src="image.thumb" />
-      </div>
-    </div>
-  </div>
+  </client-only>
 </template>
 
 <script>
+import aerophotosQuery from "~/apollo/queries/portfolio/aerophotos.gql";
 export default {
   name: "Slider",
-  components: {
-  },
+  components: {},
   data() {
     return {
+      api_url: process.env.strapiBaseUri,
       currentIndex: 0,
       timer: null,
       isLoad: false,
-      images: [
-        {
-          id: "0",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596981450/coverr-001-aerial-upward-sunrise-river-buildings-orange-sky-buenos-aires-argentina-quarantine-drone-4k-16x9-6885_beqwis.mp4",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000728/Screenshot_from_2020-08-09_22-09-37_ardyrr.png",
-        },
-        {
-          id: "1",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596981429/coverr-53-new-zealand-lion-rock-piha-couple-7108_lngs6m.mp4",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000728/Screenshot_from_2020-08-09_22-10-16_jrgtlc.png",
-        },
-        {
-          id: "2",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596981458/coverr-motorcyclist-drives-through-palms-road-1585645703955_fy3ini.mp4",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000728/Screenshot_from_2020-08-09_22-08-51_o6j7kh.png",
-        },
-        {
-          id: "3",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1595969486/%D0%B4%D1%80%D0%BE%D0%BD_aonvwi.mp4",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000859/background_n0nne4_dczfl9.jpg",
-        },
-        {
-          id: "4",
-          big:
-            "https://res.cloudinary.com/dxeebmzdv/video/upload/v1596997157/coverr-training-with-mountain-landscape-1585726970130_rok6nw.mp4",
-          thumb:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597000727/Screenshot_from_2020-08-09_22-06-56_eemlwu.png",
-        },
-      ],
+      aerophotos: [],
+      items: [],
     };
+  },
+  apollo: {
+    aerophotos: {
+      prefetch: true,
+      query: aerophotosQuery,
+    },
   },
   methods: {
     next: function () {
-        var active = this.currentIndex + 1;
-        if (active >= this.images.length) {
-          active = 0;
-        }
-        this.isLoad = false;
-        this.activateImage(active);
+      var active = this.currentIndex + 1;
+      if (active >= this.aerophotos.length) {
+        active = 0;
+      }
+      this.isLoad = false;
+      this.activateImage(active);
     },
     prev: function () {
-        var active = this.currentIndex - 1;
-        if (active >= this.images.length) {
-          active = 0;
-        }
-        this.isLoad = false;
-        this.activateImage(active);
+      var active = this.currentIndex - 1;
+      if (active >= this.aerophotos.length) {
+        active = 0;
+      }
+      this.isLoad = false;
+      this.activateImage(active);
     },
     activateImage(imgIndex) {
       this.isLoad = false;
@@ -98,12 +84,25 @@ export default {
     loaded() {
       this.isLoad = true;
     },
+    // changeVideo() {
+    //   let totalAero = this.aerophotos;
+    //   for (let index = 0; index < totalAero.length; index++) {
+    //     this.items.push(totalAero[index].big.url);
+    //   }
+    //   this.videoUrl = 
+    //     this.items[Math.abs(this.currentIndex) % this.items.length];
+    // },
   },
-   computed: {
-    currentImg: function() {
-      return this.images[Math.abs(this.currentIndex) % this.images.length].big;
+  computed: {
+    currentImg: function () {
+      let result = this.items
+      let totalAero = this.aerophotos;
+      for (let index = 0; index < totalAero.length; index++) {
+        result.push(totalAero[index].big.url);
+      }
+      return result[Math.abs(this.currentIndex) % result.length];
     },
-  }
+  },
 };
 </script>
 
@@ -115,7 +114,8 @@ export default {
   max-height: 100%;
 }
 
-.big-img, .small-img {
+.big-img,
+.small-img {
   object-fit: cover;
   object-position: center;
   /* support for plugin https://github.com/bfred-it/object-fit-images */
@@ -192,5 +192,4 @@ export default {
     height: 300px;
   }
 }
-
 </style>

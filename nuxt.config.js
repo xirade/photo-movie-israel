@@ -21,7 +21,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/icon', href: 'camera-shutter.ico' },
+      { rel: 'icon', type: 'image/icon', href: '/shutter.ico' },
       { rel:'stylesheet', href:'assets/css/main.css', as:'font', type:'font', crossorigin:'anonymous'},
     ],
   },
@@ -63,9 +63,20 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
+    '@nuxtjs/apollo',
     'bootstrap-vue/nuxt',
     'mdbvue/nuxt'
   ],
+  apollo: {  
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
+      }
+    }
+  },
+  env: {
+    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
+  },
   mdbvue: {
     icons: true, // FA5
     roboto: true, // font Roboto
@@ -77,7 +88,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    vendor: ['external_library']
   },
   loading:'~/components/Loading.vue',
   router: {

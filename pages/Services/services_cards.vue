@@ -4,21 +4,20 @@
       <mdb-col md="4" lg="3" class="my-auto">
         <mdb-card>
           <mdb-view hover>
-            <a href="#!">
-              <mdb-card-image
-                src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1595970339/0035_rgph7p.jpg"
+              <img
+                class="img-fluid"
+                :src="getOrderImage"
                 alt="Card image cap"
-              ></mdb-card-image>
+              />
               <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
-            </a>
           </mdb-view>
           <mdb-card-body>
-            <mdb-card-title>Photoshoot</mdb-card-title>
+            <mdb-card-title>{{getOrderTitle(1)}}</mdb-card-title>
+            <span>{{getOrderPrice(1)}}₪/hr</span>
             <mdb-card-text>
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+              {{getOrderDescription(1)}}
             </mdb-card-text>
-            <nuxt-link :to="'/order'">
+            <nuxt-link :to="'/order/photo'">
               <mdb-btn color="warning" class="ml-0">
                 <mdb-icon icon="shopping-bag left" />Book now
               </mdb-btn>
@@ -29,23 +28,20 @@
       <mdb-col md="4" lg="5" class="my-5 mx-auto">
         <mdb-card>
           <mdb-view hover>
-            <a href="#!">
-              <video class="video-fluid z-depth-1" autoplay loop muted>
+              <video :src="getOrderVideo" class="video-fluid z-depth-1" autoplay loop muted>
                 <source
-                  src="https://res.cloudinary.com/dxeebmzdv/video/upload/v1596091560/EOD_wd4m1j.mp4"
                   type="video/mp4"
                 />
               </video>
               <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
-            </a>
           </mdb-view>
           <mdb-card-body>
-            <mdb-card-title>Videoshoot</mdb-card-title>
+            <mdb-card-title>{{getOrderTitle(2)}}</mdb-card-title>
+            <span>{{getOrderPrice(2)}}₪/hr</span>
             <mdb-card-text>
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+              {{getOrderDescription(2)}}
             </mdb-card-text>
-            <nuxt-link :to="'/order'">
+            <nuxt-link :to="'/order/video'">
               <mdb-btn class="ml-0" color="warning">
                 <mdb-icon icon="shopping-bag left" />Book now
               </mdb-btn>
@@ -56,21 +52,20 @@
       <mdb-col md="4" lg="3" class="my-auto">
         <mdb-card>
           <mdb-view hover>
-            <a href="#!">
-              <mdb-card-image
-                src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596090961/%D0%BD%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0_zmpch0.jpg"
+              <img
+                class="img-fluid"
+                :src="getOrderImage1"
                 alt="Card image cap"
-              ></mdb-card-image>
+              />
               <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
-            </a>
           </mdb-view>
           <mdb-card-body>
-            <mdb-card-title>Montage</mdb-card-title>
+            <mdb-card-title>{{getOrderTitle(3)}}</mdb-card-title>
+            <span>{{getOrderPrice(3)}}₪/hr</span>
             <mdb-card-text>
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+              {{getOrderDescription(3)}}
             </mdb-card-text>
-            <nuxt-link :to="'/order'">
+            <nuxt-link :to="'/order/montage'">
               <mdb-btn class="ml-0" color="warning">
                 <mdb-icon icon="shopping-bag left" />Book now
               </mdb-btn>
@@ -83,6 +78,7 @@
 </template>
 
 <script>
+import ordersQuery from "~/apollo/queries/order/orders.gql"
 import {
   mdbContainer,
   mdbRow,
@@ -103,6 +99,72 @@ import {
   mdbIcon,
 } from "mdbvue";
 export default {
+  data () {
+    return {
+      api_url: process.env.strapiBaseUri,
+      orders:[],
+    }
+  },
+  apollo: {
+    orders: {
+      prefetch: true,
+      query: ordersQuery,
+    },
+  },
+  methods: {
+    getOrderTitle(id) {
+      let title = '';
+       for (const order in this.orders) {
+        title = this.orders.find((title) => title.id == id);
+      }
+        return title.title;
+    },
+    getOrderDescription(id) {
+      let des = '';
+       for (const order in this.orders) {
+        des = this.orders.find((des) => des.id == id);
+      }
+        return des.description;
+    },
+    getOrderPrice(id) {
+      let price = '';
+       for (let order in this.orders) {
+        price = this.orders.find((price) => price.id == id);
+      }
+        return price.price;
+    }
+  },
+  computed: {
+     getOrderVideo() {
+       let video = [];
+       for (let order = 1; order < this.orders.length - 1; order ++) {
+        video.push(this.orders[order].video.url);
+      }
+        return video;
+    },
+     getOrderImage() {
+      let img = [];
+       for (let order = 0; order < this.orders.length - 2; order ++) {
+         img.push(this.orders[order].image.url)
+         }
+        return img;
+    },
+     getOrderImage1() {
+      let img1 = [];
+       for (let order = 2; order < this.orders.length; order ++) {
+         img1.push(this.orders[order].image.url)
+         }
+        return img1;
+    },
+  },
+  //  mounted() {
+  //   if (localStorage.getItem('reloaded')) {
+  //     localStorage.removeItem('reloaded');
+  //   } else {
+  //     localStorage.setItem('reloaded', '0');
+  //       location.reload();
+  //   }
+  // },
   name: "CardProPage",
   components: {
     mdbContainer,
