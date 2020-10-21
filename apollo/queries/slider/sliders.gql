@@ -1,0 +1,9 @@
+query Sliders {
+  sliders{
+    id
+    title
+    image{ url }
+    video{ url }
+    published_at
+  }
+}

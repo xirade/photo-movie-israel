@@ -1,0 +1,10 @@
+query Orders {
+  orders{
+    id
+    title
+    description
+    image {url}
+    video {url}
+    price
+  }
+}

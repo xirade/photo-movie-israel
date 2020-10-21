@@ -1,0 +1,8 @@
+query Families {
+  families {
+    id
+    title
+    image{url}
+    date
+  }
+}

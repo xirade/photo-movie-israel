@@ -1,0 +1,8 @@
+query Streets {
+  streets {
+    id
+    title
+    image{url}
+    date
+  }
+}

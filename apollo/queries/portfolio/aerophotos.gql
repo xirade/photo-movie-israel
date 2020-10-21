@@ -1,0 +1,8 @@
+query Aerophotos {
+  aerophotos {
+    id
+    title
+    big{url}
+    thumb{url}
+  }
+}
