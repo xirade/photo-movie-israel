@@ -63,7 +63,7 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    '@nuxtjs/apollo',
+    // '@nuxtjs/apollo',
     'bootstrap-vue/nuxt',
     'mdbvue/nuxt'
   ],

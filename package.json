@@ -11,15 +11,12 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "@nuxtjs/apollo": "^4.0.1-rc.3",
     "animate.css": "^4.1.0",
     "aos": "^3.0.0-beta.6",
-    "apollo-cache-inmemory": "^1.6.6",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "eslint-loader": "^4.0.2",
-    "graphql": "^15.3.0",
     "heroku": "^7.42.5",
     "imagesloaded": "^4.1.4",
     "jarallax": "^1.12.1",
@@ -35,7 +32,7 @@
     "vue-ctk-date-time-picker": "^2.5.0"
   },
   "devDependencies": {
-    "node-sass": "^5.0.0",
+    "node-sass": "^4.0.0",
     "sass-loader": "9.0.3",
     "vue-cli-plugin-mdb": "~2.1.0"
   }
