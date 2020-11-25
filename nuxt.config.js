@@ -67,16 +67,16 @@ export default {
     'bootstrap-vue/nuxt',
     'mdbvue/nuxt'
   ],
-  apollo: {  
-    clientConfigs: {
-      default: {
-        httpEndpoint: process.env.BACKEND_URL || "https://arcane-harbor-45982.herokuapp.com/graphql"
-      }
-    }
-  },
-  env: {
-    strapiBaseUri: process.env.API_URL || "https://arcane-harbor-45982.herokuapp.com/"
-  },
+  // apollo: {  
+  //   clientConfigs: {
+  //     default: {
+  //       httpEndpoint: process.env.BACKEND_URL || "https://arcane-harbor-45982.herokuapp.com/graphql"
+  //     }
+  //   }
+  // },
+  // env: {
+  //   strapiBaseUri: process.env.API_URL || "https://arcane-harbor-45982.herokuapp.com/"
+  // },
   mdbvue: {
     icons: true, // FA5
     roboto: true, // font Roboto
