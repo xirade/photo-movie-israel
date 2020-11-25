@@ -35,8 +35,8 @@
     "vue-ctk-date-time-picker": "^2.5.0"
   },
   "devDependencies": {
-    "node-sass": "^4.9.0",
-    "sass-loader": "^8.0.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "9.0.3",
     "vue-cli-plugin-mdb": "~2.1.0"
   }
 }
