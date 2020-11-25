@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import weddingsQuery from '~/apollo/queries/portfolio/weddings.gql'
+// import weddingsQuery from '~/apollo/queries/portfolio/weddings.gql'
 export default {
   data() {
     return {
@@ -40,15 +40,64 @@ export default {
       backgroundPosition: 'center'
     },
     api_url: process.env.strapiBaseUri,
-    weddings: []
+    weddings: [
+      {
+        "id": "1",
+        "title": "With my love",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599507478/monet_malatino_wedding_thumb_ihm8nb_c63b0bc823.jpg"
+        },
+        "date": "2020-09-07T19:30:00.000Z"
+      },
+      {
+        "id": "2",
+        "title": "Ilya and Masha",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599507537/008_qigms0_e9d4gq_a58d7c6b2e.jpg"
+        },
+        "date": "2020-09-07T20:30:00.000Z"
+      },
+      {
+        "id": "3",
+        "title": "Love on the beach",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599511241/Beach_Wedding_Crim_Barefoot_Beach_Bride_uapndf_70518984c8.jpg"
+        },
+        "date": "2020-09-07T20:30:00.000Z"
+      },
+      {
+        "id": "4",
+        "title": "Good memory",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599511315/5_djhizt_0ba93f0786.jpg"
+        },
+        "date": "2020-09-07T20:30:00.000Z"
+      },
+      {
+        "id": "5",
+        "title": "Funny moment",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599511396/e_t_wedding_523_oj0onq_8a3024d4d1.jpg"
+        },
+        "date": "2020-09-07T20:30:00.000Z"
+      },
+      {
+        "id": "6",
+        "title": "Finish her",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599511467/5e2762f7ab49fd1ed25a9dc4_l7arm8_fb0d874aca.jpg"
+        },
+        "date": "2020-09-07T20:30:00.000Z"
+      }
+    ]
     }
   },
-  apollo: {
-    weddings: {
-      prefetch: true,
-      query: weddingsQuery,
-    },
-  },
+  // apollo: {
+  //   weddings: {
+  //     prefetch: true,
+  //     query: weddingsQuery,
+  //   },
+  // },
   methods: {
     getImage(id) {
       for (const wedding in this.weddings) {

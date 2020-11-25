@@ -116,23 +116,31 @@
 </template>
 
 <script>
-import aboutsQuery from '~/apollo/queries/about/abouts.gql';
+// import aboutsQuery from '~/apollo/queries/about/abouts.gql';
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import { BAvatar, AvatarPlugin } from "bootstrap-vue";
 export default {
   data () {
     return {
       api_url: process.env.strapiBaseUri,
-      abouts:[],
+      abouts:[
+      {
+        "id": "1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598763585/julius_drost_d_S_q7_zk_D9c_unsplash_jagklb_3fefa02418.jpg"
+        }
+      }
+    ],
       query: null
     }
   },
-   apollo: {
-    abouts: {
-      prefetch: true,
-      query: aboutsQuery,
-    },
-  },
+  //  apollo: {
+  //   abouts: {
+  //     prefetch: true,
+  //     query: aboutsQuery,
+  //   },
+  // },
   methods: {
     getAboutImage(id) {
        for (const about in this.abouts) {

@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import aerophotosQuery from "~/apollo/queries/portfolio/aerophotos.gql";
+// import aerophotosQuery from "~/apollo/queries/portfolio/aerophotos.gql";
 export default {
   name: "Slider",
   components: {},
@@ -50,16 +50,67 @@ export default {
       currentIndex: 0,
       timer: null,
       isLoad: false,
-      aerophotos: [],
+      aerophotos: [
+      {
+        "id": "1",
+        "title": "View",
+        "thumb": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794537/Screenshot_from_2020_08_09_22_10_16_jrgtlc_613257f510.png"
+        },
+        "big": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794519/coverr_53_new_zealand_lion_rock_piha_couple_7108_lngs6m_71352101dd.mp4"
+        }
+      },
+      {
+        "id": "2",
+        "title": "City",
+        "thumb": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png"
+        },
+        "big": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794241/coverr_001_aerial_upward_sunrise_river_buildings_orange_sky_buenos_aires_argentina_quarantine_drone_4k_16x9_6885_beqwis_433b7ca8fa.mp4"
+        }
+      },
+      {
+        "id": "3",
+        "title": "Moto",
+        "thumb": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794098/Screenshot_from_2020_08_09_22_08_51_o6j7kh_c7b72c6ae3.png"
+        },
+        "big": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793968/coverr_motorcyclist_drives_through_palms_road_1585645703955_fy3ini_3a0e278342.mp4"
+        }
+      },
+      {
+        "id": "4",
+        "title": "Montain",
+        "thumb": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
+        },
+        "big": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793747/coverr_training_with_mountain_landscape_1585726970130_rok6nw_ebe24d32b3.mp4"
+        }
+      },
+      {
+        "id": "5",
+        "title": "Sea",
+        "thumb": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599023305/thumbnail_background_n0nne4_4547397537_3f0366687b.jpg"
+        },
+        "big": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+        }
+      }
+    ],
       items: [],
     };
   },
-  apollo: {
-    aerophotos: {
-      prefetch: true,
-      query: aerophotosQuery,
-    },
-  },
+  // apollo: {
+  //   aerophotos: {
+  //     prefetch: true,
+  //     query: aerophotosQuery,
+  //   },
+  // },
   methods: {
     next: function () {
       var active = this.currentIndex + 1;

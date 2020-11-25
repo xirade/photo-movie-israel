@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import slidersQuery from "~/apollo/queries/slider/sliders.gql";
+// import slidersQuery from "~/apollo/queries/slider/sliders.gql";
 import CoolLightBox from "vue-cool-lightbox";
 import { mdbView, mdbMask } from "mdbvue";
 import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
@@ -75,18 +75,75 @@ export default {
   data() {
     return {
       api_url: process.env.strapiBaseUri,
-      sliders: [],
+      sliders: [
+      {
+        "id": "1",
+        "title": "Beautiful view",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599220403/background_n0nne4_8cda543196.jpg"
+        },
+        "video": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+        },
+        "published_at": "2020-08-20T19:00:00.000Z"
+      },
+      {
+        "id": "2",
+        "title": "Beautiful girl",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950494/kudri_5abfe601c6.jpg"
+        },
+        "video": null,
+        "published_at": "2020-08-21T19:30:00.000Z"
+      },
+      {
+        "id": "3",
+        "title": "Little girl",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950572/0013_rg5rks_ddi1rd_73cee6bec5.jpg"
+        },
+        "video": null,
+        "published_at": "2020-08-15T18:00:00.000Z"
+      },
+      {
+        "id": "4",
+        "title": "Big city life",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950739/3_haxune_jnd6g3_47450709a9.jpg"
+        },
+        "video": null,
+        "published_at": "2020-08-24T09:00:00.000Z"
+      },
+      {
+        "id": "5",
+        "title": "Wedding",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950901/5_djhizt_cbfb71ed5d.jpg"
+        },
+        "video": null,
+        "published_at": "2020-08-26T09:00:00.000Z"
+      },
+      {
+        "id": "6",
+        "title": "Beautiful view",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950678/skameika_059cf37e22.jpg"
+        },
+        "video": null,
+        "published_at": "2020-08-06T09:00:00.000Z"
+      }
+    ],
       query: '',
       items: [],
       index: null,
     };
   },
-  apollo: {
-    sliders: {
-      prefetch: true,
-      query: slidersQuery,
-    },
-  },
+  // apollo: {
+  //   sliders: {
+  //     prefetch: true,
+  //     query: slidersQuery,
+  //   },
+  // },
   components: {
     CoolLightBox,
     mdbView,

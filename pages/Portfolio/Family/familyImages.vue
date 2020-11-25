@@ -25,20 +25,69 @@
 </template>
 
 <script>
-import familiesQuery from '~/apollo/queries/portfolio/families.gql';
+// import familiesQuery from '~/apollo/queries/portfolio/families.gql';
 export default {
     data() {
         return {
             api_url: process.env.strapiBaseUri,
-            families: []
+            families: [
+      {
+        "id": "1",
+        "title": "Little girl",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950572/0013_rg5rks_ddi1rd_73cee6bec5.jpg"
+        },
+        "date": "2020-09-07T13:50:00.000Z"
+      },
+      {
+        "id": "2",
+        "title": "Family beach",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599486970/family_beach_l9tgah_ff11312680.jpg"
+        },
+        "date": "2020-09-07T14:00:00.000Z"
+      },
+      {
+        "id": "3",
+        "title": "My big family",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487034/poster_df0c03dca9cd4ed49daa4ddb71536fc6_pt4jlv_30c5b2c6e3.jpg"
+        },
+        "date": "2020-09-07T14:00:00.000Z"
+      },
+      {
+        "id": "4",
+        "title": "My first steps",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487113/bring_your_family_to_germany_kyntov_180cd0552f.jpg"
+        },
+        "date": "2020-09-07T14:00:00.000Z"
+      },
+      {
+        "id": "5",
+        "title": "Travelling together",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487200/large_multi_gen_travel_1280x640_c791jr_f0bc8b0e31.jpg"
+        },
+        "date": "2020-09-07T14:00:00.000Z"
+      },
+      {
+        "id": "6",
+        "title": "Good weekend",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487261/happy_family_rmnzrm_9f3f2241d4.jpg"
+        },
+        "date": "2020-09-07T15:00:00.000Z"
+      }
+    ]
         }
     },
-    apollo: {
-    families: {
-      prefetch: true,
-      query: familiesQuery,
-    },
-  },
+  //   apollo: {
+  //   families: {
+  //     prefetch: true,
+  //     query: familiesQuery,
+  //   },
+  // },
   methods: {
     getImage(id) {
       for (const street in this.families) {

@@ -145,7 +145,7 @@
 </template>
 
 <script>
-import portfoliosQuery from '~/apollo/queries/portfolio/portfolios.gql';
+// import portfoliosQuery from '~/apollo/queries/portfolio/portfolios.gql';
 import {
   mdbContainer,
   mdbRow,
@@ -163,15 +163,52 @@ export default {
   data () {
     return {
       api_url: process.env.strapiBaseUri,
-      portfolios: []
+      portfolios: [
+      {
+        "id": "1",
+        "title": "Aerophotos",
+        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578471/241074099_dqe7q4_ac84205857.jpg"
+        },
+        "date": "2020-09-08T15:30:00.000Z"
+      },
+      {
+        "id": "2",
+        "title": "Street",
+        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578589/camera_naxnah_f389a1759e.jpg"
+        },
+        "date": "2020-09-08T15:00:00.000Z"
+      },
+      {
+        "id": "3",
+        "title": "Family",
+        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578648/0017_mtb2mn_6fe43e42f5.jpg"
+        },
+        "date": "2020-09-08T15:30:00.000Z"
+      },
+      {
+        "id": "4",
+        "title": "Wedding",
+        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578716/0012_cdvwcm_d8193abf91.jpg"
+        },
+        "date": "2020-09-08T15:30:00.000Z"
+      }
+    ]
     }
   },
-  apollo: {
-    portfolios: {
-      prefetch: true,
-      query: portfoliosQuery,
-    },
-  },
+  // apollo: {
+  //   portfolios: {
+  //     prefetch: true,
+  //     query: portfoliosQuery,
+  //   },
+  // },
   methods: {
     getImage(id) {
       let img = this.portfolios;

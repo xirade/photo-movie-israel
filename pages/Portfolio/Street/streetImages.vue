@@ -25,20 +25,69 @@
 </template>
 
 <script>
-import streetsQuery from '~/apollo/queries/portfolio/streets.gql';
+// import streetsQuery from '~/apollo/queries/portfolio/streets.gql';
 export default {
     data() {
         return {
             api_url: process.env.strapiBaseUri,
-            streets: []
+            streets: [
+      {
+        "id": "1",
+        "title": "Magic view",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599454574/2_vzvvds_c81a39020c.jpg"
+        },
+        "date": "2020-09-07T05:00:00.000Z"
+      },
+      {
+        "id": "2",
+        "title": "Amazing sea",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599454713/0026_nfvrt1_1efd97413d.jpg"
+        },
+        "date": "2020-09-07T05:00:00.000Z"
+      },
+      {
+        "id": "3",
+        "title": "Great beach",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599485274/3612581_18010316150060733791_vsk8xn_9a40cfcc9b.jpg"
+        },
+        "date": "2020-09-07T13:30:00.000Z"
+      },
+      {
+        "id": "4",
+        "title": "Red water",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599485347/whats_for_sale_with_a_view_show_hero_rphdyd_78bffbf729.jpg"
+        },
+        "date": "2020-09-07T13:30:00.000Z"
+      },
+      {
+        "id": "5",
+        "title": "Blue sky",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599485406/116281457_gu2tze_31d7246927.jpg"
+        },
+        "date": "2020-09-07T13:30:00.000Z"
+      },
+      {
+        "id": "6",
+        "title": "Wonderful sunset",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599485491/241074099_dqe7q4_50121a0704.jpg"
+        },
+        "date": "2020-09-07T13:30:00.000Z"
+      }
+    ]
         }
     },
-    apollo: {
-    streets: {
-      prefetch: true,
-      query: streetsQuery,
-    },
-  },
+  //   apollo: {
+  //   streets: {
+  //     prefetch: true,
+  //     query: streetsQuery,
+  //   },
+  // },
   methods: {
     getImage(id) {
       for (const street in this.streets) {

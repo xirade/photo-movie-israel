@@ -208,7 +208,7 @@
 </template>
 
 <script>
-import ordersQuery from "~/apollo/queries/order/orders.gql";
+// import ordersQuery from "~/apollo/queries/order/orders.gql";
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 import {
@@ -251,7 +251,40 @@ export default {
   data() {
     return {
       api_url: process.env.strapiBaseUri,
-      orders: [],
+      orders: [
+      {
+        "id": "1",
+        "title": "Photoshoot",
+        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950739/3_haxune_jnd6g3_47450709a9.jpg"
+        },
+        "price": 350,
+        "video": null
+      },
+      {
+        "id": "2",
+        "title": "Videoshoot",
+        "description": "Some quick example text to build on the card video and make up the bulk of the card's content.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png"
+        },
+        "price": 450,
+        "video": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598630487/EOD_wd4m1j_1a7355525b.mp4"
+        }
+      },
+      {
+        "id": "3",
+        "title": "Montage",
+        "description": "Some quick example text to build on the card montage and make up the bulk of the card's content.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598630660/nevesta_f7f7930fb0.jpg"
+        },
+        "price": 300,
+        "video": null
+      }
+    ],
       priceResult: [],
       hours: 0,
       totalPrice: 0,
@@ -265,12 +298,12 @@ export default {
       show: false,
     };
   },
-  apollo: {
-    orders: {
-      prefetch: true,
-      query: ordersQuery,
-    },
-  },
+  // apollo: {
+  //   orders: {
+  //     prefetch: true,
+  //     query: ordersQuery,
+  //   },
+  // },
   methods: {
     stepUp() {
       if(this.hours < 11){
