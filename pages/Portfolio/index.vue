@@ -30,14 +30,14 @@
       <mdb-container>
         <section class="text-center my-5">
           <mdb-row class="d-flex justify-content-center">
-            <mdb-col md="6" xl="5" class="mb-4">
+            <mdb-col v-for="portfolio in portfolios" :key="portfolio.id" md="6" xl="5" class="mb-4">
               <mdb-card>
                 <mdb-view
                   class="overlay round z-depth-1"
                 >
-                  <router-link :to="'/portfolio/aerophotos'">
+                  <router-link :to="portfolio.url">
                     <img
-                      :src="getImage(1)"
+                      :src="portfolio.image.url"
                       alt="sample photo"
                       class="img-fluid"
                     />
@@ -46,89 +46,19 @@
                   </router-link>
                 </mdb-view>
                 <mdb-card-body>
-                  <mdb-card-title>{{getTitle(1)}}</mdb-card-title>
+                  <mdb-card-title>{{portfolio.title}}</mdb-card-title>
                   <mdb-card-text>
-                    {{getDescription(1)}}
+                    {{portfolio.description}}
                   </mdb-card-text>
                 </mdb-card-body>
               </mdb-card>
             </mdb-col>
-            <mdb-col md="6" xl="5" class="mb-4">
-              <mdb-card>
-              <mdb-view
-                class="overlay round z-depth-1"
-              >
-                <router-link :to="'/portfolio/street'">
-                  <img
-                    :src="getImage(2)"
-                    alt="sample photo"
-                    class="img-fluid"
-                  />
-                    <mdb-mask waves overlay="black-light">
-                    </mdb-mask>
-                </router-link>
-              </mdb-view>
-               <mdb-card-body>
-                  <mdb-card-title>{{getTitle(2)}}</mdb-card-title>
-                  <mdb-card-text>
-                    {{getDescription(2)}}
-                  </mdb-card-text>
-                </mdb-card-body>
-                </mdb-card>
-            </mdb-col>
-            <mdb-col md="6" xl="5" class="mb-4">
-              <mdb-card>
-              <mdb-view
-                class="overlay round z-depth-1"
-              >
-                <a :href="'/portfolio/family'">
-                  <img
-                    :src="getImage(3)"
-                    alt="sample photo"
-                    class="img-fluid"
-                  />
-                    <mdb-mask waves overlay="black-light">
-                    </mdb-mask>
-                </a>
-              </mdb-view>
-              <mdb-card-body>
-                  <mdb-card-title>{{getTitle(3)}}</mdb-card-title>
-                  <mdb-card-text>
-                    {{getDescription(3)}}
-                  </mdb-card-text>
-                </mdb-card-body>
-                </mdb-card>
-            </mdb-col>
-            <mdb-col md="6" xl="5" class="mb-4">
-              <mdb-card>
-              <mdb-view
-                class="overlay round z-depth-1"
-              >
-                <router-link :to="'/portfolio/wedding'">
-                  <img
-                    :src="getImage(4)"
-                    alt="sample photo"
-                    class="img-fluid"
-                  />
-                    <mdb-mask waves overlay="black-light">
-                    </mdb-mask>
-                </router-link>
-              </mdb-view>
-               <mdb-card-body>
-                  <mdb-card-title>{{getTitle(4)}}</mdb-card-title>
-                  <mdb-card-text>
-                    {{getDescription(4)}}
-                  </mdb-card-text>
-                </mdb-card-body>
-                </mdb-card>
-            </mdb-col>
           </mdb-row>
           <h2 class="h1-responsive font-weight-bold my-5">OUR BEST PROJECTS</h2>
           <p class="grey-text w-responsive mx-auto mb-5">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            est laborum.
+            Я приглашаю познакомиться с моими работами и, конечно же, связаться
+            со мной, когда вы захотите реализовать самые безумные и
+            нестандартные идеи в любых уголках Израиля.
           </p>
         </section>
       </mdb-container>
@@ -166,41 +96,46 @@ export default {
       portfolios: [
       {
         "id": "1",
-        "title": "Aerophotos",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "title": "Видео-визитка",
+        "description": "Для презентации бизнеса.",
         "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578471/241074099_dqe7q4_ac84205857.jpg"
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474522/ashkan_forouzani_Kyzup46aa7o_unsplash_fccf0abd4c.jpg"
         },
-        "date": "2020-09-08T15:30:00.000Z"
+        "date": "2020-09-08T15:30:00.000Z",
+        "url": "/portfolio/aerophotos"
       },
       {
         "id": "2",
-        "title": "Street",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "title": "Предметная",
+        "description": "Для рекламы бизнеса.",
         "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578589/camera_naxnah_f389a1759e.jpg"
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474355/ezequiel_garrido_ije_JJ_8xe_ME_4_unsplash_rfjp7o_02ec490a2d.jpg"
         },
-        "date": "2020-09-08T15:00:00.000Z"
+        "date": "2020-09-08T15:00:00.000Z",
+        "url": "/portfolio/street"
       },
       {
         "id": "3",
-        "title": "Family",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "title": "Имиджевая",
+        "description": "Для блога, статей и социальных сетей.",
         "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578648/0017_mtb2mn_6fe43e42f5.jpg"
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610472644/78a1c6e2a5049b4cb0816efdf3f75f88_ufhzuv_b344858731.jpg"
         },
-        "date": "2020-09-08T15:30:00.000Z"
+        "date": "2020-09-08T15:30:00.000Z",
+        "url": "/portfolio/family"
       },
       {
         "id": "4",
-        "title": "Wedding",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "title": "Семейная",
+        "description": "Для семейных историй и торжеств.",
         "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599578716/0012_cdvwcm_d8193abf91.jpg"
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474665/jonathan_borba_z_W4i9_Q6_Cd_Y0_unsplash_83be7c912c.jpg"
         },
-        "date": "2020-09-08T15:30:00.000Z"
+        "date": "2020-09-08T15:30:00.000Z",
+        "url": "/portfolio/wedding"
       }
-    ]
+    ],
+    error: null
     }
   },
   // apollo: {
@@ -209,29 +144,13 @@ export default {
   //     query: portfoliosQuery,
   //   },
   // },
-  methods: {
-    getImage(id) {
-      let img = this.portfolios;
-      for (const portfolio in img) {
-        let item = img.find( (item) => item.id == id);
-        return item.image.url
-      }
-    },
-      getTitle(id) {
-      let title = '';
-       for (const portfolio in this.portfolios) {
-        title = this.portfolios.find((title) => title.id == id);
-      }
-        return title.title;
-    },
-      getDescription(id) {
-      let description = '';
-       for (const portfolio in this.portfolios) {
-        description = this.portfolios.find((description) => description.id == id);
-      }
-        return description.description;
-    },
-  },
+ async mounted() {
+   try {
+     this.portfolios = await this.portfolios.find()
+   } catch (error) {
+     this.error = error
+   }
+ },
   name: "ProjectsPage",
   components: {
     mdbContainer,

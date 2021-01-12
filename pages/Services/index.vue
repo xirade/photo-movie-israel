@@ -52,13 +52,11 @@
             class="h5 w-75 text-center grey-text mb-auto"
             style="font-weight: lighter;"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            est vitae suscipit, eligendi et tempora reprehenderit odio. Saepe
-            animi, aliquid voluptates culpa provident, suscipit laudantium
-            dignissimos hic, dolorum explicabo dolorem? Enim architecto
-            obcaecati, nihil, dolore iure repellendus eligendi aut corrupti
-            magnam magni laborum. Eum doloremque culpa minima? Laborum, ipsum
-            doloribus.
+             Я приглашаю познакомиться с моими работами и, конечно же, связаться
+            со мной, когда вы захотите реализовать самые безумные и
+            нестандартные идеи в любых уголках Израиля. Я не привязываются к
+            съёмках в студиях, я умею работать с естественным светом в любых
+            условиях.
           </p>
         </div>
       </div>

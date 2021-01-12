@@ -15,9 +15,7 @@
         <div class="text-left mt-5">
           <h3 class="h2 pt-2">Service Order Form</h3>
           <p class="service-text mt-3">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora est
-            ipsam a nesciunt. Sint at laboriosam incidunt tenetur odit quis impedit
-            hic vitae cupiditate aperiam!
+            Для того, чтобы сориентировать вас по цене, просим заполнить информацию о вас и пожелания к заказу.
           </p>
         </div>
         <br class="p-2" />

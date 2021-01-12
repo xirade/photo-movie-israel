@@ -38,12 +38,12 @@
                   <hr class="m-0" style="border: 0;" />from above
                 </h2>
                 <p class="font-weight-light grey-text mt-5">
-                  {{getAboutDescription(1)}}
+                  {{abouts[0].description}}
                 </p>
               </mdb-col>
               <mdb-col md="6" class="pl-auto mt-5">
                 <img
-                  :src="getAboutImage(1)"
+                  :src="abouts[0].image.url"
                   alt="Sample project image"
                   class="section-img img-fluid rounded z-depth-1"
                 />
@@ -65,9 +65,8 @@
         <section id="team-section" class="text-center">
           <h2 class="h1-responsive font-weight-bold my-5 text-uppercase">Our amazing team</h2>
           <p class="grey-text w-responsive mb-5 mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-            error amet numquam iure provident voluptate esse quasi, veritatis
-            totam voluptas nostrum quisquam eum porro a pariatur veniam.
+            Всегда будем рады сотрудничеству! Если у вас есть идеи, мысли или
+            предложения как мы можем быть вам полезными, обращайтесь!
           </p>
           <mdb-row>
             <mdb-col md="4" class="mb-md-0 mb-5">
@@ -126,13 +125,13 @@ export default {
       abouts:[
       {
         "id": "1",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.",
+        "description": "Я не привязываюсь к съёмках в студиях, я умею работать с естественным светом в любых условиях.",
         "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598763585/julius_drost_d_S_q7_zk_D9c_unsplash_jagklb_3fefa02418.jpg"
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610479809/david_hurley_hj_St16_J_Gy_EE_unsplash_fb2d85bdf9.jpg"
         }
       }
     ],
-      query: null
+      error: null
     }
   },
   //  apollo: {
@@ -141,20 +140,13 @@ export default {
   //     query: aboutsQuery,
   //   },
   // },
-  methods: {
-    getAboutImage(id) {
-       for (const about in this.abouts) {
-        let pic = this.abouts.find((pic) => pic.id == id);
-        return pic.image.url;
-       }
-      },
-    getAboutDescription(id) {
-       for (const about in this.abouts) {
-        let des = this.abouts.find((des) => des.id == id);
-        return des.description;
-      }
-    }
-  },
+ async mounted(){
+   try {
+  let abouts = await this.abouts.find();
+} catch (error) {
+  console.error(error);
+}
+ },
   components: {
     mdbContainer,
     mdbRow,

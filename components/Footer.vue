@@ -5,9 +5,7 @@
       <mdb-row class="my-4">
         <mdb-col md="4" lg="4">
           <h5 class="text-uppercase mb-4 font-weight-bold grey-text">Desctiption organization</h5>
-          <p>Here you can use rows and columns here to organize your footer content.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
-              voluptate esse quasi, veritatis totam voluptas nostrum. </p>
+          <p>Делаю видео и фото любого формата от постановочного фильма до съемки мероприятия.  Возможна съемка с квадрокоптера.</p>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>
         <mdb-col md="2" lg="2" class="mx-auto">

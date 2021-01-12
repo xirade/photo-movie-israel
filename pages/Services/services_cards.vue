@@ -1,73 +1,26 @@
 <template>
   <mdb-container>
     <mdb-row class="pb-5">
-      <mdb-col md="4" lg="3" class="my-auto">
-        <mdb-card>
+      <div v-if="error">{{error}}</div>
+      <mdb-col v-else v-for="order in orders" :key="order.id" md="6" lg="4" class="my-3">
+        <mdb-card class="h-100">
           <mdb-view hover>
               <img
                 class="img-fluid"
-                :src="getOrderImage"
+                :src="order.image.url"
                 alt="Card image cap"
               />
               <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
           </mdb-view>
           <mdb-card-body>
-            <mdb-card-title>{{getOrderTitle(1)}}</mdb-card-title>
-            <span>{{getOrderPrice(1)}}₪/hr</span>
+            <mdb-card-title>{{order.title}}</mdb-card-title>
+            <span>{{order.price}}₪/{{order.val}}</span>
             <mdb-card-text>
-              {{getOrderDescription(1)}}
-            </mdb-card-text>
-            <nuxt-link :to="'/order/photo'">
-              <mdb-btn color="warning" class="ml-0">
-                <mdb-icon icon="shopping-bag left" />Book now
-              </mdb-btn>
-            </nuxt-link>
-          </mdb-card-body>
-        </mdb-card>
-      </mdb-col>
-      <mdb-col md="4" lg="5" class="my-5 mx-auto">
-        <mdb-card>
-          <mdb-view hover>
-              <video :src="getOrderVideo" class="video-fluid z-depth-1" autoplay loop muted>
-                <source
-                  type="video/mp4"
-                />
-              </video>
-              <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
-          </mdb-view>
-          <mdb-card-body>
-            <mdb-card-title>{{getOrderTitle(2)}}</mdb-card-title>
-            <span>{{getOrderPrice(2)}}₪/hr</span>
-            <mdb-card-text>
-              {{getOrderDescription(2)}}
-            </mdb-card-text>
-            <nuxt-link :to="'/order/video'">
-              <mdb-btn class="ml-0" color="warning">
-                <mdb-icon icon="shopping-bag left" />Book now
-              </mdb-btn>
-            </nuxt-link>
-          </mdb-card-body>
-        </mdb-card>
-      </mdb-col>
-      <mdb-col md="4" lg="3" class="my-auto">
-        <mdb-card>
-          <mdb-view hover>
-              <img
-                class="img-fluid"
-                :src="getOrderImage1"
-                alt="Card image cap"
-              />
-              <mdb-mask flex-center waves overlay="black-light"></mdb-mask>
-          </mdb-view>
-          <mdb-card-body>
-            <mdb-card-title>{{getOrderTitle(3)}}</mdb-card-title>
-            <span>{{getOrderPrice(3)}}₪/hr</span>
-            <mdb-card-text>
-              {{getOrderDescription(3)}}
+              {{order.description}}
             </mdb-card-text>
             <nuxt-link :to="'/order/montage'">
               <mdb-btn class="ml-0" color="warning">
-                <mdb-icon icon="shopping-bag left" />Book now
+                <mdb-icon icon="shopping-bag left" />Подробнее
               </mdb-btn>
             </nuxt-link>
           </mdb-card-body>
@@ -105,35 +58,63 @@ export default {
       orders:[
       {
         "id": "1",
-        "title": "Photoshoot",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+        "title": "Фотосъемка",
+        "description": "Портреты для блога и развития личного бренда, имиджевая фотосессия, предметная съемка.",
         "image": {
           "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950739/3_haxune_jnd6g3_47450709a9.jpg"
         },
         "price": 350,
-        "video": null
+        "val": "hour"
       },
       {
         "id": "2",
-        "title": "Videoshoot",
-        "description": "Some quick example text to build on the card video and make up the bulk of the card's content.",
+        "title": "Фотосъемка(полный день)",
+        "description": "Для масштабных проектов, съемка одежды для каталога, съемка в большом количестве локаций.",
         "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png"
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610481011/laura_fuhrman_73_OJ_Lcah_Q_Hg_unsplash_8aa7b40f23.jpg"
         },
-        "price": 450,
-        "video": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598630487/EOD_wd4m1j_1a7355525b.mp4"
-        }
+        "price": 1800,
+        "val": "day"
       },
       {
         "id": "3",
-        "title": "Montage",
-        "description": "Some quick example text to build on the card montage and make up the bulk of the card's content.",
+        "title": "Видеосъемка",
+        "description": "Короткий ролик до 1 мин. Съемка с монтажом. Видеовизитка, видеопост в соцсетях, рекламный ролик.",
         "image": {
           "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598630660/nevesta_f7f7930fb0.jpg"
         },
-        "price": 300,
-        "video": null
+        "price": 800,
+        "val": "hour"
+      },
+      {
+        "id": "4",
+        "title": "Видеосъемка(полный день)",
+        "description": "Упаковка учебных видеоматериалов,  музыкальные видео, корпоративные ролики и фильмы, контент для блогеров, ролики для  TV и YouTube.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610486513/kal_visuals_w_Lu_Crqc_N3p_E_unsplash_67a4b42a50.jpg"
+        },
+        "price": 1800,
+        "val": "day"
+      },
+      {
+        "id": "5",
+        "title": "Фотосъемка",
+        "description": "Выезд в пределах Иерусалима. Семейная фотосессия, съемка ребёнка,  ньюборн, индивидуальная фотосессия, съемка в студии.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610487587/kal_visuals_4k_Sk_V_Xlz_O1c_unsplash_599f4db875.jpg"
+        },
+        "price": 350,
+        "val": "hour"
+      },
+      {
+        "id": "6",
+        "title": "Видеосъемка",
+        "description": "Видеосъемка семейных торжеств и мероприятий, юбилея, бритмила, бармицва, фильмы для детского сада, лав-стори, свадьба.",
+        "image": {
+          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610487988/kendra_allen_k8_F_So_WA_Ozb4_unsplash_e62df272b3.jpg"
+        },
+        "price": 1800,
+        "val": "day"
       }
     ],
     }
@@ -144,52 +125,13 @@ export default {
   //     query: ordersQuery,
   //   },
   // },
-  methods: {
-    getOrderTitle(id) {
-      let title = '';
-       for (const order in this.orders) {
-        title = this.orders.find((title) => title.id == id);
-      }
-        return title.title;
-    },
-    getOrderDescription(id) {
-      let des = '';
-       for (const order in this.orders) {
-        des = this.orders.find((des) => des.id == id);
-      }
-        return des.description;
-    },
-    getOrderPrice(id) {
-      let price = '';
-       for (let order in this.orders) {
-        price = this.orders.find((price) => price.id == id);
-      }
-        return price.price;
+  async mount() {
+       try {
+      this.orders = await this.orders.find()
+    } catch (error) {
+      this.error = error
     }
-  },
-  computed: {
-     getOrderVideo() {
-       let video = [];
-       for (let order = 1; order < this.orders.length - 1; order ++) {
-        video.push(this.orders[order].video.url);
-      }
-        return video;
     },
-     getOrderImage() {
-      let img = [];
-       for (let order = 0; order < this.orders.length - 2; order ++) {
-         img.push(this.orders[order].image.url)
-         }
-        return img;
-    },
-     getOrderImage1() {
-      let img1 = [];
-       for (let order = 2; order < this.orders.length; order ++) {
-         img1.push(this.orders[order].image.url)
-         }
-        return img1;
-    },
-  },
   //  mounted() {
   //   if (localStorage.getItem('reloaded')) {
   //     localStorage.removeItem('reloaded');

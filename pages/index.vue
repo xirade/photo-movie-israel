@@ -5,7 +5,12 @@
         class="jarallax-img"
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
       />
-      <mdb-mask class="position-relative" overlay="black-slight" style="height:95vh;" flexCenter>
+      <mdb-mask
+        class="position-relative"
+        overlay="black-slight"
+        style="height:95vh;"
+        flexCenter
+      >
         <div class="header-main d-flex flex-column mb-auto">
           <img
             src="~/assets/img/4log.png"
@@ -19,14 +24,20 @@
               <span class="active_line_1"></span>
             </transition>
           </div>
-          <h1 class="display-4 title-header text-center white-text animated fadeInDown slower">
+          <h1
+            class="display-4 title-header text-center white-text animated fadeInDown slower"
+          >
             FROM A DIFFERENT
-            <hr class="m-0" />POINT OF VIEW
+            <hr class="m-0" />
+            POINT OF VIEW
           </h1>
         </div>
       </mdb-mask>
     </div>
-    <div class="position-relative service container bg-dark p-0" style="max-width: 100%;">
+    <div
+      class="position-relative service container bg-dark p-0"
+      style="max-width: 100%;"
+    >
       <span
         class="active_line_1"
         data-aos="goLine_service"
@@ -45,27 +56,30 @@
         <mdb-row class="mx-auto">
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
-              class="card-image"
+              class="card-image h-100"
               style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199747/photo-1590944335664-015cc7b65db1_fjdg8n.jpg') no-repeat center;
               background-size: cover;"
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
                 <h5 class="orange-text font-weight-bold">
-                  <mdb-icon icon="camera" />PHOTOSHOOT
+                  <!-- Изменяемо -->
+                  <mdb-icon icon="camera" />ФОТОСЪЕМКА
                 </h5>
-                <mdb-card-title tag="h3" class="pt-2 text-white">
-                  <strong>This is card title</strong>
+                <mdb-card-title tag="h4" class="pt-2 text-white">
+                  <strong>Для бизнесменов,специалистов, фрилансеров</strong>
                 </mdb-card-title>
-                <p class="text-light">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Repellat fugiat, laboriosam, voluptatem, optio vero odio nam
-                  sit officia accusamus minus error nisi architecto nulla ipsum
-                  dignissimos. Odit sed qui, dolorum!.
-                </p>
-                <nuxt-link :to="'/order/photo'">
+                <mdb-container>
+                  <p class="text-light">
+                    Виды съемки:<br />
+                    Интеръерная, индустриальная, аэросъемка, панорамная,
+                    репортажная, иммиджевая, рекламно- постановочная
+                  </p>
+                </mdb-container>
+
+                <nuxt-link :to="'/services'">
                   <mdb-btn color="orange" class="white-text">
-                    <mdb-icon icon="shopping-bag left" />Book now
+                    <mdb-icon icon="shopping-bag left" />Узнать больше
                   </mdb-btn>
                 </nuxt-link>
               </mdb-card-body>
@@ -73,26 +87,27 @@
           </mdb-col>
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
-              class="card-image"
+              class="card-image h-100"
               style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200217/photo-1543235074-4768b5c2233c_enepwc.jpg') no-repeat;
               background-size: cover;"
             >
               <mdb-card-body class="text-center rgba-stylish-strong">
                 <h5 class="blue-text font-weight-bold">
-                  <mdb-icon icon="video" />VIDEOSHOOT
+                  <mdb-icon icon="video" />ВИДЕОСЪЕМКА
                 </h5>
-                <mdb-card-title tag="h3" class="pt-2 text-white">
-                  <strong>This is card title</strong>
+                <mdb-card-title tag="h4" class="pt-2 text-white">
+                  <strong>Для компаний, предпринимателей, маркетологов</strong>
                 </mdb-card-title>
-                <p class="text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Repellat fugiat, laboriosam, voluptatem, optio vero odio nam
-                  sit officia accusamus minus error nisi architecto nulla ipsum
-                  dignissimos. Odit sed qui, dolorum!.
-                </p>
-                <nuxt-link :to="'/order/video'">
+                <mdb-container>
+                  <p class="text-white">
+                    Виды съемки:<br />
+                    Рекламных, промо, информационных и развлекательных роликов,
+                    а также корпоративных фильмов.
+                  </p>
+                </mdb-container>
+                <nuxt-link :to="'/services'">
                   <mdb-btn color="blue" class="text-black">
-                    <mdb-icon icon="shopping-bag left" />Book now
+                    <mdb-icon icon="shopping-bag left" />Узнать больше
                   </mdb-btn>
                 </nuxt-link>
               </mdb-card-body>
@@ -100,27 +115,62 @@
           </mdb-col>
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
-              class="card-image"
+              class="card-image h-100"
               style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1600277481/96681721-a-movie-production-clapper-board-hands-with-a-movie-clapperboard-on-grey-background-with-copy-space-_afklyl.jpg') no-repeat;
               background-size: cover;"
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
                 <h5 class="green-text font-weight-bold">
-                  <mdb-icon icon="film" />MONTAGE
+                  <mdb-icon icon="film" />СЕМЕЙНАЯ СЪЕМКА
                 </h5>
-                <mdb-card-title tag="h3" class="pt-2 text-white">
-                  <strong>This is card title</strong>
+                <mdb-card-title tag="h4" class="pt-2 text-white">
+                  <strong
+                    >Для торжеств и знаменательных дней</strong
+                  >
                 </mdb-card-title>
-                <p class="text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Repellat fugiat, laboriosam, voluptatem, optio vero odio nam
-                  sit officia accusamus minus error nisi architecto nulla ipsum
-                  dignissimos. Odit sed qui, dolorum!.
-                </p>
-                <nuxt-link :to="'/order/montage'">
+                <mdb-container>
+                  <p class="text-white">
+                    Виды съемки:<br />
+                    Семейная, индивидуальная, беременных, нью-борн, бритмила,
+                    бармицва, батмицва, лав-стори, свадебная, детская, дни
+                    рождения, торжества.
+                  </p>
+                </mdb-container>
+                <nuxt-link :to="'/services'">
                   <mdb-btn color="green" class="text-black">
-                    <mdb-icon icon="shopping-bag left" />Book now
+                    <mdb-icon icon="shopping-bag left" />Узнать больше
+                  </mdb-btn>
+                </nuxt-link>
+              </mdb-card-body>
+            </mdb-card>
+          </mdb-col>
+          <div class="w-100"></div>
+          <mdb-col class="pt-0 px-0" lg="12">
+            <mdb-card
+              class="card-image h-100"
+              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596976468/5e2762f7ab49fd1ed25a9dc4_l7arm8.jpg') no-repeat;
+              background-size: cover;"
+            >
+              <mdb-view hover></mdb-view>
+              <mdb-card-body class="text-center rgba-stylish-strong">
+                <h5 class="pink-text font-weight-bold">
+                  <mdb-icon icon="heart" />СВАДЕБНАЯ СЪЕМКА
+                </h5>
+                <mdb-card-title tag="h4" class="pt-2 text-white">
+                  <strong>Для свадеб в Израиле и Европе </strong>
+                </mdb-card-title>
+                <mdb-container>
+                  <p class="text-white">
+                    Виды съемки:<br />
+                    Фото-видеосьемка свадебной церемонии, фото-видеосьемка
+                    сборы, фото-видеосьемка банкетной части, сьемка с дрона,
+                    фото-видеосъемка гостей, фото-видеосьемка прогулки.
+                  </p>
+                </mdb-container>
+                <nuxt-link :to="'/services'">
+                  <mdb-btn color="pink" class="text-black">
+                    <mdb-icon icon="shopping-bag left" />Узнать больше
                   </mdb-btn>
                 </nuxt-link>
               </mdb-card-body>
@@ -141,34 +191,50 @@
         data-aos-easing="ease-out"
       ></span>
       <div class="service_title">
-        <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">02</p>
+        <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">
+          02
+        </p>
         <h2 class="display-3 pr-2 text-right font-weight-bold">ABOUT</h2>
       </div>
     </div>
-    <div class="container bg-light text-black" style="max-width: 100%; height: 120vh;">
+    <div
+      class="container bg-light text-black"
+      style="max-width: 100%; height: 120vh;"
+    >
       <div
         class="d-flex align-items-center flex-center flex-column"
         data-aos="fade-down"
         data-aos-duration="1000"
         data-aos-easing="ease-out"
       >
-        <h2 class="display-1 text-center mx-auto mt-auto m-0 mb-3" style="color: #454545;">
+        <h2
+          class="display-1 text-center mx-auto mt-auto m-0 mb-3"
+          style="color: #454545;"
+        >
           <strong>
             WE TAKE PICTURES
-            <hr class="m-0" />FROM ABOVE
+            <hr class="m-0" />
+            FROM ABOVE
           </strong>
         </h2>
         <p
-          class="h3 text-black-50 mb-5 w-75 text-center"
+          class="h3 text-black-50 text-uppercase mb-5 w-75 text-center"
           style="font-family: 'DINNeuzeitGroteskLTW01-BdCn';"
-        >NEW PHOTOGRAPHY OPPORTUNITIES USING DRONES</p>
-        <p class="h5 w-75 text-center grey-text mb-4" style="font-weight: lighter;">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          est vitae suscipit, eligendi et tempora reprehenderit odio. Saepe
-          animi, aliquid voluptates culpa provident, suscipit laudantium
-          dignissimos hic, dolorum explicabo dolorem? Enim architecto obcaecati,
-          nihil, dolore iure repellendus eligendi aut corrupti magnam magni
-          laborum. Eum doloremque culpa minima? Laborum, ipsum doloribus.
+        >
+          Добро пожаловать на мой сайт!
+        </p>
+        <p
+          class="h5 w-50 text-center grey-text mb-4"
+          style="font-weight: lighter;"
+        >
+          Я Павел, режисер видео-монтажа, видеограф и фотограф. Опыт работы
+          более 12 лет. Работаю по всему Израилю. Помогаю предпринимателям и их
+          семьям создать брендированный фото-видео контент об их
+          профессиональной и личной жизни. Преимущество работы со мной: работаю
+          в программах Photoshop, Adobe Premier, Adobe After Effect, Davinci,
+          Lightroom.Что это значит для вас? Фантазии и креативность вашей съемки
+          почти нет границ.Увлекаюсь высокотехнологичной съёмкой, постоянно
+          обучаясь новым техникам видеосъемки и монтажа.
         </p>
         <nuxt-link class="mb-auto" :to="'/about'">
           <mdb-btn color="yellow darken-3" class="px-5">
@@ -177,7 +243,10 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="bg-white text-black d-flex justify-content-end" style="position: relative;">
+    <div
+      class="bg-white text-black d-flex justify-content-end"
+      style="position: relative;"
+    >
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
         <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
@@ -232,12 +301,11 @@ import {
   mdbBtn,
   mdbView,
   mdbMask,
-  mdbIcon,
+  mdbIcon
 } from "mdbvue";
 export default {
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
   em: "#animateFadeIn_1",
   components: {
@@ -261,16 +329,16 @@ export default {
     mdbInput,
     mdbView,
     mdbMask,
-    mdbIcon,
+    mdbIcon
   },
   transition: "fade",
   //reload page
   mounted() {
-    if (localStorage.getItem('reloaded')) {
-      localStorage.removeItem('reloaded');
+    if (localStorage.getItem("reloaded")) {
+      localStorage.removeItem("reloaded");
     } else {
-      localStorage.setItem('reloaded', '0');
-        location.reload();
+      localStorage.setItem("reloaded", "0");
+      location.reload();
     }
   }
 };
@@ -279,8 +347,13 @@ export default {
 <style lang="scss">
 @import "node_modules/aos/src/sass/aos.scss";
 @import "~/assets/css/main.css";
+
 .first {
   height: 110vh;
+}
+
+p {
+  font-size: 18px;
 }
 
 .Masthead {
