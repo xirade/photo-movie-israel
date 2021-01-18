@@ -8,8 +8,8 @@
           <p>Делаю видео и фото любого формата от постановочного фильма до съемки мероприятия.  Возможна съемка с квадрокоптера.</p>
         </mdb-col>
         <hr class="clearfix w-100 d-md-none"/>
-        <mdb-col md="2" lg="2" class="mx-auto">
-          <h5 class="text-uppercase mb-4 font-weight-bold grey-text">About</h5>
+        <mdb-col md="3" lg="2" class="mx-auto">
+          <h5 class="text-uppercase mb-4 font-weight-bold grey-text">Resources:</h5>
           <ul class="list-unstyled">
             <p><router-link tag="a" :to="'/services'">SERVICE</router-link></p> 
             <p><router-link tag="a" :to="'/about'">ABOUT</router-link></p>

@@ -23,7 +23,7 @@ export default {
     finish() {
       this.loading = false;
     }
-  }
+  },
 };
 </script>
 

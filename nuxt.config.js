@@ -22,7 +22,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/icon', href: '/shutter.ico' },
-      { rel:'stylesheet', href:'assets/css/main.css', as:'font', type:'font', crossorigin:'anonymous'},
     ],
   },
   /*
@@ -40,7 +39,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    {src: "~/plugins/aos", ssr: false},
+    { src: "~/plugins/aos", ssr: false },
     { src: '~/plugins/CoolLightBox.js', ssr: false },
     { src: '~/plugins/jarallax.js', ssr: false },
     { src: '~/nuxt.config.js', ssr: false },
@@ -82,21 +81,20 @@ export default {
     roboto: true, // font Roboto
     css: true, // MDB CSS
     bootstrap: true // Bootstrap CSS
-    },
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    vendor: ['external_library']
   },
-  loading:'~/components/Loading.vue',
-  router: {
-    scrollBehavior (to, from, savedPosition) {
-      if (savedPosition) {
-        return savedPosition
-      } else {
-        return { x: 0, y: 0 }
-      }
-    }
+  loading: '~/components/Loading.vue',
+  scrollBehavior (to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 })
+      }, 500)
+    })
   }
 }

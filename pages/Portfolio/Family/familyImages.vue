@@ -2,19 +2,19 @@
   <div class="container">
     <div class="grid">
       <div class="grid-sizer"></div>
-      <div class="grid-item grid-item--height3 grid-img" :style="{ backgroundImage: 'url(' + getImage(1) + ')', backgroundSize: 'cover',
+      <div class="grid-item grid-item--width3 grid-item--height4 grid-img" :style="{ backgroundImage: 'url(' + getImage(1) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}">
       </div>
-      <div class="grid-item grid-item--width2 grid-item--height3"
+      <div class="grid-item grid-item--width2 grid-item--height4"
       :style="{ backgroundImage: 'url(' + getImage(2) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
-      <div class="grid-item grid-item--width2 grid-item--height4"
+      <div class="grid-item grid-item--width4 grid-item--height5"
       :style="{ backgroundImage: 'url(' + getImage(3) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
-      <div class="grid-item grid-item--width3 grid-item--height4"
+      <div class="grid-item grid-item--width4 grid-item--height5"
       :style="{ backgroundImage: 'url(' + getImage(4) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
-      <div class="grid-item grid-item--width2 grid-item--height3"
+      <div class="grid-item grid-item--width4 grid-item--height5"
       :style="{ backgroundImage: 'url(' + getImage(5) + ')', backgroundSize: 'cover',
       backgroundPosition: 'center'}"></div>
       <div class="grid-item grid-item--width4 grid-item--height5"
@@ -99,7 +99,11 @@ export default {
 };
 </script>
 
+
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 
 /* ---- grid ---- */
 
@@ -127,19 +131,28 @@ export default {
   border: 5px solid #343a40;
 }
 
-.grid-item--width1 { width:  20%; }
-.grid-item--width2 { width:  40%; }
-.grid-item--width3 { width:  60%; }
-.grid-item--width4 { width:  100%; }
+.grid-item--width2 {
+  width: 40%;
+}
+.grid-item--width3 {
+  width: 60%;
+}
+.grid-item--width4 {
+  width: 100%;
+}
 
-.grid-item--height2 { height: 200px; }
-.grid-item--height3 { height: 260px; }
-.grid-item--height4 { height: 420px; }
-.grid-item--height5 { height: 540px; }
-
+.grid-item--height4 {
+  height: 360px;
+}
+.grid-item--height5 {
+  height: 560px;
+}
 
 @media (min-width: 300px) and (max-width: 767px) {
-    .grid-item,.grid-item--width2 {
+    .grid-item--width2 {
+  width: 100%;
+}
+.grid-item--width3 {
   width: 100%;
 }
 }

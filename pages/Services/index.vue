@@ -107,7 +107,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "node_modules/aos/src/sass/aos.scss";
-@import "~/assets/css/main.css";
 
 h2 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";

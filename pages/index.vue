@@ -8,7 +8,7 @@
       <mdb-mask
         class="position-relative"
         overlay="black-slight"
-        style="height:95vh;"
+        style="height: 95vh"
         flexCenter
       >
         <div class="header-main d-flex flex-column mb-auto">
@@ -36,7 +36,7 @@
     </div>
     <div
       class="position-relative service container bg-dark p-0"
-      style="max-width: 100%;"
+      style="max-width: 100%"
     >
       <span
         class="active_line_1"
@@ -52,13 +52,17 @@
       </div>
     </div>
     <div>
-      <div class="w-100" style="background-color:  rgba(28, 35, 49, 0.8);">
+      <!-- TODO: Dynamic content strapi -->
+      <div class="w-100" style="background-color: rgba(28, 35, 49, 0.8)">
         <mdb-row class="mx-auto">
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
               class="card-image h-100"
-              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199747/photo-1590944335664-015cc7b65db1_fjdg8n.jpg') no-repeat center;
-              background-size: cover;"
+              style="
+                background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199747/photo-1590944335664-015cc7b65db1_fjdg8n.jpg')
+                  no-repeat center;
+                background-size: cover;
+              "
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
@@ -88,8 +92,11 @@
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
               class="card-image h-100"
-              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200217/photo-1543235074-4768b5c2233c_enepwc.jpg') no-repeat;
-              background-size: cover;"
+              style="
+                background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200217/photo-1543235074-4768b5c2233c_enepwc.jpg')
+                  no-repeat;
+                background-size: cover;
+              "
             >
               <mdb-card-body class="text-center rgba-stylish-strong">
                 <h5 class="blue-text font-weight-bold">
@@ -116,8 +123,11 @@
           <mdb-col class="pt-0 px-0" lg="4">
             <mdb-card
               class="card-image h-100"
-              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1600277481/96681721-a-movie-production-clapper-board-hands-with-a-movie-clapperboard-on-grey-background-with-copy-space-_afklyl.jpg') no-repeat;
-              background-size: cover;"
+              style="
+                background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1600277481/96681721-a-movie-production-clapper-board-hands-with-a-movie-clapperboard-on-grey-background-with-copy-space-_afklyl.jpg')
+                  no-repeat;
+                background-size: cover;
+              "
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
@@ -125,9 +135,7 @@
                   <mdb-icon icon="film" />СЕМЕЙНАЯ СЪЕМКА
                 </h5>
                 <mdb-card-title tag="h4" class="pt-2 text-white">
-                  <strong
-                    >Для торжеств и знаменательных дней</strong
-                  >
+                  <strong>Для торжеств и знаменательных дней</strong>
                 </mdb-card-title>
                 <mdb-container>
                   <p class="text-white">
@@ -146,11 +154,15 @@
             </mdb-card>
           </mdb-col>
           <div class="w-100"></div>
-          <mdb-col class="pt-0 px-0" lg="12">
+          <mdb-col
+            class="pt-0 px-0"
+            lg="12"
+            v-for="(item, index) in items"
+            :key="item.id"
+          >
             <mdb-card
               class="card-image h-100"
-              style="background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596976468/5e2762f7ab49fd1ed25a9dc4_l7arm8.jpg') no-repeat;
-              background-size: cover;"
+              :style="{ backgroundImage: 'url(' + item.image.url + ')', backgroundSize: 'cover'}"
             >
               <mdb-view hover></mdb-view>
               <mdb-card-body class="text-center rgba-stylish-strong">
@@ -158,21 +170,20 @@
                   <mdb-icon icon="heart" />СВАДЕБНАЯ СЪЕМКА
                 </h5>
                 <mdb-card-title tag="h4" class="pt-2 text-white">
-                  <strong>Для свадеб в Израиле и Европе </strong>
+                  <strong>{{ item.title }}</strong>
                 </mdb-card-title>
                 <mdb-container>
                   <p class="text-white">
-                    Виды съемки:<br />
-                    Фото-видеосьемка свадебной церемонии, фото-видеосьемка
-                    сборы, фото-видеосьемка банкетной части, сьемка с дрона,
-                    фото-видеосъемка гостей, фото-видеосьемка прогулки.
+                    {{ item.fulldesc }}
                   </p>
                 </mdb-container>
-                <nuxt-link :to="'/services'">
-                  <mdb-btn color="pink" class="text-black">
-                    <mdb-icon icon="shopping-bag left" />Узнать больше
-                  </mdb-btn>
-                </nuxt-link>
+                <mdb-btn
+                  color="pink"
+                  class="text-black"
+                  @click="showModal(index)"
+                >
+                  <mdb-icon icon="shopping-bag left" />Узнать больше
+                </mdb-btn>
               </mdb-card-body>
             </mdb-card>
           </mdb-col>
@@ -181,8 +192,7 @@
     </div>
     <div
       class="container bg-white text-black d-flex justify-content-start"
-      style="max-width: 100%; position:relative;
-      "
+      style="max-width: 100%; position: relative"
     >
       <span
         class="active_line_3"
@@ -199,7 +209,7 @@
     </div>
     <div
       class="container bg-light text-black"
-      style="max-width: 100%; height: 120vh;"
+      style="max-width: 100%; height: 120vh"
     >
       <div
         class="d-flex align-items-center flex-center flex-column"
@@ -209,7 +219,7 @@
       >
         <h2
           class="display-1 text-center mx-auto mt-auto m-0 mb-3"
-          style="color: #454545;"
+          style="color: #454545"
         >
           <strong>
             WE TAKE PICTURES
@@ -219,20 +229,20 @@
         </h2>
         <p
           class="h3 text-black-50 text-uppercase mb-5 w-75 text-center"
-          style="font-family: 'DINNeuzeitGroteskLTW01-BdCn';"
+          style="font-family: 'DINNeuzeitGroteskLTW01-BdCn'"
         >
           Добро пожаловать на мой сайт!
         </p>
         <p
-          class="h5 w-50 text-center grey-text mb-4"
-          style="font-weight: lighter;"
+          class="h5 w-75 text-center grey-text mb-4"
+          style="font-weight: lighter"
         >
           Я Павел, режисер видео-монтажа, видеограф и фотограф. Опыт работы
           более 12 лет. Работаю по всему Израилю. Помогаю предпринимателям и их
           семьям создать брендированный фото-видео контент об их
           профессиональной и личной жизни. Преимущество работы со мной: работаю
           в программах Photoshop, Adobe Premier, Adobe After Effect, Davinci,
-          Lightroom.Что это значит для вас? Фантазии и креативность вашей съемки
+          Lightroom.Что это значит для вас? Фантазиям и креативности вашей съемки
           почти нет границ.Увлекаюсь высокотехнологичной съёмкой, постоянно
           обучаясь новым техникам видеосъемки и монтажа.
         </p>
@@ -245,7 +255,7 @@
     </div>
     <div
       class="bg-white text-black d-flex justify-content-end"
-      style="position: relative;"
+      style="position: relative"
     >
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
@@ -262,7 +272,7 @@
       <CoolLight />
     </div>
 
-    <div class="bg-white w-100" style="position: relative; height: 40vh;">
+    <div class="bg-white w-100" style="position: relative; height: 40vh">
       <span
         class="active_line_1"
         data-aos="goLine_small"
@@ -276,10 +286,17 @@
       data-aos-duration="1000"
       data-aos-easing="ease-out"
     ></span>
+    <Modal
+      :index="selectedIndex"
+      :items="items"
+      v-show="isModalVisible"
+      @close="closeModal"
+    />
   </div>
 </template>
 
 <script>
+import Modal from "~/components/modal.vue";
 import AOS from "aos";
 import CoolLight from "~/pages/CoolLight.vue";
 import {
@@ -301,11 +318,26 @@ import {
   mdbBtn,
   mdbView,
   mdbMask,
-  mdbIcon
+  mdbIcon,
 } from "mdbvue";
 export default {
   data() {
-    return {};
+    return {
+      isModalVisible: false,
+      selectedIndex: 0,
+      items: [
+        {
+          id: "1",
+          title: "Для свадеб в Израиле и Европе ",
+          fulldesc:
+            "Виды съемки: Фото-видеосьемка свадебной церемонии, фото-видеосьемка сборы, фото-видеосьемка банкетной части, сьемка с дрона, фото-видеосъемка гостей, фото-видеосьемка прогулки.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599511315/5_djhizt_0ba93f0786.jpg",
+          },
+        },
+      ],
+    };
   },
   em: "#animateFadeIn_1",
   components: {
@@ -329,24 +361,31 @@ export default {
     mdbInput,
     mdbView,
     mdbMask,
-    mdbIcon
+    mdbIcon,
+    Modal,
   },
   transition: "fade",
-  //reload page
+  methods: {
+    showModal(index) {
+      this.selectedIndex = index;
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+  },
   mounted() {
-    if (localStorage.getItem("reloaded")) {
-      localStorage.removeItem("reloaded");
-    } else {
-      localStorage.setItem("reloaded", "0");
-      location.reload();
-    }
-  }
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 500);
+    });
+  },
 };
 </script>
 
 <style lang="scss">
 @import "node_modules/aos/src/sass/aos.scss";
-@import "~/assets/css/main.css";
 
 .first {
   height: 110vh;

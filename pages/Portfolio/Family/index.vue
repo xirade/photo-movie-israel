@@ -55,15 +55,6 @@ export default {
   components: {
       FamilyImages
   },
-   mounted() {
-     //reload page
-    if (localStorage.getItem('reloaded')) {
-        localStorage.removeItem('reloaded');
-    } else {
-        localStorage.setItem('reloaded', '0');
-        location.reload();
-    }
-   }
 };
 </script>
 

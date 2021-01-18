@@ -65,7 +65,7 @@
         <section id="team-section" class="text-center">
           <h2 class="h1-responsive font-weight-bold my-5 text-uppercase">Our amazing team</h2>
           <p class="grey-text w-responsive mb-5 mx-auto">
-            Всегда будем рады сотрудничеству! Если у вас есть идеи, мысли или
+           Моя команда всегда будет рада сотрудничеству! Если у вас есть идеи, мысли или
             предложения как мы можем быть вам полезными, обращайтесь!
           </p>
           <mdb-row>
@@ -125,7 +125,7 @@ export default {
       abouts:[
       {
         "id": "1",
-        "description": "Я не привязываюсь к съёмках в студиях, я умею работать с естественным светом в любых условиях.",
+        "description": "Буду рад подарить позитивные эмоции на фотосессии или снять видео о важном событии в вашей личной жизни или в бизнесе.",
         "image": {
           "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610479809/david_hurley_hj_St16_J_Gy_EE_unsplash_fb2d85bdf9.jpg"
         }
@@ -142,9 +142,9 @@ export default {
   // },
  async mounted(){
    try {
-  let abouts = await this.abouts.find();
+  this.abouts = await this.abouts.find();
 } catch (error) {
-  console.error(error);
+  this.error = error;
 }
  },
   components: {

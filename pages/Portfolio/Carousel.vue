@@ -1,42 +1,33 @@
 <template>
-  <client-only>
-    <div class="container mt-2">
-      <div class="px-0 position-relative">
-        <div
-          class="slider embed-responsive embed-responsive-16by9 z-depth-1-half position-relative"
-        >
-          <!-- <iframe class=" animate__animated animate__fadeIn animate__faster video-fluid embed-responsive-item" 
-                @load="loaded"
-                allow="autoplay;fullscreen;"
-                frameborder=“0”
-                loop="1"
-                :src="items"
-                type="video/mp4"
-                >
-          </iframe> -->
-          <div v-for="i in [currentIndex]" :key="i">
-          <video 
-           controls
-           :src="currentImg">
-           <source :src = "currentImg" type="video/mp4">
+  <div class="container mt-2">
+    <div class="px-0 position-relative">
+      <div v-if="error">{{ error }}</div>
+      <div
+        class="slider embed-responsive embed-responsive-16by9 position-relative"
+      >
+        <div v-if="currentImg.big.url == null">{{ loaded() }}</div>
+        <div v-else v-for="bigItem in [currentIndex]" :key="bigItem">
+          <video controls :src="currentImg.big.url">
+            <source :src="currentImg.big.url" type="video/mp4" />
           </video>
-          </div>
-          <a class="prev text-white" @click="prev">&#10094;</a>
-          <a class="next text-white" @click="next">&#10095;</a>
         </div>
+        <a class="prev text-white" @click="prev">&#10094;</a>
+        <a class="next text-white" @click="next">&#10095;</a>
       </div>
-      <div class="thumbnails position-relative">
+    </div>
+    <div class="thumbnails">
+      <div class="thumbnail-container">
         <div
           v-for="(image, index) in aerophotos"
           :key="image.id"
-          :class="['thumbnail-image', currentIndex == index ? 'active' : '']"
+          :class="['thumbnail-img', currentIndex == index ? 'active' : '']"
           @click="activateImage(index)"
         >
-          <img class="small-img mt-2 mr-2 z-depth-1-half" :src="image.thumb.url" />
+          <img class="small-img mt-2" :src="image.thumb.url" />
         </div>
       </div>
     </div>
-  </client-only>
+  </div>
 </template>
 
 <script>
@@ -46,63 +37,134 @@ export default {
   components: {},
   data() {
     return {
+      error: null,
       api_url: process.env.strapiBaseUri,
       currentIndex: 0,
-      timer: null,
+      jumpSlideWidth: 0,
+      scrollAmount: 0,
       isLoad: false,
       aerophotos: [
-      {
-        "id": "1",
-        "title": "View",
-        "thumb": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794537/Screenshot_from_2020_08_09_22_10_16_jrgtlc_613257f510.png"
+        {
+          id: "1",
+          title: "View",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794537/Screenshot_from_2020_08_09_22_10_16_jrgtlc_613257f510.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794519/coverr_53_new_zealand_lion_rock_piha_couple_7108_lngs6m_71352101dd.mp4",
+          },
         },
-        "big": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794519/coverr_53_new_zealand_lion_rock_piha_couple_7108_lngs6m_71352101dd.mp4"
-        }
-      },
-      {
-        "id": "2",
-        "title": "City",
-        "thumb": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png"
+        {
+          id: "2",
+          title: "City",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794241/coverr_001_aerial_upward_sunrise_river_buildings_orange_sky_buenos_aires_argentina_quarantine_drone_4k_16x9_6885_beqwis_433b7ca8fa.mp4",
+          },
         },
-        "big": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794241/coverr_001_aerial_upward_sunrise_river_buildings_orange_sky_buenos_aires_argentina_quarantine_drone_4k_16x9_6885_beqwis_433b7ca8fa.mp4"
-        }
-      },
-      {
-        "id": "3",
-        "title": "Moto",
-        "thumb": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794098/Screenshot_from_2020_08_09_22_08_51_o6j7kh_c7b72c6ae3.png"
+        {
+          id: "3",
+          title: "Moto",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794098/Screenshot_from_2020_08_09_22_08_51_o6j7kh_c7b72c6ae3.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793968/coverr_motorcyclist_drives_through_palms_road_1585645703955_fy3ini_3a0e278342.mp4",
+          },
         },
-        "big": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793968/coverr_motorcyclist_drives_through_palms_road_1585645703955_fy3ini_3a0e278342.mp4"
-        }
-      },
-      {
-        "id": "4",
-        "title": "Montain",
-        "thumb": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
+        {
+          id: "4",
+          title: "Montain",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793747/coverr_training_with_mountain_landscape_1585726970130_rok6nw_ebe24d32b3.mp4",
+          },
         },
-        "big": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793747/coverr_training_with_mountain_landscape_1585726970130_rok6nw_ebe24d32b3.mp4"
-        }
-      },
-      {
-        "id": "5",
-        "title": "Sea",
-        "thumb": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599023305/thumbnail_background_n0nne4_4547397537_3f0366687b.jpg"
+        {
+          id: "5",
+          title: "Sea",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
+          },
         },
-        "big": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
-        }
-      }
-    ],
-      items: [],
+        {
+          id: "6",
+          title: "Sea",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
+          },
+        },
+        {
+          id: "7",
+          title: "Sea",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
+          },
+        },
+        {
+          id: "8",
+          title: "Sea",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
+          },
+        },
+        {
+          id: "9",
+          title: "Sea",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
+          },
+        },
+        {
+          id: "10",
+          title: "Sea",
+          thumb: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+          },
+          big: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
+          },
+        },
+      ],
     };
   },
   // apollo: {
@@ -112,46 +174,63 @@ export default {
   //   },
   // },
   methods: {
-    next: function () {
-      var active = this.currentIndex + 1;
-      if (active >= this.aerophotos.length) {
-        active = 0;
+    next() {
+      const container = this.$el.querySelector(".thumbnails");
+      this.currentIndex += 1;
+      if (this.currentIndex >= this.aerophotos.length) {
+        this.currentIndex = 0;
       }
-      this.isLoad = false;
-      this.activateImage(active);
+      this.activateImage(this.currentIndex);
+      this.scrollNext(this.currentIndex);
     },
-    prev: function () {
-      var active = this.currentIndex - 1;
-      if (active >= this.aerophotos.length) {
-        active = 0;
+    prev() {
+      const container = this.$el.querySelector(".thumbnails");
+      this.currentIndex = this.currentIndex - 1;
+      if (this.currentIndex <= this.aerophotos.indexOf(0)) {
+        this.currentIndex = this.aerophotos.length - 1;
       }
-      this.isLoad = false;
-      this.activateImage(active);
+      this.activateImage(this.currentIndex);
+      this.scrollPrev(this.currentIndex);
     },
-    activateImage(imgIndex) {
+    scrollNext(active) {
+      const imgSmall = this.$el.querySelector(".thumbnail-img");
+      const container = this.$el.querySelector(".thumbnails");
+      container.scrollLeft = imgSmall.offsetWidth * active;
+      window.scroll({
+        left: container.scrollLeft,
+        behavior: 'smooth'
+      });
+    },
+    scrollPrev(active) {
+      const imgSmall = this.$el.querySelector(".thumbnail-img");
+      const container = this.$el.querySelector(".thumbnails");
+      container.scrollLeft -= imgSmall.offsetWidth;
+       window.scroll({
+        left: container.scrollLeft,
+        behavior: 'smooth'
+      });
+    },
+    async activateImage(imgIndex) {
       this.isLoad = false;
       this.currentIndex = imgIndex;
     },
     loaded() {
       this.isLoad = true;
     },
-    // changeVideo() {
-    //   let totalAero = this.aerophotos;
-    //   for (let index = 0; index < totalAero.length; index++) {
-    //     this.items.push(totalAero[index].big.url);
-    //   }
-    //   this.videoUrl = 
-    //     this.items[Math.abs(this.currentIndex) % this.items.length];
-    // },
+  },
+  async mount() {
+    try {
+      this.aerophotos = await this.aerophotos.find();
+      // loadBar();
+    } catch (error) {
+      this.error = error;
+    }
   },
   computed: {
-    currentImg: function () {
-      let result = this.items
-      let totalAero = this.aerophotos;
-      for (let index = 0; index < totalAero.length; index++) {
-        result.push(totalAero[index].big.url);
-      }
-      return result[Math.abs(this.currentIndex) % result.length];
+    currentImg() {
+      return this.aerophotos[
+        Math.abs(this.currentIndex) % this.aerophotos.length
+      ];
     },
   },
 };
@@ -212,35 +291,56 @@ export default {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.thumbnails {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+.thumbnails::-webkit-scrollbar {
+  display: none;
 }
 
-.thumbnail-image {
+.thumbnails {
+  scroll-behavior: smooth;
+  display: flex;
+  scrollbar-width: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.thumbnail-container {
+  justify-content: center;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  transition: transform 1s ease;
   cursor: pointer;
-  padding: 5px;
 }
 
-.thumbnail-image > .small-img {
-  width: 100%;
-  height: auto;
+.thumbnail-img {
+  scroll-snap-align: center;
+  width: 150px;
+  margin-right: 15px;
+}
+
+.thumbnail-img:last-child {
+  margin-right: 0;
+}
+
+.thumbnail-img > .small-img {
   transition: all 250ms;
   opacity: 0.6;
 }
 
-.thumbnail-image:hover > .small-img,
-.thumbnail-image.active > .small-img {
+.thumbnail-img:hover > .small-img,
+.thumbnail-img.active > .small-img {
   opacity: 1;
 }
 
-@media (max-width: 575.98px) {
-  .slider {
-    max-width: 100%;
-    height: 300px;
+@media (min-width: 0px) and (max-width: 767.98px) {
+  .thumbnail-img {
+    width: 80px;
+    margin-right: 15px;
   }
 }
 </style>

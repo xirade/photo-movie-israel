@@ -347,7 +347,6 @@ export default {
 </script>
 
 <style scoped>
-@import "~/assets/css/main.css";
 h4,
 .h4,
 .h2 {
