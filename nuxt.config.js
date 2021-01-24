@@ -77,7 +77,6 @@ export default {
   //   strapiBaseUri: process.env.API_URL || "https://arcane-harbor-45982.herokuapp.com/"
   // },
   mdbvue: {
-    icons: true, // FA5
     roboto: true, // font Roboto
     css: true, // MDB CSS
     bootstrap: true // Bootstrap CSS
@@ -87,7 +86,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    vendor: ['external_library']
   },
   loading: '~/components/Loading.vue',
   scrollBehavior (to, from, savedPosition) {

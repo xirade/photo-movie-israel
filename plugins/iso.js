@@ -1,17 +1,17 @@
 import Masonry from "masonry-layout";
-import imagesLoaded from "imagesloaded";
 
 
-let grid = document.querySelector(".grid");
-if(grid != null) {
-    let msnry = new Masonry(grid, {
+let msnry = document.querySelector(".grid");
+if (msnry != null) {
+  msnry = new Masonry(msnry, {
     itemSelector: ".grid-item",
     columnWidth: ".grid-sizer",
     percentPosition: true,
+    gutter: 0,
     initLayout: false,
   })
+
+
   // trigger initial layout
-  imagesLoaded(grid).on('progress', function() {
-      msnry.layout();
-  })
-} 
+    msnry.layout();
+}

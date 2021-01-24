@@ -41,7 +41,7 @@
     </mdb-container>
     <div class="footer-copyright text-center py-3">
       <mdb-container fluid>
-          &copy; 2020 Copyright: <a href="#"> PMI </a>. All rights reserved
+          &copy; {{currentDate.getFullYear()}} Copyright: <a href="#"> Photo-Movie-Israel </a>. All rights reserved
       </mdb-container>
     </div>
   </mdb-footer>
@@ -52,6 +52,11 @@
   import { mdbFooter, mdbContainer, mdbRow, mdbCol, mdbIcon } from 'mdbvue';
   export default {
     name: 'FooterPage',
+    data(){
+      return {
+        currentDate: new Date
+      }
+    },
     components: {
       mdbFooter,
       mdbContainer,

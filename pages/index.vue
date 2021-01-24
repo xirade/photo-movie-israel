@@ -1,16 +1,12 @@
 <template>
   <div>
     <div class="jarallax">
+      <div class="clippy-bg rgba-stylish-slight"></div>
       <img
         class="jarallax-img"
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
       />
-      <mdb-mask
-        class="position-relative"
-        overlay="black-slight"
-        style="height: 95vh"
-        flexCenter
-      >
+      <div style="height: 90vh" flexCenter>
         <div class="header-main d-flex flex-column mb-auto">
           <img
             src="~/assets/img/4log.png"
@@ -32,19 +28,22 @@
             POINT OF VIEW
           </h1>
         </div>
-      </mdb-mask>
+      </div>
     </div>
     <div
-      class="position-relative service container bg-dark p-0"
-      style="max-width: 100%"
+      class="service container bg-dark p-0"
+      style="max-width: 100%; z-index: 0"
     >
       <span
-        class="active_line_1"
+        class="active_line_1 line-bg"
         data-aos="goLine_service"
         data-aos-duration="1000"
         data-aos-easing="ease-out"
       ></span>
-      <div class="bg-white text-black d-flex justify-content-end">
+      <div
+        class="bg-white text-black d-flex justify-content-end"
+        style="z-index: 0"
+      >
         <div class="service_title">
           <p class="display-5 pl-2 font-weight-bolder yellow-text">01</p>
           <h2 class="display-3 pl-2 font-weight-bold">SERVICE</h2>
@@ -53,138 +52,61 @@
     </div>
     <div>
       <!-- TODO: Dynamic content strapi -->
-      <div class="w-100" style="background-color: rgba(28, 35, 49, 0.8)">
-        <mdb-row class="mx-auto">
-          <mdb-col class="pt-0 px-0" lg="4">
-            <mdb-card
-              class="card-image h-100"
-              style="
-                background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199747/photo-1590944335664-015cc7b65db1_fjdg8n.jpg')
-                  no-repeat center;
-                background-size: cover;
-              "
-            >
-              <mdb-view hover></mdb-view>
-              <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="orange-text font-weight-bold">
-                  <!-- Изменяемо -->
-                  <mdb-icon icon="camera" />ФОТОСЪЕМКА
-                </h5>
-                <mdb-card-title tag="h4" class="pt-2 text-white">
-                  <strong>Для бизнесменов,специалистов, фрилансеров</strong>
-                </mdb-card-title>
-                <mdb-container>
-                  <p class="text-light">
-                    Виды съемки:<br />
-                    Интеръерная, индустриальная, аэросъемка, панорамная,
-                    репортажная, иммиджевая, рекламно- постановочная
-                  </p>
-                </mdb-container>
-
-                <nuxt-link :to="'/services'">
-                  <mdb-btn color="orange" class="white-text">
-                    <mdb-icon icon="shopping-bag left" />Узнать больше
-                  </mdb-btn>
-                </nuxt-link>
-              </mdb-card-body>
-            </mdb-card>
-          </mdb-col>
-          <mdb-col class="pt-0 px-0" lg="4">
-            <mdb-card
-              class="card-image h-100"
-              style="
-                background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200217/photo-1543235074-4768b5c2233c_enepwc.jpg')
-                  no-repeat;
-                background-size: cover;
-              "
-            >
-              <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="blue-text font-weight-bold">
-                  <mdb-icon icon="video" />ВИДЕОСЪЕМКА
-                </h5>
-                <mdb-card-title tag="h4" class="pt-2 text-white">
-                  <strong>Для компаний, предпринимателей, маркетологов</strong>
-                </mdb-card-title>
-                <mdb-container>
-                  <p class="text-white">
-                    Виды съемки:<br />
-                    Рекламных, промо, информационных и развлекательных роликов,
-                    а также корпоративных фильмов.
-                  </p>
-                </mdb-container>
-                <nuxt-link :to="'/services'">
-                  <mdb-btn color="blue" class="text-black">
-                    <mdb-icon icon="shopping-bag left" />Узнать больше
-                  </mdb-btn>
-                </nuxt-link>
-              </mdb-card-body>
-            </mdb-card>
-          </mdb-col>
-          <mdb-col class="pt-0 px-0" lg="4">
-            <mdb-card
-              class="card-image h-100"
-              style="
-                background: url('https://res.cloudinary.com/dxeebmzdv/image/upload/v1600277481/96681721-a-movie-production-clapper-board-hands-with-a-movie-clapperboard-on-grey-background-with-copy-space-_afklyl.jpg')
-                  no-repeat;
-                background-size: cover;
-              "
-            >
-              <mdb-view hover></mdb-view>
-              <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="green-text font-weight-bold">
-                  <mdb-icon icon="film" />СЕМЕЙНАЯ СЪЕМКА
-                </h5>
-                <mdb-card-title tag="h4" class="pt-2 text-white">
-                  <strong>Для торжеств и знаменательных дней</strong>
-                </mdb-card-title>
-                <mdb-container>
-                  <p class="text-white">
-                    Виды съемки:<br />
-                    Семейная, индивидуальная, беременных, нью-борн, бритмила,
-                    бармицва, батмицва, лав-стори, свадебная, детская, дни
-                    рождения, торжества.
-                  </p>
-                </mdb-container>
-                <nuxt-link :to="'/services'">
-                  <mdb-btn color="green" class="text-black">
-                    <mdb-icon icon="shopping-bag left" />Узнать больше
-                  </mdb-btn>
-                </nuxt-link>
-              </mdb-card-body>
-            </mdb-card>
-          </mdb-col>
-          <div class="w-100"></div>
+      <div
+        class="w-100 position-relative"
+        style="background-color: #212121; z-index: 2"
+      >
+        <mdb-row class="justify-content-center py-5 mx-auto">
           <mdb-col
-            class="pt-0 px-0"
-            lg="12"
+            class="p-3"
+            xl="6"
             v-for="(item, index) in items"
             :key="item.id"
           >
             <mdb-card
-              class="card-image h-100"
-              :style="{ backgroundImage: 'url(' + item.image.url + ')', backgroundSize: 'cover'}"
+              class="card-image h-100 border border-dark"
+              :style="{
+                backgroundImage: 'url(' + item.image.url + ')',
+                backgroundSize: 'cover',
+              }"
             >
-              <mdb-view hover></mdb-view>
-              <mdb-card-body class="text-center rgba-stylish-strong">
-                <h5 class="pink-text font-weight-bold">
-                  <mdb-icon icon="heart" />СВАДЕБНАЯ СЪЕМКА
-                </h5>
-                <mdb-card-title tag="h4" class="pt-2 text-white">
-                  <strong>{{ item.title }}</strong>
-                </mdb-card-title>
-                <mdb-container>
-                  <p class="text-white">
-                    {{ item.fulldesc }}
-                  </p>
-                </mdb-container>
-                <mdb-btn
-                  color="pink"
-                  class="text-black"
-                  @click="showModal(index)"
+              <div
+                class="text-white text-center rgba-brown-light py-5 px-4 h-100"
+              >
+                <div
+                  class="z-depth-1 mx-auto p-3 h-100 d-flex flex-column align-items-center"
+                  style="background-color: #2e2e2e99"
                 >
-                  <mdb-icon icon="shopping-bag left" />Узнать больше
-                </mdb-btn>
-              </mdb-card-body>
+                  <h5
+                    :class="[
+                      'text-' + item.color,
+                      'font-weight-bold',
+                      'text-uppercase',
+                    ]"
+                  >
+                    <mdb-icon :icon="item.icon" />{{ item.name }}
+                  </h5>
+                  <mdb-card-title tag="h4" class="pt-2">
+                    <strong>{{ item.title }}</strong>
+                  </mdb-card-title>
+                  <mdb-container>
+                    <p class="text-white">
+                      <span v-html="item.description"></span>
+                    </p>
+                  </mdb-container>
+                  <nuxt-link
+                    class="mt-auto"
+                    :to="isModalVisible == true ? '/' : '/services'"
+                  >
+                    <mdb-btn :outline="item.color" @click="showModal(index)">
+                      <mdb-icon
+                        class="text-light"
+                        icon="shopping-bag left"
+                      /><span class="text-light">Узнать больше</span>
+                    </mdb-btn>
+                  </nuxt-link>
+                </div>
+              </div>
             </mdb-card>
           </mdb-col>
         </mdb-row>
@@ -217,40 +139,35 @@
         data-aos-duration="1000"
         data-aos-easing="ease-out"
       >
-        <h2
-          class="display-1 text-center mx-auto mt-auto m-0 mb-3"
-          style="color: #454545"
-        >
-          <strong>
-            WE TAKE PICTURES
-            <hr class="m-0" />
-            FROM ABOVE
-          </strong>
-        </h2>
-        <p
-          class="h3 text-black-50 text-uppercase mb-5 w-75 text-center"
-          style="font-family: 'DINNeuzeitGroteskLTW01-BdCn'"
-        >
-          Добро пожаловать на мой сайт!
-        </p>
-        <p
-          class="h5 w-75 text-center grey-text mb-4"
-          style="font-weight: lighter"
-        >
-          Я Павел, режисер видео-монтажа, видеограф и фотограф. Опыт работы
-          более 12 лет. Работаю по всему Израилю. Помогаю предпринимателям и их
-          семьям создать брендированный фото-видео контент об их
-          профессиональной и личной жизни. Преимущество работы со мной: работаю
-          в программах Photoshop, Adobe Premier, Adobe After Effect, Davinci,
-          Lightroom.Что это значит для вас? Фантазиям и креативности вашей съемки
-          почти нет границ.Увлекаюсь высокотехнологичной съёмкой, постоянно
-          обучаясь новым техникам видеосъемки и монтажа.
-        </p>
-        <nuxt-link class="mb-auto" :to="'/about'">
-          <mdb-btn color="yellow darken-3" class="px-5">
-            <mdb-icon icon="clone left" />Read more
-          </mdb-btn>
-        </nuxt-link>
+        <div class="container text-center mx-auto">
+          <h2 class="display-1 mt-auto mb-3" style="color: #454545">
+            <strong>
+              WE TAKE PICTURES
+              <hr class="m-0" />
+              FROM ABOVE
+            </strong>
+          </h2>
+          <p
+            class="h3 text-black-50 text-uppercase mb-5"
+          >
+            Добро пожаловать на мой сайт!
+          </p>
+          <p class="h5 text-center grey-text mb-4" style="font-weight: lighter">
+            Я Павел, режисер видео-монтажа, видеограф и фотограф. Опыт работы
+            более 12 лет. Работаю по всему Израилю. Помогаю предпринимателям и
+            их семьям создать брендированный фото-видео контент об их
+            профессиональной и личной жизни. Преимущество работы со мной:
+            работаю в программах Photoshop, Adobe Premier, Adobe After Effect,
+            Davinci, Lightroom.Что это значит для вас? Фантазиям и креативности
+            вашей съемки почти нет границ.Увлекаюсь высокотехнологичной съёмкой,
+            постоянно обучаясь новым техникам видеосъемки и монтажа.
+          </p>
+          <nuxt-link class="mb-auto" :to="'/about'">
+            <mdb-btn color="yellow darken-3" class="px-5">
+              <mdb-icon icon="clone left" />Read more
+            </mdb-btn>
+          </nuxt-link>
+        </div>
       </div>
     </div>
     <div
@@ -260,13 +177,13 @@
       <div class="service_title">
         <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
         <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
-        <span
-          class="active_line_4"
-          data-aos="goLine_smaller"
-          data-aos-duration="1000"
-          data-aos-easing="ease-out"
-        ></span>
       </div>
+      <span
+        class="active_line_4"
+        data-aos="goLine_smaller"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></span>
     </div>
     <div>
       <CoolLight />
@@ -323,18 +240,87 @@ import {
 export default {
   data() {
     return {
-      isModalVisible: false,
       selectedIndex: 0,
+      isModalVisible: false,
       items: [
         {
           id: "1",
+          name: "Фотосъемка",
+          title: "Для бизнесменов,специалистов, фрилансеров",
+          description:
+            "Виды съемки: <br/> Интеръерная, индустриальная, аэросъемка, панорамная, репортажная, иммиджевая, рекламно- постановочная",
+          listprice: [{}],
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199747/photo-1590944335664-015cc7b65db1_fjdg8n.jpg",
+          },
+          icon: "camera",
+          color: "warning",
+          visible: false,
+        },
+        {
+          id: "2",
+          name: "Видеосъемка",
+          title: "Для компаний, предпринимателей, маркетологов",
+          description:
+            "Виды съемки: <br/> Рекламных, промо, информационных и развлекательных роликов, а также корпоративных фильмов.",
+          listprice: [{}],
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200217/photo-1543235074-4768b5c2233c_enepwc.jpg",
+          },
+          icon: "video",
+          color: "info",
+          visible: false,
+        },
+        {
+          id: "3",
+          name: "Семейная съемка",
+          title: "Для торжеств и знаменательных дней",
+          description:
+            "Виды съемки:<br/> Семейная, индивидуальная, беременных, нью-борн, бритмила, бармицва, батмицва, лав-стори, свадебная, детская, дни рождения, торжества.",
+          listprice: [{}],
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1600277481/96681721-a-movie-production-clapper-board-hands-with-a-movie-clapperboard-on-grey-background-with-copy-space-_afklyl.jpg",
+          },
+          icon: "film",
+          color: "success",
+          visible: false,
+        },
+        {
+          id: "4",
+          name: "Свадебная съемка",
           title: "Для свадеб в Израиле и Европе ",
-          fulldesc:
-            "Виды съемки: Фото-видеосьемка свадебной церемонии, фото-видеосьемка сборы, фото-видеосьемка банкетной части, сьемка с дрона, фото-видеосъемка гостей, фото-видеосьемка прогулки.",
+          description:
+            "Виды съемки: <br/> Фото-видеосъемка свадебной церемонии, фото-видеосъемка сборы,   фото-видеосъемка ",
+          listprice: [
+            {
+              id: "1",
+              name: "Light",
+              color: "gray",
+              price: 350,
+              description:
+                "- Длительность съемки до 1 часа <br/>- От 30 обработанных фотографий со съемки + остальные удачные кадры в цветокоррекции <br/>- Обработка до 14 дней <br/>- Каждые дополнительные полчаса +150 шек",
+              visible: true,
+            },
+            {
+              id: "2",
+              name: "Standard",
+              color: "light",
+              price: 800,
+              description:
+                "- Подумываю идею съемки <br/>- Длительность съемки до 2,5 часов <br/>- От 60 обработанных фотографий + остальные удачные кадры в цветокоррекции <br/>- Около 10 фотографий в ретуши (на мой или ваш выбор) <br/>- использование профессионального света <br/>- фон хромакей, при необходимости <br/>- Обработка в течение 14 дней <br/>- Каждые дополнительные полчаса +150 шек",
+              visible: false,
+            },
+          ],
           image: {
             url:
               "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599511315/5_djhizt_0ba93f0786.jpg",
           },
+          icon: "heart",
+          color: "danger",
+          visible: true,
         },
       ],
     };
@@ -368,31 +354,35 @@ export default {
   methods: {
     showModal(index) {
       this.selectedIndex = index;
-      this.isModalVisible = true;
+      this.isModalVisible = this.items[index].visible;
     },
     closeModal() {
       this.isModalVisible = false;
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start();
-
-      setTimeout(() => this.$nuxt.$loading.finish(), 500);
-    });
-  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "node_modules/aos/src/sass/aos.scss";
 
 .first {
   height: 110vh;
 }
 
+h4 {
+  color: #e3deca;
+}
+
 p {
   font-size: 18px;
+}
+
+.jarallax > .clippy-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 }
 
 .Masthead {
@@ -404,7 +394,6 @@ hr {
   border: 0;
 }
 .title-header {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
   margin-top: 150px;
 }
 
@@ -422,6 +411,7 @@ hr {
   overflow: hidden;
   background-color: rgba(255, 196, 46, 0.8);
 }
+
 .active_line_2,
 .active_line_3,
 .active_line_4 {
@@ -556,12 +546,11 @@ hr {
 .display-4 {
   font-size: 5.5rem;
 }
-.display-1 {
+.display-1,.display-3,.title-header,.h3 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 .display-3 {
   font-size: 3.5rem;
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 .icon-feedback {
   color: white;

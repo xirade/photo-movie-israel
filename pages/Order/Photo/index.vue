@@ -57,7 +57,7 @@
             />
             <mdb-icon class="mr-2" size="2x" icon="calendar" />
             <label for="date">Date: </label>
-            <hr />
+            <br />
             <div class="d-flex flex-row mb-5">
               <VueCtkDateTimePicker
                 v-model="value"

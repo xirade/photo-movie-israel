@@ -7,49 +7,56 @@
       @close="index = null"
     ></CoolLightBox>
     <div class="w-100 h-100">
-      <mdb-view class="zoom overlay">
-        <video class="video-fluid m-0" autoplay loop muted>
+      <mdb-view class="zoom overlay h-100">
+        <video
+          class="embed-responsive embed-responsive-16by9 m-0"
+          autoplay
+          loop
+          muted
+        >
           <source :src="sliders[0].video.url" type="video/mp4" />
+          <source :src="sliders[0].video.url" type="video/ogg" />
+          <source :src="sliders[0].video.url" type="video/webm" />
         </video>
         <mdb-mask
           waves
-          overlay="black-light"
+          overlay="stylish-light"
           class="white-text d-flex flex-column h-100"
         >
-          <p class="display-3 my-auto mx-auto flex-center">
+          <p class="display-4 my-auto mx-auto flex-center">
             {{ sliders[0].title }}
           </p>
           <button class="full-img-slider" v-on:click="setIndex(0)"></button>
         </mdb-mask>
       </mdb-view>
     </div>
-    <div>
-      <div class="position-relative grid">
+    <div class="container-grid w-100">
+      <div class="grid">
         <div class="grid-sizer"></div>
-        <div class="grid-item grid-item--width1 grid-item--height3">
-          <mdb-view class="zoom overlay" style="position: unset">
+        <div class="grid-item grid-item--width1 grid-item--height4">
+          <mdb-view class="zoom overlay h-100">
             <img class="grid-img" :src="sliders[1].image.url" alt="zoom" />
             <mdb-mask
               waves
-              overlay="black-light"
+              overlay="stylish-light"
               class="white-text d-flex flex-column h-100"
             >
-              <p class="display-3 my-auto mx-auto flex-center">
+              <p class="display-4 my-auto mx-auto flex-center">
                 {{ sliders[1].title }}
               </p>
               <button class="full-img-slider" v-on:click="setIndex(1)"></button>
             </mdb-mask>
           </mdb-view>
         </div>
-        <div class="grid-item grid-item--width4 grid-item--height3">
-          <mdb-view class="zoom overlay" style="position: unset">
+        <div class="grid-item grid-item--width4 grid-item--height4">
+          <mdb-view class="zoom overlay h-100">
             <img class="grid-img" :src="sliders[2].image.url" alt="zoom" />
             <mdb-mask
               waves
-              overlay="black-light"
+              overlay="stylish-light"
               class="white-text d-flex flex-column h-100"
             >
-              <p class="display-5 my-auto mx-auto flex-center">
+              <p class="display-4 my-auto mx-auto flex-center">
                 {{ sliders[2].title }}
               </p>
               <button class="full-img-slider" v-on:click="setIndex(2)"></button>
@@ -57,14 +64,14 @@
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width2 grid-item--height4">
-          <mdb-view class="zoom overlay" style="position: unset">
+          <mdb-view class="zoom overlay h-100">
             <img class="grid-img" :src="sliders[3].image.url" alt="zoom" />
             <mdb-mask
               waves
-              overlay="black-light"
+              overlay="stylish-light"
               class="white-text d-flex flex-column h-100"
             >
-              <p class="display-3 my-auto mx-auto flex-center">
+              <p class="display-4 my-auto mx-auto flex-center">
                 {{ sliders[3].title }}
               </p>
               <button class="full-img-slider" v-on:click="setIndex(3)"></button>
@@ -72,14 +79,14 @@
           </mdb-view>
         </div>
         <div class="grid-item grid-item--width3 grid-item--height5">
-          <mdb-view class="zoom overlay" style="position: unset">
+          <mdb-view class="zoom overlay h-100">
             <img class="grid-img" :src="sliders[4].image.url" alt="zoom" />
             <mdb-mask
               waves
-              overlay="black-light"
+              overlay="stylish-light"
               class="white-text d-flex flex-column h-100"
             >
-              <p class="display-3 my-auto mx-auto flex-center">
+              <p class="display-4 my-auto mx-auto flex-center">
                 {{ sliders[4].title }}
               </p>
               <button class="full-img-slider" v-on:click="setIndex(4)"></button>
@@ -87,15 +94,15 @@
           </mdb-view>
         </div>
 
-        <div class="grid-item grid-item--width2 grid-item--height4">
-          <mdb-view class="zoom overlay" style="position: unset">
+        <div class="grid-item grid-item--width2 grid-item--height5">
+          <mdb-view class="zoom overlay h-100">
             <img class="grid-img" :src="sliders[5].image.url" alt="zoom" />
             <mdb-mask
               waves
-              overlay="black-light"
+              overlay="stylish-light"
               class="white-text d-flex flex-column h-100"
             >
-              <p class="display-3 my-auto mx-auto flex-center">
+              <p class="display-4 my-auto mx-auto flex-center">
                 {{ sliders[5].title }}
               </p>
               <button class="full-img-slider" v-on:click="setIndex(5)"></button>
@@ -115,7 +122,6 @@ import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 export default {
   data() {
     return {
-
       api_url: process.env.strapiBaseUri,
       sliders: [
         {
@@ -210,7 +216,7 @@ export default {
     } catch (error) {
       this.error = error;
     }
-  }, 
+  },
   computed: {
     getItems() {
       let result = this.items;
@@ -225,7 +231,7 @@ export default {
     if (localStorage.getItem("reloaded")) {
       localStorage.removeItem("reloaded");
     } else {
-      localStorage.setItem("reloaded", "1");
+      localStorage.setItem("reloaded", "0");
       location.reload();
     }
   }
@@ -235,6 +241,7 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
+  font-family: 'DINNeuzeitGroteskLTW01-BdCn';
 }
 .grid-img {
   position: absolute;
@@ -250,9 +257,14 @@ export default {
 }
 /* ---- grid ---- */
 
+.container-grid {
+  overflow: auto;
+}
+
 .grid {
   background: #eee;
   max-width: 100%;
+  height: 100%;
 }
 
 /* clearfix */
@@ -310,20 +322,8 @@ export default {
 .tool-icon {
   z-index: 1;
 }
-.display-5 {
-  font-size: 1.4rem;
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
-}
 
-@media (max-width: 575px) {
-  .display-5 {
-    font-size: 2.5rem;
-  }
-}
 @media (min-width: 300px) and (max-width: 767px) {
-  .display-5 {
-    font-size: 2.5rem;
-  }
   .grid-item {
     width: 40%;
   }
@@ -335,11 +335,6 @@ export default {
   }
   .grid-item--width3 {
     width: 100%;
-  }
-}
-@media (min-width: 992px) {
-  .display-5 {
-    font-size: 1.9rem;
   }
 }
 </style>

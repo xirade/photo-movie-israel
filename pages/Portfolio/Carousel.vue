@@ -1,16 +1,19 @@
 <template>
   <div class="container mt-2">
     <div class="px-0 position-relative">
-      <div v-if="error">{{ error }}</div>
       <div
         class="slider embed-responsive embed-responsive-16by9 position-relative"
       >
-        <div v-if="currentImg.big.url == null">{{ loaded() }}</div>
-        <div v-else v-for="bigItem in [currentIndex]" :key="bigItem">
-          <video controls :src="currentImg.big.url">
-            <source :src="currentImg.big.url" type="video/mp4" />
-          </video>
-        </div>
+        <transition name="slider" mode="out-in">
+          <div v-if="currentImg.big.url == null">{{ loaded() }}</div>
+          <div v-else v-for="bigItem in [currentIndex]" :key="bigItem">
+            <video autoplay muted>
+              <source :src="currentImg.big.url" type="video/mp4" />
+              <source :src="currentImg.big.url" type="video/ogg" />
+              <source :src="currentImg.big.url" type="video/webm" />
+            </video>
+          </div>
+        </transition>
         <a class="prev text-white" @click="prev">&#10094;</a>
         <a class="next text-white" @click="next">&#10095;</a>
       </div>
@@ -33,7 +36,11 @@
 <script>
 // import aerophotosQuery from "~/apollo/queries/portfolio/aerophotos.gql";
 export default {
-  name: "Slider",
+  transition: {
+    name: "slider",
+    mode: "out-in",
+  },
+
   components: {},
   data() {
     return {
@@ -198,19 +205,19 @@ export default {
       container.scrollLeft = imgSmall.offsetWidth * active;
       window.scroll({
         left: container.scrollLeft,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     },
     scrollPrev(active) {
       const imgSmall = this.$el.querySelector(".thumbnail-img");
       const container = this.$el.querySelector(".thumbnails");
       container.scrollLeft -= imgSmall.offsetWidth;
-       window.scroll({
+      window.scroll({
         left: container.scrollLeft,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     },
-    async activateImage(imgIndex) {
+    activateImage(imgIndex) {
       this.isLoad = false;
       this.currentIndex = imgIndex;
     },
@@ -237,6 +244,15 @@ export default {
 </script>
 
 <style scoped>
+.slider-enter-active,
+.slider-leave-active {
+  transition: opacity 0.35s ease-in;
+}
+.slider-enter,
+.slider-leave-to {
+  opacity: 0;
+}
+
 .slider {
   position: relative;
   display: block;
@@ -318,7 +334,7 @@ export default {
 }
 
 .thumbnail-img {
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   width: 150px;
   margin-right: 15px;
 }

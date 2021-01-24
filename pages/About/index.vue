@@ -27,8 +27,8 @@
       </div>
     </header>
 
-    <main>
-      <div class="w-100 py-5 h-100" style="background-color: #212121;">
+    <main class="w-100" style="background-color: #212121;">
+      <div class="w-100 py-5 h-100">
         <mdb-container class="mx-auto">
           <section>
             <mdb-row class="mx-auto">

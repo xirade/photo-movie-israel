@@ -1,11 +1,10 @@
 <template>
-  <div id="app">
-      <Header />
-      <Loading />
-      <main>
-        <nuxt />
-      </main>
-      <Footer />
+  <div class="app-container">
+    <Header />
+    <main class="app-content">
+      <Nuxt />
+    </main>
+    <Footer />
   </div>
 </template>
 
@@ -14,26 +13,40 @@ import Loading from "~/components/Loading.vue";
 import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
 export default {
-  name: "App",
   components: {
     Header,
     Footer,
     Loading,
   },
-  methods: {
-    yourCallBackFunction () {
-    }
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 500);
+    });
   },
-  mounted () {
-    document.addEventListener("backbutton", this.yourCallBackFunction, false);
-  },
-  beforeDestroy () {
-    document.removeEventListener("backbutton", this.yourCallBackFunction);
-  }
 };
 </script>
 
 <style>
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.app-container {
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template: auto 1fr auto / 1fr;
+}
+.app-content {
+  min-height: 100vh;
+  align-items: center;
+  justify-items: center;
+}
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

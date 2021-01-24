@@ -90,10 +90,11 @@ export default {
   // },
   methods: {
     getImage(id) {
+      let img;
       for (const street in this.streets) {
-        let img = this.streets.find((img) => img.id == id);
-        return img.image.url;
+        img = this.streets.find((img) => img.id == id);
       }
+        return img.image.url;
     }
   }
 };

@@ -30,7 +30,7 @@
     <main>
       <div
         class="container bg-light text-black"
-        style="max-width: 100%; height: 110vh;"
+        style="max-width: 100%; height: 110vh"
       >
         <div
           class="d-flex align-items-center flex-center flex-column"
@@ -38,35 +38,34 @@
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         >
-          <h2
-            class="display-1 text-center mx-auto mt-auto m-0 mb-5"
-            style="color: #454545;"
-          >
-            <strong>
-              AFFORDABLE PRICES,
-              <hr class="m-0" style="border: 0;" />
-              GREAT RESULTS
-            </strong>
-          </h2>
-          <p
-            class="h5 w-75 text-center grey-text mb-auto"
-            style="font-weight: lighter;"
-          >
-             Я приглашаю познакомиться с моими работами и, конечно же, связаться
-            со мной, когда вы захотите реализовать самые безумные и
-            нестандартные идеи в любых уголках Израиля. Я не привязываются к
-            съёмках в студиях, я умею работать с естественным светом в любых
-            условиях.
-          </p>
+          <div class="container text-center mx-auto">
+            <h2 class="display-1 mt-auto mb-5" style="color: #454545">
+              <strong>
+                AFFORDABLE PRICES,
+                <hr class="m-0" style="border: 0" />
+                GREAT RESULTS
+              </strong>
+            </h2>
+            <p class="h5 grey-text mb-auto" style="font-weight: lighter">
+              Я приглашаю познакомиться с моими работами и, конечно же,
+              связаться со мной, когда вы захотите реализовать самые безумные и
+              нестандартные идеи в любых уголках Израиля. Я не привязываются к
+              съёмках в студиях, я умею работать с естественным светом в любых
+              условиях.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="jarallax" style="height: 90vh;">
+      <div class="jarallax" style="height: 90vh">
+        <div class="clippy-bg rgba-stylish-light"></div>
         <img
-          class="jarallax-img" src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
+          class="jarallax-img"
+          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
         />
       </div>
       <div
-        class="section-cards bg-white position-relative h-100"
+        class="section-cards position-relative h-100"
+        style="background-color: #212121"
       >
         <span
           class="active_line_1"
@@ -74,23 +73,24 @@
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         ></span>
-        <div
-          class="py-5 container d-flex flex-center flex-column"
-        >
-          <h2 class="h1 mt-5 text-center text-uppercase animated pulse infinite">
+        <div class="py-5 container d-flex flex-center flex-column">
+          <h2
+            class="h1 mt-5 text-white text-center text-uppercase animated pulse infinite"
+          >
             Book a service
           </h2>
           <serviceCards class="mb-auto" />
         </div>
       </div>
     </main>
+    <div class="bg-white w-100" style="position: relative; height: 20vh"></div>
     <div class="position-relative">
-        <span
-      class="active_line_1"
-      data-aos="goLine_xsmall"
-      data-aos-duration="1000"
-      data-aos-easing="ease-out"
-    ></span>
+      <span
+        class="active_line_1"
+        data-aos="goLine_xsmall"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></span>
     </div>
   </div>
 </template>
@@ -100,15 +100,22 @@ import serviceCards from "./services_cards";
 import AOS from "aos";
 export default {
   components: {
-    serviceCards
-  }
+    serviceCards,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "node_modules/aos/src/sass/aos.scss";
 
-h2 {
+.jarallax > .clippy-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+}
+
+h2, .display-1, .display-3 {
   font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 
@@ -145,17 +152,11 @@ h2 {
 
 .display-3 {
   font-size: 3.5rem;
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
-}
-
-.display-1 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 
 .second {
   height: 70vh;
 }
-
 
 @media (max-width: 575px) {
   .display-1 {
