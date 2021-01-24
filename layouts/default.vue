@@ -35,13 +35,6 @@ body {
   height: 100%;
   width: 100%;
 }
-
-.app-container {
-  height: 100%;
-  position: relative;
-  display: grid;
-  grid-template: auto 1fr auto / 1fr;
-}
 .app-content {
   min-height: 100vh;
   align-items: center;

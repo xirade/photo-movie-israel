@@ -1,22 +1,22 @@
 <template>
   <div class="container mt-2">
     <div class="px-0 position-relative">
-      <div
-        class="slider embed-responsive embed-responsive-16by9 position-relative"
-      >
-        <transition name="slider" mode="out-in">
+        <div
+          class="slider position-relative"
+        >
+      <transition name="slider" mode="out-in">
           <div v-if="currentImg.big.url == null">{{ loaded() }}</div>
-          <div v-else v-for="bigItem in [currentIndex]" :key="bigItem">
-            <video autoplay muted>
+          <div v-else class="embed-responsive embed-responsive-16by9" v-for="bigItem in [currentIndex]" :key="bigItem">
+            <video class="embed-responsive-item" autoplay muted>
               <source :src="currentImg.big.url" type="video/mp4" />
               <source :src="currentImg.big.url" type="video/ogg" />
               <source :src="currentImg.big.url" type="video/webm" />
             </video>
           </div>
-        </transition>
-        <a class="prev text-white" @click="prev">&#10094;</a>
-        <a class="next text-white" @click="next">&#10095;</a>
-      </div>
+      </transition>
+          <a class="prev text-white" @click="prev">&#10094;</a>
+          <a class="next text-white" @click="next">&#10095;</a>
+        </div>
     </div>
     <div class="thumbnails">
       <div class="thumbnail-container">
