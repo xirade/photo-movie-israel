@@ -182,7 +182,7 @@ export default {
 
 <style scoped>
 h2 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+  font-family: 'Oswald', sans-serif;
 }
 
 .collapsed > .when-opened,

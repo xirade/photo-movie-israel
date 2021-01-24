@@ -281,6 +281,6 @@ export default {
 
 <style scoped>
 .card-title {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+  font-family: 'Oswald', sans-serif;
 }
 </style>

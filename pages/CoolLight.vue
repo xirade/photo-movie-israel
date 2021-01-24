@@ -6,7 +6,7 @@
       loop
       @close="index = null"
     ></CoolLightBox>
-    <div class="w-100 h-100">
+    <div class="w-100 h-100 p-1">
       <mdb-view class="zoom overlay h-100">
         <video
           class="embed-responsive embed-responsive-16by9 m-0"
@@ -30,87 +30,31 @@
         </mdb-mask>
       </mdb-view>
     </div>
-    <div class="container-grid w-100">
       <div class="grid">
         <div class="grid-sizer"></div>
-        <div class="grid-item grid-item--width1 grid-item--height4">
-          <mdb-view class="zoom overlay h-100">
-            <img class="grid-img" :src="sliders[1].image.url" alt="zoom" />
+        <div
+          class="grid-item"
+          v-for="(slider, index) in sliders"
+          :key="slider.id"
+        >
+          <mdb-view class="zoom overlay h-100 z-depth-1">
+            <img class="grid-img " :src="slider.image.url" :alt="slider.title" />
             <mdb-mask
               waves
               overlay="stylish-light"
               class="white-text d-flex flex-column h-100"
             >
-              <p class="display-4 my-auto mx-auto flex-center">
-                {{ sliders[1].title }}
+              <p class="h1-responsive my-auto mx-auto flex-center">
+                {{ slider.title }}
               </p>
-              <button class="full-img-slider" v-on:click="setIndex(1)"></button>
-            </mdb-mask>
-          </mdb-view>
-        </div>
-        <div class="grid-item grid-item--width4 grid-item--height4">
-          <mdb-view class="zoom overlay h-100">
-            <img class="grid-img" :src="sliders[2].image.url" alt="zoom" />
-            <mdb-mask
-              waves
-              overlay="stylish-light"
-              class="white-text d-flex flex-column h-100"
-            >
-              <p class="display-4 my-auto mx-auto flex-center">
-                {{ sliders[2].title }}
-              </p>
-              <button class="full-img-slider" v-on:click="setIndex(2)"></button>
-            </mdb-mask>
-          </mdb-view>
-        </div>
-        <div class="grid-item grid-item--width2 grid-item--height4">
-          <mdb-view class="zoom overlay h-100">
-            <img class="grid-img" :src="sliders[3].image.url" alt="zoom" />
-            <mdb-mask
-              waves
-              overlay="stylish-light"
-              class="white-text d-flex flex-column h-100"
-            >
-              <p class="display-4 my-auto mx-auto flex-center">
-                {{ sliders[3].title }}
-              </p>
-              <button class="full-img-slider" v-on:click="setIndex(3)"></button>
-            </mdb-mask>
-          </mdb-view>
-        </div>
-        <div class="grid-item grid-item--width3 grid-item--height5">
-          <mdb-view class="zoom overlay h-100">
-            <img class="grid-img" :src="sliders[4].image.url" alt="zoom" />
-            <mdb-mask
-              waves
-              overlay="stylish-light"
-              class="white-text d-flex flex-column h-100"
-            >
-              <p class="display-4 my-auto mx-auto flex-center">
-                {{ sliders[4].title }}
-              </p>
-              <button class="full-img-slider" v-on:click="setIndex(4)"></button>
-            </mdb-mask>
-          </mdb-view>
-        </div>
-
-        <div class="grid-item grid-item--width2 grid-item--height5">
-          <mdb-view class="zoom overlay h-100">
-            <img class="grid-img" :src="sliders[5].image.url" alt="zoom" />
-            <mdb-mask
-              waves
-              overlay="stylish-light"
-              class="white-text d-flex flex-column h-100"
-            >
-              <p class="display-4 my-auto mx-auto flex-center">
-                {{ sliders[5].title }}
-              </p>
-              <button class="full-img-slider" v-on:click="setIndex(5)"></button>
+              <button
+                class="full-img-slider"
+                v-on:click="setIndex(index)"
+              ></button>
             </mdb-mask>
           </mdb-view>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -187,6 +131,36 @@ export default {
           video: null,
           published_at: "2020-08-06T09:00:00.000Z",
         },
+        {
+          id: "7",
+          title: "Girl",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596709012/%D0%94%D0%B5%D0%B2%D0%BE%D1%87%D0%BA%D0%B0_ioyama.jpg",
+          },
+          video: null,
+          published_at: "2020-08-06T09:00:00.000Z",
+        },
+        {
+          id: "8",
+          title: "Glasses",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199012/0032_z18xq2_igcbdq.jpg",
+          },
+          video: null,
+          published_at: "2020-08-06T09:00:00.000Z",
+        },
+        {
+          id: "9",
+          title: "Family",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1595950978/7_qfounv.jpg",
+          },
+          video: null,
+          published_at: "2020-08-06T09:00:00.000Z",
+        },
       ],
       query: "",
       items: [],
@@ -212,26 +186,26 @@ export default {
   },
   async mount() {
     try {
-      let sliders = await this.sliders.find();
+      this.sliders = await this.sliders.find();
     } catch (error) {
       this.error = error;
     }
   },
   computed: {
     getItems() {
-      let result = this.items;
-      let sliders = this.sliders;
-      for (let i = 0; i < sliders.length; i++) {
-        result.push(sliders[i].image.url);
+      let result = [];
+      for (let i = 0; i < this.sliders.length; i++) {
+        result.push(this.sliders[i].image.url);
       }
       return result;
     },
+    
   },
   mounted() {
     if (localStorage.getItem("reloaded")) {
       localStorage.removeItem("reloaded");
     } else {
-      localStorage.setItem("reloaded", "0");
+      localStorage.setItem("reloaded", "1");
       location.reload();
     }
   }
@@ -241,73 +215,42 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
-  font-family: 'DINNeuzeitGroteskLTW01-BdCn';
+  font-family: 'Oswald', sans-serif;
 }
-.grid-img {
-  position: absolute;
-  object-fit: cover;
-  object-position: center;
-  /* support for plugin https://github.com/bfred-it/object-fit-images */
-  font-family: "object-fit: cover; object-position: center;";
-  top: 0;
-  overflow: hidden;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+/* force scrollbar */
+html {
+  overflow-y: scroll;
 }
+
 /* ---- grid ---- */
 
-.container-grid {
-  overflow: auto;
-}
-
 .grid {
-  background: #eee;
-  max-width: 100%;
-  height: 100%;
+  background: #fff;
 }
 
-/* clearfix */
+/* clear fix */
 .grid:after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* ---- grid-item ---- */
+/* ---- .grid-item ---- */
 
 .grid-sizer,
 .grid-item {
-  width: 20%;
+  width: 33.333%;
 }
 
 .grid-item {
-  height: 120px;
   float: left;
-  overflow: hidden;
+  border: 5px solid #fff;
 }
 
-.grid-item--width1 {
-  width: 40%;
-}
-.grid-item--width2 {
-  width: 40%;
-}
-.grid-item--width3 {
-  width: 60%;
-}
-
-.grid-item--height2 {
-  height: 200px;
-}
-.grid-item--height3 {
-  height: 260px;
-}
-.grid-item--height4 {
-  height: 360px;
-}
-.grid-item--height5 {
-  height: 460px;
+.grid-item img {
+  display: block;
+  max-width: 100%;
 }
 
 .full-img-slider {
@@ -321,20 +264,5 @@ export default {
 }
 .tool-icon {
   z-index: 1;
-}
-
-@media (min-width: 300px) and (max-width: 767px) {
-  .grid-item {
-    width: 40%;
-  }
-  .grid-item--width1 {
-    width: 60%;
-  }
-  .grid-item--width2 {
-    width: 100%;
-  }
-  .grid-item--width3 {
-    width: 100%;
-  }
 }
 </style>

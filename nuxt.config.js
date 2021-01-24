@@ -45,7 +45,6 @@ export default {
     { src: '~/nuxt.config.js', ssr: false },
     { src: '~/plugins/iso.js', ssr: false },
     { src: '~/plugins/crisp.js', ssr: false },
-
   ],
   /*
   ** Auto import components
@@ -64,8 +63,9 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     // '@nuxtjs/apollo',
     'bootstrap-vue/nuxt',
-    'mdbvue/nuxt'
+    'mdbvue/nuxt',
   ],
+
   // apollo: {  
   //   clientConfigs: {
   //     default: {
@@ -77,7 +77,6 @@ export default {
   //   strapiBaseUri: process.env.API_URL || "https://arcane-harbor-45982.herokuapp.com/"
   // },
   mdbvue: {
-    roboto: true, // font Roboto
     css: true, // MDB CSS
     bootstrap: true // Bootstrap CSS
   },
@@ -88,7 +87,7 @@ export default {
   build: {
   },
   loading: '~/components/Loading.vue',
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({ x: 0, y: 0 })

@@ -384,7 +384,7 @@ export default {
 h4,
 .h4,
 .h2 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+  font-family: 'Oswald', sans-serif;
 }
 
 .h4:hover {

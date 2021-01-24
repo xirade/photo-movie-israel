@@ -89,7 +89,7 @@ export default {
 }
 
 .h2, .h4, .display-3 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+  font-family: 'Oswald', sans-serif;
 }
 
 .h4:hover {

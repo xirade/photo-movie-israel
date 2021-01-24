@@ -86,7 +86,7 @@
                   >
                     <mdb-icon :icon="item.icon" />{{ item.name }}
                   </h5>
-                  <mdb-card-title tag="h4" class="pt-2">
+                  <mdb-card-title tag="h4" class="pt-2 h2-responsive">
                     <strong>{{ item.title }}</strong>
                   </mdb-card-title>
                   <mdb-container>
@@ -147,9 +147,7 @@
               FROM ABOVE
             </strong>
           </h2>
-          <p
-            class="h3 text-black-50 text-uppercase mb-5"
-          >
+          <p class="h2-responsive text-black-50 text-uppercase mb-5">
             Добро пожаловать на мой сайт!
           </p>
           <p class="h5 text-center grey-text mb-4" style="font-weight: lighter">
@@ -246,7 +244,7 @@ export default {
         {
           id: "1",
           name: "Фотосъемка",
-          title: "Для бизнесменов,специалистов, фрилансеров",
+          title: "Для бизнесменов, специалистов, фрилансеров",
           description:
             "Виды съемки: <br/> Интеръерная, индустриальная, аэросъемка, панорамная, репортажная, иммиджевая, рекламно- постановочная",
           listprice: [{}],
@@ -321,6 +319,7 @@ export default {
           icon: "heart",
           color: "danger",
           visible: true,
+          val: "hour"
         },
       ],
     };
@@ -546,8 +545,11 @@ hr {
 .display-4 {
   font-size: 5.5rem;
 }
-.display-1,.display-3,.title-header,.h3 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+.display-1,
+.display-3,
+.title-header,
+.h3 {
+  font-family: 'Oswald', sans-serif;
 }
 .display-3 {
   font-size: 3.5rem;
@@ -574,9 +576,6 @@ hr {
   }
   .display-1 {
     font-size: 2.7rem;
-  }
-  .h3 {
-    font-size: 1rem;
   }
   .h5 {
     font-size: 0.8rem;
@@ -606,9 +605,6 @@ hr {
   .display-1 {
     font-size: 3rem;
   }
-  .h3 {
-    font-size: 1.5rem;
-  }
   .h5 {
     font-size: 1rem;
   }
@@ -636,9 +632,6 @@ hr {
   }
   .display-1 {
     font-size: 3.5rem;
-  }
-  .h3 {
-    font-size: 1.5rem;
   }
   .h5 {
     font-size: 1.2rem;

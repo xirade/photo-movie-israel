@@ -149,8 +149,8 @@ export default {
 <style lang="scss" scoped>
 @import "node_modules/aos/src/sass/aos.scss";
 h2,
-h3 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+h3,.display-3 {
+  font-family: 'Oswald', sans-serif;
 }
 
 .card {
@@ -159,7 +159,6 @@ h3 {
 
 .display-3 {
   font-size: 3.5rem;
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 
 .active_line_1 {

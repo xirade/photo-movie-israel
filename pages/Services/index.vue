@@ -116,7 +116,7 @@ export default {
 }
 
 h2, .display-1, .display-3 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+  font-family: 'Oswald', sans-serif;
 }
 
 .active_line_1 {

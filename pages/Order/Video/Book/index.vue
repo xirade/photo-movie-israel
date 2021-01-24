@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
  .display-2 {
-   font-family: "DINNeuzeitGroteskLTW01-BdCn";
+   font-family: 'Oswald', sans-serif;
  }
 
  @media (max-width: 346px) {

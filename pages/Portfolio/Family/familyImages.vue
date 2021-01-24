@@ -2,103 +2,116 @@
   <div class="container">
     <div class="grid">
       <div class="grid-sizer"></div>
-      <div class="grid-item grid-item--width3 grid-item--height4 grid-img" :style="{ backgroundImage: 'url(' + getImage(1) + ')', backgroundSize: 'cover',
-      backgroundPosition: 'center'}">
+      <div
+        v-for="family in families"
+        :key="family.id"
+        :class="
+          'grid-item ' +
+          `grid-item--width${family.width} ` +
+          'grid-item--height5'
+        "
+      >
+        <img
+          class="grid-img z-depth-1-half"
+          :src="family.image.url"
+          :alt="family.title"
+        />
       </div>
-      <div class="grid-item grid-item--width2 grid-item--height4"
-      :style="{ backgroundImage: 'url(' + getImage(2) + ')', backgroundSize: 'cover',
-      backgroundPosition: 'center'}"></div>
-      <div class="grid-item grid-item--width4 grid-item--height5"
-      :style="{ backgroundImage: 'url(' + getImage(3) + ')', backgroundSize: 'cover',
-      backgroundPosition: 'center'}"></div>
-      <div class="grid-item grid-item--width4 grid-item--height5"
-      :style="{ backgroundImage: 'url(' + getImage(4) + ')', backgroundSize: 'cover',
-      backgroundPosition: 'center'}"></div>
-      <div class="grid-item grid-item--width4 grid-item--height5"
-      :style="{ backgroundImage: 'url(' + getImage(5) + ')', backgroundSize: 'cover',
-      backgroundPosition: 'center'}"></div>
-      <div class="grid-item grid-item--width4 grid-item--height5"
-      :style="{ backgroundImage: 'url(' + getImage(6) + ')', backgroundSize: 'cover',
-      backgroundPosition: 'center'}"></div>
     </div>
   </div>
 </template>
 
 <script>
-// import familiesQuery from '~/apollo/queries/portfolio/families.gql';
+// import weddingsQuery from '~/apollo/queries/portfolio/weddings.gql'
 export default {
-    data() {
-        return {
-            api_url: process.env.strapiBaseUri,
-            families: [
-      {
-        "id": "1",
-        "title": "Little girl",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950572/0013_rg5rks_ddi1rd_73cee6bec5.jpg"
-        },
-        "date": "2020-09-07T13:50:00.000Z"
+  data() {
+    return {
+      styleObject: {
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       },
-      {
-        "id": "2",
-        "title": "Family beach",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599486970/family_beach_l9tgah_ff11312680.jpg"
+      api_url: process.env.strapiBaseUri,
+      families: [
+        {
+          id: "1",
+          title: "Little girl",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950572/0013_rg5rks_ddi1rd_73cee6bec5.jpg",
+          },
+          date: "2020-09-07T13:50:00.000Z",
+          width: 3,
         },
-        "date": "2020-09-07T14:00:00.000Z"
-      },
-      {
-        "id": "3",
-        "title": "My big family",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487034/poster_df0c03dca9cd4ed49daa4ddb71536fc6_pt4jlv_30c5b2c6e3.jpg"
+        {
+          id: "2",
+          title: "Family beach",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599486970/family_beach_l9tgah_ff11312680.jpg",
+          },
+          date: "2020-09-07T14:00:00.000Z",
+          width: 2,
+          height: 5,
         },
-        "date": "2020-09-07T14:00:00.000Z"
-      },
-      {
-        "id": "4",
-        "title": "My first steps",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487113/bring_your_family_to_germany_kyntov_180cd0552f.jpg"
+        {
+          id: "3",
+          title: "My big family",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487034/poster_df0c03dca9cd4ed49daa4ddb71536fc6_pt4jlv_30c5b2c6e3.jpg",
+          },
+          date: "2020-09-07T14:00:00.000Z",
+          width: 4,
+          height: 5,
         },
-        "date": "2020-09-07T14:00:00.000Z"
-      },
-      {
-        "id": "5",
-        "title": "Travelling together",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487200/large_multi_gen_travel_1280x640_c791jr_f0bc8b0e31.jpg"
+        {
+          id: "4",
+          title: "My first steps",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487113/bring_your_family_to_germany_kyntov_180cd0552f.jpg",
+          },
+          date: "2020-09-07T14:00:00.000Z",
+          width: 4,
         },
-        "date": "2020-09-07T14:00:00.000Z"
-      },
-      {
-        "id": "6",
-        "title": "Good weekend",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487261/happy_family_rmnzrm_9f3f2241d4.jpg"
+        {
+          id: "5",
+          title: "Travelling together",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487200/large_multi_gen_travel_1280x640_c791jr_f0bc8b0e31.jpg",
+          },
+          date: "2020-09-07T14:00:00.000Z",
+          width: 4,
         },
-        "date": "2020-09-07T15:00:00.000Z"
-      }
-    ]
-        }
-    },
-  //   apollo: {
-  //   families: {
+        {
+          id: "6",
+          title: "Good weekend",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487261/happy_family_rmnzrm_9f3f2241d4.jpg",
+          },
+          date: "2020-09-07T15:00:00.000Z",
+          width: 4,
+        },
+      ],
+    };
+  },
+  // apollo: {
+  //   weddings: {
   //     prefetch: true,
-  //     query: familiesQuery,
+  //     query: weddingsQuery,
   //   },
   // },
-  methods: {
-    getImage(id) {
-      for (const street in this.families) {
-        let img = this.families.find((img) => img.id == id);
-        return img.image.url;
-      }
+  async mount() {
+    try {
+      this.families = await this.families.find();
+    } catch (error) {
+      this.error = error;
     }
-  }
+  },
 };
 </script>
-
 
 <style scoped>
 * {
@@ -124,11 +137,18 @@ export default {
   width: 20%;
 }
 
-
 .grid-item {
   height: 120px;
   float: left;
-  border: 5px solid #343a40;
+  border: 10px solid #343a40;
+}
+
+.grid-item img {
+  object-fit: cover;
+  /* support for plugin https://github.com/bfred-it/object-fit-images */
+  font-family: "object-fit: cover;";
+  width: 100%;
+  height: 100%;
 }
 
 .grid-item--width2 {
@@ -141,19 +161,19 @@ export default {
   width: 100%;
 }
 
-.grid-item--height4 {
-  height: 360px;
-}
 .grid-item--height5 {
-  height: 560px;
+  height: 520px;
 }
 
-@media (min-width: 300px) and (max-width: 767px) {
-    .grid-item--width2 {
-  width: 100%;
-}
-.grid-item--width3 {
-  width: 100%;
-}
+@media (min-width: 200px) and (max-width: 993px) {
+  .grid-item--height5 {
+    height: 480px;
+  }
+  .grid-item--width2 {
+    width: 100%;
+  }
+  .grid-item--width3 {
+    width: 100%;
+  }
 }
 </style>

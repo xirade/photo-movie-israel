@@ -202,13 +202,12 @@ export default {
 
 
 h2,
-h4 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+h4,.display-3 {
+  font-family: 'Oswald', sans-serif;
 }
 
 .display-3 {
   font-size: 3.5rem;
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
 }
 
 [data-aos="goLine_xsmall"] {

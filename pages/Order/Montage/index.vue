@@ -15,7 +15,8 @@
         <div class="text-left mt-5">
           <h3 class="h2 pt-2">Service Order Form</h3>
           <p class="service-text mt-3">
-            Для того, чтобы сориентировать вас по цене, просим заполнить информацию о вас и пожелания к заказу.
+            Для того, чтобы сориентировать вас по цене, просим заполнить
+            информацию о вас и пожелания к заказу.
           </p>
         </div>
         <br class="p-2" />
@@ -106,13 +107,9 @@
                 }}</mdb-card-title>
                 <div class="d-flex align-items-center">
                   Amount:
-                 <button
-            class="btn p-1"
-            @click="stepDown"
-            type="button"
-            >
-      <i class="fas fa-minus"></i>
-    </button>
+                  <button class="btn p-1" @click="stepDown" type="button">
+                    <i class="fas fa-minus"></i>
+                  </button>
                   <mdb-input
                     class="ml-2 pt-2"
                     type="number"
@@ -129,13 +126,9 @@
                     pattern="[0-9]{1,2}"
                     readOnly
                   />
-                   <button
-            class="btn p-1"
-            @click="stepUp"
-            type="button"
-            >
-      <i class="fas fa-plus"></i>
-    </button>
+                  <button class="btn p-1" @click="stepUp" type="button">
+                    <i class="fas fa-plus"></i>
+                  </button>
                   hr
                 </div>
                 <span>Price:</span>
@@ -250,39 +243,46 @@ export default {
     return {
       api_url: process.env.strapiBaseUri,
       orders: [
-      {
-        "id": "1",
-        "title": "Photoshoot",
-        "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950739/3_haxune_jnd6g3_47450709a9.jpg"
+        {
+          id: "1",
+          title: "Photoshoot",
+          description:
+            "Some quick example text to build on the card title and make up the bulk of the card's content.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950739/3_haxune_jnd6g3_47450709a9.jpg",
+          },
+          price: 350,
+          video: null,
         },
-        "price": 350,
-        "video": null
-      },
-      {
-        "id": "2",
-        "title": "Videoshoot",
-        "description": "Some quick example text to build on the card video and make up the bulk of the card's content.",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png"
+        {
+          id: "2",
+          title: "Videoshoot",
+          description:
+            "Some quick example text to build on the card video and make up the bulk of the card's content.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png",
+          },
+          price: 450,
+          video: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598630487/EOD_wd4m1j_1a7355525b.mp4",
+          },
         },
-        "price": 450,
-        "video": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598630487/EOD_wd4m1j_1a7355525b.mp4"
-        }
-      },
-      {
-        "id": "3",
-        "title": "Montage",
-        "description": "Some quick example text to build on the card montage and make up the bulk of the card's content.",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598630660/nevesta_f7f7930fb0.jpg"
+        {
+          id: "3",
+          title: "Montage",
+          description:
+            "Some quick example text to build on the card montage and make up the bulk of the card's content.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598630660/nevesta_f7f7930fb0.jpg",
+          },
+          price: 300,
+          video: null,
         },
-        "price": 300,
-        "video": null
-      }
-    ],
+      ],
       priceResult: [],
       hours: 0,
       totalPrice: 0,
@@ -304,15 +304,15 @@ export default {
   // },
   methods: {
     stepUp() {
-      if(this.hours < 11){
-        document.querySelector('input[type=number]').stepUp()
-        this.hours++
+      if (this.hours < 11) {
+        document.querySelector("input[type=number]").stepUp();
+        this.hours++;
       }
     },
-    stepDown(){
-      if(this.hours > 0){
-        document.querySelector('input[type=number]').stepDown()
-        this.hours--
+    stepDown() {
+      if (this.hours > 0) {
+        document.querySelector("input[type=number]").stepDown();
+        this.hours--;
       }
     },
     getHoursValue() {
@@ -390,7 +390,7 @@ export default {
 h4,
 .h4,
 .h2 {
-  font-family: "DINNeuzeitGroteskLTW01-BdCn";
+  font-family: 'Oswald', sans-serif;
 }
 
 .h4:hover {
