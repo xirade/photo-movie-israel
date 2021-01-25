@@ -30,31 +30,31 @@
         </mdb-mask>
       </mdb-view>
     </div>
-      <div class="grid">
-        <div class="grid-sizer"></div>
-        <div
-          class="grid-item"
-          v-for="(slider, index) in sliders"
-          :key="slider.id"
-        >
-          <mdb-view class="zoom overlay h-100 z-depth-1">
-            <img class="grid-img " :src="slider.image.url" :alt="slider.title" />
-            <mdb-mask
-              waves
-              overlay="stylish-light"
-              class="white-text d-flex flex-column h-100"
-            >
-              <p class="h1-responsive my-auto mx-auto flex-center">
-                {{ slider.title }}
-              </p>
-              <button
-                class="full-img-slider"
-                v-on:click="setIndex(index)"
-              ></button>
-            </mdb-mask>
-          </mdb-view>
-        </div>
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <div
+        class="grid-item"
+        v-for="(slider, index) in sliders"
+        :key="slider.id"
+      >
+        <mdb-view class="zoom overlay h-100 z-depth-1">
+          <img class="grid-img" :src="slider.image.url" :alt="slider.title" />
+          <mdb-mask
+            waves
+            overlay="stylish-light"
+            class="white-text d-flex flex-column h-100"
+          >
+            <p class="h1-responsive my-auto mx-auto flex-center">
+              {{ slider.title }}
+            </p>
+            <button
+              class="full-img-slider"
+              v-on:click="setIndex(index)"
+            ></button>
+          </mdb-mask>
+        </mdb-view>
       </div>
+    </div>
   </div>
 </template>
 
@@ -199,7 +199,6 @@ export default {
       }
       return result;
     },
-    
   },
   mounted() {
     if (localStorage.getItem("reloaded")) {
@@ -208,14 +207,14 @@ export default {
       localStorage.setItem("reloaded", "1");
       location.reload();
     }
-  }
+  },
 };
 </script>
 
 <style scoped>
 * {
   box-sizing: border-box;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 /* force scrollbar */
@@ -264,5 +263,12 @@ html {
 }
 .tool-icon {
   z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
 }
 </style>
