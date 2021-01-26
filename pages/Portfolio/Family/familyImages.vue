@@ -162,12 +162,12 @@ export default {
 }
 
 .grid-item--height5 {
-  height: 520px;
+  height: 480px;
 }
 
 @media (min-width: 200px) and (max-width: 993px) {
   .grid-item--height5 {
-    height: 480px;
+    height: 320px;
   }
   .grid-item--width2 {
     width: 100%;

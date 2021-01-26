@@ -30,6 +30,7 @@
     "vue": "^2.6.11",
     "vue-cool-lightbox": "^2.4.1",
     "vue-ctk-date-time-picker": "^2.5.0",
+    "vuelidate": "^0.7.6",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {

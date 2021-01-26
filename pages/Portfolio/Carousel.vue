@@ -1,22 +1,24 @@
 <template>
   <div class="container mt-2">
     <div class="px-0 position-relative">
-        <div
-          class="slider position-relative"
-        >
-      <transition name="slider" mode="out-in">
-          <div v-if="currentImg.big.url == null">{{ loaded() }}</div>
-          <div v-else class="embed-responsive embed-responsive-16by9" v-for="bigItem in [currentIndex]" :key="bigItem">
-            <video class="embed-responsive-item" autoplay muted>
+      <div class="slider position-relative">
+        <Loaded v-if="isLoad == true" />
+        <transition name="slider" mode="out-in">
+          <div
+            class="embed-responsive embed-responsive-16by9"
+            v-for="bigItem in [currentIndex]"
+            :key="bigItem"
+          >
+            <video @load="loaded" class="embed-responsive-item" autoplay muted>
               <source :src="currentImg.big.url" type="video/mp4" />
               <source :src="currentImg.big.url" type="video/ogg" />
               <source :src="currentImg.big.url" type="video/webm" />
             </video>
           </div>
-      </transition>
-          <a class="prev text-white" @click="prev">&#10094;</a>
-          <a class="next text-white" @click="next">&#10095;</a>
-        </div>
+        </transition>
+        <a class="prev text-white" @click="prev">&#10094;</a>
+        <a class="next text-white" @click="next">&#10095;</a>
+      </div>
     </div>
     <div class="thumbnails">
       <div class="thumbnail-container">
@@ -34,22 +36,22 @@
 </template>
 
 <script>
+import Loaded from "~/pages/Portfolio/Loaded.vue";
 // import aerophotosQuery from "~/apollo/queries/portfolio/aerophotos.gql";
 export default {
   transition: {
     name: "slider",
     mode: "out-in",
   },
-
-  components: {},
+  components: { Loaded },
   data() {
     return {
       error: null,
       api_url: process.env.strapiBaseUri,
       currentIndex: 0,
+      isLoad: null,
       jumpSlideWidth: 0,
       scrollAmount: 0,
-      isLoad: false,
       aerophotos: [
         {
           id: "1",
@@ -181,6 +183,11 @@ export default {
   //   },
   // },
   methods: {
+    loaded() {
+      this.currentImg.big.url == null
+        ? (this.isLoad = true)
+        : (this.isLoad = false);
+    },
     next() {
       const container = this.$el.querySelector(".thumbnails");
       this.currentIndex += 1;
@@ -221,9 +228,6 @@ export default {
       this.isLoad = false;
       this.currentIndex = imgIndex;
     },
-    loaded() {
-      this.isLoad = true;
-    },
   },
   async mount() {
     try {
@@ -231,6 +235,7 @@ export default {
       // loadBar();
     } catch (error) {
       this.error = error;
+      console.log(this.error);
     }
   },
   computed: {

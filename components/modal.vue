@@ -47,9 +47,10 @@
                   <b-card-header header-tag="header" class="p-1" role="tab">
                     <b-button
                       block
+                      class=""
                       v-b-toggle="getIdPrice(listprice.id)"
                       :variant="listprice.color"
-                      >{{ listprice.name }}
+                      ><span class="h6-responsive">{{ listprice.name }}</span>
                       <span class="when-opened">
                         <mdb-icon
                           color="dark"
@@ -80,7 +81,7 @@
                           }}</b-card-text>
                         </b-col>
                         <b-col class="mt-3">
-                          <nuxt-link :to="{ path: '/order/photo' }">
+                          <nuxt-link :to="{ path: '/checkout' }">
                             <mdb-btn
                               class="ml-0"
                               color="info"
