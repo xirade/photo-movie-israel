@@ -26,6 +26,11 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/icon", href: "/shutter.ico" }]
   },
+  webfontloader: {
+    google: {
+      families: ['Oswald']
+    }
+  },
   /*
    ** Global CSS
    */
@@ -42,12 +47,12 @@ export default {
    */
   plugins: [
     { src: "~/plugins/aos", ssr: false },
-    { src: "~/plugins/CoolLightBox.js", ssr: false },
-    { src: "~/plugins/jarallax.js", ssr: false },
-    { src: "~/nuxt.config.js", ssr: false },
-    { src: "~/plugins/iso.js", ssr: false },
-    { src: "~/plugins/crisp.js", ssr: false },
-    { src: "~/plugins/Vuelidate"}
+    { src: "~/plugins/CoolLightBox", ssr: false },
+    { src: "~/plugins/jarallax", ssr: false },
+    { src: "~/plugins/crisp", ssr: false },
+    { src: "~/plugins/Vuelidate"},
+    { src: "~/plugins/Masonry",ssr: false}
+    
   ],
   /*
    ** Auto import components
@@ -65,7 +70,8 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     // '@nuxtjs/apollo',
     "bootstrap-vue/nuxt",
-    "mdbvue/nuxt"
+    "mdbvue/nuxt",
+    "nuxt-webfontloader",
   ],
 
   // apollo: {
@@ -86,7 +92,9 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    vendor: ['external_library'] 
+  },
   loading: "~/components/Loading.vue",
   scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve, reject) => {
@@ -94,5 +102,5 @@ export default {
         resolve({ x: 0, y: 0 });
       }, 500);
     });
-  }
+  },
 };

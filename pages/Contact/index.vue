@@ -40,8 +40,6 @@
                     <mdb-input
                       icon="user"
                       label="Your name"
-                      iconClass="grey-text"
-                      type="text"
                       id="form-name"
                       required
                     />
@@ -50,8 +48,6 @@
                     <mdb-input
                       icon="envelope"
                       label="Your email"
-                      iconClass="grey-text"
-                      type="text"
                       id="form-email"
                       required
                     />
@@ -60,7 +56,6 @@
                     <mdb-input
                       icon="phone"
                       label="Your phone"
-                      iconClass="grey-text"
                       type="tel"
                       id="form-phone"
                       required
@@ -70,7 +65,6 @@
                     <mdb-input
                       icon="tag"
                       label="Subject"
-                      iconClass="grey-text"
                       type="text"
                       id="form-subject"
                       required
