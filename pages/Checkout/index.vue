@@ -28,6 +28,7 @@
               <label class="form__label" for="name">Full name: </label>
               <input
                 id="name"
+                title="Name and surname"
                 class="form__input  datePicker"
                 v-model="$v.name.$model"
               />
@@ -54,6 +55,7 @@
               <mdb-icon class="mr-2" size="2x" icon="envelope" />
               <label class="form__label" for="email">Email: </label>
               <input
+                title="Email adress"
                 id="email"
                 class=" datePicker"
                 v-model.trim="$v.email.$model"
@@ -75,6 +77,8 @@
               <input
                 class="datePicker"
                 type="tel"
+                title="Phone number"
+                maxlength="10"
                 id="phone"
                 v-model.trim="$v.phone.$model"
               />
@@ -85,9 +89,9 @@
             <div class="error" v-if="!$v.phone.numeric">
               Please enter only numbers!
             </div>
-            <div class="error" v-if="!$v.phone.minLength">
+            <div class="error" v-if="!$v.phone.maxLength">
               Phone must have at least
-              {{ $v.phone.$params.minLength.min }} letters.
+              {{ $v.phone.$params.maxLength.max }} letters.
             </div>
             <div class="mt-5">
               <mdb-icon class="mr-2" size="2x" icon="calendar" />
@@ -124,6 +128,7 @@
                     class="mt-2 datePicker"
                     id="date"
                     name="date"
+                    title="Date and time"
                     placeholder="Please enter your date here"
                     readonly
                   />
@@ -213,7 +218,7 @@ export default {
     phone: {
       required,
       numeric,
-      minLength: minLength(10)
+      maxLength: maxLength(10)
     },
     date: {
       required
