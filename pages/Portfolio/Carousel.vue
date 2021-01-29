@@ -28,7 +28,7 @@
           :class="['thumbnail-img', currentIndex == index ? 'active' : '']"
           @click="activateImage(index)"
         >
-          <img class="small-img mt-2" :src="image.thumb.url" />
+          <v-lazy-image class="small-img mt-2" :src="image.thumb.url" />
         </div>
       </div>
     </div>
@@ -37,6 +37,7 @@
 
 <script>
 import Loaded from "~/pages/Portfolio/Loaded.vue";
+import VLazyImage from "v-lazy-image";
 // import aerophotosQuery from "~/apollo/queries/portfolio/aerophotos.gql";
 export default {
   transition: {
@@ -176,6 +177,9 @@ export default {
       ],
     };
   },
+  components: {
+    VLazyImage
+  },
   // apollo: {
   //   aerophotos: {
   //     prefetch: true,
@@ -249,6 +253,7 @@ export default {
 </script>
 
 <style scoped>
+
 .slider-enter-active,
 .slider-leave-active {
   transition: opacity 0.35s ease-in;

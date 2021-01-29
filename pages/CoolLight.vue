@@ -40,12 +40,23 @@
     >
       <div class="grid-sizer"></div>
       <div
+        v-masonry-tile
         class="grid-item"
         v-for="(slider, index) in sliders"
         :key="slider.id"
       >
         <mdb-view class="zoom overlay h-100 z-depth-1">
-          <img class="grid-img" :src="slider.image.url" :alt="slider.title" />
+          <figure class="m-0">
+            <picture>
+              <source :srcSet="slider.image.url+'?webp'" type="image/webp">
+              <source :srcSet="slider.image.url" type="image/jpeg">
+              <v-lazy-image
+                class="grid-img"
+                :src="slider.image.url" 
+                :alt="slider.title"
+              />
+            </picture>
+          </figure>
           <mdb-mask
             waves
             overlay="stylish-light"
@@ -66,6 +77,7 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 // import slidersQuery from "~/apollo/queries/slider/sliders.gql";
 import CoolLightBox from "vue-cool-lightbox";
 import { mdbView, mdbMask } from "mdbvue";
@@ -184,7 +196,8 @@ export default {
   components: {
     CoolLightBox,
     mdbView,
-    mdbMask
+    mdbMask,
+    VLazyImage
   },
   methods: {
     setIndex(index) {
@@ -251,7 +264,7 @@ html {
   border: 5px solid #fff;
 }
 
-.grid-item img {
+.grid-img {
   display: block;
   max-width: 100%;
 }

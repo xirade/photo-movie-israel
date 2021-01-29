@@ -30,25 +30,28 @@
       <mdb-container>
         <section class="text-center my-5">
           <mdb-row class="d-flex justify-content-center">
-            <mdb-col v-for="portfolio in portfolios" :key="portfolio.id" md="6" xl="5" class="mb-4">
+            <mdb-col
+              v-for="portfolio in portfolios"
+              :key="portfolio.id"
+              md="6"
+              xl="5"
+              class="mb-4"
+            >
               <mdb-card>
-                <mdb-view
-                  class="overlay round z-depth-1"
-                >
+                <mdb-view class="overlay round z-depth-1 bg-light">
                   <router-link :to="portfolio.url">
-                    <img
+                    <v-lazy-image
                       :src="portfolio.image.url"
-                      alt="sample photo"
-                      class="img-fluid"
+                      :src-placeholder="portfolio.image.placeholder"
+                      :alt="portfolio.title"
                     />
-                    <mdb-mask waves overlay="black-light">
-                    </mdb-mask>
+                    <mdb-mask waves overlay="black-light"> </mdb-mask>
                   </router-link>
                 </mdb-view>
                 <mdb-card-body>
-                  <mdb-card-title>{{portfolio.title}}</mdb-card-title>
+                  <mdb-card-title>{{ portfolio.title }}</mdb-card-title>
                   <mdb-card-text>
-                    {{portfolio.description}}
+                    {{ portfolio.description }}
                   </mdb-card-text>
                 </mdb-card-body>
               </mdb-card>
@@ -76,6 +79,7 @@
 
 <script>
 // import portfoliosQuery from '~/apollo/queries/portfolio/portfolios.gql';
+import VLazyImage from "v-lazy-image";
 import {
   mdbContainer,
   mdbRow,
@@ -90,53 +94,65 @@ import {
   mdbIcon
 } from "mdbvue";
 export default {
-  data () {
+  data() {
     return {
       api_url: process.env.strapiBaseUri,
       portfolios: [
-      {
-        "id": "1",
-        "title": "Видео-визитка",
-        "description": "Для презентации бизнеса.",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474522/ashkan_forouzani_Kyzup46aa7o_unsplash_fccf0abd4c.jpg"
+        {
+          id: "1",
+          title: "Видео-визитка",
+          description: "Для презентации бизнеса.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474522/ashkan_forouzani_Kyzup46aa7o_unsplash_fccf0abd4c.jpg",
+            placeholder:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474522/thumbnail_/ashkan_forouzani_Kyzup46aa7o_unsplash_fccf0abd4c.jpg"
+          },
+          date: "2020-09-08T15:30:00.000Z",
+          url: "/portfolio/aerophotos"
         },
-        "date": "2020-09-08T15:30:00.000Z",
-        "url": "/portfolio/aerophotos"
-      },
-      {
-        "id": "2",
-        "title": "Предметная",
-        "description": "Для рекламы бизнеса.",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474355/ezequiel_garrido_ije_JJ_8xe_ME_4_unsplash_rfjp7o_02ec490a2d.jpg"
+        {
+          id: "2",
+          title: "Предметная",
+          description: "Для рекламы бизнеса.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474355/ezequiel_garrido_ije_JJ_8xe_ME_4_unsplash_rfjp7o_02ec490a2d.jpg",
+            placeholder:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474355/thumbnail_/ezequiel_garrido_ije_JJ_8xe_ME_4_unsplash_rfjp7o_02ec490a2d.jpg"
+          },
+          date: "2020-09-08T15:00:00.000Z",
+          url: "/portfolio/street"
         },
-        "date": "2020-09-08T15:00:00.000Z",
-        "url": "/portfolio/street"
-      },
-      {
-        "id": "3",
-        "title": "Имиджевая",
-        "description": "Для блога, статей и социальных сетей.",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610472644/78a1c6e2a5049b4cb0816efdf3f75f88_ufhzuv_b344858731.jpg"
+        {
+          id: "3",
+          title: "Имиджевая",
+          description: "Для блога, статей и социальных сетей.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610472644/78a1c6e2a5049b4cb0816efdf3f75f88_ufhzuv_b344858731.jpg",
+            placeholder:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610472645/thumbnail_78a1c6e2a5049b4cb0816efdf3f75f88_ufhzuv_b344858731.jpg"
+          },
+          date: "2020-09-08T15:30:00.000Z",
+          url: "/portfolio/family"
         },
-        "date": "2020-09-08T15:30:00.000Z",
-        "url": "/portfolio/family"
-      },
-      {
-        "id": "4",
-        "title": "Семейная",
-        "description": "Для семейных историй и торжеств.",
-        "image": {
-          "url": "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474665/jonathan_borba_z_W4i9_Q6_Cd_Y0_unsplash_83be7c912c.jpg"
-        },
-        "date": "2020-09-08T15:30:00.000Z",
-        "url": "/portfolio/wedding"
-      }
-    ],
-    error: null
-    }
+        {
+          id: "4",
+          title: "Семейная",
+          description: "Для семейных историй и торжеств.",
+          image: {
+            url:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474665/jonathan_borba_z_W4i9_Q6_Cd_Y0_unsplash_83be7c912c.jpg",
+            placeholder:
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474665/thumbnail_/jonathan_borba_z_W4i9_Q6_Cd_Y0_unsplash_83be7c912c.jpg"
+          },
+          date: "2020-09-08T15:30:00.000Z",
+          url: "/portfolio/wedding"
+        }
+      ],
+      error: null
+    };
   },
   // apollo: {
   //   portfolios: {
@@ -144,13 +160,13 @@ export default {
   //     query: portfoliosQuery,
   //   },
   // },
- async mounted() {
-   try {
-     this.portfolios = await this.portfolios.find()
-   } catch (error) {
-     this.error = error
-   }
- },
+  async mounted() {
+    try {
+      this.portfolios = await this.portfolios.find();
+    } catch (error) {
+      this.error = error;
+    }
+  },
   name: "ProjectsPage",
   components: {
     mdbContainer,
@@ -163,7 +179,8 @@ export default {
     mdbCardTitle,
     mdbCardText,
     mdbBtn,
-    mdbIcon
+    mdbIcon,
+    VLazyImage
   }
 };
 </script>
@@ -173,11 +190,15 @@ export default {
   background-color: #fff !important;
 }
 
-.round {
-  border-top-left-radius: 0.25rem ;
-  border-top-right-radius: 0.25rem ;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
+.round {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
 
 .active_line_1 {
   width: 4px;
@@ -199,11 +220,10 @@ export default {
   }
 }
 
-
-
 h2,
-h4,.display-3 {
-  font-family: 'Oswald', sans-serif;
+h4,
+.display-3 {
+  font-family: "Oswald", sans-serif;
 }
 
 .display-3 {

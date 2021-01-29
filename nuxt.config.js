@@ -24,11 +24,11 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    link: [{ rel: "icon", type: "image/icon", href: "/shutter.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   webfontloader: {
     google: {
-      families: ['Oswald']
+      families: ["Oswald"]
     }
   },
   /*
@@ -50,9 +50,9 @@ export default {
     { src: "~/plugins/CoolLightBox", ssr: false },
     { src: "~/plugins/jarallax", ssr: false },
     { src: "~/plugins/crisp", ssr: false },
-    { src: "~/plugins/Vuelidate"},
-    { src: "~/plugins/Masonry",ssr: false}
-    
+    { src: "~/plugins/Vuelidate" },
+    { src: "~/plugins/Masonry", ssr: false },
+    { src: "~/plugins/LazyImage.js", ssr: false },
   ],
   /*
    ** Auto import components
@@ -72,7 +72,26 @@ export default {
     "bootstrap-vue/nuxt",
     "mdbvue/nuxt",
     "nuxt-webfontloader",
+    "@bazzite/nuxt-optimized-images"
   ],
+  optimizedImages: {
+    inlineImageLimit: -1,
+    handleImages: ["jpeg", "png", "svg", "webp", "gif"],
+    optimizeImages: true,
+    optimizeImagesInDev: false,
+    defaultImageLoader: "img-loader",
+    mozjpeg: {
+      quality: 85
+    },
+    optipng: false,
+    pngquant: {
+      speed: 7,
+      quality: [0.65, 0.8]
+    },
+    webp: {
+      quality: 85
+    }
+  },
 
   // apollo: {
   //   clientConfigs: {
@@ -93,7 +112,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    vendor: ['external_library'] 
+    vendor: ["external_library"],
   },
   loading: "~/components/Loading.vue",
   scrollBehavior(to, from, savedPosition) {
@@ -102,5 +121,5 @@ export default {
         resolve({ x: 0, y: 0 });
       }, 500);
     });
-  },
+  }
 };

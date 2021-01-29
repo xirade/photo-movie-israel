@@ -11,13 +11,14 @@
           'grid-item--height5'
         "
       >
-        <img class="grid-img z-depth-1-half" :src="wedding.image.url" :alt="wedding.title" />
+        <v-lazy-image class="grid-img z-depth-1-half" :src="wedding.image.url" :alt="wedding.title" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 // import weddingsQuery from '~/apollo/queries/portfolio/weddings.gql'
 export default {
   data() {
@@ -93,6 +94,7 @@ export default {
       ],
     };
   },
+  components: {VLazyImage},
   // apollo: {
   //   weddings: {
   //     prefetch: true,

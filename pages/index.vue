@@ -4,10 +4,20 @@
     <div v-else>
       <div class="jarallax">
         <div class="clippy-bg rgba-stylish-slight"></div>
-        <img
+        <picture>
+          <source
+            srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg?webp"
+            type="image/webp"
+          />
+          <source
+            srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
+            type="image/jpeg"
+          />
+        <v-lazy-image
           class="jarallax-img"
           src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
         />
+        </picture>
         <div style="height: 90vh" flexCenter>
           <div class="header-main d-flex flex-column mb-auto">
             <img
@@ -58,7 +68,7 @@
           class="w-100 position-relative"
           style="background-color: #212121; z-index: 2"
         >
-          <mdb-row class="justify-content-center py-5 mx-auto">
+          <mdb-row class="justify-content-center py-3 px-2 mx-auto">
             <mdb-col
               class="p-3"
               xl="6"
@@ -69,14 +79,14 @@
                 class="card-image h-100 border border-dark"
                 :style="{
                   backgroundImage: 'url(' + item.image.url + ')',
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover', backgroundPosition: 'center'
                 }"
               >
                 <div
-                  class="text-white text-center rgba-brown-light py-5 px-4 h-100"
+                  class="text-white text-center rgba-brown-light p-4 h-100"
                 >
                   <div
-                    class="z-depth-1 mx-auto p-3 h-100 d-flex flex-column align-items-center"
+                    class="z-depth-1 mx-auto py-5 h-100 d-flex flex-column align-items-center"
                     style="background-color: #2e2e2e99"
                   >
                     <h5
@@ -219,6 +229,7 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 import Modal from "~/components/modal.vue";
 import AOS from "aos";
 import CoolLight from "~/pages/CoolLight.vue";
@@ -300,7 +311,7 @@ export default {
           name: "Свадебная съемка",
           title: "Для свадеб в Израиле и Европе ",
           description:
-            "Виды съемки: <br/> Фото-видеосъемка свадебной церемонии, фото-видеосъемка сборы,   фото-видеосъемка ",
+            "Виды съемки: <br>Фото съемка сборы, церемонии, банкет, прогулка. Видеосъемка с квадрокоптера, сборы, церемонии, прогулка",
           listprice: [
             {
               id: "1",
@@ -335,6 +346,7 @@ export default {
   },
   em: "#animateFadeIn_1",
   components: {
+    VLazyImage,
     CoolLight,
     mdbContainer,
     mdbContainer,
@@ -379,8 +391,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "node_modules/aos/src/sass/aos.scss";
-
 .first {
   height: 110vh;
 }

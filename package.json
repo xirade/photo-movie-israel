@@ -13,21 +13,15 @@
   "dependencies": {
     "animate.css": "^4.1.0",
     "aos": "^3.0.0-beta.6",
-    "axios": "^0.19.2",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.15.0",
-    "eslint-loader": "^4.0.2",
     "heroku": "^7.42.5",
-    "imagesloaded": "^4.1.4",
     "jarallax": "^1.12.1",
-    "masonry-layout": "^4.2.2",
-    "mdb-ui-kit": "^1.0.0-alpha3",
-    "mdbootstrap": "^4.19.1",
     "mdbvue": "^6.7.1",
     "nuxt": "^2.13.0",
     "nuxt-webfontloader": "^1.1.0",
     "object-fit-images": "^3.2.4",
-    "sass-loader": "^9.0.2",
+    "v-lazy-image": "^1.4.0",
     "vue": "^2.6.11",
     "vue-cool-lightbox": "^2.4.1",
     "vue-ctk-date-time-picker": "^2.5.0",
@@ -35,8 +29,14 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@bazzite/nuxt-optimized-images": "^0.4.0",
+    "eslint": "^7.18.0",
+    "fibers": "^5.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.1",
     "node-sass": "^4.0.0",
-    "sass-loader": "9.0.3",
-    "vue-cli-plugin-mdb": "~2.1.0"
+    "sass": "^1.32.5",
+    "sass-loader": "^10.1.1",
+    "webp-loader": "^0.6.0"
   }
 }

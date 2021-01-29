@@ -58,10 +58,15 @@
       </div>
       <div class="jarallax" style="height: 90vh">
         <div class="clippy-bg rgba-stylish-light"></div>
-        <img
-          class="jarallax-img"
-          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
-        />
+        <picture>
+          <source srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg?webp" type="image/webp" />
+          <source srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg" type="image/jpeg" />
+          <v-lazy-image
+            class="jarallax-img"
+            src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
+            alt="Card image cap"
+          />
+        </picture>
       </div>
       <div
         class="section-cards position-relative h-100"
@@ -96,12 +101,14 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 import serviceCards from "./services_cards";
 import AOS from "aos";
 export default {
   components: {
     serviceCards,
-  },
+    VLazyImage
+  }
 };
 </script>
 
@@ -115,8 +122,10 @@ export default {
   clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
 }
 
-h2, .display-1, .display-3 {
-  font-family: 'Oswald', sans-serif;
+h2,
+.display-1,
+.display-3 {
+  font-family: "Oswald", sans-serif;
 }
 
 .active_line_1 {

@@ -12,7 +12,7 @@
           <mdb-row>
             <mdb-col lg="5">
               <mdb-view>
-                <img
+                <v-lazy-image
                   class="img-fluid"
                   :src="items[index].image.url"
                   alt="Card image cap"
@@ -113,6 +113,7 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 import {
   mdbRow,
   mdbContainer,
@@ -138,6 +139,7 @@ export default {
     mdbModal,
     mdbView,
     mdbMask,
+    VLazyImage
   },
   data() {
     return {

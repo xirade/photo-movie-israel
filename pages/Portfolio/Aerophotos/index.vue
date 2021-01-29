@@ -57,6 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .active_line_1 {
   width: 4px;
   top: 0;

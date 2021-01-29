@@ -141,7 +141,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "node_modules/aos/src/sass/aos.scss";
 h2,
 h3,.display-3 {
   font-family: 'Oswald', sans-serif;

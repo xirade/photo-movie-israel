@@ -11,7 +11,7 @@
           'grid-item--height5'
         "
       >
-        <img
+        <v-lazy-image
           class="grid-img z-depth-1-half"
           :src="family.image.url"
           :alt="family.title"
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 // import weddingsQuery from '~/apollo/queries/portfolio/weddings.gql'
 export default {
   data() {
@@ -96,6 +97,9 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    VLazyImage
   },
   // apollo: {
   //   weddings: {

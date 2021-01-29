@@ -254,7 +254,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/css/main.css";
 form {
   display: flex;
   flex-flow: column;

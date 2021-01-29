@@ -11,7 +11,7 @@
           'grid-item--height5'
         "
       >
-        <img
+        <v-lazy-image
           class="grid-img z-depth-1-half"
           :src="street.image.url"
           :alt="street.title"
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import VLazyImage from "v-lazy-image";
 // import streetsQuery from '~/apollo/queries/portfolio/streets.gql';
 export default {
   data() {
@@ -92,6 +93,9 @@ export default {
         },
       ],
     };
+  },
+  components:{
+    VLazyImage
   },
   //   apollo: {
   //   streets: {
