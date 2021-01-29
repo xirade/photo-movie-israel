@@ -4,20 +4,10 @@
     <div v-else>
       <div class="jarallax">
         <div class="clippy-bg rgba-stylish-slight"></div>
-        <picture>
-          <source
-            srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg?webp"
-            type="image/webp"
-          />
-          <source
-            srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
-            type="image/jpeg"
-          />
         <v-lazy-image
           class="jarallax-img"
           src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
         />
-        </picture>
         <div style="height: 90vh" flexCenter>
           <div class="header-main d-flex flex-column mb-auto">
             <img
@@ -391,6 +381,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.v-lazy-image {
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+
 .first {
   height: 110vh;
 }

@@ -58,15 +58,11 @@
       </div>
       <div class="jarallax" style="height: 90vh">
         <div class="clippy-bg rgba-stylish-light"></div>
-        <picture>
-          <source srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg?webp" type="image/webp" />
-          <source srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg" type="image/jpeg" />
           <v-lazy-image
             class="jarallax-img"
             src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
             alt="Card image cap"
           />
-        </picture>
       </div>
       <div
         class="section-cards position-relative h-100"
@@ -113,7 +109,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "node_modules/aos/src/sass/aos.scss";
+
+
+.v-lazy-image {
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
 
 .jarallax > .clippy-bg {
   height: 100%;

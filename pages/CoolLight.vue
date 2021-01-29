@@ -48,11 +48,11 @@
         <mdb-view class="zoom overlay h-100 z-depth-1">
           <figure class="m-0">
             <picture>
-              <source :srcSet="slider.image.url+'?webp'" type="image/webp">
-              <source :srcSet="slider.image.url" type="image/jpeg">
-              <v-lazy-image
+              <source :srcSet="slider.image.url + '?webp'" type="image/webp" />
+              <source :srcSet="slider.image.url" type="image/jpeg" />
+              <img
                 class="grid-img"
-                :src="slider.image.url" 
+                :src="slider.image.url"
                 :alt="slider.title"
               />
             </picture>
@@ -77,7 +77,6 @@
 </template>
 
 <script>
-import VLazyImage from "v-lazy-image";
 // import slidersQuery from "~/apollo/queries/slider/sliders.gql";
 import CoolLightBox from "vue-cool-lightbox";
 import { mdbView, mdbMask } from "mdbvue";
@@ -197,7 +196,6 @@ export default {
     CoolLightBox,
     mdbView,
     mdbMask,
-    VLazyImage
   },
   methods: {
     setIndex(index) {
@@ -229,6 +227,7 @@ export default {
 </script>
 
 <style scoped>
+
 * {
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;

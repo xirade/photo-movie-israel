@@ -28,7 +28,7 @@
           :class="['thumbnail-img', currentIndex == index ? 'active' : '']"
           @click="activateImage(index)"
         >
-          <v-lazy-image class="small-img mt-2" :src="image.thumb.url" />
+          <v-lazy-image class="small-img mt-2" :src="image.thumb.url" :alt="image.title" />
         </div>
       </div>
     </div>
@@ -252,7 +252,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+.v-lazy-image {
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
 
 .slider-enter-active,
 .slider-leave-active {

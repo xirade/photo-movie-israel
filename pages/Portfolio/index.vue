@@ -186,6 +186,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-lazy-image {
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+
 .card {
   background-color: #fff !important;
 }

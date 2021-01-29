@@ -12,15 +12,10 @@
         >
           <mdb-card class="card-image h-100 border border-dark">
             <mdb-view>
-              <picture>
-              <source :srcSet="order.image.url+'?webp'" type="image/webp">
-              <source :srcSet="order.image.url" type="image/jpeg">
                <v-lazy-image
                 class="img-fluid w-100"
                 :src="order.image.url"
-                alt="Card image cap"
-              />
-            </picture>
+                alt="Card image cap" />
               <mdb-mask flex-center overlay="white-slight"></mdb-mask>
             </mdb-view>
             <mdb-card-body
@@ -294,7 +289,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+
+.v-lazy-image {
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+
 .card-title {
   font-family: 'Oswald', sans-serif;
 }

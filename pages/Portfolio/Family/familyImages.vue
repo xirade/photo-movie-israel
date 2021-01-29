@@ -117,7 +117,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+.v-lazy-image {
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+
 * {
   box-sizing: border-box;
 }

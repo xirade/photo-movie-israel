@@ -6,14 +6,14 @@
       variant="dark"
       style="background-color: #212121 !important"
     >
-        <b-navbar-toggle class="ml-auto" target="navbar-toggle-collapse">
+        <b-navbar-toggle  class="ml-auto" target="navbar-toggle-collapse">
           <template v-slot:default="{ expanded }">
             <b-icon v-if="expanded" scale="2" icon="toggle-on"></b-icon>
             <b-icon v-else scale="2" icon="toggle-off"></b-icon>
           </template>
         </b-navbar-toggle>
 
-      <b-collapse id="navbar-toggle-collapse" is-nav>
+      <b-collapse v-model="isNavbarCollapseOpen" id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="container w-50 mx-auto text-center">
           <b-nav-item to="/">Home</b-nav-item>
           <b-nav-item to="/services">Services</b-nav-item>
@@ -40,6 +40,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <div v-if="isNavbarCollapseOpen" @click="isNavbarCollapseOpen = false" class="navbar-backdrop"></div>
   </div>
 </template>
 
@@ -69,6 +70,11 @@ export default {
     BNavbarNav,
     BNavItem,
   },
+  data() {
+    return {
+      isNavbarCollapseOpen: false
+    }
+  }
 };
 </script>
 
@@ -76,6 +82,16 @@ export default {
 .navbar {
   z-index: 1020;
   box-shadow: 0px 0px 5px rgba(245, 245, 245, 0.5);
+}
+
+.navbar-backdrop {
+  z-index: 1019;
+  background-color:transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @media (max-width: 575.98px) {
