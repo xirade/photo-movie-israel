@@ -28,7 +28,12 @@
           :class="['thumbnail-img', currentIndex == index ? 'active' : '']"
           @click="activateImage(index)"
         >
-          <v-lazy-image class="small-img mt-2" :src="image.thumb.url" :alt="image.title" />
+          <v-lazy-image
+            :srcset="image.thumb.url + '?webp'"
+            class="small-img mt-2"
+            :src="image.thumb.url"
+            :alt="image.title"
+          />
         </div>
       </div>
     </div>
@@ -42,7 +47,7 @@ import VLazyImage from "v-lazy-image";
 export default {
   transition: {
     name: "slider",
-    mode: "out-in",
+    mode: "out-in"
   },
   components: { Loaded },
   data() {
@@ -59,122 +64,122 @@ export default {
           title: "View",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794537/Screenshot_from_2020_08_09_22_10_16_jrgtlc_613257f510.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794537/Screenshot_from_2020_08_09_22_10_16_jrgtlc_613257f510.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794519/coverr_53_new_zealand_lion_rock_piha_couple_7108_lngs6m_71352101dd.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794519/coverr_53_new_zealand_lion_rock_piha_couple_7108_lngs6m_71352101dd.mp4"
+          }
         },
         {
           id: "2",
           title: "City",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794403/Screenshot_from_2020_08_09_22_09_37_ardyrr_0718472192.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794241/coverr_001_aerial_upward_sunrise_river_buildings_orange_sky_buenos_aires_argentina_quarantine_drone_4k_16x9_6885_beqwis_433b7ca8fa.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598794241/coverr_001_aerial_upward_sunrise_river_buildings_orange_sky_buenos_aires_argentina_quarantine_drone_4k_16x9_6885_beqwis_433b7ca8fa.mp4"
+          }
         },
         {
           id: "3",
           title: "Moto",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794098/Screenshot_from_2020_08_09_22_08_51_o6j7kh_c7b72c6ae3.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598794098/Screenshot_from_2020_08_09_22_08_51_o6j7kh_c7b72c6ae3.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793968/coverr_motorcyclist_drives_through_palms_road_1585645703955_fy3ini_3a0e278342.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793968/coverr_motorcyclist_drives_through_palms_road_1585645703955_fy3ini_3a0e278342.mp4"
+          }
         },
         {
           id: "4",
           title: "Montain",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793747/coverr_training_with_mountain_landscape_1585726970130_rok6nw_ebe24d32b3.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598793747/coverr_training_with_mountain_landscape_1585726970130_rok6nw_ebe24d32b3.mp4"
+          }
         },
         {
           id: "5",
           title: "Sea",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+          }
         },
         {
           id: "6",
           title: "Sea",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+          }
         },
         {
           id: "7",
           title: "Sea",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+          }
         },
         {
           id: "8",
           title: "Sea",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+          }
         },
         {
           id: "9",
           title: "Sea",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
-          },
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+          }
         },
         {
           id: "10",
           title: "Sea",
           thumb: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1598793783/Screenshot_from_2020_08_09_22_06_56_eemlwu_b3d614102e.png"
           },
           big: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4",
-          },
-        },
-      ],
+              "https://res.cloudinary.com/dxeebmzdv/video/upload/v1598271476/dron_6dd8c1c9d5.mp4"
+          }
+        }
+      ]
     };
   },
   components: {
@@ -216,22 +221,26 @@ export default {
       container.scrollLeft = imgSmall.offsetWidth * active;
       window.scroll({
         left: container.scrollLeft,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     },
     scrollPrev(active) {
       const imgSmall = this.$el.querySelector(".thumbnail-img");
       const container = this.$el.querySelector(".thumbnails");
-      container.scrollLeft -= imgSmall.offsetWidth;
+      if (this.aerophotos.length - 1 != active) {
+        container.scrollLeft -= imgSmall.offsetWidth;
+      } else {
+        container.scrollLeft += imgSmall.offsetWidth * active;
+      }
       window.scroll({
         left: container.scrollLeft,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     },
     activateImage(imgIndex) {
       this.isLoad = false;
       this.currentIndex = imgIndex;
-    },
+    }
   },
   async mount() {
     try {
@@ -247,21 +256,12 @@ export default {
       return this.aerophotos[
         Math.abs(this.currentIndex) % this.aerophotos.length
       ];
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-
-.v-lazy-image {
-  transition: filter 0.7s;
-}
-
-.v-lazy-image-loaded {
-  filter: blur(0);
-}
-
 .slider-enter-active,
 .slider-leave-active {
   transition: opacity 0.35s ease-in;
@@ -347,7 +347,6 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  transition: transform 1s ease;
   cursor: pointer;
 }
 

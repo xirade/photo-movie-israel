@@ -61,7 +61,6 @@
           <v-lazy-image
             class="jarallax-img"
             src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
-            alt="Card image cap"
           />
       </div>
       <div

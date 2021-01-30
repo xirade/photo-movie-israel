@@ -34,6 +34,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+  scroll-behavior: smooth;
 }
 .app-content {
   min-height: 100vh;

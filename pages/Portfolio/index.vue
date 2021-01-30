@@ -41,8 +41,9 @@
                 <mdb-view class="overlay round z-depth-1 bg-light">
                   <router-link :to="portfolio.url">
                     <v-lazy-image
+                      :srcset="portfolio.image.url + '?webp'"
+                      :src-placeholder="require('~/assets/img/loading.svg')"
                       :src="portfolio.image.url"
-                      :src-placeholder="portfolio.image.placeholder"
                       :alt="portfolio.title"
                     />
                     <mdb-mask waves overlay="black-light"> </mdb-mask>
@@ -104,9 +105,7 @@ export default {
           description: "Для презентации бизнеса.",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474522/ashkan_forouzani_Kyzup46aa7o_unsplash_fccf0abd4c.jpg",
-            placeholder:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474522/thumbnail_/ashkan_forouzani_Kyzup46aa7o_unsplash_fccf0abd4c.jpg"
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474522/ashkan_forouzani_Kyzup46aa7o_unsplash_fccf0abd4c.jpg"
           },
           date: "2020-09-08T15:30:00.000Z",
           url: "/portfolio/aerophotos"
@@ -117,9 +116,7 @@ export default {
           description: "Для рекламы бизнеса.",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474355/ezequiel_garrido_ije_JJ_8xe_ME_4_unsplash_rfjp7o_02ec490a2d.jpg",
-            placeholder:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474355/thumbnail_/ezequiel_garrido_ije_JJ_8xe_ME_4_unsplash_rfjp7o_02ec490a2d.jpg"
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474355/ezequiel_garrido_ije_JJ_8xe_ME_4_unsplash_rfjp7o_02ec490a2d.jpg"
           },
           date: "2020-09-08T15:00:00.000Z",
           url: "/portfolio/street"
@@ -130,9 +127,7 @@ export default {
           description: "Для блога, статей и социальных сетей.",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610472644/78a1c6e2a5049b4cb0816efdf3f75f88_ufhzuv_b344858731.jpg",
-            placeholder:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610472645/thumbnail_78a1c6e2a5049b4cb0816efdf3f75f88_ufhzuv_b344858731.jpg"
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610472644/78a1c6e2a5049b4cb0816efdf3f75f88_ufhzuv_b344858731.jpg"
           },
           date: "2020-09-08T15:30:00.000Z",
           url: "/portfolio/family"
@@ -143,9 +138,7 @@ export default {
           description: "Для семейных историй и торжеств.",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474665/jonathan_borba_z_W4i9_Q6_Cd_Y0_unsplash_83be7c912c.jpg",
-            placeholder:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474665/thumbnail_/jonathan_borba_z_W4i9_Q6_Cd_Y0_unsplash_83be7c912c.jpg"
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610474665/jonathan_borba_z_W4i9_Q6_Cd_Y0_unsplash_83be7c912c.jpg"
           },
           date: "2020-09-08T15:30:00.000Z",
           url: "/portfolio/wedding"

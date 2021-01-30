@@ -12,6 +12,8 @@
         "
       >
         <v-lazy-image
+          :srcset="wedding.image.url + '?webp'"
+          :src-placeholder="require('~/assets/img/loading.svg')"
           class="grid-img z-depth-1-half"
           :src="wedding.image.url"
           :alt="wedding.title"

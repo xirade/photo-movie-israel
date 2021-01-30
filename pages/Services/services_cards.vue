@@ -13,9 +13,10 @@
           <mdb-card class="card-image h-100 border border-dark">
             <mdb-view>
                <v-lazy-image
+                :src-placeholder="require('~/assets/img/loading.svg')"
                 class="img-fluid w-100"
                 :src="order.image.url"
-                alt="Card image cap" />
+                :alt="order.title" />
               <mdb-mask flex-center overlay="white-slight"></mdb-mask>
             </mdb-view>
             <mdb-card-body

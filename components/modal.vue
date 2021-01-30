@@ -13,9 +13,10 @@
             <mdb-col lg="5">
               <mdb-view>
                 <v-lazy-image
+                  :srcset="items[index].image.url + '?webp'"
                   class="img-fluid"
                   :src="items[index].image.url"
-                  alt="Card image cap"
+                  :alt="items[index].title"
                 />
                 <mdb-mask flex-center overlay="stylish-light"></mdb-mask>
               </mdb-view>

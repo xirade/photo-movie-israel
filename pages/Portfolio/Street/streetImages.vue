@@ -12,6 +12,8 @@
         "
       >
         <v-lazy-image
+          :srcset="street.image.url + '?webp'"
+          :src-placeholder="require('~/assets/img/loading.svg')"
           class="grid-img z-depth-1-half"
           :src="street.image.url"
           :alt="street.title"

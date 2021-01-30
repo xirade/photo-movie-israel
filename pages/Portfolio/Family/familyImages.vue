@@ -7,11 +7,13 @@
         :key="family.id"
         :class="
           'grid-item ' +
-          `grid-item--width${family.width} ` +
-          'grid-item--height5'
+            `grid-item--width${family.width} ` +
+            'grid-item--height5'
         "
       >
         <v-lazy-image
+          :srcset="family.image.url + '?webp'"
+          :src-placeholder="require('~/assets/img/loading.svg')"
           class="grid-img z-depth-1-half"
           :src="family.image.url"
           :alt="family.title"
@@ -29,7 +31,7 @@ export default {
     return {
       styleObject: {
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center"
       },
       api_url: process.env.strapiBaseUri,
       families: [
@@ -38,64 +40,64 @@ export default {
           title: "Little girl",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950572/0013_rg5rks_ddi1rd_73cee6bec5.jpg",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950572/0013_rg5rks_ddi1rd_73cee6bec5.jpg"
           },
           date: "2020-09-07T13:50:00.000Z",
-          width: 3,
+          width: 3
         },
         {
           id: "2",
           title: "Family beach",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599486970/family_beach_l9tgah_ff11312680.jpg",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599486970/family_beach_l9tgah_ff11312680.jpg"
           },
           date: "2020-09-07T14:00:00.000Z",
           width: 2,
-          height: 5,
+          height: 5
         },
         {
           id: "3",
           title: "My big family",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487034/poster_df0c03dca9cd4ed49daa4ddb71536fc6_pt4jlv_30c5b2c6e3.jpg",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487034/poster_df0c03dca9cd4ed49daa4ddb71536fc6_pt4jlv_30c5b2c6e3.jpg"
           },
           date: "2020-09-07T14:00:00.000Z",
           width: 4,
-          height: 5,
+          height: 5
         },
         {
           id: "4",
           title: "My first steps",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487113/bring_your_family_to_germany_kyntov_180cd0552f.jpg",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487113/bring_your_family_to_germany_kyntov_180cd0552f.jpg"
           },
           date: "2020-09-07T14:00:00.000Z",
-          width: 4,
+          width: 4
         },
         {
           id: "5",
           title: "Travelling together",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487200/large_multi_gen_travel_1280x640_c791jr_f0bc8b0e31.jpg",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487200/large_multi_gen_travel_1280x640_c791jr_f0bc8b0e31.jpg"
           },
           date: "2020-09-07T14:00:00.000Z",
-          width: 4,
+          width: 4
         },
         {
           id: "6",
           title: "Good weekend",
           image: {
             url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487261/happy_family_rmnzrm_9f3f2241d4.jpg",
+              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599487261/happy_family_rmnzrm_9f3f2241d4.jpg"
           },
           date: "2020-09-07T15:00:00.000Z",
-          width: 4,
-        },
-      ],
+          width: 4
+        }
+      ]
     };
   },
   components: {
@@ -113,12 +115,11 @@ export default {
     } catch (error) {
       this.error = error;
     }
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-
 .v-lazy-image {
   transition: filter 0.7s;
 }

@@ -45,18 +45,12 @@
                 </p>
               </mdb-col>
               <mdb-col md="6" class="pl-auto mt-5">
-                <picture>
-                  <source
-                    :srcSet="abouts[0].image.url + '?webp'"
-                    type="image/webp"
-                  />
-                  <source :srcSet="abouts[0].image.url" type="image/jpeg" />
                   <v-lazy-image
+                    :srcset="abouts[0].image.url + '?webp'"
                     :src="abouts[0].image.url"
                     :alt="abouts[0].title"
                     class="section-img img-fluid rounded z-depth-1"
                   />
-                </picture>
               </mdb-col>
             </mdb-row>
           </section>

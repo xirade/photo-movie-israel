@@ -111,9 +111,6 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {
-    vendor: ["external_library"],
-  },
   loading: "~/components/Loading.vue",
   scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve, reject) => {
