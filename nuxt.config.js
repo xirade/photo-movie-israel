@@ -1,4 +1,7 @@
 export default {
+  env: {
+    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
+  },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -52,7 +55,7 @@ export default {
     { src: "~/plugins/crisp", ssr: false },
     { src: "~/plugins/Vuelidate" },
     { src: "~/plugins/Masonry", ssr: false },
-    { src: "~/plugins/LazyImage.js", ssr: false },
+    { src: "~/plugins/LazyImage.js", ssr: false }
   ],
   /*
    ** Auto import components
@@ -63,17 +66,28 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [],
+
+  build: {
+    extractCSS: true
+  },
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    // '@nuxtjs/apollo',
+    "@nuxtjs/apollo",
+    "@nuxtjs/axios",
     "bootstrap-vue/nuxt",
     "mdbvue/nuxt",
     "nuxt-webfontloader",
-    "@bazzite/nuxt-optimized-images"
+    "@bazzite/nuxt-optimized-images",
+    "@nuxtjs/markdownit"
   ],
+  publicRuntimeConfig: {
+    axios: {
+      baseURL: "http://localhost:1337"
+    }
+  },
   optimizedImages: {
     inlineImageLimit: -1,
     handleImages: ["jpeg", "png", "svg", "webp", "gif"],
@@ -93,16 +107,20 @@ export default {
     }
   },
 
-  // apollo: {
-  //   clientConfigs: {
-  //     default: {
-  //       httpEndpoint: process.env.BACKEND_URL || "https://arcane-harbor-45982.herokuapp.com/graphql"
-  //     }
-  //   }
-  // },
-  // env: {
-  //   strapiBaseUri: process.env.API_URL || "https://arcane-harbor-45982.herokuapp.com/"
-  // },
+  markdownit: {
+    preset: "default",
+    linkify: true,
+    breaks: true,
+    injected: true
+  },
+
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: "http://localhost:1337/graphql"
+      }
+    }
+  },
   mdbvue: {
     css: true, // MDB CSS
     bootstrap: true // Bootstrap CSS
@@ -118,5 +136,5 @@ export default {
         resolve({ x: 0, y: 0 });
       }, 500);
     });
-  }
+  },
 };

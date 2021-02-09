@@ -35,7 +35,7 @@ export default {
   width: 100%;
   height: 100%; 
   background-color: rgb(0, 0, 0);
-  z-index: 1;
+  z-index: 9999;
   }
 .sk-chase {
   width: 40px;

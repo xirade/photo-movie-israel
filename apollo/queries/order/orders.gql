@@ -1,10 +1,17 @@
 query Orders {
-  orders{
+  orders {
     id
     title
     description
-    image {url}
-    video {url}
+    image{url}
     price
+    listprice{
+      name
+      description
+      color
+      price
+      visible
+      uid
+    }
   }
 }

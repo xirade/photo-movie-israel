@@ -1,9 +1,35 @@
 query Portfolios {
   portfolios {
     id
-    title
     description
-    image{url}
-    date
+    items{
+      title
+      video{url}
+      thumbnail{url}
+    }
+    cards{
+      image{url}
+      title
+      description
+      link
+    }
+    families{
+      title
+      image{url}
+      width
+      category
+    }
+     branding{
+      title
+      image{url}
+      width
+      category
+    }
+    stilling{
+      title
+      image{url}
+      width
+      category
+    }
   }
 }

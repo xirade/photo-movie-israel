@@ -1,14 +1,15 @@
 <template>
   <div>
-    <mdb-container class="my-5">
-        <router-link
-          class="h4 text-uppercase text-warning"
-          style="text-decoration: none"
-          tag="a"
-          :to="'/services'"
-        >
-          <span><mdb-icon class="mr-2" icon="angle-left" />Back</span>
-        </router-link>
+    <div v-if="error"></div>
+    <mdb-container v-else class="my-5">
+      <router-link
+        class="h4 text-uppercase text-warning"
+        style="text-decoration: none"
+        tag="a"
+        :to="'/services'"
+      >
+        <span><mdb-icon class="mr-2" icon="angle-left" />Back</span>
+      </router-link>
       <div class="text-left mt-5">
         <h3 class="h2 pt-2">Service Order Form</h3>
         <p class="service-text mt-3">
@@ -24,13 +25,10 @@
               class="form-group"
               :class="{ 'form-group--error': $v.name.$error }"
             >
-              <mdb-icon class="mr-2" size="2x" icon="user" />
-              <label class="form__label" for="name">Full name: </label>
-              <input
-                id="name"
-                title="Name and surname"
-                class="form__input  datePicker"
+              <mdb-input
+                label="Your name"
                 v-model="$v.name.$model"
+                icon="user"
               />
             </div>
             <div class="error" v-if="!$v.name.required">
@@ -52,13 +50,10 @@
               class="form-group"
               :class="{ 'form-group--error': $v.email.$error }"
             >
-              <mdb-icon class="mr-2" size="2x" icon="envelope" />
-              <label class="form__label" for="email">Email: </label>
-              <input
-                title="Email adress"
-                id="email"
-                class=" datePicker"
+              <mdb-input
+                label="Email"
                 v-model.trim="$v.email.$model"
+                icon="envelope"
               />
             </div>
             <div class="error" v-if="!$v.email.required">
@@ -72,15 +67,10 @@
               class="form-group"
               :class="{ 'form-group--error': $v.phone.$error }"
             >
-              <mdb-icon class="mr-2" size="2x" icon="phone" />
-              <label for="phone">Phone: </label>
-              <input
-                class="datePicker"
-                type="tel"
-                title="Phone number"
-                maxlength="10"
-                id="phone"
+              <mdb-input
+                label="Phone"
                 v-model.trim="$v.phone.$model"
+                icon="phone"
               />
             </div>
             <div class="error" v-if="!$v.phone.required">
@@ -89,15 +79,15 @@
             <div class="error" v-if="!$v.phone.numeric">
               Please enter only numbers!
             </div>
-            <div class="error" v-if="!$v.phone.maxLength">
+            <div class="error" v-if="!$v.phone.minLength">
               Phone must have at least
-              {{ $v.phone.$params.maxLength.max }} letters.
+              {{ $v.phone.$params.minLength.min }} numbers.
             </div>
             <div class="mt-5">
-              <mdb-icon class="mr-2" size="2x" icon="calendar" />
-              <label for="date">Date: </label>
-              <br />
-              <div class="d-flex flex-row">
+              <div class="calendar d-flex flex-row">
+               <label class="control-label" for="date"
+                  ><mdb-icon class="mr-3" size="2x" icon="calendar"
+                /></label>
                 <VueCtkDateTimePicker
                   :error="true"
                   class="mb-3"
@@ -134,12 +124,12 @@
                   />
                 </VueCtkDateTimePicker>
               </div>
-                 <div class="error mb-5" v-if="!$v.date.required">
-              Field is required ✱
-            </div>
+              <div class="error mb-5" v-if="!$v.date.required">
+                Field is required ✱
+              </div>
             </div>
           </mdb-col>
-          <Summary :order="orders" />
+          <Summary />
         </mdb-row>
       </form>
     </mdb-container>
@@ -155,6 +145,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import {
   required,
   minLength,
@@ -166,12 +157,13 @@ import {
 } from "vuelidate/lib/validators";
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
-import { mdbContainer, mdbCol, mdbIcon, mdbRow } from "mdbvue";
-import Summary from "../../components/Summary";
+import { mdbContainer, mdbCol, mdbInput, mdbIcon, mdbRow } from "mdbvue";
+import Summary from "./summary";
 import Alert from "../../components/Alert";
 export default {
   name: "ChekoutPage",
   components: {
+    mdbInput,
     VueCtkDateTimePicker,
     mdbContainer,
     mdbCol,
@@ -182,27 +174,24 @@ export default {
   },
   data() {
     return {
-      orders: [
-        {
-          id: "1",
-          title: "Photoshoot",
-          description:
-            "Some quick example text to build on the card title and make up the bulk of the card's content.",
-          image: {
-            url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1597950739/3_haxune_jnd6g3_47450709a9.jpg"
-          },
-          price: 350,
-          video: null
-        }
-      ],
       name: "",
       email: "",
-      phone: null,
+      phone: "",
       date: "",
-      totalPrice: 0,
-      isCard: false
+      price: null,
+      error: null,
+      success: null
     };
+  },
+  async mounted() {
+    try {
+      this.price = await this.$store.state.order.items[0].price;
+    } catch (error) {
+      return (this.error = this.$nuxt.error({
+        statusCode: 500,
+        message: "err message"
+      }));
+    }
   },
   validations: {
     name: {
@@ -218,17 +207,13 @@ export default {
     phone: {
       required,
       numeric,
-      maxLength: maxLength(10)
+      minLength: minLength(10)
     },
     date: {
       required
-    }
-  },
-  async mount() {
-    try {
-      this.orders = await this.orders.find();
-    } catch (error) {
-      console.log(error);
+    },
+    price: {
+      required
     }
   },
   methods: {
@@ -238,17 +223,32 @@ export default {
         this.submitStatus = "ERROR";
         console.log(this.submitStatus);
       } else {
-        // do your submit logic here
-        this.submitStatus = "PENDING";
-        setTimeout(() => {
-          this.submitStatus = "OK";
-          console.log(this.submitStatus);
-        }, 500);
+        this.$axios
+          .post("/checkouts", {
+            name: this.name,
+            email: this.email,
+            phone: this.phone,
+            date: this.date,
+            price: this.price
+          })
+          .then(res => {
+            this.success = true;
+            this.removeOrder();
+            this.$router.push({
+              name: "Checkout-review",
+              path: "/Checkout/review",
+              params: { success: this.success }
+            });
+          })
+          .catch(error => {
+            this.submitStatus = "ERROR";
+            console.log(this.submitStatus);
+          });
       }
     },
-    handleCard() {
-      this.isCard = true;
-    }
+    ...mapMutations({
+      removeOrder: "order/remove"
+    })
   }
 };
 </script>
@@ -265,25 +265,24 @@ form {
   color: crimson;
 }
 
+div.calendar:focus-within .control-label{
+  color: #4285f4;
+  transition: color 0.2s;
+}
+div.calendar:focus-within .datePicker{
+  border-bottom: 1px solid #4285f4;
+  width: 100%;
+  -webkit-box-shadow: 0 1px 0 0 #4285f4;
+  box-shadow: 0 1px 0 0 #4285f4;
+  transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+}
+
 .datePicker {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  background-color: transparent;
   border: none;
   width: 100%;
-  border-bottom: 1px solid #ced4da;
-  border-radius: 0;
   outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  cursor: pointer;
-  -webkit-transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
+  border-bottom: 1px solid #ced4da;
 }
 
 .h4,

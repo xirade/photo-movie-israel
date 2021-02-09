@@ -1,8 +1,0 @@
-query Weddings {
-  weddings {
-    id
-    title
-    image{url}
-    date
-  }
-}

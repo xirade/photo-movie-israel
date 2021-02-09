@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import error408 from "~/components/errors/400.vue";
+import error400 from "~/components/errors/400.vue";
 import error401 from "~/components/errors/401.vue";
 import error403 from "~/components/errors/403.vue";
 import error404 from "~/components/errors/404.vue";
@@ -16,29 +16,28 @@ export default {
   props: {
     error: {
       type: Object,
-      default: () => {},
+      default: null,
     },
   },
   computed: {
     errorPage() {
-      switch (this.error.statusCode) {
-        case 400:
-          return error400;
-        case 401:
-          return error401;
-        case 403:
-          return error403;
-        case 404:
-          return error404;
-        case 500:
-          return error500;
-        case 503:
-          return error503;
-        default:
-          break;
+      if(this.error.statusCode === 400) {
+        return error400
       }
+      if(this.error.statusCode === 401) {
+        return error401
+      }
+      if(this.error.statusCode === 403) {
+        return error403
+      }
+      if(this.error.statusCode === 404) {
+        return error404
+      }
+      if(this.error.statusCode === 503) {
+        return error503
+      }
+      return error500;
       // catch everything else
-      
     },
   },
 };

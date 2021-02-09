@@ -1,20 +1,24 @@
 <template>
   <div>
-    <div v-if="error">{{ error }}</div>
-    <div v-else>
+    <div>
       <div class="jarallax">
-        <div class="clippy-bg rgba-stylish-slight"></div>
-        <v-lazy-image
+        <div class="clippy-bg pb-5 rgba-stylish-slight"></div>
+        <img
           class="jarallax-img"
+          srcset="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg?webp"
           src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
+          alt="background"
         />
-        <div style="height: 90vh" flexCenter>
-          <div class="header-main d-flex flex-column mb-auto">
+        <div class="py-5">
+          <div
+            class="header-main pb-5 d-flex flex-column mb-auto"
+            style="height: 80vh;"
+          >
             <img
               src="~/assets/img/4log.png"
               height="120px"
               width="250px"
-              class="mx-auto mt-5"
+              class="mx-auto"
               alt="Logo"
             />
             <div>
@@ -31,17 +35,17 @@
             </h1>
           </div>
         </div>
-      </div>
-      <div
-        class="service container bg-dark p-0"
-        style="max-width: 100%; z-index: 0"
-      >
         <span
           class="active_line_1 line-bg"
           data-aos="goLine_service"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         ></span>
+      </div>
+      <div
+        class="service container bg-dark p-0"
+        style="max-width: 100%; z-index: 0"
+      >
         <div
           class="bg-white text-black d-flex justify-content-end"
           style="z-index: 0"
@@ -53,7 +57,6 @@
         </div>
       </div>
       <div>
-        <!-- TODO: Dynamic content strapi -->
         <div
           class="w-100 position-relative"
           style="background-color: #212121; z-index: 2"
@@ -62,19 +65,18 @@
             <mdb-col
               class="p-3"
               xl="6"
-              v-for="(item, index) in items"
+              v-for="(item, index) in homes"
               :key="item.id"
             >
               <mdb-card
                 class="card-image h-100 border border-dark"
                 :style="{
                   backgroundImage: 'url(' + item.image.url + ')',
-                  backgroundSize: 'cover', backgroundPosition: 'center'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }"
               >
-                <div
-                  class="text-white text-center rgba-brown-light p-4 h-100"
-                >
+                <div class="text-white text-center rgba-brown-light p-1 h-100">
                   <div
                     class="z-depth-1 mx-auto py-5 h-100 d-flex flex-column align-items-center"
                     style="background-color: #2e2e2e99"
@@ -88,13 +90,15 @@
                     >
                       <mdb-icon :icon="item.icon" />{{ item.name }}
                     </h5>
-                    <mdb-card-title tag="h4" class="pt-2 h2-responsive">
+                    <mdb-card-title tag="h4" class="pt-2 h3-responsive">
                       <strong>{{ item.title }}</strong>
                     </mdb-card-title>
-                    <mdb-container>
-                      <p class="text-white">
-                        <span v-html="item.description"></span>
-                      </p>
+                    <mdb-container class="my-2">
+                      <div
+                        v-if="item.description"
+                        class="h6-responsive text-white"
+                        v-html="$md.render(item.description)"
+                      ></div>
                     </mdb-container>
                     <nuxt-link
                       :event="item.disabled ? '' : 'click'"
@@ -105,7 +109,9 @@
                         <mdb-icon
                           class="text-light"
                           icon="shopping-bag left"
-                        /><span class="text-light">Узнать больше</span>
+                        /><span class="h6-responsive text-light"
+                          >Узнать больше</span
+                        >
                       </mdb-btn>
                     </nuxt-link>
                   </div>
@@ -132,17 +138,14 @@
           <h2 class="display-3 pr-2 text-right font-weight-bold">ABOUT</h2>
         </div>
       </div>
-      <div
-        class="container bg-light text-black"
-        style="max-width: 100%; height: 120vh"
-      >
+      <div class="container bg-light text-black" style="max-width: 100%">
         <div
-          class="d-flex align-items-center flex-center flex-column"
+          class="d-flex py-5 align-items-center flex-center flex-column"
           data-aos="fade-down"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         >
-          <div class="container text-center mx-auto">
+          <div class="container text-center my-5 py-5 mx-auto">
             <h2 class="display-1 mt-auto mb-3" style="color: #454545">
               <strong>
                 WE TAKE PICTURES
@@ -150,11 +153,11 @@
                 FROM ABOVE
               </strong>
             </h2>
-            <p class="h2-responsive text-black-50 text-uppercase mb-5">
+            <p class="h5 text-black-50 text-uppercase mb-5">
               Добро пожаловать на мой сайт!
             </p>
             <p
-              class="h5 text-center grey-text mb-4"
+              class="h6-responsive text-center grey-text mb-4"
               style="font-weight: lighter"
             >
               Я Павел, режисер видео-монтажа, видеограф и фотограф. Опыт работы
@@ -167,11 +170,13 @@
               высокотехнологичной съёмкой, постоянно обучаясь новым техникам
               видеосъемки и монтажа.
             </p>
-            <nuxt-link class="mb-auto" :to="'/about'">
-              <mdb-btn color="yellow darken-3" class="px-5">
-                <mdb-icon icon="clone left" />Read more
-              </mdb-btn>
-            </nuxt-link>
+            <mdb-btn
+              color="yellow darken-3"
+              @click="$router.push('/about')"
+              class="px-5"
+            >
+              <mdb-icon icon="clone left" />Read more
+            </mdb-btn>
           </div>
         </div>
       </div>
@@ -210,7 +215,7 @@
       ></span>
       <Modal
         :index="selectedIndex"
-        :items="items"
+        :items="myWedding"
         v-show="isModalVisible"
         @close="closeModal"
       />
@@ -219,9 +224,9 @@
 </template>
 
 <script>
+import homesQuery from "~/apollo/queries/home/homes.gql";
 import VLazyImage from "v-lazy-image";
 import Modal from "~/components/modal.vue";
-import AOS from "aos";
 import CoolLight from "~/pages/CoolLight.vue";
 import {
   mdbContainer,
@@ -248,91 +253,16 @@ export default {
   data() {
     return {
       selectedIndex: 0,
-      isModalVisible: null,
+      isModalVisible: false,
       error: null,
-      items: [
-        {
-          id: "1",
-          name: "Фотосъемка",
-          title: "Для бизнесменов, специалистов, фрилансеров",
-          description:
-            "Виды съемки: <br/> Интеръерная, индустриальная, аэросъемка, панорамная, репортажная, иммиджевая, рекламно- постановочная",
-          listprice: [{}],
-          image: {
-            url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596199747/photo-1590944335664-015cc7b65db1_fjdg8n.jpg"
-          },
-          icon: "camera",
-          color: "warning",
-          disabled: false
-        },
-        {
-          id: "2",
-          name: "Видеосъемка",
-          title: "Для компаний, предпринимателей, маркетологов",
-          description:
-            "Виды съемки: <br/> Рекламных, промо, информационных и развлекательных роликов, а также корпоративных фильмов.",
-          listprice: [{}],
-          image: {
-            url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1596200217/photo-1543235074-4768b5c2233c_enepwc.jpg"
-          },
-          icon: "video",
-          color: "info",
-          disabled: false
-        },
-        {
-          id: "3",
-          name: "Семейная съемка",
-          title: "Для торжеств и знаменательных дней",
-          description:
-            "Виды съемки:<br/> Семейная, индивидуальная, беременных, нью-борн, бритмила, бармицва, батмицва, лав-стори, свадебная, детская, дни рождения, торжества.",
-          listprice: [{}],
-          image: {
-            url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1600277481/96681721-a-movie-production-clapper-board-hands-with-a-movie-clapperboard-on-grey-background-with-copy-space-_afklyl.jpg"
-          },
-          icon: "film",
-          color: "success",
-          disabled: false
-        },
-        {
-          id: "4",
-          name: "Свадебная съемка",
-          title: "Для свадеб в Израиле и Европе ",
-          description:
-            "Виды съемки: <br>Фото съемка сборы, церемонии, банкет, прогулка. Видеосъемка с квадрокоптера, сборы, церемонии, прогулка",
-          listprice: [
-            {
-              id: "1",
-              name: "Wedding Photo",
-              color: "gray",
-              price: 2500,
-              description:
-                "- Полный свадебный день <br>- Предварительная консультация <br>- Ретушь до 50 кадров <br>- Фотоальбом 30×30 на 15 разворотов <br>- Использование профессионального света <br>- Анонс 15-20 фотографий в течение 10 дней <br> Срок готовности — 30 дней",
-              visible: true
-            },
-            {
-              id: "2",
-              name: "Wedding Movie",
-              color: "light",
-              price: 3000,
-              description:
-                "- Полный день работы видеооператора <br>- Клип highlights 2-4 минуты <br>- Фильм 15-30 минут <br>- Клип instagram до 1 минуты <br>- Запись церемонии <br>- Квадрокоптер",
-              visible: false
-            }
-          ],
-          image: {
-            url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1599511315/5_djhizt_0ba93f0786.jpg"
-          },
-          icon: "heart",
-          color: "danger",
-          disabled: true,
-          val: "day"
-        }
-      ]
+      homes: []
     };
+  },
+  apollo: {
+    homes: {
+      prefetch: true,
+      query: homesQuery
+    }
   },
   em: "#animateFadeIn_1",
   components: {
@@ -363,43 +293,36 @@ export default {
   transition: "fade",
   methods: {
     showModal(index) {
-      this.selectedIndex = index;
-      this.isModalVisible = this.items[index].disabled;
+      this.isModalVisible = this.homes[index].disabled;
     },
     closeModal() {
       this.isModalVisible = false;
     }
   },
-  async mount() {
+  async mounted() {
     try {
-      this.items = await this.items.find();
+      this.homes = await this.homes.find();
     } catch (error) {
       this.error = error;
     }
-  }
+  },
+  computed: {
+    myWedding() {
+      return this.homes.filter(item => {
+        return item.disabled != false;
+      });
+    }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
-.v-lazy-image {
-  transition: filter 0.7s;
-}
-
-.v-lazy-image-loaded {
-  filter: blur(0);
-}
-
 .first {
   height: 110vh;
 }
 
 h4 {
   color: #e3deca;
-}
-
-p {
-  font-size: 18px;
 }
 
 .jarallax > .clippy-bg {
@@ -570,15 +493,17 @@ hr {
 .display-4 {
   font-size: 5.5rem;
 }
+
+.display-4,
 .display-1,
 .display-3,
-.title-header,
 .h3 {
   font-family: "Oswald", sans-serif;
 }
 .display-3 {
   font-size: 3.5rem;
 }
+
 .icon-feedback {
   color: white;
   text-decoration: none !important;
@@ -602,9 +527,6 @@ hr {
   .display-1 {
     font-size: 2.7rem;
   }
-  .h5 {
-    font-size: 0.8rem;
-  }
   .contact-form {
     height: 160vh;
   }
@@ -618,6 +540,7 @@ hr {
   .service_title {
     margin-top: 7.5rem;
   }
+
   .display-4 {
     font-size: 3.5rem;
   }
@@ -629,9 +552,6 @@ hr {
   }
   .display-1 {
     font-size: 3rem;
-  }
-  .h5 {
-    font-size: 1rem;
   }
   .contact-form {
     height: 160vh;
@@ -657,9 +577,6 @@ hr {
   }
   .display-1 {
     font-size: 3.5rem;
-  }
-  .h5 {
-    font-size: 1.2rem;
   }
   .contact-form {
     height: 160vh;

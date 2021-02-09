@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolios",
+  "info": {
+    "name": "portfolio",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "portfolio.clips"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "portfolio.cards"
+    },
+    "families": {
+      "type": "component",
+      "repeatable": true,
+      "component": "portfolio.images"
+    },
+    "branding": {
+      "type": "component",
+      "repeatable": true,
+      "component": "portfolio.branding"
+    },
+    "stilling": {
+      "type": "component",
+      "repeatable": true,
+      "component": "portfolio.stilling"
+    }
+  }
+}

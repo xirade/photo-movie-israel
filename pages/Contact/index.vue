@@ -9,7 +9,9 @@
         alt="Logo"
       />
 
-      <div class="bg-white container text-black d-flex justify-content-end position-relative mt-4">
+      <div
+        class="bg-white container text-black d-flex justify-content-end position-relative mt-4"
+      >
         <span
           class="active_line_1"
           data-aos="goLine_contacts"
@@ -17,8 +19,12 @@
           data-aos-easing="ease-out"
         ></span>
         <div class="service_title mt-5 w-50">
-          <p class="display-5 pl-2 text-left font-weight-bolder yellow-text">04</p>
-          <h2 class="display-3 pl-2 font-weight-bold text-uppercase">Contact</h2>
+          <p class="display-5 pl-2 text-left font-weight-bolder yellow-text">
+            04
+          </p>
+          <h2 class="display-3 pl-2 font-weight-bold text-uppercase">
+            Contact
+          </h2>
         </div>
       </div>
     </header>
@@ -27,55 +33,81 @@
         <section class="my-5">
           <mdb-row>
             <mdb-col lg="5" class="lg-0 mb-4">
-              <mdb-card>
-                <mdb-card-body>
-                  <div class="form-header white accent-1">
-                    <h3 class="mt-2">
-                      <mdb-icon icon="envelope" />Write to us:
-                    </h3>
-                  </div>
-                  <p class="dark-grey-text">We'll write rarely, but only the best content.</p>
-                  <form @submit.prevent="submit" method="get">
-                  <div class="md-form">
-                    <mdb-input
-                      icon="user"
-                      label="Your name"
-                      id="form-name"
-                      required
-                    />
-                  </div>
-                  <div class="md-form">
-                    <mdb-input
-                      icon="envelope"
-                      label="Your email"
-                      id="form-email"
-                      required
-                    />
-                  </div>
-                  <div class="md-form">
-                    <mdb-input
-                      icon="phone"
-                      label="Your phone"
-                      type="tel"
-                      id="form-phone"
-                      required
-                    />
-                  </div>
-                  <div class="md-form">
-                    <mdb-input
-                      icon="tag"
-                      label="Subject"
-                      type="text"
-                      id="form-subject"
-                      required
-                    />
-                  </div>
-                  <div class="text-center">
-                    <mdb-btn type="submit" color="warning">Send message</mdb-btn>
-                  </div>
-                  </form>
-                </mdb-card-body>
-              </mdb-card>
+              <mdb-alert color="warning" class="align-center" v-if="isBot">
+                <p>Awesome! I think you are the bot! I've destroyed the form from
+                the page, so you can try again to fill it again, just refresh
+                the page.</p>
+              </mdb-alert>
+              <!-- Then we show the rest of the component if not. -->
+              <div v-else>
+                <mdb-alert
+                  v-if="success"
+                  color="success"
+                  @closeAlert="success = false"
+                  dismiss
+                >
+                  <strong>Thanks for contacting us!</strong> Your message has
+                  been sent successfully. We have received your inquiry and will
+                  respond to you within 24 hours.
+                </mdb-alert>
+                <mdb-card>
+                  <mdb-card-body>
+                    <div class="form-header white accent-1">
+                      <h3 class="mt-2">
+                        <mdb-icon icon="envelope" />Write to us:
+                      </h3>
+                    </div>
+                    <p class="dark-grey-text pb-2">
+                      We'll write rarely, but only the best content.
+                    </p>
+                    <form @submit.prevent="sendMessage">
+                      <div class="md-form">
+                        <mdb-input
+                          icon="user"
+                          v-model="name"
+                          label="Your name"
+                          id="name"
+                          required
+                        />
+                      </div>
+                      <div class="md-form">
+                        <mdb-input
+                          v-model="email"
+                          icon="envelope"
+                          label="Your email"
+                          id="email"
+                          required
+                        />
+                      </div>
+                      <div class="md-form">
+                        <mdb-input
+                          v-model="phone"
+                          icon="phone"
+                          label="Your phone"
+                          type="tel"
+                          id="phone"
+                          required
+                        />
+                      </div>
+                      <div class="md-form">
+                        <mdb-input
+                          v-model="message"
+                          icon="tag"
+                          label="Subject"
+                          type="text"
+                          id="message"
+                          required
+                        />
+                      </div>
+                      <div class="text-center">
+                        <mdb-btn type="submit" color="warning">
+                          {{ loading ? "Sending Message..." : "Send message" }}
+                        </mdb-btn>
+                      </div>
+                    </form>
+                  </mdb-card-body>
+                </mdb-card>
+              </div>
             </mdb-col>
             <mdb-col lg="7">
               <div
@@ -99,51 +131,94 @@
           </mdb-row>
         </section>
       </mdb-container>
-       <div class="position-relative">
-      <span
-        class="active_line_1"
-        data-aos="goLine_xsmall"
-        data-aos-duration="1000"
-        data-aos-easing="ease-out"
-      ></span>
-    </div>
+      <div class="position-relative">
+        <span
+          class="active_line_1"
+          data-aos="goLine_xsmall"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+        ></span>
+      </div>
     </main>
   </div>
 </template>
 
 <script>
-import AOS from "aos";
 import {
   mdbContainer,
   mdbRow,
   mdbCol,
+  mdbAlert,
   mdbBtn,
   mdbIcon,
   mdbInput,
   mdbTextarea,
   mdbCard,
-  mdbCardBody,
+  mdbCardBody
 } from "mdbvue";
 export default {
   name: "ContactPage",
+  data() {
+    return {
+      loading: false,
+      success: false,
+      errored: false,
+      close: true,
+      isBot: false,
+      bot: null,
+      name: "",
+      email: "",
+      phone: "",
+      message: ""
+    };
+  },
   components: {
     mdbContainer,
     mdbRow,
     mdbCol,
     mdbBtn,
+    mdbAlert,
     mdbIcon,
     mdbInput,
     mdbTextarea,
     mdbCard,
-    mdbCardBody,
+    mdbCardBody
   },
+  methods: {
+    sendMessage() {
+      this.loading = true;
+      /* This is where I check if the bot field has a value. */
+      if (this.bot != null) {
+        this.isBot = true;
+      } else {
+        this.$axios
+          .post("/contact-mes", {
+            name: this.name,
+            email: this.email,
+            phone: this.phone,
+            message: this.message
+          })
+          .then(response => {
+            this.success = true;
+            this.errored = false;
+          })
+          .catch(error => {
+            this.errored = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 h2,
-h3,.display-3 {
-  font-family: 'Oswald', sans-serif;
+h3,
+.display-3 {
+  font-family: "Oswald", sans-serif;
 }
 
 .card {

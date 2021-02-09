@@ -30,15 +30,15 @@
     <main>
       <div
         class="container bg-light text-black"
-        style="max-width: 100%; height: 110vh"
+        style="max-width: 100%;"
       >
         <div
-          class="d-flex align-items-center flex-center flex-column"
+          class="d-flex py-5 align-items-center flex-center flex-column"
           data-aos="fade-down"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         >
-          <div class="container text-center mx-auto">
+          <div class="container my-5 py-5 text-center mx-auto">
             <h2 class="display-1 mt-auto mb-5" style="color: #454545">
               <strong>
                 AFFORDABLE PRICES,
@@ -46,7 +46,7 @@
                 GREAT RESULTS
               </strong>
             </h2>
-            <p class="h5 grey-text mb-auto" style="font-weight: lighter">
+            <p class="h6-responsive grey-text mb-auto" style="font-weight: lighter">
               Я приглашаю познакомиться с моими работами и, конечно же,
               связаться со мной, когда вы захотите реализовать самые безумные и
               нестандартные идеи в любых уголках Израиля. Я не привязываются к
@@ -56,12 +56,13 @@
           </div>
         </div>
       </div>
-      <div class="jarallax" style="height: 90vh">
+      <div class="jarallax" style="height: 80vh">
         <div class="clippy-bg rgba-stylish-light"></div>
-          <v-lazy-image
-            class="jarallax-img"
-            src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
-          />
+        <v-lazy-image
+          class="jarallax-img"
+          srcset="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg?webp"
+          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
+        />
       </div>
       <div
         class="section-cards position-relative h-100"
@@ -79,8 +80,8 @@
           >
             Book a service
           </h2>
-          <serviceCards class="mb-auto" />
         </div>
+          <serviceCards :orders="orders" class="mb-auto" />
       </div>
     </main>
     <div class="bg-white w-100" style="position: relative; height: 20vh"></div>
@@ -96,28 +97,29 @@
 </template>
 
 <script>
+import ordersQuery from "~/apollo/queries/order/orders.gql";
 import VLazyImage from "v-lazy-image";
 import serviceCards from "./services_cards";
-import AOS from "aos";
 export default {
+  data() {
+    return {
+      orders: []
+    };
+  },
   components: {
     serviceCards,
     VLazyImage
+  },
+  apollo: {
+    orders: {
+      prefetch: true,
+      query: ordersQuery,
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
-
-.v-lazy-image {
-  transition: filter 0.7s;
-}
-
-.v-lazy-image-loaded {
-  filter: blur(0);
-}
-
 .jarallax > .clippy-bg {
   height: 100%;
   width: 100%;
@@ -172,13 +174,10 @@ h2,
 
 @media (max-width: 575px) {
   .display-1 {
-    font-size: 2.7rem;
+    font-size: 3rem;
   }
   .display-3 {
     font-size: 2rem;
-  }
-  .h5 {
-    font-size: 0.8rem;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -188,9 +187,6 @@ h2,
   .display-1 {
     font-size: 3rem;
   }
-  .h5 {
-    font-size: 1rem;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -199,9 +195,6 @@ h2,
   }
   .display-3 {
     font-size: 3.5rem;
-  }
-  .h5 {
-    font-size: 1.2rem;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="abouts[0] != undefined">
     <header class="d-flex flex-column">
       <img
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596646320/000_apiqou_bznbq5.png"
@@ -40,7 +40,7 @@
                   <hr class="m-0" style="border: 0;" />
                   from above
                 </h2>
-                <p class="font-weight-light grey-text mt-5">
+                <p class="h6-responsive font-weight-light grey-text mt-5">
                   {{ abouts[0].description }}
                 </p>
               </mdb-col>
@@ -70,7 +70,7 @@
           <h2 class="h1-responsive font-weight-bold my-5 text-uppercase">
             Our amazing team
           </h2>
-          <p class="grey-text w-responsive mb-5 mx-auto">
+          <p class="grey-text h6-responsive mb-5 mx-auto">
             Моя команда всегда будет рада сотрудничеству! Если у вас есть идеи,
             мысли или предложения как мы можем быть вам полезными, обращайтесь!
           </p>
@@ -78,15 +78,15 @@
             <mdb-col md="4" class="mb-md-0 mb-5">
               <picture>
                 <source
-                  srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg?webp"
+                  :srcSet="abouts[0].avatars.avatar1.url+'?webp'"
                   type="image/webp"
                 />
                 <source
-                  srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg"
+                  :srcSet="abouts[0].avatars.avatar1.url"
                   type="image/jpeg"
                 />
                 <b-avatar
-                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg"
+                  :src="abouts[0].avatars.avatar1.url"
                   size="10rem"
                 ></b-avatar>
               </picture>
@@ -96,15 +96,15 @@
             <mdb-col md="4" class="mb-md-0 mb-5">
               <picture>
                 <source
-                  srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg?webp"
+                  :srcSet="abouts[0].avatars.avatar2.url+'?webp'"
                   type="image/webp"
                 />
                 <source
-                  srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg"
+                  :srcSet="abouts[0].avatars.avatar2.url"
                   type="image/jpeg"
                 />
                 <b-avatar
-                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596310515/cat_1200getty_pxmgj9.jpg"
+                  :src="abouts[0].avatars.avatar2.url"
                   size="10rem"
                 ></b-avatar>
               </picture>
@@ -114,15 +114,15 @@
             <mdb-col md="4" class="mb-md-0 mb-5">
               <picture>
                 <source
-                  srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg?webp"
+                  :srcSet="abouts[0].avatars.avatar3.url+'?webp'"
                   type="image/webp"
                 />
                 <source
-                  srcSet="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596213657/photo-1537815749002-de6a533c64db_k5i0jp.jpg"
+                  :srcSet="abouts[0].avatars.avatar3.url"
                   type="image/jpeg"
                 />
                 <b-avatar
-                  src="https://res.cloudinary.com/dxeebmzdv/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1596310336/mountain_beaver-a_rufa_qwz4mt.jpg"
+                  :src="abouts[0].avatars.avatar3.url"
                   size="10rem"
                 ></b-avatar>
               </picture>
@@ -154,34 +154,22 @@
 
 <script>
 import VLazyImage from "v-lazy-image";
-// import aboutsQuery from '~/apollo/queries/about/abouts.gql';
+import aboutsQuery from '~/apollo/queries/about/abouts.gql';
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
-import { BAvatar, AvatarPlugin } from "bootstrap-vue";
+import { BAvatar} from "bootstrap-vue";
 export default {
   data() {
     return {
-      api_url: process.env.strapiBaseUri,
-      abouts: [
-        {
-          id: "1",
-          title: "About me",
-          description:
-            "Буду рад подарить позитивные эмоции на фотосессии или снять видео о важном событии в вашей личной жизни или в бизнесе.",
-          image: {
-            url:
-              "https://res.cloudinary.com/dxeebmzdv/image/upload/v1610479809/david_hurley_hj_St16_J_Gy_EE_unsplash_fb2d85bdf9.jpg"
-          }
-        }
-      ],
+      abouts: [],
       error: null
     };
   },
-  //  apollo: {
-  //   abouts: {
-  //     prefetch: true,
-  //     query: aboutsQuery,
-  //   },
-  // },
+   apollo: {
+    abouts: {
+      prefetch: true,
+      query: aboutsQuery,
+    },
+  },
   async mounted() {
     try {
       this.abouts = await this.abouts.find();
@@ -296,7 +284,7 @@ h4,
 
 @media (min-width: 768px) and (max-width: 991px) {
   .display-2 {
-    font-size: 2rem;
+    font-size: 3.5rem;
   }
   p {
     font-size: 0.9rem;

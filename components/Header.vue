@@ -6,61 +6,77 @@
       variant="dark"
       style="background-color: #212121 !important"
     >
-        <b-navbar-toggle  class="ml-auto" target="navbar-toggle-collapse">
-          <template v-slot:default="{ expanded }">
-            <b-icon v-if="expanded" scale="2" icon="toggle-on"></b-icon>
-            <b-icon v-else scale="2" icon="toggle-off"></b-icon>
-          </template>
-        </b-navbar-toggle>
+      <b-navbar-toggle
+        @click="rotateBar"
+        class="ml-auto"
+        target="navbar-toggle-collapse"
+      >
+        <template v-slot:default="{ expanded }">
+          <b-icon v-if="expanded" class="rotate down" scale="2" icon="three-dots"></b-icon>
+          <b-icon v-else class="rotate" scale="2" icon="three-dots"></b-icon>
+        </template>
+      </b-navbar-toggle>
 
-      <b-collapse v-model="isNavbarCollapseOpen" id="navbar-toggle-collapse" is-nav>
+      <b-collapse
+        v-model="isNavbarCollapseOpen"
+        id="navbar-toggle-collapse"
+        is-nav
+      >
         <b-navbar-nav class="container w-50 mx-auto text-center">
           <b-nav-item to="/">Home</b-nav-item>
           <b-nav-item to="/services">Services</b-nav-item>
           <b-nav-item to="/about">About</b-nav-item>
           <b-nav-item-dropdown text="Portfolio" toggle-class="nav-link-custom">
             <b-dropdown-item
-              to="/portfolio/aerophotos"
+              to="/portfolio/clips"
               class="drop-list text-center"
-              >Aerophotos</b-dropdown-item
-            >
-            <b-dropdown-item to="/portfolio/street" class="drop-list text-center"
-              >Street</b-dropdown-item
-            >
-            <b-dropdown-item to="/portfolio/family" class="drop-list text-center"
-              >Family</b-dropdown-item
+              >Clips</b-dropdown-item
             >
             <b-dropdown-item
-              to="/portfolio/wedding"
+              to="/portfolio/stills"
               class="drop-list text-center"
-              >Wedding</b-dropdown-item
+              >Still-life</b-dropdown-item
+            >
+            <b-dropdown-item
+              to="/portfolio/brands"
+              class="drop-list text-center"
+              >Branding</b-dropdown-item
+            >
+            <b-dropdown-item
+              to="/portfolio/families"
+              class="drop-list text-center"
+              >Family</b-dropdown-item
             >
           </b-nav-item-dropdown>
           <b-nav-item to="/contact">Contact</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div v-if="isNavbarCollapseOpen" @click="isNavbarCollapseOpen = false" class="navbar-backdrop"></div>
+    <div
+      v-if="isNavbarCollapseOpen"
+      @click="closeCollapse"
+      class="navbar-backdrop"
+    ></div>
   </div>
 </template>
 
 <script>
 import {
   BIcon,
-  BIconToggleOff,
-  BIconToggleOn,
+  BIconThreeDots,
+  BIconThreeDotsVertical,
   BNavItemDropdown,
   BDropdownItem,
   BNavbar,
   BNavbarToggle,
   BCollapse,
   BNavbarNav,
-  BNavItem,
+  BNavItem
 } from "bootstrap-vue";
 export default {
   components: {
-    BIconToggleOn,
-    BIconToggleOff,
+    BIconThreeDots,
+    BIconThreeDotsVertical,
     BIcon,
     BNavItemDropdown,
     BDropdownItem,
@@ -68,17 +84,46 @@ export default {
     BNavbarToggle,
     BCollapse,
     BNavbarNav,
-    BNavItem,
+    BNavItem
   },
   data() {
     return {
       isNavbarCollapseOpen: false
+    };
+  },
+  methods: {
+    rotateBar() {
+      let rotate = document.querySelector(".rotate");
+      rotate.classList.remove("up")
+      rotate.classList.toggle("down");
+    },
+    closeCollapse(){
+      let rotate = document.querySelector(".rotate");
+      rotate.classList.remove("down")
+      rotate.classList.toggle("up");
+      this.isNavbarCollapseOpen = false
     }
   }
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
+.rotate {
+  -moz-transition: all 0.25s linear;
+  -webkit-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+.rotate.down {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.rotate.up {
+  -moz-transform: rotate(0);
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+
 .navbar {
   z-index: 1020;
   box-shadow: 0px 0px 5px rgba(245, 245, 245, 0.5);
@@ -86,7 +131,7 @@ export default {
 
 .navbar-backdrop {
   z-index: 1019;
-  background-color:transparent;
+  background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;

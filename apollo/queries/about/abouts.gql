@@ -1,7 +1,13 @@
 query Abouts {
-  abouts{
+  abouts {
     id
+    title
     description
-    image {url}
+    image{url}
+    avatars{
+      avatar1{url}
+      avatar2{url}
+      avatar3{url}
+    }
   }
 }

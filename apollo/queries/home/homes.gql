@@ -1,0 +1,20 @@
+query Homes {
+  homes {
+    id
+   	name
+    title
+    description
+    listprice{
+      uid
+      name
+      description
+      color
+      price
+      visible
+    }
+    image{url}
+    icon
+    color
+    disabled
+  }
+}

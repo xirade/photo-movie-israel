@@ -36,7 +36,7 @@ import {
   mdbModalHeader,
   mdbModalTitle,
   mdbModalBody,
-  mdbModalFooter,
+  mdbModalFooter
 } from "mdbvue";
 export default {
   name: "Alert",
@@ -50,7 +50,7 @@ export default {
     mdbModalHeader,
     mdbModalTitle,
     mdbModalBody,
-    mdbModalFooter,
+    mdbModalFooter
   },
   methods: {
     show() {
@@ -58,10 +58,9 @@ export default {
     },
     close() {
       this.$emit("close");
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

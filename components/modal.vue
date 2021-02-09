@@ -1,6 +1,6 @@
 <template>
   <transition name="modal-fade">
-    <mdb-container class="modal-z">
+    <mdb-container class="modal-z" v-if="items[index] != undefined">
       <mdb-modal
         @show="show"
         class="product-modal py-5"
@@ -27,7 +27,7 @@
               </h2>
               <h4 class="pb-2 h4-responsive">
                 <span class="green-text">
-                  <strong>{{ getListprice[val].price }}₪</strong>
+                  <strong>от {{ getListprice[val].price }}₪</strong>
                 </span>
                 <span class="grey-text">
                   <small>
@@ -35,7 +35,6 @@
                       ><s>{{ priceBefore }}₪</s></strong
                     >
                   </small>
-                  /{{ items[index].val }}
                 </span>
               </h4>
               <div class="accordion" role="tablist">
@@ -48,8 +47,8 @@
                   <b-card-header header-tag="header" class="p-1" role="tab">
                     <b-button
                       block
-                      class=""
-                      v-b-toggle="getIdPrice(listprice.id)"
+                      class="border-0"
+                      v-b-toggle="getIdPrice(listprice.uid)"
                       :variant="listprice.color"
                       ><span class="h6-responsive">{{ listprice.name }}</span>
                       <span class="when-opened">
@@ -69,7 +68,7 @@
                     </b-button>
                   </b-card-header>
                   <b-collapse
-                    :id="listprice.id"
+                    :id="listprice.uid"
                     :visible="listprice.visible"
                     accordion="my-accordion"
                     role="tabpanel"
@@ -77,21 +76,24 @@
                     <b-card-body>
                       <b-row cols="1">
                         <b-col>
-                          <b-card-text v-html="listprice.description">{{
-                            listprice.description
-                          }}</b-card-text>
+                          <div v-if="listprice.description" v-html="$md.render(listprice.description)">
+                           </div>
                         </b-col>
                         <b-col class="mt-3">
-                          <nuxt-link :to="{ path: '/checkout' }">
-                            <mdb-btn
-                              class="ml-0"
-                              color="info"
-                              icon="camera-retro"
-                              iconClass="ml-2 white-text"
-                              iconRight
-                              >Order now</mdb-btn
-                            >
-                          </nuxt-link>
+                          <mdb-btn
+                            class="ml-0"
+                            @click="
+                              $store.state.order.items.length < 1
+                                ? addToOrder(listprice)
+                                : removeOrder(listprice);
+                              $router.push({name:'Checkout'});
+                            "
+                            color="info"
+                            icon="camera-retro"
+                            iconClass="ml-2 white-text"
+                            iconRight
+                            >Order now</mdb-btn
+                          >
                         </b-col>
                       </b-row>
                     </b-card-body>
@@ -114,6 +116,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import VLazyImage from "v-lazy-image";
 import {
   mdbRow,
@@ -125,7 +128,7 @@ import {
   mdbCardBody,
   mdbModal,
   mdbView,
-  mdbMask,
+  mdbMask
 } from "mdbvue";
 export default {
   name: "modal",
@@ -146,10 +149,13 @@ export default {
     return {
       val: 0,
       currPrice: 0,
-      error: null,
+      error: null
     };
   },
-  props: ["index", "items"],
+  props: {
+    index: Number,
+    items: Array
+  },
   methods: {
     show() {
       this.$emit("show");
@@ -165,6 +171,10 @@ export default {
       });
       return id;
     },
+    ...mapMutations({
+      addToOrder: "order/add",
+      removeOrder: "order/remove"
+    })
   },
   computed: {
     // new arr
@@ -175,18 +185,16 @@ export default {
       }
       return setListprice;
     },
-
     priceBefore() {
       return parseInt(this.getListprice[this.val].price + 120);
-    },
-  },
+    }
+  }
 };
 </script>
 
-
 <style scoped>
 h2 {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .collapsed > .when-opened,
