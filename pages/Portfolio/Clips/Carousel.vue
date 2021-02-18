@@ -9,7 +9,7 @@
             v-for="bigItem in [currentIndex]"
             :key="bigItem"
           >
-            <video @load="loaded" class="embed-responsive-item" autoplay muted>
+            <video @load="loaded" class="embed-responsive-item" autoplay muted playsinline>
               <source :src="currentImg.video.url" type="video/mp4" />
               <source :src="currentImg.video.url" type="video/ogg" />
               <source :src="currentImg.video.url" type="video/webm" />

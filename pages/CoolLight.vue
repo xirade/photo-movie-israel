@@ -13,6 +13,7 @@
           autoplay
           loop
           muted
+          playsinline
         >
           <source :src="clip.video.url" type="video/mp4" />
           <source :src="clip.video.url" type="video/ogg" />

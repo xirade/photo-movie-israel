@@ -1,0 +1,14 @@
+query Extralists {
+  extralists {
+    id
+    price
+    description
+    count
+    max
+    name
+    category
+    active
+    quantity
+    category
+  }
+}

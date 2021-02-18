@@ -41,7 +41,7 @@
                 <b-card
                   no-body
                   class="mb-1"
-                  v-for="listprice in getListprice"
+                  v-for="(listprice,index) in getListprice"
                   :key="listprice.id"
                 >
                   <b-card-header header-tag="header" class="p-1" role="tab">
@@ -76,18 +76,15 @@
                     <b-card-body>
                       <b-row cols="1">
                         <b-col>
-                          <div v-if="listprice.description" v-html="$md.render(listprice.description)">
-                           </div>
+                          <div
+                            v-if="listprice.description"
+                            v-html="$md.render(listprice.description)"
+                          ></div>
                         </b-col>
                         <b-col class="mt-3">
                           <mdb-btn
                             class="ml-0"
-                            @click="
-                              $store.state.order.items.length < 1
-                                ? addToOrder(listprice)
-                                : removeOrder(listprice);
-                              $router.push({name:'Checkout'});
-                            "
+                            @click="getOrder(listprice)"
                             color="info"
                             icon="camera-retro"
                             iconClass="ml-2 white-text"
@@ -157,6 +154,10 @@ export default {
     items: Array
   },
   methods: {
+    getOrder(listprice) {
+      this.removeOrder(listprice);
+      this.$router.push({ name: "Checkout" });
+    },
     show() {
       this.$emit("show");
     },
@@ -172,21 +173,20 @@ export default {
       return id;
     },
     ...mapMutations({
-      addToOrder: "order/add",
-      removeOrder: "order/remove"
+      removeOrder: "order/remove",
     })
   },
   computed: {
     // new arr
     getListprice() {
       let setListprice = [];
-      for (let i = 0; i < this.items[this.index].listprice.length; i++) {
-        setListprice.push(this.items[this.index].listprice[i]);
+      for (let i = 0; i < this.items[this.index].listprices.length; i++) {
+        setListprice.push(this.items[this.index].listprices[i]);
       }
       return setListprice;
     },
     priceBefore() {
-      return parseInt(this.getListprice[this.val].price + 120);
+      return parseInt(this.getListprice[this.val].price + 50 * (this.val + 1));
     }
   }
 };

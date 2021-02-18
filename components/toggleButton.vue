@@ -26,12 +26,12 @@ export default {
     },
     id: {
       type: String,
-      default: "primary"
+      default: "switcher"
     },
     defaultState: {
       type: Boolean,
       default: false
-    }
+    },
   },
   data() {
     return {
@@ -44,9 +44,6 @@ export default {
     }
   },
   computed: {
-    // currentState() {
-    //     return this.defaultState;
-    // },
     isActive() {
       return this.currentState;
     },
@@ -88,7 +85,6 @@ export default {
   background: #a1a1a1;
   box-shadow: inset 0 0 1px #a1a1a1;
   position: relative;
-  margin-left: 10px;
   transition: all 0.3s;
 }
 

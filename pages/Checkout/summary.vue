@@ -1,90 +1,29 @@
 <template>
   <div>
     <Alert v-if="isAlertVisible" @show="isAlertVisible" @close="closeAlert" />
-    <div v-if="$store.state.order.items.name"></div>
     <mdb-card
-      v-else
       :class="{ 'cardroom--unpinned': scrolled }"
-      class="cardroom cardroom--pinned"
+      class="cardroom cardroom--pinned z-depth-3"
       style="z-index: 1"
       v-on:scroll="handleScroll"
     >
-      <mdb-card-body
-        v-for="(order, index) in $store.state.order.items"
-        :key="index"
-      >
+      <mdb-card-body v-for="item in getOrder" :key="item.id">
         <mdb-card-title class="order-title mt-2">
-          {{ order.name }}
+          {{ item.name }}
         </mdb-card-title>
-        <span>Price:</span>
-        <input class="ml-2 d-none" type="text" v-model="order.price" />
-        {{ order.price }}₪
+        <span>Total:</span>
+        <span class="font-weight-bold">{{ item.price }}₪</span>
         <hr />
         <mdb-card-text
           >Some quick example text to build on the card title and make up the
           bulk of the card's content.</mdb-card-text
         >
-        <div>
-          <mdb-row>
-            <mdb-col>
-              <ToggleButton
-                id="switcher_one"
-                v-on:change="triggerToggleEvent"
-              />
-            </mdb-col>
-            <mdb-col>
-              text
-            </mdb-col>
-          </mdb-row>
-          <mdb-row>
-            <mdb-col>
-              <ToggleButton
-                id="switcher_two"
-                v-on:change="triggerToggleEvent"
-              />
-            </mdb-col>
-            <mdb-col>
-              text
-            </mdb-col>
-          </mdb-row>
-          <mdb-row>
-            <mdb-col>
-              <ToggleButton
-                id="switcher_three"
-                v-on:change="triggerToggleEvent"
-              />
-            </mdb-col>
-            <mdb-col>
-              text
-            </mdb-col>
-          </mdb-row>
-          <mdb-row>
-            <mdb-col>
-              <ToggleButton
-                id="switcher_four"
-                v-on:change="triggerToggleEvent"
-              />
-            </mdb-col>
-            <mdb-col>
-              text
-            </mdb-col>
-          </mdb-row>
-          <mdb-row>
-            <mdb-col>
-              <ToggleButton
-                id="switcher_five"
-                v-on:change="triggerToggleEvent"
-              />
-            </mdb-col>
-            <mdb-col>
-              text
-            </mdb-col>
-          </mdb-row>
+        <div class="table">
+          <ExtraTable v-if="item.category != null"/>
         </div>
         <mdb-btn
           @click="showAlert"
           id="check_validate"
-          class="px-5"
           block
           color="warning"
           >Next</mdb-btn
@@ -95,7 +34,7 @@
 </template>
 
 <script>
-import ToggleButton from "~/components/toggleButton.vue";
+import ExtraTable from "./extra-table";
 import {
   mdbCol,
   mdbRow,
@@ -115,12 +54,12 @@ export default {
     mdbBtn,
     mdbCardText,
     mdbCardTitle,
-    ToggleButton
+    ExtraTable
   },
   data() {
     return {
       isActive: false,
-      orders: null,
+      orders: [],
       limitPosition: 350,
       scrolled: false,
       error: null,
@@ -128,20 +67,7 @@ export default {
       isAlertVisible: false
     };
   },
-  async mounted() {
-    try {
-      this.orders = await this.$store.state.order.items;
-    } catch (error) {
-      return (this.error = this.$nuxt.error({
-        statusCode: 500,
-        message: "error message"
-      }));
-    }
-  },
   methods: {
-    triggerToggleEvent(value) {
-      this.isActive = value;
-    },
     showAlert(event) {
       this.isAlertVisible = true;
     },
@@ -174,8 +100,13 @@ export default {
       }
 
       this.lastPosition = window.scrollY;
-      this.scrolled = window.scrollY > 350;
+      this.scrolled = window.scrollY > 200;
     }
+  },
+  computed: {
+    getOrder() {
+      return this.$store.getters['order/items'];
+    },
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -192,11 +123,8 @@ h4 {
   font-family: "Oswald", sans-serif;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-  border: none;
+.table {
+  overflow: auto;
 }
 
 /* Firefox */
@@ -209,19 +137,21 @@ input[type="number"] {
   background-color: #fff;
 }
 .cardroom {
+  width: 45%;
   position: fixed;
   will-change: transform;
   transition: transform 0.2s ease-in-out;
 }
 .cardroom--pinned {
-  transform: translateY(-50%);
+  transform: translateY(0%);
 }
 .cardroom--unpinned {
-  transform: translateY(-90%);
+  transform: translateY(-50%);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .cardroom {
+    width: 100%;
     position: relative;
   }
   .cardroom--pinned {
@@ -230,5 +160,5 @@ input[type="number"] {
   .cardroom--unpinned {
     transform: translateY(0%);
   }
-}</style
->>
+}
+</style>

@@ -5,14 +5,8 @@ export const actions = {
     let order = [];
     if (req && req.headers && req.headers.cookie) {
       const parsed = cookieparser.parse(req.headers.cookie);
-      order = parsed.order && JSON.parse(parsed.order) || [];
+      order = (parsed.order && JSON.parse(parsed.order)) || [];
     }
-    if (order.length < 2) {
-      commit("order/setItems", order);
-    } 
-    else {
-      order.splice(0, order.length, order[order.length - 1]);
-      commit("order/setItems", order);
-    }
+    commit("order/setItems", order);
   }
 };

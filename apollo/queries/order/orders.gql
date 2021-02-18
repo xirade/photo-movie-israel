@@ -3,15 +3,30 @@ query Orders {
     id
     title
     description
-    image{url}
+    image {
+      url
+    }
     price
-    listprice{
+    listprices {
+      id
       name
       description
+      category
       color
       price
+      total
       visible
       uid
+    }
+    extralists {
+      id
+      name
+      description
+      count
+      max
+      active
+      category
+      price
     }
   }
 }

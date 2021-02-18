@@ -1,6 +1,8 @@
 <template>
   <div>
-    <header class="header-main d-flex flex-column">
+    <div v-if="error"></div>
+    <div v-else>
+      <header class="header-main d-flex flex-column">
       <img
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596646320/000_apiqou_bznbq5.png"
         height="120px"
@@ -58,10 +60,9 @@
       </div>
       <div class="jarallax" style="height: 80vh">
         <div class="clippy-bg rgba-stylish-light"></div>
-        <v-lazy-image
+        <img
           class="jarallax-img"
-          srcset="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg?webp"
-          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596364484/hunter-moranville-CMEpx6q7xrs-unsplash_xzzly5.jpg"
+          src="~/assets/img/camera.jpg"
         />
       </div>
       <div
@@ -93,27 +94,37 @@
         data-aos-easing="ease-out"
       ></span>
     </div>
+    </div>
   </div>
 </template>
 
 <script>
 import ordersQuery from "~/apollo/queries/order/orders.gql";
-import VLazyImage from "v-lazy-image";
 import serviceCards from "./services_cards";
 export default {
   data() {
     return {
-      orders: []
+      orders: [],
+      error: null
     };
   },
   components: {
     serviceCards,
-    VLazyImage
   },
   apollo: {
     orders: {
       prefetch: true,
       query: ordersQuery,
+    }
+  },
+  async moutned() {
+    try {
+      this.orders = await this.items.find()
+    } catch (error) {
+      return (this.error = this.$nuxt.error({
+        statusCode: 500,
+        message: "err message"
+      }));
     }
   }
 };

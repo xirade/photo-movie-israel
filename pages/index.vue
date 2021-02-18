@@ -5,8 +5,7 @@
         <div class="clippy-bg pb-5 rgba-stylish-slight"></div>
         <img
           class="jarallax-img"
-          srcset="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg?webp"
-          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
+          src="~/assets/img/background.jpg"
           alt="background"
         />
         <div class="py-5">

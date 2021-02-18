@@ -29,10 +29,13 @@
     "price": {
       "type": "integer"
     },
-    "listprice": {
-      "type": "component",
-      "repeatable": true,
-      "component": "service.listprice"
+    "listprices": {
+      "via": "order",
+      "collection": "listprice"
+    },
+    "extralists": {
+      "via": "order",
+      "collection": "extralist"
     }
   }
 }

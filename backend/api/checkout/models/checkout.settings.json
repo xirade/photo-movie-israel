@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "checkouts",
   "info": {
-    "name": "checkout"
+    "name": "checkout",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -22,11 +23,11 @@
     "date": {
       "type": "string"
     },
-    "time": {
-      "type": "integer"
-    },
     "price": {
       "type": "integer"
+    },
+    "wish": {
+      "type": "text"
     }
   }
 }
