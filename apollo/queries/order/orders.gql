@@ -6,6 +6,9 @@ query Orders {
     image {
       url
     }
+    modalimg {
+      url
+    }
     price
     listprices {
       id
@@ -14,7 +17,6 @@ query Orders {
       category
       color
       price
-      total
       visible
       uid
     }

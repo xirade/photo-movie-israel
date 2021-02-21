@@ -7,7 +7,11 @@
       @close="index = null"
     ></CoolLightBox>
     <div class="w-100 h-100 p-1">
-      <mdb-view class="zoom overlay h-100" v-for="clip in myClip" :key="clip.id">
+      <mdb-view
+        class="zoom overlay h-100"
+        v-for="clip in myClip"
+        :key="clip.id"
+      >
         <video
           class="embed-responsive embed-responsive-16by9 m-0"
           autoplay
@@ -86,8 +90,7 @@ export default {
   data() {
     return {
       api_url: process.env.strapiBaseUri,
-      sliders:[],
-      query: "",
+      sliders: [],
       index: null,
       error: null
     };
@@ -95,24 +98,17 @@ export default {
   apollo: {
     sliders: {
       prefetch: true,
-      query: slidersQuery,
-    },
+      query: slidersQuery
+    }
   },
   components: {
     CoolLightBox,
     mdbView,
-    mdbMask,
+    mdbMask
   },
   methods: {
     setIndex(index) {
       this.index = index;
-    }
-  },
-  async mount() {
-    try {
-      this.sliders = await this.sliders.find();
-    } catch (error) {
-      this.error = error;
     }
   },
   mounted() {
@@ -122,16 +118,16 @@ export default {
   },
   computed: {
     getItems() {
-      let result = [];
-      for (let i = 0; i < this.sliders.length; i++) {
-        result.push(this.sliders[i].image.url);
-      }
+      const result = [];
+      this.sliders.forEach(el => {
+        result.push(el.image.url);
+      });
       return result;
     },
-     myClip() {
-        return this.sliders.filter( ( item ) => {
-             return item.video != null;
-        });
+    myClip() {
+      return this.sliders.filter(item => {
+        return item.video != null;
+      });
     }
   }
 };

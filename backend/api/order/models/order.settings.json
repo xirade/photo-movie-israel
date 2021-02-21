@@ -30,12 +30,23 @@
       "type": "integer"
     },
     "listprices": {
-      "via": "order",
-      "collection": "listprice"
+      "collection": "listprice",
+      "via": "order"
     },
     "extralists": {
       "via": "order",
       "collection": "extralist"
+    },
+    "modalimg": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

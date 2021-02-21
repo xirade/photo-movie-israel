@@ -10,11 +10,13 @@ query Homes {
       description
       color
       price
-      total
       visible
       uid
     }
     image {
+      url
+    }
+    modalimg {
       url
     }
     icon

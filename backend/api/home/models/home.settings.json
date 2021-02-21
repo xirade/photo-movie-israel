@@ -54,12 +54,23 @@
       ]
     },
     "listprices": {
-      "via": "home",
-      "collection": "listprice"
+      "collection": "listprice",
+      "via": "home"
     },
     "extralist": {
       "via": "home",
       "model": "extralist"
+    },
+    "modalimg": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

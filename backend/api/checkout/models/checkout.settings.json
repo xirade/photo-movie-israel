@@ -28,6 +28,12 @@
     },
     "wish": {
       "type": "text"
+    },
+    "extralist": {
+      "type": "text"
+    },
+    "service": {
+      "type": "string"
     }
   }
 }

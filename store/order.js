@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 
 export const state = () => ({
-  items: []
+  items: [],
 });
 
 export const mutations = {
@@ -12,20 +12,6 @@ export const mutations = {
     state.items = []
     state.items.push(item)
     Cookies.set("order", state.items);
-  },
-  addPrice(state, price){
-    const record = state.items.find(i => i.id)
-    if(record){
-      record.total+=price;
-    }
-    Cookies.set("order",state.items)
-  },
-  removePrice(state, price){
-    const record = state.items.find(i => i.id)
-    if(record.total >= price){
-      record.total -=price
-    } 
-    Cookies.set("order",state.items)
   },
   emptyList(state) {
     state.items = []

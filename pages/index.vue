@@ -298,13 +298,6 @@ export default {
       this.isModalVisible = false;
     }
   },
-  async mounted() {
-    try {
-      this.homes = await this.homes.find();
-    } catch (error) {
-      this.error = error;
-    }
-  },
   computed: {
     myWedding() {
       return this.homes.filter(item => {

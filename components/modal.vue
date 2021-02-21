@@ -13,9 +13,9 @@
             <mdb-col lg="5">
               <mdb-view>
                 <v-lazy-image
-                  :srcset="items[index].image.url + '?webp'"
+                  :srcset="items[index].modalimg.url + '?webp'"
                   class="img-fluid"
-                  :src="items[index].image.url"
+                  :src="items[index].modalimg.url"
                   :alt="items[index].title"
                 />
                 <mdb-mask flex-center overlay="stylish-light"></mdb-mask>
@@ -41,7 +41,7 @@
                 <b-card
                   no-body
                   class="mb-1"
-                  v-for="(listprice,index) in getListprice"
+                  v-for="(listprice) in getListprice"
                   :key="listprice.id"
                 >
                   <b-card-header header-tag="header" class="p-1" role="tab">
@@ -156,6 +156,7 @@ export default {
   methods: {
     getOrder(listprice) {
       this.removeOrder(listprice);
+      this.removeExtra();
       this.$router.push({ name: "Checkout" });
     },
     show() {
@@ -174,6 +175,7 @@ export default {
     },
     ...mapMutations({
       removeOrder: "order/remove",
+      removeExtra: "cart/emptyList"
     })
   },
   computed: {

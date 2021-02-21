@@ -12,20 +12,13 @@
           {{ item.name }}
         </mdb-card-title>
         <span>Total:</span>
-        <span class="font-weight-bold">{{ item.price }}₪</span>
-        <hr />
-        <mdb-card-text
-          >Some quick example text to build on the card title and make up the
-          bulk of the card's content.</mdb-card-text
-        >
+        <span class="font-weight-bold">{{ item.price + getTotalPrice }}₪</span>
+        <hr>
+            <ExtraSmall v-if="item.category != null"/>
         <div class="table">
-          <ExtraTable v-if="item.category != null"/>
+          <ExtraTable v-if="item.category != null" />
         </div>
-        <mdb-btn
-          @click="showAlert"
-          id="check_validate"
-          block
-          color="warning"
+        <mdb-btn @click="showAlert" id="check_validate" block color="warning"
           >Next</mdb-btn
         >
       </mdb-card-body>
@@ -35,6 +28,7 @@
 
 <script>
 import ExtraTable from "./extra-table";
+import ExtraSmall from "./extra-small";
 import {
   mdbCol,
   mdbRow,
@@ -54,7 +48,8 @@ export default {
     mdbBtn,
     mdbCardText,
     mdbCardTitle,
-    ExtraTable
+    ExtraTable,
+    ExtraSmall,
   },
   data() {
     return {
@@ -105,7 +100,10 @@ export default {
   },
   computed: {
     getOrder() {
-      return this.$store.getters['order/items'];
+      return this.$store.getters["order/items"];
+    },
+    getTotalPrice() {
+      return this.$store.getters["cart/price"];
     },
   },
   mounted() {

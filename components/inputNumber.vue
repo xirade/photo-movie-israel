@@ -1,11 +1,5 @@
 <template>
   <div class="minusplusnumber">
-    <div class="mpbtn minus" v-on:click="mpminus()">
-      -
-    </div>
-    <div id="field_container">
-      <input type="number" v-model="counter.value" disabled />
-    </div>
     <div class="mpbtn plus" v-on:click="mpplus()">
       +
     </div>
@@ -15,47 +9,38 @@
 <script>
 export default {
   props: {
-    id:{
-      type:String
+    id: {
+      type: String
     },
     value: {
-      default: 0,
-      type: Number
-    },
-    min: {
       default: 0,
       type: Number
     },
     max: {
       default: undefined,
       type: Number
-    },
-    step: {
-      default: 0,
-      type: Number
     }
   },
   data() {
     return {
-      counter:{
+      counter: {
         id: 0,
         value: 0,
+        active: false
       }
     };
   },
   methods: {
-    mpplus: function() {
-      if (this.max === undefined || this.counter.value < this.max) {
-        this.counter.value += this.step;
+    mpplus() {
+      if (this.counter.value >= this.max) {
+        this.counter.active = true;
+        this.$emit("input", this.counter);
+      } else {
+        this.counter.value += 1;
+        this.counter.active = true;
         this.$emit("input", this.counter);
       }
-    },
-    mpminus: function() {
-      if (this.counter.value > this.min) {
-        this.counter.value -= this.step;
-        this.$emit("input", this.counter);
-      }
-    },
+    }
   },
   watch: {
     value: {
@@ -101,17 +86,5 @@ export default {
 }
 .minusplusnumber .mpbtn:active {
   background-color: #c5c5c5;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
 </style>

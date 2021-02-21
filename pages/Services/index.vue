@@ -117,16 +117,6 @@ export default {
       query: ordersQuery,
     }
   },
-  async moutned() {
-    try {
-      this.orders = await this.items.find()
-    } catch (error) {
-      return (this.error = this.$nuxt.error({
-        statusCode: 500,
-        message: "err message"
-      }));
-    }
-  }
 };
 </script>
 

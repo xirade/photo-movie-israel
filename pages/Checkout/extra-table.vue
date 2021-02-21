@@ -1,49 +1,31 @@
 <template>
   <div>
-    <div v-if="getExtralist.length <= 0"></div>
+    <div v-if="filterExtralist.length <= 0"></div>
     <mdb-tbl v-else class="fixed-column" striped>
       <mdb-tbl-head>
         <tr>
-          <th>#</th>
+          <th>Add</th>
           <th>Name</th>
           <th>Description</th>
-          <th>Count</th>
           <th>Price</th>
         </tr>
       </mdb-tbl-head>
 
       <mdb-tbl-body>
-        <tr v-for="ext in getExtralist" :key="ext.id">
-          <td>
-            <div class="custom-control custom-checkbox">
-              <input
-                ref="checkbox"
-                type="checkbox"
-                class="custom-control-input"
-                :id="ext.id"
-                :checked="checked"
-                @change="preventIfActive(ext.id)"
-              />
-              <label class="custom-control-label" :for="ext.id"></label>
-            </div>
+        <tr v-for="ext in filterExtralist" :key="ext.id">
+          <td class="font-weight-bolder pr-4">
+            <input-number
+              :id="ext.id"
+              :max="ext.max"
+              :value="ext.count"
+              type="number"
+              @input="onInput"
+            />
           </td>
           <td>
             {{ ext.name }}
           </td>
           <td class="font-weight-light pr-4">{{ ext.description }}</td>
-          <td class="font-weight-bolder pr-4">
-            <input-number
-              ref="number"
-              :id="ext.id"
-              :disabled="ext.active"
-              :min="ext.count"
-              :max="ext.max"
-              :step="ext.count"
-              :value="ext.count"
-              @input="onInput"
-              type="number"
-            />
-          </td>
           <td class="font-weight-bold">{{ ext.price }}₪</td>
         </tr>
       </mdb-tbl-body>
@@ -61,8 +43,7 @@ export default {
     return {
       error: null,
       checked: false,
-      extralists: [],
-      total: 0
+      extralists: []
     };
   },
   components: {
@@ -81,7 +62,7 @@ export default {
     getList() {
       return this.$store.getters["order/items"];
     },
-    getExtralist() {
+    filterExtralist() {
       return this.extralists.filter(
         category => category.category == this.getList[0].category
       );
@@ -89,27 +70,20 @@ export default {
   },
   methods: {
     onInput(value) {
-      const extra = this.getExtralist.find(item => item.id == value.id);
-      this.total = extra.price * value.value;
-    },
-    preventIfActive(index) {
-      const extra = this.getExtralist.find(item => item.id == index);
-      const newbox = this.$refs.checkbox.find(box => box.id == index);
-      if (newbox.checked == true) {
-        if (this.total > 0) {
-          this.addPrice(this.total);
-        } else {
-          this.addPrice(extra.price);
+      const extra = this.filterExtralist.map(ext => {
+        return {
+          id: ext.id,
+          name: ext.name,
+          price: ext.price,
+          max: ext.max
         }
-      } else if (newbox.checked != true && this.total > 0) {
-        this.removePrice(this.total);
-      } else {
-        this.removePrice(extra.price);
+      }).find(item => item.id == value.id)
+      if (value.active == true) {
+        this.addToCart(extra);
       }
     },
     ...mapMutations({
-      addPrice: "order/addPrice",
-      removePrice: "order/removePrice"
+      addToCart: "cart/addExtra",
     })
   }
 };

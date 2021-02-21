@@ -12,129 +12,129 @@
             >
               <span><mdb-icon class="mr-2 my-5" icon="angle-left" />Back</span>
             </router-link>
-              <div class="text-left">
-                <h3 class="h2 pt-2">Service Order Form</h3>
-                <p class="service-text mt-3 mb-5">
-                  Для того, чтобы сориентировать вас по цене, просим заполнить
-                  информацию о вас и пожелания к заказу.
-                </p>
-              </div>
+            <div class="text-left">
+              <h3 class="h2 pt-2">Service Order Form</h3>
+              <p class="service-text mt-3 mb-5">
+                Для того, чтобы сориентировать вас по цене, просим заполнить
+                информацию о вас и пожелания к заказу.
+              </p>
+            </div>
 
-              <div
-                class="form-group mb-5"
-                :class="{ 'form-group--error': $v.name.$error }"
-              >
-                <mdb-input
-                  label="Your name"
-                  small="We'll never share your personal data with anyone."
-                  v-model="$v.name.$model"
-                  icon="user"
-                />
-                <div class="error" v-if="!$v.name.required">
-                  Field is required ✱
-                </div>
-                <div class="error" v-if="!$v.name.minLength">
-                  Name must have at least
-                  {{ $v.name.$params.minLength.min }} letters.
-                </div>
-                <div class="error" v-if="!$v.name.maxLength">
-                  Name must have at least
-                  {{ $v.name.$params.maxLength.max }} letters.
-                </div>
-                <div class="error" v-if="!$v.name.alpha">
-                  Please enter only letters!
-                </div>
-              </div>
-              <div
-                class="form-group mb-5"
-                :class="{ 'form-group--error': $v.email.$error }"
-              >
-                <mdb-input
-                  label="Email"
-                  v-model.trim="$v.email.$model"
-                  icon="envelope"
-                />
-                <div class="error" v-if="!$v.email.required">
-                  Field is required ✱
-                </div>
-                <div class="error" v-if="!$v.email.email">
-                  Please enter a valid email!
-                </div>
-              </div>
-              <div
-                class="form-group mb-5"
-                :class="{ 'form-group--error': $v.phone.$error }"
-              >
-                <mdb-input
-                  type="text"
-                  label="Phone"
-                  v-model.trim="$v.phone.$model"
-                  icon="phone"
-                />
-                <div class="error" v-if="!$v.phone.required">
-                  Field is required ✱
-                </div>
-                <div class="error" v-if="!$v.phone.numeric">
-                  Please enter only numbers!
-                </div>
-                <div class="error" v-if="!$v.phone.minLength">
-                  Phone must have at least
-                  {{ $v.phone.$params.minLength.min }} numbers.
-                </div>
-              </div>
+            <div
+              class="form-group mb-5"
+              :class="{ 'form-group--error': $v.name.$error }"
+            >
               <mdb-input
-                class="mb-5"
-                v-model="$v.wish.$model"
-                type="textarea"
-                id="exampleInput"
-                label="Wishes"
-                icon="tag"
+                label="Your name"
+                small="We'll never share your personal data with anyone."
+                v-model="$v.name.$model"
+                icon="user"
               />
-              <div>
-                <div class="calendar d-flex flex-row">
-                  <label class="control-label" for="date"
-                    ><mdb-icon class="mr-3" size="2x" icon="calendar"
-                  /></label>
-                  <VueCtkDateTimePicker
-                    :error="true"
-                    class="mb-3"
-                    v-model="date"
-                    :first-day-of-week="7"
-                    format="YYYY-MM-DD HH:mm"
-                    :disabled-weekly="[5, 6]"
-                    :disabled-hours="[
-                      '00',
-                      '01',
-                      '02',
-                      '03',
-                      '04',
-                      '05',
-                      '06',
-                      '07',
-                      '08',
-                      '22',
-                      '23'
-                    ]"
-                    minute-interval="10"
-                    button-color="blue"
-                    color="gray"
-                    label="Date"
-                  >
-                    <input
-                      v-model="$v.date.$model"
-                      class="mt-2 datePicker"
-                      id="date"
-                      name="date"
-                      title="Date and time"
-                      placeholder="Please enter your date here"
-                      readonly
-                    />
-                  </VueCtkDateTimePicker>
-                </div>
-                <div class="error mb-5" v-if="!$v.date.required">
-                  Field is required ✱
-                </div>
+              <div class="error" v-if="!$v.name.required">
+                Field is required ✱
               </div>
+              <div class="error" v-if="!$v.name.minLength">
+                Name must have at least
+                {{ $v.name.$params.minLength.min }} letters.
+              </div>
+              <div class="error" v-if="!$v.name.maxLength">
+                Name must have at least
+                {{ $v.name.$params.maxLength.max }} letters.
+              </div>
+              <div class="error" v-if="!$v.name.alpha">
+                Please enter only letters!
+              </div>
+            </div>
+            <div
+              class="form-group mb-5"
+              :class="{ 'form-group--error': $v.email.$error }"
+            >
+              <mdb-input
+                label="Email"
+                v-model.trim="$v.email.$model"
+                icon="envelope"
+              />
+              <div class="error" v-if="!$v.email.required">
+                Field is required ✱
+              </div>
+              <div class="error" v-if="!$v.email.email">
+                Please enter a valid email!
+              </div>
+            </div>
+            <div
+              class="form-group mb-5"
+              :class="{ 'form-group--error': $v.phone.$error }"
+            >
+              <mdb-input
+                type="text"
+                label="Phone"
+                v-model.trim="$v.phone.$model"
+                icon="phone"
+              />
+              <div class="error" v-if="!$v.phone.required">
+                Field is required ✱
+              </div>
+              <div class="error" v-if="!$v.phone.numeric">
+                Please enter only numbers!
+              </div>
+              <div class="error" v-if="!$v.phone.minLength">
+                Phone must have at least
+                {{ $v.phone.$params.minLength.min }} numbers.
+              </div>
+            </div>
+            <mdb-input
+              class="mb-5"
+              v-model="$v.wish.$model"
+              type="textarea"
+              id="exampleInput"
+              label="Wishes"
+              icon="tag"
+            />
+            <div>
+              <div class="calendar d-flex flex-row">
+                <label class="control-label" for="date"
+                  ><mdb-icon class="mr-3" size="2x" icon="calendar"
+                /></label>
+                <VueCtkDateTimePicker
+                  :error="true"
+                  class="mb-3"
+                  v-model="date"
+                  :first-day-of-week="7"
+                  format="YYYY-MM-DD HH:mm"
+                  :disabled-weekly="[5, 6]"
+                  :disabled-hours="[
+                    '00',
+                    '01',
+                    '02',
+                    '03',
+                    '04',
+                    '05',
+                    '06',
+                    '07',
+                    '08',
+                    '22',
+                    '23'
+                  ]"
+                  minute-interval="10"
+                  button-color="blue"
+                  color="gray"
+                  label="Date"
+                >
+                  <input
+                    v-model="$v.date.$model"
+                    class="mt-2 datePicker"
+                    id="date"
+                    name="date"
+                    title="Date and time"
+                    placeholder="Please enter your date here"
+                    readonly
+                  />
+                </VueCtkDateTimePicker>
+              </div>
+              <div class="error mb-5" v-if="!$v.date.required">
+                Field is required ✱
+              </div>
+            </div>
           </mdb-col>
           <mdb-col lg="6">
             <Summary />
@@ -166,7 +166,14 @@ import {
 } from "vuelidate/lib/validators";
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
-import { mdbContainer, mdbCol, mdbInput, mdbIcon, mdbRow,mdbCard } from "mdbvue";
+import {
+  mdbContainer,
+  mdbCol,
+  mdbInput,
+  mdbIcon,
+  mdbRow,
+  mdbCard
+} from "mdbvue";
 import Summary from "./summary";
 import Alert from "../../components/Alert";
 export default {
@@ -189,20 +196,12 @@ export default {
       phone: "",
       date: "",
       wish: "",
+      service: "",
+      extralist: null,
       price: 0,
       error: null,
       success: null
     };
-  },
-  async mounted() {
-    try {
-      this.price = await this.getPrice[0].price;
-    } catch (error) {
-      return (this.error = this.$nuxt.error({
-        statusCode: 500,
-        message: "err message"
-      }));
-    }
   },
   validations: {
     name: {
@@ -226,11 +225,15 @@ export default {
     price: {
       required
     },
-    wish: {
-    }
+    wish: {},
+    extralist: {},
+    service: {}
   },
   methods: {
     checkForm() {
+      this.service = this.getOrder[0].name;
+      this.price = this.getPrice[0].price + this.getTotalPrice;
+      this.extralist = this.extralistToString;
       this.$v.$touch();
       if (this.$v.$invalid) {
         this.submitStatus = "ERROR";
@@ -243,11 +246,14 @@ export default {
             phone: this.phone,
             wish: this.wish,
             date: this.date,
-            price: this.price
+            price: this.price,
+            service: this.service,
+            extralist: this.extralist
           })
           .then(res => {
             this.success = true;
             this.removeOrder();
+            this.removeExtra();
             this.$router.push({
               name: "Checkout-review",
               path: "/Checkout/review",
@@ -261,12 +267,26 @@ export default {
       }
     },
     ...mapMutations({
-      removeOrder: "order/emptyList"
+      removeOrder: "order/emptyList",
+      removeExtra: "cart/emptyList"
     })
   },
   computed: {
+    getOrder() {
+      return this.$store.getters["order/items"];
+    },
     getPrice() {
-      return this.$store.getters['order/items']
+      return this.$store.getters["order/items"];
+    },
+    getTotalPrice() {
+      return this.$store.getters["cart/price"];
+    },
+    getExtraList() {
+      return this.$store.getters["cart/extralist"];
+    },
+    extralistToString() {
+      let fixed = Object.assign({}, this.getExtraList);
+      return JSON.stringify(fixed, null, "\t");
     }
   }
 };

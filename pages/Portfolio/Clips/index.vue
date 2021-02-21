@@ -28,7 +28,7 @@
         <div class="container mt-4 d-flex flex-center justify-content-center">
           <span class="mr-auto"><router-link class="h4 text-uppercase" style="text-decoration: none; color: #6c757d;"  
           tag="a" :to="'/portfolio'">Back</router-link></span>
-          <h2 class="h2 white-text mr-auto text-center pr-5">Aerophotos</h2>
+          <h2 class="h2 white-text mr-auto text-center pr-5">Clips</h2>
         </div>
         <Carousel />
       </div>

@@ -14,9 +14,6 @@
     "name": {
       "type": "string"
     },
-    "count": {
-      "type": "integer"
-    },
     "price": {
       "type": "integer"
     },
@@ -25,7 +22,7 @@
     },
     "active": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "order": {
       "model": "order",
@@ -42,11 +39,12 @@
         "family"
       ]
     },
-    "quantity": {
-      "type": "integer"
-    },
     "description": {
       "type": "text"
+    },
+    "count": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

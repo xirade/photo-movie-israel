@@ -8,7 +8,5 @@ query Extralists {
     name
     category
     active
-    quantity
-    category
   }
 }

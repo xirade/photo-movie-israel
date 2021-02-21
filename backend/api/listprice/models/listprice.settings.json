@@ -34,8 +34,8 @@
       ]
     },
     "order": {
-      "model": "order",
-      "via": "listprices"
+      "via": "listprices",
+      "model": "order"
     },
     "uid": {
       "type": "string"
@@ -45,11 +45,8 @@
       "default": "null"
     },
     "home": {
-      "model": "home",
-      "via": "listprices"
-    },
-    "total": {
-      "type": "integer"
+      "via": "listprices",
+      "model": "home"
     }
   }
 }

@@ -117,9 +117,10 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "http://localhost:1337/graphql"
+        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
       }
-    }
+    },
+    errorHandler: "~/plugins/apollo-error-handler.js"
   },
   mdbvue: {
     css: true, // MDB CSS
@@ -136,5 +137,5 @@ export default {
         resolve({ x: 0, y: 0 });
       }, 500);
     });
-  },
+  }
 };
