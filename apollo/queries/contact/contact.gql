@@ -1,0 +1,7 @@
+query ContactPage {
+    contactPage {
+        id
+        metatitle
+        metades
+    }
+}

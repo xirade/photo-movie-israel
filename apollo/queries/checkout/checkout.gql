@@ -1,0 +1,9 @@
+query CheckoutPage {
+    checkoutPage {
+        id
+        title
+        description
+        metatitle
+        metades
+    }
+}

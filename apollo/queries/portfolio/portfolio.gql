@@ -1,0 +1,17 @@
+query Portfolio($id: ID!) {
+	category(id: $id){
+    id
+    title
+    metades
+    Clips{
+      video{url}
+      image{url}
+      alt
+    }
+    Pictures{
+      image{url}
+      alt
+    }
+    category
+  }
+}
