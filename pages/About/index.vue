@@ -1,5 +1,5 @@
 <template>
-  <div v-if="abouts[0] != undefined">
+  <div>
     <header class="d-flex flex-column">
       <img
         src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596646320/000_apiqou_bznbq5.png"
@@ -35,22 +35,24 @@
           <section>
             <mdb-row class="mx-auto">
               <mdb-col class="mt-5 mx-auto" md="6">
-                <h2 class="display-2 mb-3 white-text mt-5 text-uppercase">
-                  We take pictures
-                  <hr class="m-0" style="border: 0;" />
-                  from above
-                </h2>
-                <p class="h6-responsive font-weight-light grey-text mt-5">
-                  {{ abouts[0].description }}
-                </p>
+                <h2
+                  class="display-2 mb-3 white-text mt-5 text-uppercase"
+                  v-html="aboutPage.title"
+                ></h2>
+                <p
+                  class="h6-responsive font-weight-light grey-text mt-5"
+                  v-html="aboutPage.description"
+                ></p>
               </mdb-col>
               <mdb-col md="6" class="pl-auto mt-5">
-                  <v-lazy-image
-                    :srcset="abouts[0].image.url + '?webp'"
-                    :src="abouts[0].image.url"
-                    :alt="abouts[0].title"
-                    class="section-img img-fluid rounded z-depth-1"
-                  />
+                <v-lazy-image
+                v-if="aboutPage.image != undefined"
+                  src-placeholder="require('~/assets/img/back-pattern.png')"
+                  :srcset="aboutPage.image.url + '?webp'"
+                  :src="aboutPage.image.url"
+                  :alt="aboutPage.title"
+                  class="section-img img-fluid rounded z-depth-1"
+                />
               </mdb-col>
             </mdb-row>
           </section>
@@ -75,61 +77,21 @@
             мысли или предложения как мы можем быть вам полезными, обращайтесь!
           </p>
           <mdb-row>
-            <mdb-col md="4" class="mb-md-0 mb-5">
+            <mdb-col
+              md="4"
+              class="mb-md-0 mb-5"
+              v-for="item in aboutPage.avatar"
+              :key="item.id"
+            >
               <picture>
-                <source
-                  :srcSet="abouts[0].avatars.avatar1.url+'?webp'"
-                  type="image/webp"
-                />
-                <source
-                  :srcSet="abouts[0].avatars.avatar1.url"
-                  type="image/jpeg"
-                />
-                <b-avatar
-                  :src="abouts[0].avatars.avatar1.url"
-                  size="10rem"
-                ></b-avatar>
-              </picture>
-              <h4 class="font-weight-bold dark-grey-text my-4">Pawel Milov</h4>
-              <h6 class="text-uppercase grey-text mb-3">Photographer</h6>
-            </mdb-col>
-            <mdb-col md="4" class="mb-md-0 mb-5">
-              <picture>
-                <source
-                  :srcSet="abouts[0].avatars.avatar2.url+'?webp'"
-                  type="image/webp"
-                />
-                <source
-                  :srcSet="abouts[0].avatars.avatar2.url"
-                  type="image/jpeg"
-                />
-                <b-avatar
-                  :src="abouts[0].avatars.avatar2.url"
-                  size="10rem"
-                ></b-avatar>
-              </picture>
-              <h4 class="font-weight-bold dark-grey-text my-4">Yulia Milova</h4>
-              <h6 class="text-uppercase grey-text mb-3">Manager</h6>
-            </mdb-col>
-            <mdb-col md="4" class="mb-md-0 mb-5">
-              <picture>
-                <source
-                  :srcSet="abouts[0].avatars.avatar3.url+'?webp'"
-                  type="image/webp"
-                />
-                <source
-                  :srcSet="abouts[0].avatars.avatar3.url"
-                  type="image/jpeg"
-                />
-                <b-avatar
-                  :src="abouts[0].avatars.avatar3.url"
-                  size="10rem"
-                ></b-avatar>
+                <source :srcSet="item.image.url + '?webp'" type="image/webp" />
+                <source :srcSet="item.image.url" type="image/jpeg" />
+                <b-avatar :src="item.image.url" size="10rem"></b-avatar>
               </picture>
               <h4 class="font-weight-bold dark-grey-text my-4">
-                Daniel Bar Shay
+                {{ item.name }}
               </h4>
-              <h6 class="text-uppercase grey-text mb-3">Web Developer</h6>
+              <h6 class="text-uppercase grey-text mb-3">{{ item.category }}</h6>
             </mdb-col>
           </mdb-row>
         </section>
@@ -154,28 +116,33 @@
 
 <script>
 import VLazyImage from "v-lazy-image";
-import aboutsQuery from '~/apollo/queries/about/abouts.gql';
+import aboutPageQuery from "~/apollo/queries/about/abouts.gql";
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
-import { BAvatar} from "bootstrap-vue";
+import { BAvatar } from "bootstrap-vue";
 export default {
   data() {
     return {
-      abouts: [],
+      aboutPage: [],
       error: null
     };
   },
-   apollo: {
-    abouts: {
+  apollo: {
+    aboutPage: {
       prefetch: true,
-      query: aboutsQuery,
-    },
-  },
-  async mounted() {
-    try {
-      this.abouts = await this.abouts.find();
-    } catch (error) {
-      this.error = error;
+      query: aboutPageQuery
     }
+  },
+  head() {
+    return {
+      title: this.aboutPage.metatitle,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.aboutPage.metades
+        }
+      ]
+    };
   },
   components: {
     VLazyImage,
@@ -183,7 +150,7 @@ export default {
     mdbRow,
     mdbCol,
     BAvatar
-  }
+  },
 };
 </script>
 

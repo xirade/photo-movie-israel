@@ -144,6 +144,7 @@
 </template>
 
 <script>
+import contactPageQuery from "~/apollo/queries/contact/contact.gql"
 import {
   mdbContainer,
   mdbRow,
@@ -160,6 +161,7 @@ export default {
   name: "ContactPage",
   data() {
     return {
+      contactPage:{},
       loading: false,
       success: false,
       errored: false,
@@ -183,6 +185,24 @@ export default {
     mdbTextarea,
     mdbCard,
     mdbCardBody
+  },
+   apollo: {
+    contactPage: {
+      prefetch: true,
+      query: contactPageQuery,
+    }
+  },
+   head() {
+    return {
+      title: this.contactPage.metatitle,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.contactPage.metades
+        }
+      ]
+    };
   },
   methods: {
     sendMessage() {

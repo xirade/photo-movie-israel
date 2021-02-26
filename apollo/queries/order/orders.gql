@@ -1,34 +1,41 @@
-query Orders {
-  orders {
+query ServicePage {
+  servicePage {
     id
     title
     description
-    image {
-      url
-    }
-    modalimg {
-      url
-    }
-    price
-    listprices {
+    metatitle
+    metades
+    orders {
       id
-      name
+      title
       description
-      category
-      color
+      image {
+        url
+      }
+      modalimg {
+        url
+      }
       price
-      visible
-      uid
-    }
-    extralists {
-      id
-      name
-      description
-      count
-      max
-      active
-      category
-      price
+      listprices {
+        id
+        name
+        description
+        category
+        color
+        price
+        visible
+        uid
+      }
+      extralists {
+        id
+        name
+        description
+        count
+        max
+        active
+        category
+        price
+      }
     }
   }
 }

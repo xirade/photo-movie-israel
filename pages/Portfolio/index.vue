@@ -28,39 +28,44 @@
     </header>
     <div class="py-5 bg-light">
       <mdb-container>
-        <section
-          class="text-center my-5"
-          v-for="portfolio in portfolios"
-          :key="portfolio.id"
-        >
+        <section class="text-center my-5">
           <mdb-row class="d-flex justify-content-center">
-            <mdb-col md="6" xl="5" class="mb-4" v-for="(card,index) in portfolio.cards" :key="index">
-              <mdb-card>
+            <mdb-col
+              md="6"
+              xl="5"
+              class="mb-4"
+              v-for="portfolio in portfolioPage.portfolios" :key="portfolio.id"
+            >
+              <mdb-card class=" h-100">
                 <mdb-view class="overlay round z-depth-1 bg-light">
-                  <router-link :to="card.link">
+                  <router-link
+                    :to="{
+                      name: 'Portfolio-id',
+                      params: { id: portfolio.id }
+                    }"
+                  >
                     <v-lazy-image
                       class="w-100"
-                      :srcset="card.image.url + '?webp'"
-                      :src="card.image.url"
-                      :alt="card.title"
+                      :src-placeholder="require('~/assets/img/back-pattern.png')"
+                      :srcset="portfolio.image.url+'?webp'"
+                      :src="portfolio.image.url"
+                      :alt="portfolio.title"
                     />
                     <mdb-mask waves overlay="black-light"> </mdb-mask>
                   </router-link>
                 </mdb-view>
                 <mdb-card-body>
-                  <mdb-card-title>{{
-                    card.title
-                  }}</mdb-card-title>
+                  <mdb-card-title>{{ portfolio.title }}</mdb-card-title>
                   <mdb-card-text>
-                    {{ card.description }}
+                    {{ portfolio.description }}
                   </mdb-card-text>
                 </mdb-card-body>
               </mdb-card>
             </mdb-col>
           </mdb-row>
-          <h2 class="h1-responsive font-weight-bold my-5">OUR BEST PROJECTS</h2>
+          <h2 class="h1-responsive font-weight-bold text-uppercase my-5">{{portfolioPage.title}}</h2>
           <p class="grey-text w-responsive mx-auto mb-5">
-            {{ portfolio.description }}
+            {{ portfolioPage.description }}
           </p>
         </section>
       </mdb-container>
@@ -77,7 +82,7 @@
 </template>
 
 <script>
-import portfoliosQuery from "~/apollo/queries/portfolio/portfolios.gql";
+import portfolioPageQuery from "~/apollo/queries/portfolio/portfolios.gql";
 import VLazyImage from "v-lazy-image";
 import {
   mdbContainer,
@@ -95,15 +100,28 @@ import {
 export default {
   data() {
     return {
-      portfolios: [],
+      portfolioPage: Object,
+      query: '',
       error: null
     };
   },
   apollo: {
-    portfolios: {
+    portfolioPage: {
       prefetch: true,
-      query: portfoliosQuery
-    }
+      query: portfolioPageQuery
+    },
+  },
+   head() {
+    return {
+      title: this.portfolioPage.metatitle,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.portfolioPage.metades
+        }
+      ]
+    };
   },
   name: "Portfolio",
   components: {

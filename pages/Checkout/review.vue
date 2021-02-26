@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div v-if="$route.params.success != true">
-      <ErrorPage :error="error" />
-    </div>
+    <ErrorPage v-if="success != true" :error="error"/>
     <div v-else class="container my-5 animated fadeIn">
       <div class="py-5 d-flex align-items-center flex-center flex-column">
         <h3 class="display-2">Thank you!</h3>
@@ -32,23 +30,25 @@ export default {
   name: "review",
   data() {
     return {
-      success: null,
-      error: null
+      success: false,
+      error: {
+        statusCode: 404
+      }
     };
   },
   components: {
     ErrorPage
   },
-  async mounted() {
+ async fetch() {
     try {
-      this.success = await this.$route.params.success;
+      this.success = await this.$route.params.success
     } catch (error) {
       this.error = this.$nuxt.error({
         statusCode: 500,
         message: "err message"
       });
     }
-  }
+  },
 };
 </script>
 

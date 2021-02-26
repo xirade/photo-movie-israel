@@ -1,13 +1,17 @@
-query Abouts {
-  abouts {
+query AboutPage {
+  aboutPage {
     id
     title
     description
+    metatitle
+    metades
+    metatitle
     image{url}
-    avatars{
-      avatar1{url}
-      avatar2{url}
-      avatar3{url}
+    avatar{
+      id
+      name
+      category
+      image{url}
     }
   }
 }

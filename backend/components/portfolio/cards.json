@@ -22,8 +22,8 @@
     "description": {
       "type": "string"
     },
-    "link": {
-      "type": "string"
+    "categories": {
+      "collection": "category"
     }
   }
 }

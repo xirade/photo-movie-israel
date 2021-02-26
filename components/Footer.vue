@@ -23,6 +23,9 @@
             </h5>
             <ul class="list-unstyled">
               <p>
+                <router-link tag="a" :to="'/'">HOME</router-link>
+              </p>
+              <p>
                 <router-link tag="a" :to="'/services'">SERVICE</router-link>
               </p>
               <p><router-link tag="a" :to="'/about'">ABOUT</router-link></p>

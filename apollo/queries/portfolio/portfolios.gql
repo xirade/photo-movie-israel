@@ -1,35 +1,17 @@
-query Portfolios {
-  portfolios {
+query PortfolioPage {
+  portfolioPage {
     id
+    title
     description
-    items{
-      title
-      video{url}
-      thumbnail{url}
-    }
-    cards{
-      image{url}
+    metatitle
+    metades
+    portfolios {
+      id
       title
       description
-      link
-    }
-    families{
-      title
-      image{url}
-      width
-      category
-    }
-     branding{
-      title
-      image{url}
-      width
-      category
-    }
-    stilling{
-      title
-      image{url}
-      width
-      category
+      image {
+        url
+      }
     }
   }
 }

@@ -11,33 +11,26 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "description": {
+    "title": {
       "type": "string"
     },
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "portfolio.clips"
+    "description": {
+      "type": "text"
     },
-    "cards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "portfolio.cards"
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     },
-    "families": {
-      "type": "component",
-      "repeatable": true,
-      "component": "portfolio.images"
-    },
-    "branding": {
-      "type": "component",
-      "repeatable": true,
-      "component": "portfolio.branding"
-    },
-    "stilling": {
-      "type": "component",
-      "repeatable": true,
-      "component": "portfolio.stilling"
+    "category": {
+      "via": "portfolio",
+      "model": "category"
     }
   }
 }

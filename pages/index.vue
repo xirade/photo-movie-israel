@@ -26,12 +26,9 @@
               </transition>
             </div>
             <h1
-              class="display-4 title-header text-center white-text animated fadeInDown slower"
-            >
-              FROM A DIFFERENT
-              <hr class="m-0" />
-              POINT OF VIEW
-            </h1>
+              class="display-4 title-header text-uppercase text-center white-text animated fadeInDown slower"
+              v-html="homePage.titletop"
+            ></h1>
           </div>
         </div>
         <span
@@ -60,11 +57,11 @@
           class="w-100 position-relative"
           style="background-color: #212121; z-index: 2"
         >
-          <mdb-row class="justify-content-center py-3 px-2 mx-auto">
+          <mdb-row class="py-2 justify-content-center mx-auto">
             <mdb-col
-              class="p-3"
+              class="p-2"
               xl="6"
-              v-for="(item, index) in homes"
+              v-for="(item, index) in homePage.homes"
               :key="item.id"
             >
               <mdb-card
@@ -99,20 +96,21 @@
                         v-html="$md.render(item.description)"
                       ></div>
                     </mdb-container>
-                    <nuxt-link
-                      :event="item.disabled ? '' : 'click'"
-                      class="mt-auto"
-                      to="/services"
+                    <mdb-btn
+                      :outline="item.color"
+                      @click="
+                        item.disabled != false
+                          ? showModal(index)
+                          : $router.push('/services')
+                      "
                     >
-                      <mdb-btn :outline="item.color" @click="showModal(index)">
-                        <mdb-icon
-                          class="text-light"
-                          icon="shopping-bag left"
-                        /><span class="h6-responsive text-light"
-                          >Узнать больше</span
-                        >
-                      </mdb-btn>
-                    </nuxt-link>
+                      <mdb-icon
+                        class="text-light"
+                        icon="shopping-bag left"
+                      /><span class="h6-responsive text-light"
+                        >Узнать больше</span
+                      >
+                    </mdb-btn>
                   </div>
                 </div>
               </mdb-card>
@@ -145,30 +143,21 @@
           data-aos-easing="ease-out"
         >
           <div class="container text-center my-5 py-5 mx-auto">
-            <h2 class="display-1 mt-auto mb-3" style="color: #454545">
-              <strong>
-                WE TAKE PICTURES
-                <hr class="m-0" />
-                FROM ABOVE
-              </strong>
+            <h2
+              class="display-1 text-uppercase
+             mt-auto mb-3"
+              style="color: #454545"
+            >
+              <strong v-html="homePage.titlemiddle"> </strong>
             </h2>
             <p class="h5 text-black-50 text-uppercase mb-5">
-              Добро пожаловать на мой сайт!
+              {{ homePage.subtitlemiddle }}
             </p>
             <p
-              class="h6-responsive text-center grey-text mb-4"
+              class="w-responsive mx-auto text-center grey-text mb-4"
               style="font-weight: lighter"
-            >
-              Я Павел, режисер видео-монтажа, видеограф и фотограф. Опыт работы
-              более 12 лет. Работаю по всему Израилю. Помогаю предпринимателям и
-              их семьям создать брендированный фото-видео контент об их
-              профессиональной и личной жизни. Преимущество работы со мной:
-              работаю в программах Photoshop, Adobe Premier, Adobe After Effect,
-              Davinci, Lightroom.Что это значит для вас? Фантазиям и
-              креативности вашей съемки почти нет границ.Увлекаюсь
-              высокотехнологичной съёмкой, постоянно обучаясь новым техникам
-              видеосъемки и монтажа.
-            </p>
+              v-html="homePage.description"
+            ></p>
             <mdb-btn
               color="yellow darken-3"
               @click="$router.push('/about')"
@@ -214,7 +203,7 @@
       ></span>
       <Modal
         :index="selectedIndex"
-        :items="myWedding"
+        :items="wedding"
         v-show="isModalVisible"
         @close="closeModal"
       />
@@ -223,10 +212,10 @@
 </template>
 
 <script>
-import homesQuery from "~/apollo/queries/home/homes.gql";
+import homePageQuery from "~/apollo/queries/home/homes.gql";
 import VLazyImage from "v-lazy-image";
 import Modal from "~/components/modal.vue";
-import CoolLight from "~/pages/CoolLight.vue";
+import CoolLight from "~/components/CoolLight.vue";
 import {
   mdbContainer,
   mdbRow,
@@ -254,14 +243,27 @@ export default {
       selectedIndex: 0,
       isModalVisible: false,
       error: null,
-      homes: []
+      homePage: {},
+      wedding: []
     };
   },
   apollo: {
-    homes: {
+    homePage: {
       prefetch: true,
-      query: homesQuery
+      query: homePageQuery,
     }
+  },
+  head() {
+    return {
+      title: this.homePage.metatitle,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.homePage.metades
+        }
+      ]
+    };
   },
   em: "#animateFadeIn_1",
   components: {
@@ -292,18 +294,15 @@ export default {
   transition: "fade",
   methods: {
     showModal(index) {
-      this.isModalVisible = this.homes[index].disabled;
+      this.isModalVisible = this.homePage.homes[index].disabled;
     },
     closeModal() {
       this.isModalVisible = false;
     }
   },
-  computed: {
-    myWedding() {
-      return this.homes.filter(item => {
-        return item.disabled != false;
-      });
-    }
+  async fetch() {
+    const response = await this.$axios.$get("/homes")
+    this.wedding = response.filter(i => i.disabled == true);
   },
 };
 </script>

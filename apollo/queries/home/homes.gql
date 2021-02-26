@@ -1,36 +1,44 @@
-query Homes {
-  homes {
+query HomePage {
+  homePage {
     id
-    name
-    title
+    metatitle
+    titletop
+    titlemiddle
     description
-    listprices {
+    metades
+    homes {
       id
       name
+      title
       description
+      listprices {
+        id
+        name
+        description
+        color
+        price
+        visible
+        uid
+      }
+      image {
+        url
+      }
+      modalimg {
+        url
+      }
+      icon
       color
-      price
-      visible
-      uid
-    }
-    image {
-      url
-    }
-    modalimg {
-      url
-    }
-    icon
-    color
-    disabled
-    extralist {
-      id
-      name
-      description
-      count
-      max
-      active
-      category
-      price
+      disabled
+      extralist {
+        id
+        name
+        description
+        count
+        max
+        active
+        category
+        price
+      }
     }
   }
 }

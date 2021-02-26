@@ -13,8 +13,9 @@
             <mdb-col lg="5">
               <mdb-view>
                 <v-lazy-image
-                  :srcset="items[index].modalimg.url + '?webp'"
+                  src-placeholder="require('~/assets/img/back-pattern.png')"
                   class="img-fluid"
+                  :srcset="items[index].modalimg.url+'?webp'"
                   :src="items[index].modalimg.url"
                   :alt="items[index].title"
                 />
@@ -157,7 +158,7 @@ export default {
     getOrder(listprice) {
       this.removeOrder(listprice);
       this.removeExtra();
-      this.$router.push({ name: "Checkout" });
+      this.$router.push({ name: "Checkout"});
     },
     show() {
       this.$emit("show");

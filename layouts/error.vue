@@ -16,29 +16,32 @@ export default {
   props: {
     error: {
       type: Object,
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     errorPage() {
-      if(this.error.statusCode === 400) {
-        return error400
+      if (this.error.statusCode === 500) {
+        return error500;
       }
-      if(this.error.statusCode === 401) {
-        return error401
+      if (this.error.statusCode === 400) {
+        return error400;
       }
-      if(this.error.statusCode === 403) {
-        return error403
+      if (this.error.statusCode === 401) {
+        return error401;
       }
-      if(this.error.statusCode === 404) {
-        return error404
+      if (this.error.statusCode === 403) {
+        return error403;
       }
-      if(this.error.statusCode === 503) {
-        return error503
+      if (this.error.statusCode === 404) {
+        return error404;
       }
-      return error500;
+      if (this.error.statusCode === 503) {
+        return error503;
+      }
+
       // catch everything else
-    },
-  },
+    }
+  }
 };
 </script>

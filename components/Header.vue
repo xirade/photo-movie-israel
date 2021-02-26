@@ -22,28 +22,28 @@
         id="navbar-toggle-collapse"
         is-nav
       >
-        <b-navbar-nav class="container w-50 mx-auto text-center">
+        <b-navbar-nav class="container mx-auto text-center">
           <b-nav-item to="/">Home</b-nav-item>
           <b-nav-item to="/services">Services</b-nav-item>
           <b-nav-item to="/about">About</b-nav-item>
           <b-nav-item-dropdown text="Portfolio" toggle-class="nav-link-custom">
             <b-dropdown-item
-              to="/portfolio/clips"
+              :to="{name: 'Portfolio-id', params: {id: 1}}"
               class="drop-list text-center"
               >Clips</b-dropdown-item
             >
             <b-dropdown-item
-              to="/portfolio/stills"
+              :to="{name: 'Portfolio-id', params: {id: 2}}"
               class="drop-list text-center"
               >Still-life</b-dropdown-item
             >
             <b-dropdown-item
-              to="/portfolio/brands"
+              :to="{name: 'Portfolio-id', params: {id: 3}}"
               class="drop-list text-center"
               >Branding</b-dropdown-item
             >
             <b-dropdown-item
-              to="/portfolio/families"
+              :to="{name: 'Portfolio-id', params: {id: 4}}"
               class="drop-list text-center"
               >Family</b-dropdown-item
             >
@@ -126,7 +126,6 @@ export default {
 
 .navbar {
   z-index: 1020;
-  box-shadow: 0px 0px 5px rgba(245, 245, 245, 0.5);
 }
 
 .navbar-backdrop {
