@@ -1,7 +1,7 @@
 <template>
     <div>
-      <ErrorPage v-show="success != true" :error="error" />
-      <div class="container my-5 animated fadeIn">
+      <ErrorPage v-if="success == null" :error="error"/>
+      <div v-else class="container my-5 animated fadeIn">
         <div class="py-5 d-flex align-items-center flex-center flex-column">
           <h3 class="display-2">Thank you!</h3>
           <p class="h5">for choosing our services</p>
@@ -30,16 +30,16 @@ export default {
   name: "review",
   data() {
     return {
-      success: false,
+      success: null,
       error: {
-        statusCode: 404
+        statusCode: 500
       }
     };
   },
   components: {
     ErrorPage
   },
-  async fetch() {
+  async mounted() {
     try {
       this.success = await this.$route.params.success;
     } catch (error) {

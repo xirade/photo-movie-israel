@@ -12,10 +12,9 @@
         </mdb-card-title>
         <span>Total:</span>
         <span class="font-weight-bold">{{ item.price + getTotalPrice }}₪</span>
-        <hr>
-            <ExtraSmall v-if="item.category != null"/>
+            <ExtraSmall v-if="item.category != 'null'"/>
         <div class="table">
-          <ExtraTable v-if="item.category != null" />
+          <ExtraTable v-if="item.category != 'null'" />
         </div>
         <mdb-btn @click="showAlert" id="check_validate" block color="warning"
           >Next</mdb-btn
@@ -54,7 +53,6 @@ export default {
   data() {
     return {
       isActive: false,
-      orders: [],
       limitPosition: 350,
       scrolled: false,
       error: null,
@@ -100,9 +98,6 @@ export default {
     }
   },
   computed: {
-    getOrder() {
-      return this.$store.getters["order/items"];
-    },
     getTotalPrice() {
       return this.$store.getters["cart/price"];
     },
