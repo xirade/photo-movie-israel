@@ -205,7 +205,7 @@
         ></span>
         <Modal
           :index="selectedIndex"
-          :items="wedding"
+          :items="getWedding"
           v-show="isModalVisible"
           @close="closeModal"
         />
@@ -298,7 +298,7 @@ export default {
   methods: {
     showModal(index) {
       if(this.homePage.homes[index].disabled == true) {
-        this.isModalVisible = this.homePage.homes[index].disabled;
+        this.isModalVisible = true;
       } else {
         this.$router.push('/services')
       }
@@ -309,7 +309,12 @@ export default {
   },
   async fetch() {
     const response = await this.$axios.$get("/homes");
-    this.wedding = response.filter(i => i.disabled == true);
+    this.wedding = response;
+  },
+  computed: {
+    getWedding() {
+      return this.wedding.filter(i => i.disabled == true);
+    }
   }
 };
 </script>

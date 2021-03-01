@@ -93,7 +93,7 @@ export default {
   ],
   publicRuntimeConfig: {
     axios: {
-      baseURL: "http://localhost:1337"
+      baseURL: "https://peaceful-cove-41304.herokuapp.com" || "http://localhost:1337"
     }
   },
   optimizedImages: {
