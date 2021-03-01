@@ -104,11 +104,7 @@
                       </mdb-container>
                       <mdb-btn
                         :outline="item.color"
-                        @click="
-                          item.disabled != false
-                            ? showModal(index)
-                            : $router.push('/services')
-                        "
+                        @click="showModal(index)"
                       >
                         <mdb-icon
                           class="text-light"
@@ -301,7 +297,11 @@ export default {
   transition: "fade",
   methods: {
     showModal(index) {
-      this.isModalVisible = this.homePage.homes[index].disabled;
+      if(this.homePage.homes[index].disabled == true) {
+        this.isModalVisible = this.homePage.homes[index].disabled;
+      } else {
+        this.$router.push('/services')
+      }
     },
     closeModal() {
       this.isModalVisible = false;

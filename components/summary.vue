@@ -1,13 +1,12 @@
 <template>
   <div>
-    <Alert v-if="isAlertVisible" @show="isAlertVisible" @close="closeAlert" />
     <mdb-card
       :class="{ 'cardroom--unpinned': scrolled }"
       class="cardroom cardroom--pinned z-depth-3"
       style="z-index: 1"
       v-on:scroll="handleScroll"
     >
-      <mdb-card-body v-for="item in getOrder" :key="item.id">
+      <mdb-card-body v-for="item in items" :key="item.id">
         <mdb-card-title class="order-title mt-2">
           {{ item.name }}
         </mdb-card-title>
@@ -23,6 +22,7 @@
         >
       </mdb-card-body>
     </mdb-card>
+    <Alert v-if="isAlertVisible" @show="isAlertVisible" @close="closeAlert" />
   </div>
 </template>
 
@@ -62,6 +62,7 @@ export default {
       isAlertVisible: false
     };
   },
+  props: ['items'],
   methods: {
     showAlert(event) {
       this.isAlertVisible = true;

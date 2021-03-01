@@ -1,6 +1,5 @@
 <template>
   <div>
-    <client-only>
       <div>
         <form id="form_checkout" @submit.prevent="checkForm" method="post">
           <mdb-container class="my-5">
@@ -140,7 +139,7 @@
                 </div>
               </mdb-col>
               <mdb-col lg="6">
-                <Summary />
+                <Summary :items="getOrder"/>
               </mdb-col>
             </mdb-row>
           </mdb-container>
@@ -154,7 +153,6 @@
           <mdb-icon class="mx-3" fab icon="adobe" />
         </div>
       </div>
-    </client-only>
   </div>
 </template>
 

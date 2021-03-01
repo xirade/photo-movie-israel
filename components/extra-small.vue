@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="getExtraList.length == 0">
+    <div v-if="getExtraList.length == 0 && getOrder[0].category !=null">
       <mdb-container class="text-center text-muted">
         <mdb-icon icon="shopping-cart" size="3x" class="mb-3" />
         <p class="h5">Cart is empty!</p>
@@ -35,7 +35,10 @@ export default {
   computed: {
     getExtraList() {
       return this.$store.getters["cart/extralist"];
-    }
+    },
+     getOrder() {
+      return this.$store.getters["order/items"];
+    },
   },
   methods: {
     ...mapMutations({
