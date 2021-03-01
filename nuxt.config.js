@@ -93,7 +93,7 @@ export default {
   ],
   publicRuntimeConfig: {
     axios: {
-      baseURL: process.env.BACKEND_URL || "http://localhost:1337"
+      baseURL: "http://localhost:1337"
     }
   },
   optimizedImages: {
