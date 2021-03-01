@@ -1,32 +1,35 @@
 <template>
   <div>
-    <div class="container mt-4 d-flex flex-center justify-content-center">
-      <span class="mr-auto"
-        ><nuxt-link
-          class="h4 text-uppercase"
-          style="text-decoration: none; color: #6c757d;"
-          :to="'/portfolio'"
-          >Back</nuxt-link
-        ></span
-      >
-      <h2 class="h2 white-text mr-auto text-center pr-5">{{ items.title }}</h2>
-    </div>
-    <Carousel v-if="filteredItems.category == 'clips'" :clip='items'/>
-    <div class="container py-3">
-      <mdb-masonry
-        v-for="category in items.Pictures"
-        :key="category.id"
-        horizontal
-      >
-        <mdb-masonry-item
-          class="mb-3"
-          :src-placeholder="require('~/assets/img/back-pattern.png')"
-          :srcset="category.image.url + '?webp'"
-          :src="category.image.url"
-          :itemStyle="{ width: '100%' }"
-        />
-      </mdb-masonry>
-    </div>
+    <client-only>
+      <div class="container mt-4 d-flex flex-center justify-content-center">
+        <span class="mr-auto"
+          ><nuxt-link
+            class="h4 text-uppercase"
+            style="text-decoration: none; color: #6c757d;"
+            :to="'/portfolio'"
+            >Back</nuxt-link
+          ></span
+        >
+        <h2 class="h2 white-text mr-auto text-center pr-5">
+          {{ items.title }}
+        </h2>
+      </div>
+      <Carousel v-if="filteredItems.category == 'clips'" :clip="items" />
+      <div class="container py-3">
+        <mdb-masonry
+          v-for="category in items.Pictures"
+          :key="category.id"
+          horizontal
+        >
+          <mdb-masonry-item
+            class="mb-3"
+            :srcset="category.image.url + '?webp'"
+            :src="category.image.url"
+            :itemStyle="{ width: '100%' }"
+          />
+        </mdb-masonry>
+      </div>
+    </client-only>
   </div>
 </template>
 
@@ -36,7 +39,7 @@ import Carousel from "~/components/Carousel.vue";
 export default {
   data() {
     return {
-      api_url: process.env.strapiBaseUri,
+      api_url: process.env.strapiBaseUri
     };
   },
   components: {
@@ -44,10 +47,10 @@ export default {
     mdbMasonry,
     mdbMasonryItem
   },
-   async mounted () {
+  async mounted() {
     try {
-      const response = await axios.get('http://localhost:1337/portfolios')
-      this.items = response.data
+      const response = await axios.get("http://localhost:1337/portfolios");
+      this.items = response.data;
     } catch (error) {
       this.error = error;
     }
@@ -56,13 +59,13 @@ export default {
     items: Object
   },
   computed: {
-    filteredItems(){
-      const items = Object.entries(this.items)
-      const categories = items.filter(([key,value]) => value == 'clips');
+    filteredItems() {
+      const items = Object.entries(this.items);
+      const categories = items.filter(([key, value]) => value == "clips");
       const categoryObject = Object.fromEntries(categories);
-      return categoryObject
+      return categoryObject;
     }
-  },
+  }
 };
 </script>
 

@@ -13,7 +13,6 @@
             <mdb-col lg="5">
               <mdb-view>
                 <v-lazy-image
-                  src-placeholder="require('~/assets/img/back-pattern.png')"
                   class="img-fluid"
                   :srcset="items[index].modalimg.url+'?webp'"
                   :src="items[index].modalimg.url"

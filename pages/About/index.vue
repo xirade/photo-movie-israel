@@ -47,7 +47,6 @@
               <mdb-col md="6" class="pl-auto mt-5">
                 <v-lazy-image
                 v-if="aboutPage.image != undefined"
-                  src-placeholder="require('~/assets/img/back-pattern.png')"
                   :srcset="aboutPage.image.url + '?webp'"
                   :src="aboutPage.image.url"
                   :alt="aboutPage.title"

@@ -11,16 +11,16 @@ export default {
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: "server",
+  target: "static",
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: 'Photo-Movie-Israel | %s',
+    titleTemplate: "Photo-Movie-Israel | %s",
     htmlAttrs: {
-      lang: 'eng',
-      lang: 'ru',
+      lang: "eng",
+      lang: "ru",
       amp: true
     },
     meta: [
@@ -29,7 +29,7 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: '%s'
+        content: "%s"
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
@@ -73,7 +73,10 @@ export default {
   buildModules: [],
 
   build: {
-    extractCSS: true
+    extractCSS: true,
+    babel: {
+      compact: true
+    }
   },
   /*
    ** Nuxt.js modules
@@ -128,7 +131,7 @@ export default {
     errorHandler: "~/plugins/apollo-error-handler.js"
   },
   mdbvue: {
-    css: true, // MDB CSS
+    css: true // MDB CSS
   },
   /*
    ** Build configuration

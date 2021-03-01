@@ -27,7 +27,6 @@
           @click="activateImage(index)"
         >
           <v-lazy-image
-            src-placeholder="require('~/assets/img/back-pattern.png')"
             :srcset="i.url + '?webp'"
             class="small-img mt-2 pr-2"
             :src="i.url"

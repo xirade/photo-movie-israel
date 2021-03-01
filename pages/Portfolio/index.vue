@@ -46,7 +46,6 @@
                   >
                     <v-lazy-image
                       class="w-100"
-                      :src-placeholder="require('~/assets/img/back-pattern.png')"
                       :srcset="portfolio.image.url+'?webp'"
                       :src="portfolio.image.url"
                       :alt="portfolio.title"

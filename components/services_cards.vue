@@ -14,7 +14,6 @@
             <mdb-view>
               <v-lazy-image
                 class="img-fluid w-100"
-                :src-placeholder="require('~/assets/img/back-pattern.png')"
                 type="image/webp"
                 :srcset="order.image.url+'?webp'"
                 :src="order.image.url"
