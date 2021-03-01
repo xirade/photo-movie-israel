@@ -1,6 +1,5 @@
 <template>
   <div>
-    <client-only>
       <div>
         <div class="jarallax">
           <div class="clippy-bg pb-5 rgba-stylish-slight"></div>
@@ -210,7 +209,6 @@
           @close="closeModal"
         />
       </div>
-    </client-only>
   </div>
 </template>
 
