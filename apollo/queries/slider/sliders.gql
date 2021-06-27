@@ -1,5 +1,5 @@
-query Sliders{
-  sliders{
+query Sliders($locale: String!){
+  sliders(locale: $locale){
     id
     title
     category

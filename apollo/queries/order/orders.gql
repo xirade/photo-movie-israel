@@ -1,11 +1,11 @@
-query ServicePage {
-  servicePage {
+query ServicePage($locale: String!) {
+  servicePage(locale: $locale) {
     id
     title
     description
     metatitle
     metades
-    orders {
+    orders{
       id
       title
       description

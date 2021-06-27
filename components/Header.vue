@@ -12,7 +12,12 @@
         target="navbar-toggle-collapse"
       >
         <template v-slot:default="{ expanded }">
-          <b-icon v-if="expanded" class="rotate down" scale="2" icon="three-dots"></b-icon>
+          <b-icon
+            v-if="expanded"
+            class="rotate down"
+            scale="2"
+            icon="three-dots"
+          ></b-icon>
           <b-icon v-else class="rotate" scale="2" icon="three-dots"></b-icon>
         </template>
       </b-navbar-toggle>
@@ -23,32 +28,43 @@
         is-nav
       >
         <b-navbar-nav class="container mx-auto text-center">
-          <b-nav-item to="/">Home</b-nav-item>
-          <b-nav-item to="/services">Services</b-nav-item>
-          <b-nav-item to="/about">About</b-nav-item>
-          <b-nav-item-dropdown text="Portfolio" toggle-class="nav-link-custom">
-            <b-dropdown-item
-              :to="{name: 'Portfolio-id', params: {id: 1}}"
-              class="drop-list text-center"
-              >Clips</b-dropdown-item
+          <b-nav-item :to="{ name: `index___${$i18n.locale}` }">{{
+            $i18n.locale == "en" ? "Home" : "Главная"
+          }}</b-nav-item>
+          <b-nav-item :to="{ name: `services___${$i18n.locale}` }"
+            >{{$i18n.locale == "en" ? "Services" : "Сервисы"}}</b-nav-item
+          >
+          <b-nav-item :to="{ name: `about___${$i18n.locale}` }"
+            >{{$i18n.locale == "en" ? "About" : "О нас"}}</b-nav-item
+          >
+          <b-nav-item-dropdown :text="$i18n.locale == 'en' ? 'Portfolios' : 'Портфолио'" toggle-class="nav-link-custom">
+            <div
+              v-for="portfolio in portfolioPage.portfolios"
+              :key="portfolio.id"
             >
+              <b-dropdown-item
+                :to="{
+                  name: `portfolio-id___${$i18n.locale}`,
+                  params: { id: portfolio.uid }
+                }"
+                class="drop-list text-center"
+              >
+                {{ portfolio.title }}
+              </b-dropdown-item>
+            </div>
+          </b-nav-item-dropdown>
+          <b-nav-item :to="{ name: `contact___${$i18n.locale}` }"
+            >{{$i18n.locale == "en" ? "Contact" : "Контакты"}}</b-nav-item
+          >
+          <b-nav-item-dropdown :text="$i18n.locale == 'en' ? 'Language' : 'Язык'" toggle-class="nav-link-custom">
             <b-dropdown-item
-              :to="{name: 'Portfolio-id', params: {id: 2}}"
               class="drop-list text-center"
-              >Still-life</b-dropdown-item
-            >
-            <b-dropdown-item
-              :to="{name: 'Portfolio-id', params: {id: 3}}"
-              class="drop-list text-center"
-              >Branding</b-dropdown-item
-            >
-            <b-dropdown-item
-              :to="{name: 'Portfolio-id', params: {id: 4}}"
-              class="drop-list text-center"
-              >Family</b-dropdown-item
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              :to="switchLocalePath(locale.code)"
+              >{{ locale.name }}</b-dropdown-item
             >
           </b-nav-item-dropdown>
-          <b-nav-item to="/contact">Contact</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -61,6 +77,7 @@
 </template>
 
 <script>
+import portfolioPageQuery from "@/apollo/queries/portfolio/portfolios.gql";
 import {
   BIcon,
   BIconThreeDots,
@@ -86,22 +103,39 @@ export default {
     BNavbarNav,
     BNavItem
   },
+  apollo: {
+    portfolioPage: {
+      query: portfolioPageQuery,
+      prefetch: true,
+      variables() {
+        return {
+          locale: this.$i18n.locale
+        };
+      }
+    }
+  },
   data() {
     return {
-      isNavbarCollapseOpen: false
+      isNavbarCollapseOpen: false,
+      portfolioPage: {}
     };
   },
   methods: {
     rotateBar() {
       let rotate = document.querySelector(".rotate");
-      rotate.classList.remove("up")
+      rotate.classList.remove("up");
       rotate.classList.toggle("down");
     },
-    closeCollapse(){
+    closeCollapse() {
       let rotate = document.querySelector(".rotate");
-      rotate.classList.remove("down")
+      rotate.classList.remove("down");
       rotate.classList.toggle("up");
-      this.isNavbarCollapseOpen = false
+      this.isNavbarCollapseOpen = false;
+    }
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
     }
   }
 };

@@ -2,7 +2,13 @@
   <div>
     <mdb-modal @show="show" @close="close" danger>
       <mdb-modal-header>
-        <mdb-modal-title>Please check your entries!</mdb-modal-title>
+        <mdb-modal-title>
+          {{
+            $i18n.locale == "en"
+              ? "Please check your entries!"
+              : "Пожалуйста, проверьте свои данные!"
+          }}
+        </mdb-modal-title>
       </mdb-modal-header>
       <mdb-modal-body class="text-center">
         <mdb-icon
@@ -12,17 +18,29 @@
           class="mb-3 text-center animated bounce"
         />
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt ut
-          necessitatibus quo perspiciatis, voluptatem corrupti qui reprehenderit
-          molestias assumenda explicabo.
+          {{
+            $i18n.locale == "en"
+              ? "Check the correctness of filling in the data, for errors or inconsistencies before sending to us"
+              : "Проверьте корректность заполнения данных, на наличие ошибок или несовпадений перед отравкой"
+          }}
         </p>
       </mdb-modal-body>
       <mdb-modal-footer center>
         <mdb-btn type="submit" name="submit" color="success">
-          Get it now
+           {{
+            $i18n.locale == "en"
+              ? "Get it now"
+              : "Подтвердить"
+          }}
           <mdb-icon icon="cash-register" class="ml-1" color="white" />
         </mdb-btn>
-        <mdb-btn outline="danger" @click="close">No, thanks</mdb-btn>
+        <mdb-btn outline="danger" @click="close">
+          {{
+            $i18n.locale == "en"
+              ? "No, thanks"
+              : "Нет, спасибо"
+          }}
+        </mdb-btn>
       </mdb-modal-footer>
     </mdb-modal>
   </div>

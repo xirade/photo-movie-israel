@@ -1,5 +1,5 @@
-query ContactPage {
-    contactPage {
+query ContactPage($locale: String!) {
+    contactPage(locale: $locale) {
         id
         metatitle
         metades

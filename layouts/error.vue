@@ -19,6 +19,11 @@ export default {
       default: null
     }
   },
+  head() {
+    return {
+      title: this.message
+    };
+  },
   computed: {
     errorPage() {
       if (this.error.statusCode === 500) {
@@ -41,6 +46,9 @@ export default {
       }
 
       // catch everything else
+    },
+    message() {
+      return this.error.message;
     }
   }
 };

@@ -8,7 +8,14 @@
             v-for="bigItem in [currentIndex]"
             :key="bigItem"
           >
-            <video @load="loaded" class="embed-responsive-item" controls autoplay muted playsinline>
+            <video
+              @load="loaded"
+              class="embed-responsive-item"
+              controls
+              autoplay
+              muted
+              playsinline
+            >
               <source :src="currentVideo.url" type="video/mp4" />
               <source :src="currentVideo.url" type="video/ogg" />
               <source :src="currentVideo.url" type="video/webm" />
@@ -19,10 +26,14 @@
         <a class="next text-white" @click="next">&#10095;</a>
       </div>
     </div>
-    <div class="thumbnails">
-      <div class="thumbnail-container" v-for="(i,index) in clip.Clips.image"
-          :key="i.id">
+    <div ref="thbNls" class="thumbnails">
+      <div
+        class="thumbnail-container"
+        v-for="(i, index) in clip.Clips.image"
+        :key="i.id"
+      >
         <div
+          ref="thbImg"
           :class="['thumbnail-img', currentIndex == index ? 'active' : '']"
           @click="activateImage(index)"
         >
@@ -46,12 +57,10 @@ export default {
   },
   data() {
     return {
-      api_url: process.env.strapiBaseUri,
-      error: null,
       currentIndex: 0,
       isLoad: null,
       jumpSlideWidth: 0,
-      scrollAmount: 0,
+      scrollAmount: 0
     };
   },
   props: {
@@ -63,8 +72,8 @@ export default {
   methods: {
     loaded() {
       this.currentVideo.url == null
-        ? this.isLoad = true
-        : this.isLoad = false;
+        ? (this.isLoad = true)
+        : (this.isLoad = false);
     },
     next() {
       this.currentIndex += 1;
@@ -83,21 +92,22 @@ export default {
       this.scrollPrev(this.currentIndex);
     },
     scrollNext(active) {
-      const imgSmall = this.$el.querySelector(".thumbnail-img");
-      const container = this.$el.querySelector(".thumbnails");
-      container.scrollLeft = imgSmall.offsetWidth * active;
+      const imgSmall = this.$refs.thbImg;
+      const container = this.$refs.thbNls;
+      container.scrollLeft = imgSmall[this.currentIndex].offsetWidth * active;
       window.scroll({
         left: container.scrollLeft,
         behavior: "smooth"
       });
     },
     scrollPrev(active) {
-      const imgSmall = this.$el.querySelector(".thumbnail-img");
-      const container = this.$el.querySelector(".thumbnails");
+      const imgSmall = this.$refs.thbImg;
+      const container = this.$refs.thbNls;
       if (this.clip.Clips.image.length - 1 != active) {
-        container.scrollLeft -= imgSmall.offsetWidth;
+        container.scrollLeft -= imgSmall[this.currentIndex].offsetWidth;
       } else {
-        container.scrollLeft += imgSmall.offsetWidth * active;
+        container.scrollLeft +=
+          imgSmall.offsetWidth[this.currentIndex] * active;
       }
       window.scroll({
         left: container.scrollLeft,
@@ -136,7 +146,6 @@ export default {
   max-height: 100%;
 }
 
-.big-img,
 .small-img {
   object-fit: cover;
   object-position: center;

@@ -12,9 +12,9 @@
         </mdb-card-title>
         <span>Total:</span>
         <span class="font-weight-bold">{{ item.price + getTotalPrice }}₪</span>
-            <ExtraSmall v-if="item.category != 'null'"/>
+        <extra-small v-if="item.category != 'null'" />
         <div class="table">
-          <ExtraTable v-if="item.category != 'null'" />
+          <extra-table v-if="item.category != 'null'" />
         </div>
         <mdb-btn @click="showAlert" id="check_validate" block color="warning"
           >Next</mdb-btn
@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import ExtraTable from "~/components/extra-table.vue";
-import ExtraSmall from "~/components/extra-small.vue";
 import {
   mdbCol,
   mdbRow,
@@ -47,9 +45,8 @@ export default {
     mdbBtn,
     mdbCardText,
     mdbCardTitle,
-    ExtraTable,
-    ExtraSmall,
   },
+
   data() {
     return {
       isActive: false,
@@ -60,7 +57,7 @@ export default {
       isAlertVisible: false
     };
   },
-  props: ['items'],
+  props: ["items"],
   methods: {
     showAlert(event) {
       this.isAlertVisible = true;
@@ -100,7 +97,7 @@ export default {
   computed: {
     getTotalPrice() {
       return this.$store.getters["cart/price"];
-    },
+    }
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -112,11 +109,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/css/main.css";
-h4 {
-  font-family: "Oswald", sans-serif;
-}
-
 .table {
   overflow: auto;
 }

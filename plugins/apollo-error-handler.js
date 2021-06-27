@@ -4,6 +4,7 @@ export default (graphqlError, { store, error, redirect, route }) => {
     const { networkError, message, gqlError, graphqlErrors } = graphqlError
 
     // handle error
+    
 
     return error({ statusCode: 503, message: message })
 }

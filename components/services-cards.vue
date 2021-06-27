@@ -85,9 +85,7 @@ export default {
       error: null
     };
   },
-  props: {
-    orders: Array
-  },
+  props: ['orders'],
   methods: {
     showModal(index) {
       this.selectedIndex = index;
@@ -120,9 +118,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.card-title {
-  font-family: "Oswald", sans-serif;
-}
-</style>

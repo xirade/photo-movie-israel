@@ -1,222 +1,220 @@
 <template>
   <div>
-      <div>
-        <div class="jarallax">
-          <div class="clippy-bg pb-5 rgba-stylish-slight"></div>
-          <img
-            class="jarallax-img"
-            src="~/assets/img/background.jpg"
-            alt="background"
-          />
-          <div class="py-5">
-            <div
-              class="header-main pb-5 d-flex flex-column mb-auto"
-              style="height: 80vh;"
-            >
-              <img
-                src="~/assets/img/4log.png"
-                height="120px"
-                width="250px"
-                class="mx-auto"
-                alt="Logo"
-              />
-              <div>
-                <transition
-                  appear
-                  appear-active-class="fade-enter-active-line-1"
-                >
-                  <span class="active_line_1"></span>
-                </transition>
-              </div>
-              <h1
-                class="display-4 title-header text-uppercase text-center white-text animated fadeInDown slower"
-                v-html="homePage.titletop"
-              ></h1>
+    <Loading v-if="showLoad" />
+    <div v-else>
+      <div class="jarallax overflow-hidden">
+        <div class="clippy-bg rgba-stylish-slight"></div>
+        <img
+          class="jarallax-img"
+          src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596198873/background_n0nne4.jpg"
+          alt="background"
+          v-parallax.absY="0.2"
+        />
+        <div class="py-5">
+          <div class="header-main pb-5 d-flex flex-column mb-auto">
+            <img
+              src="https://res.cloudinary.com/dxeebmzdv/image/upload/v1596646320/000_apiqou_bznbq5.png"
+              height="120px"
+              width="250px"
+              class="mx-auto"
+              alt="Logo"
+            />
+            <div>
+              <transition appear appear-active-class="fade-enter-active-line-1">
+                <span class="active_line_1"></span>
+              </transition>
             </div>
+            <h1
+              class="display-4 title-header text-uppercase text-center white-text animated fadeInDown slower"
+              v-html="homePage.titletop"
+            ></h1>
           </div>
+        </div>
+      </div>
+      <div
+        class="service container bg-dark p-0"
+        style="max-width: 100%; z-index: 0"
+      >
+        <div
+          class="bg-white position-relative text-black d-flex justify-content-end"
+          style="z-index: 0"
+        >
           <span
             class="active_line_1 line-bg"
             data-aos="goLine_service"
             data-aos-duration="1000"
             data-aos-easing="ease-out"
           ></span>
-        </div>
-        <div
-          class="service container bg-dark p-0"
-          style="max-width: 100%; z-index: 0"
-        >
-          <div
-            class="bg-white text-black d-flex justify-content-end"
-            style="z-index: 0"
-          >
-            <div class="service_title">
-              <p class="display-5 pl-2 font-weight-bolder yellow-text">01</p>
-              <h2 class="display-3 pl-2 font-weight-bold">SERVICE</h2>
-            </div>
+          <div class="service_title">
+            <p class="display-5 pl-2 font-weight-bolder yellow-text">01</p>
+            <h2 class="display-3 text-uppercase pl-2 font-weight-bold">
+              {{ $i18n.locale == "en" ? "Services" : "Сервисы" }}
+            </h2>
           </div>
         </div>
-        <div>
-          <div
-            class="w-100 position-relative"
-            style="background-color: #212121; z-index: 2"
-          >
-            <mdb-row class="py-2 justify-content-center mx-auto">
-              <mdb-col
-                class="p-2"
-                xl="6"
-                v-for="(item, index) in homePage.homes"
-                :key="item.id"
+      </div>
+      <div>
+        <div
+          class="w-100 position-relative"
+          style="background-color: #212121; z-index: 2"
+        >
+          <mdb-row class="py-2 justify-content-center mx-auto">
+            <mdb-col
+              class="p-2"
+              xl="6"
+              v-for="(item, index) in homePage.homes"
+              :key="item.id"
+            >
+              <mdb-card
+                class="card-image h-100 border border-dark"
+                :style="{
+                  backgroundImage: 'url(' + item.image.url + ')',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }"
               >
-                <mdb-card
-                  class="card-image h-100 border border-dark"
-                  :style="{
-                    backgroundImage: 'url(' + item.image.url + ')',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }"
-                >
+                <div class="text-white text-center rgba-brown-light p-1 h-100">
                   <div
-                    class="text-white text-center rgba-brown-light p-1 h-100"
+                    class="z-depth-1 mx-auto py-5 h-100 d-flex flex-column align-items-center"
+                    style="background-color: #2e2e2e99"
                   >
-                    <div
-                      class="z-depth-1 mx-auto py-5 h-100 d-flex flex-column align-items-center"
-                      style="background-color: #2e2e2e99"
+                    <h5
+                      :class="[
+                        'text-' + item.color,
+                        'font-weight-bold',
+                        'text-uppercase'
+                      ]"
                     >
-                      <h5
-                        :class="[
-                          'text-' + item.color,
-                          'font-weight-bold',
-                          'text-uppercase'
-                        ]"
-                      >
-                        <mdb-icon :icon="item.icon" />{{ item.name }}
-                      </h5>
-                      <mdb-card-title tag="h4" class="pt-2 h3-responsive">
-                        <strong>{{ item.title }}</strong>
-                      </mdb-card-title>
-                      <mdb-container class="my-2">
-                        <div
-                          v-show="item.description"
-                          class="h6-responsive text-white"
-                          v-html="$md.render(item.description)"
-                        ></div>
-                      </mdb-container>
-                      <mdb-btn
-                        :outline="item.color"
-                        @click="showModal(index)"
-                      >
-                        <mdb-icon
-                          class="text-light"
-                          icon="shopping-bag left"
-                        /><span class="h6-responsive text-light"
-                          >Узнать больше</span
-                        >
-                      </mdb-btn>
-                    </div>
+                      <mdb-icon :icon="item.icon" />{{ item.name }}
+                    </h5>
+                    <mdb-card-title tag="h4" class="pt-2 h3-responsive">
+                      <strong>{{ item.title }}</strong>
+                    </mdb-card-title>
+                    <mdb-container class="my-2">
+                      <div
+                        v-show="item.description"
+                        class="h6-responsive text-white"
+                        v-html="$md.render(item.description)"
+                      ></div>
+                    </mdb-container>
+                    <mdb-btn :outline="item.color" @click="showModal(index)">
+                      <mdb-icon
+                        class="text-light"
+                        icon="shopping-bag left"
+                      /><span class="h6-responsive text-light">{{
+                        $i18n.locale == "en" ? "Learn more" : "Узнать больше"
+                      }}</span>
+                    </mdb-btn>
                   </div>
-                </mdb-card>
-              </mdb-col>
-            </mdb-row>
-          </div>
+                </div>
+              </mdb-card>
+            </mdb-col>
+          </mdb-row>
         </div>
-        <div
-          class="container bg-white text-black d-flex justify-content-start"
-          style="max-width: 100%; position: relative"
-        >
-          <span
-            class="active_line_3"
-            data-aos="goLine_1"
-            data-aos-duration="1000"
-            data-aos-easing="ease-out"
-          ></span>
-          <div class="service_title">
-            <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">
-              02
-            </p>
-            <h2 class="display-3 pr-2 text-right font-weight-bold">ABOUT</h2>
-          </div>
-        </div>
-        <div class="container bg-light text-black" style="max-width: 100%">
-          <div
-            class="d-flex py-5 align-items-center flex-center flex-column"
-            data-aos="fade-down"
-            data-aos-duration="1000"
-            data-aos-easing="ease-out"
-          >
-            <div class="container text-center my-5 py-5 mx-auto">
-              <h2
-                class="display-1 text-uppercase
-             mt-auto mb-3"
-                style="color: #454545"
-              >
-                <strong v-html="homePage.titlemiddle"> </strong>
-              </h2>
-              <p class="h5 text-black-50 text-uppercase mb-5">
-                {{ homePage.subtitlemiddle }}
-              </p>
-              <p
-                class="w-responsive mx-auto text-center grey-text mb-4"
-                style="font-weight: lighter"
-                v-html="homePage.description"
-              ></p>
-              <mdb-btn
-                color="yellow darken-3"
-                @click="$router.push('/about')"
-                class="px-5"
-              >
-                <mdb-icon icon="clone left" />Read more
-              </mdb-btn>
-            </div>
-          </div>
-        </div>
-        <div
-          class="bg-white text-black d-flex justify-content-end"
-          style="position: relative"
-        >
-          <div class="service_title">
-            <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
-            <h2 class="display-3 pl-2 font-weight-bold">MEDIA</h2>
-          </div>
-          <span
-            class="active_line_4"
-            data-aos="goLine_smaller"
-            data-aos-duration="1000"
-            data-aos-easing="ease-out"
-          ></span>
-        </div>
-        <div>
-          <CoolLight />
-        </div>
-
-        <div class="bg-white w-100" style="position: relative; height: 40vh">
-          <span
-            class="active_line_1"
-            data-aos="goLine_small"
-            data-aos-duration="1000"
-            data-aos-easing="ease-out"
-          ></span>
-        </div>
+      </div>
+      <div
+        class="container bg-white text-black d-flex justify-content-start"
+        style="max-width: 100%; position: relative"
+      >
         <span
-          class="active_line_1"
-          data-aos="goLine_xsmall"
+          class="active_line_3"
+          data-aos="goLine_1"
           data-aos-duration="1000"
           data-aos-easing="ease-out"
         ></span>
-        <Modal
-          :index="selectedIndex"
-          :items="getWedding"
-          v-show="isModalVisible"
-          @close="closeModal"
-        />
+        <div class="service_title">
+          <p class="display-5 pr-2 text-right font-weight-bolder yellow-text">
+            02
+          </p>
+          <h2 class="display-3 text-uppercase pr-2 text-right font-weight-bold">
+            {{ $i18n.locale == "en" ? "About" : "О нас" }}
+          </h2>
+        </div>
       </div>
+      <div class="container bg-light text-black" style="max-width: 100%">
+        <div
+          class="d-flex py-5 align-items-center flex-center flex-column"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+        >
+          <div class="container text-center my-5 py-5 mx-auto">
+            <h2
+              class="display-1 text-uppercase
+             mt-auto mb-3"
+              style="color: #454545"
+            >
+              <strong v-html="homePage.titlemiddle"> </strong>
+            </h2>
+            <p class="h5 text-black-50 text-uppercase mb-5">
+              {{ homePage.subtitlemiddle }}
+            </p>
+            <p
+              class="w-responsive mx-auto text-center grey-text mb-4"
+              style="font-weight: lighter"
+              v-html="homePage.description"
+            ></p>
+            <mdb-btn
+              color="yellow darken-3"
+              @click="$router.push({ name: `about___${$i18n.locale}` })"
+              class="px-5"
+            >
+              <mdb-icon icon="clone left" />{{
+                $i18n.locale == "en" ? "Read more" : "Узнать больше"
+              }}
+            </mdb-btn>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-white text-black d-flex justify-content-end"
+        style="position: relative"
+      >
+        <div class="service_title">
+          <p class="display-5 pl-2 font-weight-bolder yellow-text">03</p>
+          <h2 class="display-3 text-uppercase pl-2 font-weight-bold">
+            {{ $i18n.locale == "en" ? "Media" : "Медиа" }}
+          </h2>
+        </div>
+        <span
+          class="active_line_4"
+          data-aos="goLine_smaller"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+        ></span>
+      </div>
+      <div>
+        <CoolLight />
+      </div>
+
+      <div class="bg-white w-100" style="position: relative; height: 40vh">
+        <span
+          class="active_line_1"
+          data-aos="goLine_small"
+          data-aos-duration="1000"
+          data-aos-easing="ease-out"
+        ></span>
+      </div>
+      <span
+        class="active_line_1"
+        data-aos="goLine_xsmall"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+      ></span>
+      <modal
+        v-if="getWedding"
+        :index="selectedIndex"
+        :items="getWedding"
+        v-show="isModalVisible"
+        @close="closeModal"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import homePageQuery from "~/apollo/queries/home/homes.gql";
+import homePageQuery from "@/apollo/queries/home/homes.gql";
 import VLazyImage from "v-lazy-image";
-import Modal from "~/components/modal.vue";
-import CoolLight from "~/components/CoolLight.vue";
 import {
   mdbContainer,
   mdbRow,
@@ -239,22 +237,35 @@ import {
   mdbIcon
 } from "mdbvue";
 export default {
+  apollo: {
+    homePage: {
+      prefetch: true,
+      query: homePageQuery,
+      variables() {
+        return { locale: this.$i18n.locale };
+      },
+      update(data) {
+        return data.homePage;
+      }
+    }
+  },
+  beforeCreate() {
+    this.showLoad = this.$apolloProvider.watchLoading;
+  },
+  mounted() {
+    this.showLoad = false;
+  },
   data() {
     return {
       selectedIndex: 0,
       isModalVisible: false,
       error: null,
       homePage: {},
-      wedding: []
+      showLoad: true
     };
   },
-  apollo: {
-    homePage: {
-      prefetch: true,
-      query: homePageQuery
-    }
-  },
   head() {
+    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true });
     return {
       title: this.homePage.metatitle,
       meta: [
@@ -262,14 +273,20 @@ export default {
           hid: "description",
           name: "description",
           content: this.homePage.metades
-        }
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
+        },
+        ...i18nHead.meta
       ]
     };
   },
   em: "#animateFadeIn_1",
   components: {
     VLazyImage,
-    CoolLight,
     mdbContainer,
     mdbContainer,
     mdbRow,
@@ -289,39 +306,34 @@ export default {
     mdbInput,
     mdbView,
     mdbMask,
-    mdbIcon,
-    Modal
+    mdbIcon
   },
   transition: "fade",
   methods: {
     showModal(index) {
-      if(this.homePage.homes[index].disabled == true) {
+      if (this.homePage.homes[index].disabled == true) {
         this.isModalVisible = true;
       } else {
-        this.$router.push('/services')
+        this.$router.push({ name: `services___${this.$i18n.locale}` });
       }
     },
     closeModal() {
       this.isModalVisible = false;
     }
   },
-  async fetch() {
-    const response = await this.$axios.$get("/homes");
-    this.wedding = response;
-  },
   computed: {
     getWedding() {
-      return this.wedding.filter(i => i.disabled == true);
+      if (this.homePage.homes) {
+        const filtered = this.homePage.homes.filter(i => i.disabled == true);
+
+        return filtered;
+      }
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.first {
-  height: 110vh;
-}
-
 h4 {
   color: #e3deca;
 }
@@ -495,12 +507,6 @@ hr {
   font-size: 5.5rem;
 }
 
-.display-4,
-.display-1,
-.display-3,
-.h3 {
-  font-family: "Oswald", sans-serif;
-}
 .display-3 {
   font-size: 3.5rem;
 }

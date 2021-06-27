@@ -9,36 +9,68 @@
         <mdb-row class="my-4 ">
           <mdb-col md="3" lg="4">
             <h5 class="text-uppercase mb-4 font-weight-bold grey-text">
-              Desctiption organization
+              {{ $i18n.locale == "en" ? "Desctiption organization" : "Описание организации" }}
             </h5>
             <p>
-              Делаю видео и фото любого формата от постановочного фильма до
-              съемки мероприятия. Возможна съемка с квадрокоптера.
+              {{
+                $i18n.locale == "en"
+                  ? "I make videos and photos of any format, from a staged film to shooting an event. Shooting from a quadcopter is possible."
+                  : "Делаю видео и фото любого формата от постановочного фильма до съемки мероприятия. Возможна съемка с квадрокоптера."
+              }}
             </p>
           </mdb-col>
           <hr class="clearfix w-100 d-md-none" />
           <mdb-col md="3" lg="2" class="mx-auto">
             <h5 class="text-uppercase mb-4 font-weight-bold grey-text">
-              Resources:
+              {{ $i18n.locale == "en" ? "Resources" : "Ресурсы" }}
             </h5>
             <ul class="list-unstyled">
-              <p>
-                <router-link tag="a" :to="'/'">HOME</router-link>
-              </p>
-              <p>
-                <router-link tag="a" :to="'/services'">SERVICE</router-link>
-              </p>
-              <p><router-link tag="a" :to="'/about'">ABOUT</router-link></p>
-              <p>
-                <router-link tag="a" :to="'/portfolio'">PORTFOLIO</router-link>
-              </p>
-              <p><router-link tag="a" :to="'/contact'">CONTACT</router-link></p>
+              <NuxtLink
+                class="text-uppercase"
+                :to="{ name: `index___${$i18n.locale}` }"
+              >
+                <p>
+                  {{ $i18n.locale == "en" ? "Home" : "Главная" }}
+                </p>
+              </NuxtLink>
+              <NuxtLink
+                class="text-uppercase"
+                :to="{ name: `services___${$i18n.locale}` }"
+              >
+                <p>
+                  {{ $i18n.locale == "en" ? "Services" : "Сервисы" }}
+                </p>
+              </NuxtLink>
+              <NuxtLink
+                class="text-uppercase"
+                :to="{ name: `about___${$i18n.locale}` }"
+              >
+                <p>
+                  {{ $i18n.locale == "en" ? "About" : "О нас" }}
+                </p>
+              </NuxtLink>
+              <NuxtLink
+                class="text-uppercase"
+                :to="{ name: `portfolio___${$i18n.locale}` }"
+              >
+                <p>
+                  {{ $i18n.locale == "en" ? "Portfolios" : "Портфолио" }}
+                </p>
+              </NuxtLink>
+              <NuxtLink
+                class="text-uppercase"
+                :to="{ name: `contact___${$i18n.locale}` }"
+              >
+                <p>
+                  {{ $i18n.locale == "en" ? "Contact" : "Контакты" }}
+                </p>
+              </NuxtLink>
             </ul>
           </mdb-col>
           <hr class="clearfix w-100 d-md-none" />
           <mdb-col md="5" lg="3">
             <h5 class="text-uppercase mb-4 font-weight-bold grey-text">
-              ADRESS:
+              {{ $i18n.locale == "en" ? "Adress:" : "Адреса" }}
             </h5>
             <ul class="list-unstyled">
               <p>
@@ -65,7 +97,7 @@
           <hr class="clearfix w-100 d-md-none" />
           <mdb-col md="3" lg="2" class="follow-us">
             <h5 class="text-uppercase mb-4 font-weight-bold grey-text">
-              FOLLOW US:
+              {{ $i18n.locale == "en" ? "Follow us" : "Подпишись" }}
             </h5>
             <div class="mt-2 ">
               <a

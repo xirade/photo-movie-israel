@@ -1,6 +1,11 @@
-query HomePage {
-  homePage {
+query HomePage($locale: String!) {
+  homePage(locale: $locale) {
+    locale
     id
+    localizations {
+      id
+      locale
+    }
     metatitle
     titletop
     titlemiddle

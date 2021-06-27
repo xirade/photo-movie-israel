@@ -1,5 +1,5 @@
-query CheckoutPage {
-    checkoutPage {
+query CheckoutPage($locale: String!) {
+    checkoutPage(locale: $locale) {
         id
         title
         description

@@ -1,5 +1,5 @@
-query PortfolioPage {
-  portfolioPage {
+query PortfolioPage($locale: String!) {
+  portfolioPage(locale: $locale) {
     id
     title
     description
@@ -7,6 +7,7 @@ query PortfolioPage {
     metades
     portfolios {
       id
+      uid
       title
       description
       image {

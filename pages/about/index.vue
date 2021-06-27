@@ -24,7 +24,9 @@
           <p class="display-5 pl-2 text-left font-weight-bolder yellow-text">
             02
           </p>
-          <h2 class="display-3 pl-2 font-weight-bold text-uppercase">About</h2>
+          <h2 class="display-3 pl-2 font-weight-bold text-uppercase">
+            {{ $i18n.locale == "en" ? "About" : "О нас" }}
+          </h2>
         </div>
       </div>
     </header>
@@ -46,7 +48,7 @@
               </mdb-col>
               <mdb-col md="6" class="pl-auto mt-5">
                 <v-lazy-image
-                v-if="aboutPage.image != undefined"
+                  v-if="aboutPage.image != undefined"
                   :srcset="aboutPage.image.url + '?webp'"
                   :src="aboutPage.image.url"
                   :alt="aboutPage.title"
@@ -69,11 +71,18 @@
       <mdb-container class="py-5">
         <section id="team-section" class="text-center">
           <h2 class="h1-responsive font-weight-bold my-5 text-uppercase">
-            Our amazing team
+            {{
+              $i18n.locale == "en"
+                ? "Our amazing team"
+                : "Наша удивительная команда"
+            }}
           </h2>
           <p class="grey-text h6-responsive mb-5 mx-auto">
-            Моя команда всегда будет рада сотрудничеству! Если у вас есть идеи,
-            мысли или предложения как мы можем быть вам полезными, обращайтесь!
+            {{
+              $i18n.locale == "en"
+                ? "My team will always be glad to cooperate! If you have ideas, thoughts or suggestions on how we can be useful to you, please contact us!"
+                : "Моя команда всегда будет рада сотрудничеству! Если у вас есть идеи, мысли или предложения как мы можем быть вам полезными, обращайтесь!"
+            }}
           </p>
           <mdb-row>
             <mdb-col
@@ -128,10 +137,16 @@ export default {
   apollo: {
     aboutPage: {
       prefetch: true,
-      query: aboutPageQuery
+      query: aboutPageQuery,
+      variables() {
+        return {
+          locale: this.$i18n.locale
+        };
+      }
     }
   },
   head() {
+    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true });
     return {
       title: this.aboutPage.metatitle,
       meta: [
@@ -139,7 +154,14 @@ export default {
           hid: "description",
           name: "description",
           content: this.aboutPage.metades
-        }
+        },
+         {
+          hid: "og:image",
+          property: "og:image",
+          content:
+            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
+        },
+        ...i18nHead.meta
       ]
     };
   },
@@ -149,7 +171,7 @@ export default {
     mdbRow,
     mdbCol,
     BAvatar
-  },
+  }
 };
 </script>
 
@@ -162,13 +184,6 @@ export default {
   opacity: 1;
   overflow: hidden;
   background-color: rgba(255, 196, 46, 0.8);
-}
-
-.display-2,
-h2,
-h4,
-.display-3 {
-  font-family: "Oswald", sans-serif;
 }
 
 .display-3 {

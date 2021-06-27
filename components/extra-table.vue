@@ -55,7 +55,12 @@ export default {
   apollo: {
     extralists: {
       prefetch: true,
-      query: extralistsQuery
+      query: extralistsQuery,
+      variables() {
+        return {
+          locale: this.$i18n.locale
+        }
+      }
     }
   },
   computed: {

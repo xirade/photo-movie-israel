@@ -1,5 +1,5 @@
-query AboutPage {
-  aboutPage {
+query AboutPage($locale: String!) {
+  aboutPage(locale: $locale) {
     id
     title
     description
@@ -7,7 +7,7 @@ query AboutPage {
     metades
     metatitle
     image{url}
-    avatar{
+    avatar{  
       id
       name
       category

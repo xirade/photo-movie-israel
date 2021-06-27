@@ -1,25 +1,9 @@
 export default {
-  env: {
-    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
-  },
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: "universal",
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
-   */
   target: "static",
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
   head: {
     titleTemplate: "Photo-Movie-Israel | %s",
     htmlAttrs: {
-      lang: "eng",
+      lang: "en",
       lang: "ru",
       amp: true
     },
@@ -56,7 +40,8 @@ export default {
   plugins: [
     { src: "~/plugins/aos", ssr: false },
     { src: "~/plugins/CoolLightBox", ssr: false },
-    { src: "~/plugins/jarallax", ssr: false },
+    { src: "~/plugins/router" },
+    { src: "@/plugins/vue-parallax-js", ssr: false },
     { src: "~/plugins/crisp", ssr: false },
     { src: "~/plugins/Vuelidate" },
     { src: "~/plugins/Masonry", ssr: false },
@@ -74,6 +59,18 @@ export default {
 
   build: {
     extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: "styles",
+            test: /\.(css|vue)$/,
+            chunks: "all",
+            enforce: true
+          }
+        }
+      }
+    },
     babel: {
       compact: true
     }
@@ -84,21 +81,26 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     "@nuxtjs/apollo",
-    "@nuxtjs/axios",
     "bootstrap-vue/nuxt",
+    "@nuxtjs/axios",
     "mdbvue/nuxt",
     "nuxt-webfontloader",
     "@bazzite/nuxt-optimized-images",
-    "@nuxtjs/markdownit"
+    "@nuxtjs/markdownit",
+    "nuxt-i18n"
   ],
-  publicRuntimeConfig: {
-    axios: {
-      baseURL: "https://peaceful-cove-41304.herokuapp.com" || "http://localhost:1337"
-    }
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      { code: "ru", iso: "ru-RU", name: "Russian" },
+      { code: "en", iso: "en-US", name: "English" }
+    ],
+    seo: true,
+    skipSettingLocaleOnNavigate: true
   },
   optimizedImages: {
     inlineImageLimit: -1,
-    handleImages: ["jpeg", "png", "svg", "webp", "gif"],
+    handleImages: ["jpeg", "png", "webp", "gif"],
     optimizeImages: true,
     optimizeImagesInDev: false,
     defaultImageLoader: "img-loader",
@@ -116,33 +118,31 @@ export default {
   },
 
   markdownit: {
+    runtime: true,
     preset: "default",
     linkify: true,
     breaks: true,
     injected: true
   },
+  publicRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BACKEND_URL || "https://serene-chamber-66689.herokuapp.com"
+    }
+  },
 
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
+        httpEndpoint: process.env.API_URL || "https://serene-chamber-66689.herokuapp.com/graphql"
       }
     },
     errorHandler: "~/plugins/apollo-error-handler.js"
   },
   mdbvue: {
     css: true // MDB CSS
-  },
+  }
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  loading: "~/components/Loading.vue",
-  scrollBehavior(to, from, savedPosition) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({ x: 0, y: 0 });
-      }, 500);
-    });
-  }
 };

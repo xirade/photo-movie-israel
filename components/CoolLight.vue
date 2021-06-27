@@ -85,11 +85,9 @@
 import slidersQuery from "~/apollo/queries/slider/sliders.gql";
 import CoolLightBox from "vue-cool-lightbox";
 import { mdbView, mdbMask } from "mdbvue";
-import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 export default {
   data() {
     return {
-      api_url: process.env.strapiBaseUri,
       sliders: [],
       index: null,
       error: null
@@ -98,7 +96,10 @@ export default {
   apollo: {
     sliders: {
       prefetch: true,
-      query: slidersQuery
+      query: slidersQuery,
+      variables() {
+        return { locale: this.$i18n.locale };
+      }
     }
   },
   components: {
@@ -119,7 +120,7 @@ export default {
   computed: {
     getItems() {
       const result = [];
-      this.sliders.forEach(el => {
+      this.sliders.map(el => {
         result.push(el.image.url);
       });
       return result;
@@ -134,11 +135,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-  font-family: "Oswald", sans-serif;
-}
-
 /* force scrollbar */
 html {
   overflow-y: scroll;

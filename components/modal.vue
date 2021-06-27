@@ -14,7 +14,7 @@
               <mdb-view>
                 <v-lazy-image
                   class="img-fluid"
-                  :srcset="items[index].modalimg.url+'?webp'"
+                  :srcset="items[index].modalimg.url + '?webp'"
                   :src="items[index].modalimg.url"
                   :alt="items[index].title"
                 />
@@ -41,7 +41,7 @@
                 <b-card
                   no-body
                   class="mb-1"
-                  v-for="(listprice) in getListprice"
+                  v-for="listprice in getListprice"
                   :key="listprice.id"
                 >
                   <b-card-header header-tag="header" class="p-1" role="tab">
@@ -157,7 +157,7 @@ export default {
     getOrder(listprice) {
       this.removeOrder(listprice);
       this.removeExtra();
-      this.$router.push({ name: "Checkout"});
+      this.$router.push({ name: `checkout___${this.$i18n.locale}` });
     },
     show() {
       this.$emit("show");
@@ -195,10 +195,6 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  font-family: "Oswald", sans-serif;
-}
-
 .collapsed > .when-opened,
 :not(.collapsed) > .when-closed {
   display: none;

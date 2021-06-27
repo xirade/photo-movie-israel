@@ -3,11 +3,13 @@
     <client-only>
       <div class="container mt-4 d-flex flex-center justify-content-center">
         <span class="mr-auto"
-          ><nuxt-link
+          ><NuxtLink
             class="h4 text-uppercase"
             style="text-decoration: none; color: #6c757d;"
-            :to="'/portfolio'"
-            >Back</nuxt-link
+            :to="`${$i18n.locale == 'en' ? '' : '/' + $i18n.locale}/portfolio`"
+            >{{
+              $i18n.locale == "en" ? "Back" : "Назад"
+            }}</NuxtLink
           ></span
         >
         <h2 class="h2 white-text mr-auto text-center pr-5">
@@ -37,27 +39,12 @@
 import { mdbMasonry, mdbMasonryItem } from "mdbvue";
 import Carousel from "~/components/Carousel.vue";
 export default {
-  data() {
-    return {
-      api_url: process.env.strapiBaseUri
-    };
-  },
   components: {
     Carousel,
     mdbMasonry,
     mdbMasonryItem
   },
-  async mounted() {
-    try {
-      const response = await axios.get("http://localhost:1337/portfolios");
-      this.items = response.data;
-    } catch (error) {
-      this.error = error;
-    }
-  },
-  props: {
-    items: Object
-  },
+  props: ["items"],
   computed: {
     filteredItems() {
       const items = Object.entries(this.items);
@@ -70,11 +57,6 @@ export default {
 </script>
 
 <style scoped>
-.h4,
-.h2 {
-  font-family: "Oswald", sans-serif;
-}
-
 .h4:hover {
   color: white !important;
 }

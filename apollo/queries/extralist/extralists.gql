@@ -1,5 +1,6 @@
-query Extralists {
-  extralists {
+query Extralists($locale: String!) {
+  extralists(locale: $locale) {
+    locale
     id
     price
     description
