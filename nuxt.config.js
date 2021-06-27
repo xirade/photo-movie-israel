@@ -126,14 +126,14 @@ export default {
   },
   publicRuntimeConfig: {
     axios: {
-      baseURL: process.env.BACKEND_URL || "https://serene-chamber-66689.herokuapp.com"
+      baseURL: "https://serene-chamber-66689.herokuapp.com"
     }
   },
 
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.API_URL || "https://serene-chamber-66689.herokuapp.com/graphql"
+        httpEndpoint: "https://serene-chamber-66689.herokuapp.com/graphql"
       }
     },
     errorHandler: "~/plugins/apollo-error-handler.js"
