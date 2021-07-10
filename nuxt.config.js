@@ -4,8 +4,7 @@ export default {
     titleTemplate: "Photo-Movie-Israel | %s",
     htmlAttrs: {
       lang: "en",
-      lang: "ru",
-      amp: true
+      lang: "ru"
     },
     meta: [
       { charset: "utf-8" },
@@ -41,8 +40,7 @@ export default {
     { src: "~/plugins/aos", ssr: false },
     { src: "~/plugins/CoolLightBox", ssr: false },
     { src: "~/plugins/router" },
-    { src: "@/plugins/vue-parallax-js", ssr: false },
-    { src: "~/plugins/crisp", ssr: false },
+    { src: "~/plugins/vue-parallax-js", ssr: false },
     { src: "~/plugins/Vuelidate" },
     { src: "~/plugins/Masonry", ssr: false },
     { src: "~/plugins/LazyImage.js", ssr: false }
@@ -87,7 +85,8 @@ export default {
     "nuxt-webfontloader",
     "@bazzite/nuxt-optimized-images",
     "@nuxtjs/markdownit",
-    "nuxt-i18n"
+    "nuxt-i18n",
+    '@nuxtjs/amp',
   ],
   i18n: {
     defaultLocale: "en",
@@ -141,8 +140,4 @@ export default {
   mdbvue: {
     css: true // MDB CSS
   }
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
 };
