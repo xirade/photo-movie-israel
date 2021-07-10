@@ -23,7 +23,7 @@
 }
 .sk-chase {
   top: 50%;
-  left: 50%;
+  margin: 0 auto;
   width: 60px;
   height: 60px;
   position: relative;

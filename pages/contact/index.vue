@@ -205,7 +205,8 @@ export default {
       name: "",
       email: "",
       phone: "",
-      message: ""
+      message: "",
+      image: "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg",
     };
   },
   components: {
@@ -225,16 +226,55 @@ export default {
     return {
       title: this.contactPage.metatitle,
       meta: [
-        {
+         {
           hid: "description",
           name: "description",
           content: this.contactPage.metades
         },
-         {
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.contactPage.metatitle
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.contactPage.metades
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.contactPage.metatitle
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.contactPage.metatitle
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.contactPage.metades
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.image
+        },
+        {
           hid: "og:image",
           property: "og:image",
-          content:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
+          content: this.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.contactPage.metatitle
         },
         ...i18nHead.meta
       ]

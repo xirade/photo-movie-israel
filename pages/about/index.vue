@@ -131,7 +131,8 @@ export default {
   data() {
     return {
       aboutPage: [],
-      error: null
+      error: null,
+      image: "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
     };
   },
   apollo: {
@@ -150,16 +151,55 @@ export default {
     return {
       title: this.aboutPage.metatitle,
       meta: [
-        {
+           {
           hid: "description",
           name: "description",
           content: this.aboutPage.metades
         },
-         {
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.aboutPage.metatitle
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.aboutPage.metades
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.aboutPage.metatitle
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.aboutPage.metatitle
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.aboutPage.metades
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.image
+        },
+        {
           hid: "og:image",
           property: "og:image",
-          content:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
+          content: this.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.aboutPage.metatitle
         },
         ...i18nHead.meta
       ]

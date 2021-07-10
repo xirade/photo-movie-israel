@@ -271,11 +271,50 @@ export default {
           name: "description",
           content: this.checkoutPage.metades
         },
-         {
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.checkoutPage.metatitle
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.checkoutPage.metades
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.checkoutPage.metatitle
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.checkoutPage.metatitle
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.checkoutPage.metades
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.image
+        },
+        {
           hid: "og:image",
           property: "og:image",
-          content:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
+          content: this.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.checkoutPage.metatitle
         },
         ...i18nHead.meta
       ]
@@ -293,7 +332,8 @@ export default {
       extralist: null,
       price: 0,
       error: null,
-      success: null
+      success: null,
+      image: "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
     };
   },
   validations: {

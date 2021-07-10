@@ -1,10 +1,12 @@
+const ampify = "~/plugins/ampify";
 export default {
   target: "static",
   head: {
     titleTemplate: "Photo-Movie-Israel | %s",
     htmlAttrs: {
       lang: "en",
-      lang: "ru"
+      lang: "ru",
+      amp: true
     },
     meta: [
       { charset: "utf-8" },
@@ -86,7 +88,7 @@ export default {
     "@bazzite/nuxt-optimized-images",
     "@nuxtjs/markdownit",
     "nuxt-i18n",
-    '@nuxtjs/amp',
+    '@nuxtjs/sitemap'
   ],
   i18n: {
     defaultLocale: "en",
@@ -96,6 +98,27 @@ export default {
     ],
     seo: true,
     skipSettingLocaleOnNavigate: true
+  },
+  sitemap: {
+    hostname: "https://photo-movie-israel.com/",
+    gzip: true,
+    i18n: {
+      locales: [
+        { code: "ru", iso: "ru-RU", name: "Russian" },
+        { code: "en", iso: "en-US", name: "English" }
+      ],
+      routesNameSeparator: '___'
+    },
+    routes: [
+      '/portfolio/5',
+      '/portfolio/6',
+      '/portfolio/7',
+      '/portfolio/8',
+      '/portfolio/10',
+      '/portfolio/11',
+      '/portfolio/12',
+      '/portfolio/13',
+    ]
   },
   optimizedImages: {
     inlineImageLimit: -1,
@@ -139,5 +162,19 @@ export default {
   },
   mdbvue: {
     css: true // MDB CSS
+  },
+  hooks: {
+    // This hook is called before saving the html to flat file
+    "generate:page": page => {
+      if (/^\/amp\//gi.test(page.route)) {
+        page.html = ampify(page.html);
+      }
+    },
+    // This hook is called before serving the html to the browser
+    "render:route": (url, page, { req, res }) => {
+      if (/^\/amp\//gi.test(url)) {
+        page.html = ampify(page.html);
+      }
+    }
   }
 };

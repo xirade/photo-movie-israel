@@ -125,7 +125,8 @@ export default {
   data() {
     return {
       portfolioPage: {},
-      showLoad: true
+      showLoad: true,
+      image: "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
     };
   },
   head() {
@@ -133,16 +134,55 @@ export default {
     return {
       title: this.portfolioPage.metatitle,
       meta: [
-        {
+         {
           hid: "description",
           name: "description",
           content: this.portfolioPage.metades
         },
         {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.portfolioPage.metatitle
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.portfolioPage.metades
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.portfolioPage.metatitle
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.portfolioPage.metatitle
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.portfolioPage.metades
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.image
+        },
+        {
           hid: "og:image",
           property: "og:image",
-          content:
-            "https://res.cloudinary.com/dxeebmzdv/image/upload/c_thumb,w_200,g_face/v1595950779/1_guaw1o.jpg"
+          content: this.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.portfolioPage.metatitle
         },
         ...i18nHead.meta
       ]
